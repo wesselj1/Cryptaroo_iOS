@@ -14,7 +14,6 @@
     MGSplitViewController *splitViewController;
     
     UIPopoverController *popoverController; // The master popover controller
-    id detailItem;
     
     IBOutlet SSTextView *inputText;
     IBOutlet SSTextView *outputText;
@@ -43,10 +42,6 @@
 @property (nonatomic, strong) MGSplitViewController *splitViewController;
 
 @property (nonatomic, strong) UIPopoverController *popoverController;
-@property (nonatomic, strong) UIBarButtonItem *menuBtn;
-@property (nonatomic, strong) UIBarButtonItem *infoBtn;
-@property (nonatomic, strong) UIBarButtonItem *flexSpace;
-@property (nonatomic, strong) id detailItem;
 
 @property (nonatomic, strong) SSTextView *inputText;
 @property (nonatomic, strong) SSTextView *outputText;

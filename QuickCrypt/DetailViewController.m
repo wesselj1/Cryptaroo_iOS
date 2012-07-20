@@ -39,10 +39,6 @@
 @synthesize appDelegate = _appDelegate;
 @synthesize optionsAry = _optionsAry;
 
-@synthesize menuBtn = _menuBtn;
-@synthesize infoBtn = _infoBtn;
-@synthesize flexSpace = _flexSpace;
-@synthesize detailItem = _detailItem;
 @synthesize splitViewController = _splitViewController;
 
 @synthesize inputText = _inputText;
