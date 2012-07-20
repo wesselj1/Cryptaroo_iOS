@@ -24,14 +24,11 @@
     IBOutlet UITextField *textField2;
     IBOutlet UITextField *textField3;
     IBOutlet UITextField *textField4;
-    IBOutlet UIPickerView *picker1;
     IBOutlet UISwitch *switch1;
     IBOutlet UIView *optionsViewMat;
-    IBOutlet UIView *optionsViewMat2;
     IBOutlet UIView *GCDViewMat;
     IBOutlet UILabel *label1;
     IBOutlet UILabel *label2;
-    IBOutlet UILabel *label3;
     
     IBOutlet UIScrollView *scrollView;
     
@@ -52,14 +49,12 @@
 @property (nonatomic, strong) UITextField *textField2;
 @property (nonatomic, strong) UITextField *textField3;
 @property (nonatomic, strong) UITextField *textField4;
-@property (nonatomic, strong) UIPickerView *picker1;
 @property (nonatomic, strong) UISwitch *switch1;
 @property (nonatomic, strong) UIView *optionsViewMat;
 @property (nonatomic, strong) UIView *optionsViewMat2;
 @property (nonatomic, strong) UIView *GCDViewMat;
 @property (nonatomic, strong) UILabel *label1;
 @property (nonatomic, strong) UILabel *label2;
-@property (nonatomic, strong) UILabel *label3;
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 

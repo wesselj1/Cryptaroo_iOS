@@ -52,14 +52,12 @@
 @synthesize textField2 = _textField2;
 @synthesize textField3 = _textField3;
 @synthesize textField4 = _textField4;
-@synthesize picker1 = _picker1;
 @synthesize switch1 = _switch1;
 @synthesize optionsViewMat = _optionsViewMat;
 @synthesize optionsViewMat2 = _optionsViewMat2;
 @synthesize GCDViewMat = _GCDViewMat;
 @synthesize label1 = _label1;
 @synthesize label2 = _label2;
-@synthesize label3 = _label3;
 @synthesize navController = _navController;
 
 @synthesize scrollView = _scrollView;
