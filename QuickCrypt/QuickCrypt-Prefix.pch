@@ -10,5 +10,10 @@
 
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
+    #import <QuartzCore/QuartzCore.h>
     #import <Foundation/Foundation.h>
+
+#import "QCMethods.h"
+#import "TextData.h"
+#import "SSTextView.h"
 #endif

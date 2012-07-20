@@ -7,152 +7,331 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CCD8245715B8E22E00D12F27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8245615B8E22E00D12F27 /* UIKit.framework */; };
-		CCD8245915B8E22E00D12F27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8245815B8E22E00D12F27 /* Foundation.framework */; };
-		CCD8245B15B8E22E00D12F27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8245A15B8E22E00D12F27 /* CoreGraphics.framework */; };
-		CCD8246115B8E22E00D12F27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCD8245F15B8E22E00D12F27 /* InfoPlist.strings */; };
-		CCD8246315B8E22E00D12F27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD8246215B8E22E00D12F27 /* main.m */; };
-		CCD8246715B8E22E00D12F27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD8246615B8E22E00D12F27 /* AppDelegate.m */; };
-		CCD8246F15B8E22E00D12F27 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8246E15B8E22E00D12F27 /* SenTestingKit.framework */; };
-		CCD8247015B8E22E00D12F27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8245615B8E22E00D12F27 /* UIKit.framework */; };
-		CCD8247115B8E22E00D12F27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8245815B8E22E00D12F27 /* Foundation.framework */; };
-		CCD8247915B8E22E00D12F27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCD8247715B8E22E00D12F27 /* InfoPlist.strings */; };
-		CCD8247C15B8E22E00D12F27 /* QuickCryptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD8247B15B8E22E00D12F27 /* QuickCryptTests.m */; };
+		1B1DE75D159CA49500D9C76F /* DetailView4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B1DE75C159CA49500D9C76F /* DetailView4.xib */; };
+		1B1E75BF155D5F7F009144C2 /* HelpData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1E75BE155D5F7F009144C2 /* HelpData.m */; };
+		1B27FE171562F5E700C85ABD /* DetailView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27FE161562F5E700C85ABD /* DetailView1.xib */; };
+		1B27FE1C1562F60500C85ABD /* DetailView3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27FE1B1562F60500C85ABD /* DetailView3.xib */; };
+		1B27FE201562F61600C85ABD /* DetailView5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27FE1F1562F61600C85ABD /* DetailView5.xib */; };
+		1B27FE221562F61E00C85ABD /* DetailView6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27FE211562F61E00C85ABD /* DetailView6.xib */; };
+		1B27FE241562FA2500C85ABD /* DetailView7.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27FE231562FA2500C85ABD /* DetailView7.xib */; };
+		1B2F1F621562A1B0003A45A8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F1F601562A1B0003A45A8 /* DetailViewController.m */; };
+		1B2F1F671562A488003A45A8 /* RootViewControlleriPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F1F661562A488003A45A8 /* RootViewControlleriPad.m */; };
+		1B3982211541E1BE00016875 /* box.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B39821F1541E1BE00016875 /* box.png */; };
+		1B3982221541E1BE00016875 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3982201541E1BE00016875 /* checkbox.png */; };
+		1B420F2C15B899FE001146CA /* UIButtonBarHelp2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B420F2A15B899FE001146CA /* UIButtonBarHelp2.png */; };
+		1B420F2D15B899FE001146CA /* UIButtonBarHelp2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B420F2B15B899FE001146CA /* UIButtonBarHelp2@2x.png */; };
+		1B524AF3155C449600E8446E /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B524AF1155C449600E8446E /* InfoViewController.m */; };
+		1B524AF4155C449600E8446E /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B524AF2155C449600E8446E /* InfoViewController.xib */; };
+		1B7667E41540752800EDE177 /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7667E31540752800EDE177 /* whiteButton.png */; };
+		1B7667E815407F1F00EDE177 /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7667E615407F1F00EDE177 /* OptionsViewController.m */; };
+		1B7667EB154095D800EDE177 /* OptionsSet1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7667EA154095D800EDE177 /* OptionsSet1.xib */; };
+		1B7667ED154095E700EDE177 /* OptionsSet2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7667EC154095E700EDE177 /* OptionsSet2.xib */; };
+		1B7667EF154095F100EDE177 /* OptionsSet3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7667EE154095F100EDE177 /* OptionsSet3.xib */; };
+		1B7667F1154095F800EDE177 /* OptionsSet4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7667F0154095F800EDE177 /* OptionsSet4.xib */; };
+		1B7667F3154095FF00EDE177 /* OptionsSet5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7667F2154095FF00EDE177 /* OptionsSet5.xib */; };
+		1B7667F51540960600EDE177 /* OptionsSet6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7667F41540960600EDE177 /* OptionsSet6.xib */; };
+		1B81726615597B6500EDF0E0 /* DoneUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B81726215597B6500EDF0E0 /* DoneUp.png */; };
+		1B81726715597B6500EDF0E0 /* DoneDown3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B81726315597B6500EDF0E0 /* DoneDown3.png */; };
+		1B81726815597B6500EDF0E0 /* DoneUp3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B81726415597B6500EDF0E0 /* DoneUp3.png */; };
+		1B81726915597B6500EDF0E0 /* DoneDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B81726515597B6500EDF0E0 /* DoneDown.png */; };
+		1B817271155992A600EDF0E0 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B817270155992A600EDF0E0 /* SSTextView.m */; settings = {COMPILER_FLAGS = ""; }; };
+		1B8EA99F153C7B8E009EFF27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8EA99E153C7B8E009EFF27 /* UIKit.framework */; };
+		1B8EA9A1153C7B8E009EFF27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8EA9A0153C7B8E009EFF27 /* Foundation.framework */; };
+		1B8EA9A3153C7B8E009EFF27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8EA9A2153C7B8E009EFF27 /* CoreGraphics.framework */; };
+		1B8EA9A9153C7B8E009EFF27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA9A7153C7B8E009EFF27 /* InfoPlist.strings */; };
+		1B8EA9AB153C7B8E009EFF27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA9AA153C7B8E009EFF27 /* main.m */; };
+		1B8EA9AF153C7B8E009EFF27 /* CAIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA9AE153C7B8E009EFF27 /* CAIAppDelegate.m */; };
+		1B8EA9C0153C7D89009EFF27 /* RootViewControlleriPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA9BE153C7D89009EFF27 /* RootViewControlleriPhone.m */; };
+		1B8EA9C1153C7D89009EFF27 /* RootViewControlleriPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA9BF153C7D89009EFF27 /* RootViewControlleriPhone.xib */; };
+		1B8EAA0D153DCEFC009EFF27 /* CryptToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EAA0B153DCEFC009EFF27 /* CryptToolViewController.m */; };
+		1B8EAA0E153DCEFC009EFF27 /* CryptToolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EAA0C153DCEFC009EFF27 /* CryptToolViewController.xib */; };
+		1B8EAA14153DF692009EFF27 /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EAA13153DF692009EFF27 /* blueButton.png */; };
+		1BA332F515657D57009CB78D /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA332EC15657433009CB78D /* MGSplitCornersView.m */; };
+		1BA332F715657D57009CB78D /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA332EE15657433009CB78D /* MGSplitDividerView.m */; };
+		1BA332FB15657D57009CB78D /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA332F215657433009CB78D /* MGSplitViewController.m */; };
+		1BA3330D15658689009CB78D /* popover-black-bcg-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA3330315658689009CB78D /* popover-black-bcg-image.png */; };
+		1BA3330E15658689009CB78D /* popover-black-bcg-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA3330415658689009CB78D /* popover-black-bcg-image@2x.png */; };
+		1BA3330F15658689009CB78D /* popover-black-bottom-arrow-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA3330515658689009CB78D /* popover-black-bottom-arrow-image.png */; };
+		1BA3331015658689009CB78D /* popover-black-bottom-arrow-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA3330615658689009CB78D /* popover-black-bottom-arrow-image@2x.png */; };
+		1BA3331115658689009CB78D /* popover-black-left-arrow-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA3330715658689009CB78D /* popover-black-left-arrow-image.png */; };
+		1BA3331215658689009CB78D /* popover-black-left-arrow-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA3330815658689009CB78D /* popover-black-left-arrow-image@2x.png */; };
+		1BA3331315658689009CB78D /* popover-black-right-arrow-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA3330915658689009CB78D /* popover-black-right-arrow-image.png */; };
+		1BA3331415658689009CB78D /* popover-black-right-arrow-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA3330A15658689009CB78D /* popover-black-right-arrow-image@2x.png */; };
+		1BA3331515658689009CB78D /* popover-black-top-arrow-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA3330B15658689009CB78D /* popover-black-top-arrow-image.png */; };
+		1BA3331615658689009CB78D /* popover-black-top-arrow-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA3330C15658689009CB78D /* popover-black-top-arrow-image@2x.png */; };
+		1BA3331715658777009CB78D /* KSCustomPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA3330115658650009CB78D /* KSCustomPopoverBackgroundView.m */; };
+		1BB5237F15544E0E00697B38 /* GCDandInverseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5237D15544E0E00697B38 /* GCDandInverseViewController.m */; };
+		1BB5238015544E0E00697B38 /* GCDandInverseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB5237E15544E0E00697B38 /* GCDandInverseViewController.xib */; };
+		1BEE7CEF155064A800DFCD13 /* TextData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE7CEE155064A800DFCD13 /* TextData.m */; };
+		1BFA03901561515E0005904C /* HelpInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFA038F1561515E0005904C /* HelpInfo.plist */; };
+		1BFB86A81547455900F29AEB /* QCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB86A71547455900F29AEB /* QCMethods.m */; };
+		CCD1F21A15B06B9A00CAED57 /* DetailView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD1F21915B06B9A00CAED57 /* DetailView2.xib */; };
+		CCD701BA15B71BDC004685D9 /* UIButtonBarHelp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCD701B815B71BDC004685D9 /* UIButtonBarHelp@2x.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CCD8247215B8E22E00D12F27 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CCD8244915B8E22E00D12F27 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CCD8245115B8E22E00D12F27;
-			remoteInfo = QuickCrypt;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		CCD8245215B8E22E00D12F27 /* QuickCrypt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickCrypt.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CCD8245615B8E22E00D12F27 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CCD8245815B8E22E00D12F27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CCD8245A15B8E22E00D12F27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CCD8245E15B8E22E00D12F27 /* QuickCrypt-Info.plist */ = {isa = PBXFileReference; path = "QuickCrypt-Info.plist"; sourceTree = "<group>"; };
-		CCD8246015B8E22E00D12F27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CCD8246215B8E22E00D12F27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CCD8246415B8E22E00D12F27 /* QuickCrypt-Prefix.pch */ = {isa = PBXFileReference; path = "QuickCrypt-Prefix.pch"; sourceTree = "<group>"; };
-		CCD8246515B8E22E00D12F27 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
-		CCD8246615B8E22E00D12F27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CCD8246D15B8E22E00D12F27 /* QuickCryptTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickCryptTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CCD8246E15B8E22E00D12F27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		CCD8247615B8E22E00D12F27 /* QuickCryptTests-Info.plist */ = {isa = PBXFileReference; path = "QuickCryptTests-Info.plist"; sourceTree = "<group>"; };
-		CCD8247815B8E22E00D12F27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CCD8247A15B8E22E00D12F27 /* QuickCryptTests.h */ = {isa = PBXFileReference; path = QuickCryptTests.h; sourceTree = "<group>"; };
-		CCD8247B15B8E22E00D12F27 /* QuickCryptTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickCryptTests.m; sourceTree = "<group>"; };
+		1B1DE75C159CA49500D9C76F /* DetailView4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView4.xib; sourceTree = "<group>"; };
+		1B1E75BD155D5F7F009144C2 /* HelpData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpData.h; sourceTree = "<group>"; };
+		1B1E75BE155D5F7F009144C2 /* HelpData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpData.m; sourceTree = "<group>"; };
+		1B27FE161562F5E700C85ABD /* DetailView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView1.xib; sourceTree = "<group>"; };
+		1B27FE1B1562F60500C85ABD /* DetailView3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView3.xib; sourceTree = "<group>"; };
+		1B27FE1F1562F61600C85ABD /* DetailView5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView5.xib; sourceTree = "<group>"; };
+		1B27FE211562F61E00C85ABD /* DetailView6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView6.xib; sourceTree = "<group>"; };
+		1B27FE231562FA2500C85ABD /* DetailView7.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView7.xib; sourceTree = "<group>"; };
+		1B2F1F5F1562A1B0003A45A8 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		1B2F1F601562A1B0003A45A8 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		1B2F1F651562A488003A45A8 /* RootViewControlleriPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewControlleriPad.h; sourceTree = "<group>"; };
+		1B2F1F661562A488003A45A8 /* RootViewControlleriPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewControlleriPad.m; sourceTree = "<group>"; };
+		1B39821F1541E1BE00016875 /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.png; sourceTree = "<group>"; };
+		1B3982201541E1BE00016875 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
+		1B420F2A15B899FE001146CA /* UIButtonBarHelp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarHelp2.png; sourceTree = "<group>"; };
+		1B420F2B15B899FE001146CA /* UIButtonBarHelp2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarHelp2@2x.png"; sourceTree = "<group>"; };
+		1B524AF0155C449600E8446E /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		1B524AF1155C449600E8446E /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		1B524AF2155C449600E8446E /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		1B7667E31540752800EDE177 /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButton.png; sourceTree = "<group>"; };
+		1B7667E515407F1E00EDE177 /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
+		1B7667E615407F1F00EDE177 /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
+		1B7667EA154095D800EDE177 /* OptionsSet1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsSet1.xib; sourceTree = "<group>"; };
+		1B7667EC154095E700EDE177 /* OptionsSet2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsSet2.xib; sourceTree = "<group>"; };
+		1B7667EE154095F100EDE177 /* OptionsSet3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsSet3.xib; sourceTree = "<group>"; };
+		1B7667F0154095F800EDE177 /* OptionsSet4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsSet4.xib; sourceTree = "<group>"; };
+		1B7667F2154095FF00EDE177 /* OptionsSet5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsSet5.xib; sourceTree = "<group>"; };
+		1B7667F41540960600EDE177 /* OptionsSet6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsSet6.xib; sourceTree = "<group>"; };
+		1B81726215597B6500EDF0E0 /* DoneUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneUp.png; sourceTree = "<group>"; };
+		1B81726315597B6500EDF0E0 /* DoneDown3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneDown3.png; sourceTree = "<group>"; };
+		1B81726415597B6500EDF0E0 /* DoneUp3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneUp3.png; sourceTree = "<group>"; };
+		1B81726515597B6500EDF0E0 /* DoneDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneDown.png; sourceTree = "<group>"; };
+		1B81726F155992A600EDF0E0 /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
+		1B817270155992A600EDF0E0 /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
+		1B8EA99A153C7B8E009EFF27 /* QuickCrypt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickCrypt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B8EA99E153C7B8E009EFF27 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1B8EA9A0153C7B8E009EFF27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1B8EA9A2153C7B8E009EFF27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1B8EA9A6153C7B8E009EFF27 /* QuickCrypt-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuickCrypt-Info.plist"; sourceTree = "<group>"; };
+		1B8EA9A8153C7B8E009EFF27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1B8EA9AA153C7B8E009EFF27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1B8EA9AC153C7B8E009EFF27 /* QuickCrypt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickCrypt-Prefix.pch"; sourceTree = "<group>"; };
+		1B8EA9AD153C7B8E009EFF27 /* CAIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAIAppDelegate.h; sourceTree = "<group>"; };
+		1B8EA9AE153C7B8E009EFF27 /* CAIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAIAppDelegate.m; sourceTree = "<group>"; };
+		1B8EA9BD153C7D89009EFF27 /* RootViewControlleriPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewControlleriPhone.h; sourceTree = "<group>"; };
+		1B8EA9BE153C7D89009EFF27 /* RootViewControlleriPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewControlleriPhone.m; sourceTree = "<group>"; };
+		1B8EA9BF153C7D89009EFF27 /* RootViewControlleriPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewControlleriPhone.xib; sourceTree = "<group>"; };
+		1B8EAA0A153DCEFC009EFF27 /* CryptToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CryptToolViewController.h; sourceTree = "<group>"; };
+		1B8EAA0B153DCEFC009EFF27 /* CryptToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CryptToolViewController.m; sourceTree = "<group>"; };
+		1B8EAA0C153DCEFC009EFF27 /* CryptToolViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CryptToolViewController.xib; sourceTree = "<group>"; };
+		1B8EAA13153DF692009EFF27 /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueButton.png; sourceTree = "<group>"; };
+		1BA332EB15657433009CB78D /* MGSplitCornersView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
+		1BA332EC15657433009CB78D /* MGSplitCornersView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
+		1BA332ED15657433009CB78D /* MGSplitDividerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
+		1BA332EE15657433009CB78D /* MGSplitDividerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
+		1BA332F115657433009CB78D /* MGSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSplitViewController.h; sourceTree = "<group>"; };
+		1BA332F215657433009CB78D /* MGSplitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
+		1BA3330015658650009CB78D /* KSCustomPopoverBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSCustomPopoverBackgroundView.h; sourceTree = "<group>"; };
+		1BA3330115658650009CB78D /* KSCustomPopoverBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSCustomPopoverBackgroundView.m; sourceTree = "<group>"; };
+		1BA3330315658689009CB78D /* popover-black-bcg-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover-black-bcg-image.png"; sourceTree = "<group>"; };
+		1BA3330415658689009CB78D /* popover-black-bcg-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover-black-bcg-image@2x.png"; sourceTree = "<group>"; };
+		1BA3330515658689009CB78D /* popover-black-bottom-arrow-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover-black-bottom-arrow-image.png"; sourceTree = "<group>"; };
+		1BA3330615658689009CB78D /* popover-black-bottom-arrow-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover-black-bottom-arrow-image@2x.png"; sourceTree = "<group>"; };
+		1BA3330715658689009CB78D /* popover-black-left-arrow-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover-black-left-arrow-image.png"; sourceTree = "<group>"; };
+		1BA3330815658689009CB78D /* popover-black-left-arrow-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover-black-left-arrow-image@2x.png"; sourceTree = "<group>"; };
+		1BA3330915658689009CB78D /* popover-black-right-arrow-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover-black-right-arrow-image.png"; sourceTree = "<group>"; };
+		1BA3330A15658689009CB78D /* popover-black-right-arrow-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover-black-right-arrow-image@2x.png"; sourceTree = "<group>"; };
+		1BA3330B15658689009CB78D /* popover-black-top-arrow-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover-black-top-arrow-image.png"; sourceTree = "<group>"; };
+		1BA3330C15658689009CB78D /* popover-black-top-arrow-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover-black-top-arrow-image@2x.png"; sourceTree = "<group>"; };
+		1BB5237C15544E0E00697B38 /* GCDandInverseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDandInverseViewController.h; sourceTree = "<group>"; };
+		1BB5237D15544E0E00697B38 /* GCDandInverseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDandInverseViewController.m; sourceTree = "<group>"; };
+		1BB5237E15544E0E00697B38 /* GCDandInverseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCDandInverseViewController.xib; sourceTree = "<group>"; };
+		1BEE7CED155064A800DFCD13 /* TextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextData.h; sourceTree = "<group>"; };
+		1BEE7CEE155064A800DFCD13 /* TextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextData.m; sourceTree = "<group>"; };
+		1BFA038F1561515E0005904C /* HelpInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HelpInfo.plist; sourceTree = "<group>"; };
+		1BFB86A61547455900F29AEB /* QCMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCMethods.h; sourceTree = "<group>"; };
+		1BFB86A71547455900F29AEB /* QCMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCMethods.m; sourceTree = "<group>"; };
+		CCD1F21915B06B9A00CAED57 /* DetailView2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView2.xib; sourceTree = "<group>"; };
+		CCD701B815B71BDC004685D9 /* UIButtonBarHelp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarHelp@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CCD8244F15B8E22E00D12F27 /* Frameworks */ = {
+		1B8EA997153C7B8E009EFF27 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCD8245715B8E22E00D12F27 /* UIKit.framework in Frameworks */,
-				CCD8245915B8E22E00D12F27 /* Foundation.framework in Frameworks */,
-				CCD8245B15B8E22E00D12F27 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CCD8246915B8E22E00D12F27 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CCD8246F15B8E22E00D12F27 /* SenTestingKit.framework in Frameworks */,
-				CCD8247015B8E22E00D12F27 /* UIKit.framework in Frameworks */,
-				CCD8247115B8E22E00D12F27 /* Foundation.framework in Frameworks */,
+				1B8EA99F153C7B8E009EFF27 /* UIKit.framework in Frameworks */,
+				1B8EA9A1153C7B8E009EFF27 /* Foundation.framework in Frameworks */,
+				1B8EA9A3153C7B8E009EFF27 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CCD8244715B8E22E00D12F27 = {
+		1B81726E1559919500EDF0E0 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				CCD8245C15B8E22E00D12F27 /* QuickCrypt */,
-				CCD8247415B8E22E00D12F27 /* QuickCryptTests */,
-				CCD8245515B8E22E00D12F27 /* Frameworks */,
-				CCD8245315B8E22E00D12F27 /* Products */,
+				1BA3330015658650009CB78D /* KSCustomPopoverBackgroundView.h */,
+				1BA3330115658650009CB78D /* KSCustomPopoverBackgroundView.m */,
+				1B420F2A15B899FE001146CA /* UIButtonBarHelp2.png */,
+				1B420F2B15B899FE001146CA /* UIButtonBarHelp2@2x.png */,
+				1BA332EB15657433009CB78D /* MGSplitCornersView.h */,
+				1BA332EC15657433009CB78D /* MGSplitCornersView.m */,
+				1BA332ED15657433009CB78D /* MGSplitDividerView.h */,
+				1BA332EE15657433009CB78D /* MGSplitDividerView.m */,
+				1BA332F115657433009CB78D /* MGSplitViewController.h */,
+				1BA332F215657433009CB78D /* MGSplitViewController.m */,
+				1B81726F155992A600EDF0E0 /* SSTextView.h */,
+				1B817270155992A600EDF0E0 /* SSTextView.m */,
+			);
+			name = Externals;
+			sourceTree = "<group>";
+		};
+		1B8EA98F153C7B8E009EFF27 = {
+			isa = PBXGroup;
+			children = (
+				1B8EA9A4153C7B8E009EFF27 /* QuickCrypt */,
+				1B8EA99D153C7B8E009EFF27 /* Frameworks */,
+				1B8EA99B153C7B8E009EFF27 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CCD8245315B8E22E00D12F27 /* Products */ = {
+		1B8EA99B153C7B8E009EFF27 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CCD8245215B8E22E00D12F27 /* QuickCrypt.app */,
-				CCD8246D15B8E22E00D12F27 /* QuickCryptTests.octest */,
+				1B8EA99A153C7B8E009EFF27 /* QuickCrypt.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CCD8245515B8E22E00D12F27 /* Frameworks */ = {
+		1B8EA99D153C7B8E009EFF27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CCD8245615B8E22E00D12F27 /* UIKit.framework */,
-				CCD8245815B8E22E00D12F27 /* Foundation.framework */,
-				CCD8245A15B8E22E00D12F27 /* CoreGraphics.framework */,
-				CCD8246E15B8E22E00D12F27 /* SenTestingKit.framework */,
+				1B8EA99E153C7B8E009EFF27 /* UIKit.framework */,
+				1B8EA9A0153C7B8E009EFF27 /* Foundation.framework */,
+				1B8EA9A2153C7B8E009EFF27 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CCD8245C15B8E22E00D12F27 /* QuickCrypt */ = {
+		1B8EA9A4153C7B8E009EFF27 /* QuickCrypt */ = {
 			isa = PBXGroup;
 			children = (
-				CCD8246515B8E22E00D12F27 /* AppDelegate.h */,
-				CCD8246615B8E22E00D12F27 /* AppDelegate.m */,
-				CCD8245D15B8E22E00D12F27 /* Supporting Files */,
+				1B8EA9AD153C7B8E009EFF27 /* CAIAppDelegate.h */,
+				1B8EA9AE153C7B8E009EFF27 /* CAIAppDelegate.m */,
+				1B8EA9B7153C7C21009EFF27 /* iPad */,
+				1B8EA9B5153C7C0F009EFF27 /* iPhone */,
+				1B8EA9C2153C993C009EFF27 /* Shared */,
+				1B81726E1559919500EDF0E0 /* Externals */,
+				1B8EA9A5153C7B8E009EFF27 /* Supporting Files */,
 			);
 			path = QuickCrypt;
 			sourceTree = "<group>";
 		};
-		CCD8245D15B8E22E00D12F27 /* Supporting Files */ = {
+		1B8EA9A5153C7B8E009EFF27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCD8245E15B8E22E00D12F27 /* QuickCrypt-Info.plist */,
-				CCD8245F15B8E22E00D12F27 /* InfoPlist.strings */,
-				CCD8246215B8E22E00D12F27 /* main.m */,
-				CCD8246415B8E22E00D12F27 /* QuickCrypt-Prefix.pch */,
+				1BA3330215658677009CB78D /* Popover Images */,
+				1B81726215597B6500EDF0E0 /* DoneUp.png */,
+				1B81726315597B6500EDF0E0 /* DoneDown3.png */,
+				1B81726415597B6500EDF0E0 /* DoneUp3.png */,
+				1B81726515597B6500EDF0E0 /* DoneDown.png */,
+				CCD701B815B71BDC004685D9 /* UIButtonBarHelp@2x.png */,
+				1B39821F1541E1BE00016875 /* box.png */,
+				1B3982201541E1BE00016875 /* checkbox.png */,
+				1B7667E31540752800EDE177 /* whiteButton.png */,
+				1B8EAA13153DF692009EFF27 /* blueButton.png */,
+				1B8EA9A6153C7B8E009EFF27 /* QuickCrypt-Info.plist */,
+				1B8EA9A7153C7B8E009EFF27 /* InfoPlist.strings */,
+				1BFA038F1561515E0005904C /* HelpInfo.plist */,
+				1B8EA9AA153C7B8E009EFF27 /* main.m */,
+				1B8EA9AC153C7B8E009EFF27 /* QuickCrypt-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CCD8247415B8E22E00D12F27 /* QuickCryptTests */ = {
+		1B8EA9B5153C7C0F009EFF27 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				CCD8247A15B8E22E00D12F27 /* QuickCryptTests.h */,
-				CCD8247B15B8E22E00D12F27 /* QuickCryptTests.m */,
-				CCD8247515B8E22E00D12F27 /* Supporting Files */,
+				1B8EA9BD153C7D89009EFF27 /* RootViewControlleriPhone.h */,
+				1B8EA9BE153C7D89009EFF27 /* RootViewControlleriPhone.m */,
+				1B8EA9BF153C7D89009EFF27 /* RootViewControlleriPhone.xib */,
+				1B8EAA0A153DCEFC009EFF27 /* CryptToolViewController.h */,
+				1B8EAA0B153DCEFC009EFF27 /* CryptToolViewController.m */,
+				1B8EAA0C153DCEFC009EFF27 /* CryptToolViewController.xib */,
+				1B7667E515407F1E00EDE177 /* OptionsViewController.h */,
+				1B7667E615407F1F00EDE177 /* OptionsViewController.m */,
+				1B7667EA154095D800EDE177 /* OptionsSet1.xib */,
+				1B7667EC154095E700EDE177 /* OptionsSet2.xib */,
+				1B7667EE154095F100EDE177 /* OptionsSet3.xib */,
+				1B7667F0154095F800EDE177 /* OptionsSet4.xib */,
+				1B7667F2154095FF00EDE177 /* OptionsSet5.xib */,
+				1B7667F41540960600EDE177 /* OptionsSet6.xib */,
+				1BB5237C15544E0E00697B38 /* GCDandInverseViewController.h */,
+				1BB5237D15544E0E00697B38 /* GCDandInverseViewController.m */,
+				1BB5237E15544E0E00697B38 /* GCDandInverseViewController.xib */,
+				1B524AF0155C449600E8446E /* InfoViewController.h */,
+				1B524AF1155C449600E8446E /* InfoViewController.m */,
+				1B524AF2155C449600E8446E /* InfoViewController.xib */,
 			);
-			path = QuickCryptTests;
+			name = iPhone;
 			sourceTree = "<group>";
 		};
-		CCD8247515B8E22E00D12F27 /* Supporting Files */ = {
+		1B8EA9B7153C7C21009EFF27 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				CCD8247615B8E22E00D12F27 /* QuickCryptTests-Info.plist */,
-				CCD8247715B8E22E00D12F27 /* InfoPlist.strings */,
+				1B2F1F651562A488003A45A8 /* RootViewControlleriPad.h */,
+				1B2F1F661562A488003A45A8 /* RootViewControlleriPad.m */,
+				1B2F1F5F1562A1B0003A45A8 /* DetailViewController.h */,
+				1B2F1F601562A1B0003A45A8 /* DetailViewController.m */,
+				1B27FE161562F5E700C85ABD /* DetailView1.xib */,
+				CCD1F21915B06B9A00CAED57 /* DetailView2.xib */,
+				1B27FE1B1562F60500C85ABD /* DetailView3.xib */,
+				1B1DE75C159CA49500D9C76F /* DetailView4.xib */,
+				1B27FE1F1562F61600C85ABD /* DetailView5.xib */,
+				1B27FE211562F61E00C85ABD /* DetailView6.xib */,
+				1B27FE231562FA2500C85ABD /* DetailView7.xib */,
 			);
-			name = "Supporting Files";
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		1B8EA9C2153C993C009EFF27 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1BFB86A61547455900F29AEB /* QCMethods.h */,
+				1BFB86A71547455900F29AEB /* QCMethods.m */,
+				1BEE7CED155064A800DFCD13 /* TextData.h */,
+				1BEE7CEE155064A800DFCD13 /* TextData.m */,
+				1B1E75BD155D5F7F009144C2 /* HelpData.h */,
+				1B1E75BE155D5F7F009144C2 /* HelpData.m */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		1BA3330215658677009CB78D /* Popover Images */ = {
+			isa = PBXGroup;
+			children = (
+				1BA3330315658689009CB78D /* popover-black-bcg-image.png */,
+				1BA3330415658689009CB78D /* popover-black-bcg-image@2x.png */,
+				1BA3330515658689009CB78D /* popover-black-bottom-arrow-image.png */,
+				1BA3330615658689009CB78D /* popover-black-bottom-arrow-image@2x.png */,
+				1BA3330715658689009CB78D /* popover-black-left-arrow-image.png */,
+				1BA3330815658689009CB78D /* popover-black-left-arrow-image@2x.png */,
+				1BA3330915658689009CB78D /* popover-black-right-arrow-image.png */,
+				1BA3330A15658689009CB78D /* popover-black-right-arrow-image@2x.png */,
+				1BA3330B15658689009CB78D /* popover-black-top-arrow-image.png */,
+				1BA3330C15658689009CB78D /* popover-black-top-arrow-image@2x.png */,
+			);
+			name = "Popover Images";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CCD8245115B8E22E00D12F27 /* QuickCrypt */ = {
+		1B8EA999153C7B8E009EFF27 /* QuickCrypt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CCD8247F15B8E22E00D12F27 /* Build configuration list for PBXNativeTarget "QuickCrypt" */;
+			buildConfigurationList = 1B8EA9B2153C7B8E009EFF27 /* Build configuration list for PBXNativeTarget "QuickCrypt" */;
 			buildPhases = (
-				CCD8244E15B8E22E00D12F27 /* Sources */,
-				CCD8244F15B8E22E00D12F27 /* Frameworks */,
-				CCD8245015B8E22E00D12F27 /* Resources */,
+				1B8EA996153C7B8E009EFF27 /* Sources */,
+				1B8EA997153C7B8E009EFF27 /* Frameworks */,
+				1B8EA998153C7B8E009EFF27 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -160,131 +339,117 @@
 			);
 			name = QuickCrypt;
 			productName = QuickCrypt;
-			productReference = CCD8245215B8E22E00D12F27 /* QuickCrypt.app */;
+			productReference = 1B8EA99A153C7B8E009EFF27 /* QuickCrypt.app */;
 			productType = "com.apple.product-type.application";
-		};
-		CCD8246C15B8E22E00D12F27 /* QuickCryptTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CCD8248215B8E22E00D12F27 /* Build configuration list for PBXNativeTarget "QuickCryptTests" */;
-			buildPhases = (
-				CCD8246815B8E22E00D12F27 /* Sources */,
-				CCD8246915B8E22E00D12F27 /* Frameworks */,
-				CCD8246A15B8E22E00D12F27 /* Resources */,
-				CCD8246B15B8E22E00D12F27 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CCD8247315B8E22E00D12F27 /* PBXTargetDependency */,
-			);
-			name = QuickCryptTests;
-			productName = QuickCryptTests;
-			productReference = CCD8246D15B8E22E00D12F27 /* QuickCryptTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CCD8244915B8E22E00D12F27 /* Project object */ = {
+		1B8EA991153C7B8E009EFF27 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CAI;
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "Joey Wessel";
 			};
-			buildConfigurationList = CCD8244C15B8E22E00D12F27 /* Build configuration list for PBXProject "QuickCrypt" */;
+			buildConfigurationList = 1B8EA994153C7B8E009EFF27 /* Build configuration list for PBXProject "QuickCrypt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = CCD8244715B8E22E00D12F27;
-			productRefGroup = CCD8245315B8E22E00D12F27 /* Products */;
+			mainGroup = 1B8EA98F153C7B8E009EFF27;
+			productRefGroup = 1B8EA99B153C7B8E009EFF27 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CCD8245115B8E22E00D12F27 /* QuickCrypt */,
-				CCD8246C15B8E22E00D12F27 /* QuickCryptTests */,
+				1B8EA999153C7B8E009EFF27 /* QuickCrypt */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CCD8245015B8E22E00D12F27 /* Resources */ = {
+		1B8EA998153C7B8E009EFF27 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCD8246115B8E22E00D12F27 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CCD8246A15B8E22E00D12F27 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CCD8247915B8E22E00D12F27 /* InfoPlist.strings in Resources */,
+				1B8EA9A9153C7B8E009EFF27 /* InfoPlist.strings in Resources */,
+				1B8EA9C1153C7D89009EFF27 /* RootViewControlleriPhone.xib in Resources */,
+				1B8EAA0E153DCEFC009EFF27 /* CryptToolViewController.xib in Resources */,
+				1B8EAA14153DF692009EFF27 /* blueButton.png in Resources */,
+				1B7667E41540752800EDE177 /* whiteButton.png in Resources */,
+				1B7667EB154095D800EDE177 /* OptionsSet1.xib in Resources */,
+				1B7667ED154095E700EDE177 /* OptionsSet2.xib in Resources */,
+				1B7667EF154095F100EDE177 /* OptionsSet3.xib in Resources */,
+				1B7667F1154095F800EDE177 /* OptionsSet4.xib in Resources */,
+				1B7667F3154095FF00EDE177 /* OptionsSet5.xib in Resources */,
+				1B7667F51540960600EDE177 /* OptionsSet6.xib in Resources */,
+				1B3982211541E1BE00016875 /* box.png in Resources */,
+				1B3982221541E1BE00016875 /* checkbox.png in Resources */,
+				1BB5238015544E0E00697B38 /* GCDandInverseViewController.xib in Resources */,
+				1B81726615597B6500EDF0E0 /* DoneUp.png in Resources */,
+				1B81726715597B6500EDF0E0 /* DoneDown3.png in Resources */,
+				1B81726815597B6500EDF0E0 /* DoneUp3.png in Resources */,
+				1B81726915597B6500EDF0E0 /* DoneDown.png in Resources */,
+				1B524AF4155C449600E8446E /* InfoViewController.xib in Resources */,
+				1BFA03901561515E0005904C /* HelpInfo.plist in Resources */,
+				1B27FE171562F5E700C85ABD /* DetailView1.xib in Resources */,
+				1B27FE1C1562F60500C85ABD /* DetailView3.xib in Resources */,
+				1B27FE201562F61600C85ABD /* DetailView5.xib in Resources */,
+				1B27FE221562F61E00C85ABD /* DetailView6.xib in Resources */,
+				1B27FE241562FA2500C85ABD /* DetailView7.xib in Resources */,
+				1BA3330D15658689009CB78D /* popover-black-bcg-image.png in Resources */,
+				1BA3330E15658689009CB78D /* popover-black-bcg-image@2x.png in Resources */,
+				1BA3330F15658689009CB78D /* popover-black-bottom-arrow-image.png in Resources */,
+				1BA3331015658689009CB78D /* popover-black-bottom-arrow-image@2x.png in Resources */,
+				1BA3331115658689009CB78D /* popover-black-left-arrow-image.png in Resources */,
+				1BA3331215658689009CB78D /* popover-black-left-arrow-image@2x.png in Resources */,
+				1BA3331315658689009CB78D /* popover-black-right-arrow-image.png in Resources */,
+				1BA3331415658689009CB78D /* popover-black-right-arrow-image@2x.png in Resources */,
+				1BA3331515658689009CB78D /* popover-black-top-arrow-image.png in Resources */,
+				1BA3331615658689009CB78D /* popover-black-top-arrow-image@2x.png in Resources */,
+				1B1DE75D159CA49500D9C76F /* DetailView4.xib in Resources */,
+				CCD1F21A15B06B9A00CAED57 /* DetailView2.xib in Resources */,
+				CCD701BA15B71BDC004685D9 /* UIButtonBarHelp@2x.png in Resources */,
+				1B420F2C15B899FE001146CA /* UIButtonBarHelp2.png in Resources */,
+				1B420F2D15B899FE001146CA /* UIButtonBarHelp2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		CCD8246B15B8E22E00D12F27 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		CCD8244E15B8E22E00D12F27 /* Sources */ = {
+		1B8EA996153C7B8E009EFF27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCD8246315B8E22E00D12F27 /* main.m in Sources */,
-				CCD8246715B8E22E00D12F27 /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CCD8246815B8E22E00D12F27 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CCD8247C15B8E22E00D12F27 /* QuickCryptTests.m in Sources */,
+				1BA3331715658777009CB78D /* KSCustomPopoverBackgroundView.m in Sources */,
+				1BA332F515657D57009CB78D /* MGSplitCornersView.m in Sources */,
+				1BA332F715657D57009CB78D /* MGSplitDividerView.m in Sources */,
+				1BA332FB15657D57009CB78D /* MGSplitViewController.m in Sources */,
+				1B8EA9AB153C7B8E009EFF27 /* main.m in Sources */,
+				1B8EA9AF153C7B8E009EFF27 /* CAIAppDelegate.m in Sources */,
+				1B8EA9C0153C7D89009EFF27 /* RootViewControlleriPhone.m in Sources */,
+				1B8EAA0D153DCEFC009EFF27 /* CryptToolViewController.m in Sources */,
+				1B7667E815407F1F00EDE177 /* OptionsViewController.m in Sources */,
+				1BFB86A81547455900F29AEB /* QCMethods.m in Sources */,
+				1BEE7CEF155064A800DFCD13 /* TextData.m in Sources */,
+				1BB5237F15544E0E00697B38 /* GCDandInverseViewController.m in Sources */,
+				1B817271155992A600EDF0E0 /* SSTextView.m in Sources */,
+				1B524AF3155C449600E8446E /* InfoViewController.m in Sources */,
+				1B1E75BF155D5F7F009144C2 /* HelpData.m in Sources */,
+				1B2F1F621562A1B0003A45A8 /* DetailViewController.m in Sources */,
+				1B2F1F671562A488003A45A8 /* RootViewControlleriPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		CCD8247315B8E22E00D12F27 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CCD8245115B8E22E00D12F27 /* QuickCrypt */;
-			targetProxy = CCD8247215B8E22E00D12F27 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		CCD8245F15B8E22E00D12F27 /* InfoPlist.strings */ = {
+		1B8EA9A7153C7B8E009EFF27 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CCD8246015B8E22E00D12F27 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		CCD8247715B8E22E00D12F27 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCD8247815B8E22E00D12F27 /* en */,
+				1B8EA9A8153C7B8E009EFF27 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -292,7 +457,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CCD8247D15B8E22E00D12F27 /* Debug */ = {
+		1B8EA9B0153C7B8E009EFF27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -313,12 +478,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		CCD8247E15B8E22E00D12F27 /* Release */ = {
+		1B8EA9B1153C7B8E009EFF27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -333,97 +499,61 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		CCD8248015B8E22E00D12F27 /* Debug */ = {
+		1B8EA9B3153C7B8E009EFF27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuickCrypt/QuickCrypt-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "QuickCrypt/QuickCrypt-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		CCD8248115B8E22E00D12F27 /* Release */ = {
+		1B8EA9B4153C7B8E009EFF27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuickCrypt/QuickCrypt-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "QuickCrypt/QuickCrypt-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		CCD8248315B8E22E00D12F27 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QuickCrypt.app/QuickCrypt";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "QuickCrypt/QuickCrypt-Prefix.pch";
-				INFOPLIST_FILE = "QuickCryptTests/QuickCryptTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		CCD8248415B8E22E00D12F27 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QuickCrypt.app/QuickCrypt";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "QuickCrypt/QuickCrypt-Prefix.pch";
-				INFOPLIST_FILE = "QuickCryptTests/QuickCryptTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CCD8244C15B8E22E00D12F27 /* Build configuration list for PBXProject "QuickCrypt" */ = {
+		1B8EA994153C7B8E009EFF27 /* Build configuration list for PBXProject "QuickCrypt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CCD8247D15B8E22E00D12F27 /* Debug */,
-				CCD8247E15B8E22E00D12F27 /* Release */,
+				1B8EA9B0153C7B8E009EFF27 /* Debug */,
+				1B8EA9B1153C7B8E009EFF27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CCD8247F15B8E22E00D12F27 /* Build configuration list for PBXNativeTarget "QuickCrypt" */ = {
+		1B8EA9B2153C7B8E009EFF27 /* Build configuration list for PBXNativeTarget "QuickCrypt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CCD8248015B8E22E00D12F27 /* Debug */,
-				CCD8248115B8E22E00D12F27 /* Release */,
+				1B8EA9B3153C7B8E009EFF27 /* Debug */,
+				1B8EA9B4153C7B8E009EFF27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		CCD8248215B8E22E00D12F27 /* Build configuration list for PBXNativeTarget "QuickCryptTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CCD8248315B8E22E00D12F27 /* Debug */,
-				CCD8248415B8E22E00D12F27 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CCD8244915B8E22E00D12F27 /* Project object */;
+	rootObject = 1B8EA991153C7B8E009EFF27 /* Project object */;
 }
