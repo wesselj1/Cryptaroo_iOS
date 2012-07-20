@@ -61,12 +61,14 @@
 @property (nonatomic, strong) UINavigationController *navController;
 
 
-- (void)stepperValueChanged;
-- (void)multiplierStepperValueChanged;
-- (void)adderStepperValueChanged;
-- (IBAction)computeButtonPressed:(id)sender;
-- (IBAction)didChangeOption:(id)sender;
+- (void)stepperValueChanged;                    // Handles change of a stepper value
+- (void)multiplierStepperValueChanged;          // Handles a change in value of the multiplier stepper
+- (void)adderStepperValueChanged;               // Handles a change in value of the adder stepper
+- (IBAction)computeButtonPressed:(id)sender;    // Handles what to do when user pressed the compute button
+- (IBAction)didChangeOption:(id)sender;         /* Handles what to do when any option is changed, all options are hooked to this IBAction
+                                                 so that we can save options anytime a change made then call the appropriate handler for that option */
 
+// Init with the appropriate nib and note the cryptomethod being loaded
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil cryptoMethod:(QCCryptoMethod)cryptoMethod; 
 
 @end
