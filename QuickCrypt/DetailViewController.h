@@ -14,7 +14,6 @@
     MGSplitViewController *splitViewController;
     
     UIPopoverController *popoverController; // The master popover controller
-    UIToolbar *toolbar;                     // The application toolbar
     id detailItem;
     
     IBOutlet SSTextView *inputText;
@@ -47,8 +46,6 @@
 @property (nonatomic, strong) UIBarButtonItem *menuBtn;
 @property (nonatomic, strong) UIBarButtonItem *infoBtn;
 @property (nonatomic, strong) UIBarButtonItem *flexSpace;
-@property (nonatomic, strong) UIToolbar *toolbar;
-@property (nonatomic, strong) UILabel *toolbarTitle;
 @property (nonatomic, strong) id detailItem;
 
 @property (nonatomic, strong) SSTextView *inputText;

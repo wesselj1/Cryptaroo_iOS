@@ -39,8 +39,6 @@
 @synthesize appDelegate = _appDelegate;
 @synthesize optionsAry = _optionsAry;
 
-@synthesize toolbar = _toolbar;
-@synthesize toolbarTitle = _toolbarTitle;
 @synthesize menuBtn = _menuBtn;
 @synthesize infoBtn = _infoBtn;
 @synthesize flexSpace = _flexSpace;
@@ -165,10 +163,6 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    if( _toolbar.items.count < 1 )
-    {
-        _toolbar.items = nil;
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
