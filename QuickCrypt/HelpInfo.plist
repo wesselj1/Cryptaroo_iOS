@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>QCHelpStrings</key>
+    <array>
+        <string>Given a set of plaintext or ciphertext Frequency Count will give a count of the number occurences for each unique letter in the text. Frequency Count will also list the 1, 2, and 3 letter words, the all the beginning and ending letters of words, a list of double letters found, and the typical frequency count for the Engish language.</string>
+        <string>Run The Alphabet will perform all 25 possible Caesar shifts on the given plaintext or ciphertext.</string>
+        <string>BiGraphs will give all the bigraphs found in the given ciphertext or plaintext along with their positions in the text.</string>
+        <string>TriGraphs will give all the trigaphs found in the given ciphertext or plaintext along with their positions in the text.</string>
+        <string>NGraphs will give all the n-sized graphs, as defined by the user, found in the given ciphertext or plaintext along with their positions in the text.</string>
+        <string>Affine Known Plaintext Attack will search for possible occurences of the known plaintext keyword within the given ciphertext using any of the possible combinations for an affine cipher. Affine Known Plaintext Attack will give the possible encryptions of the keyword along with the affine keys used to encrypt them.</string>
+        <string>Affine Encipher will perform an affine encryption on a given text using the user-specified multiplicative and additive shifts.</string>
+        <string>Affine Decipher will perform an affine decryption of a given text using the user-specified multiplicative and additive shifts.</string>
+        <string>Split Off Alphabets will strip off the user-defined number of alphabets from a given text.</string>
+        <string>IDKMYBFFJILL</string>
+        <string>Vigenere Encipher will encrypt a given text using a Vigenere cipher with the keyword provided.</string>
+        <string>Vigenere Decipher will decrypt a given Vigenere ciphertext using the keyword provided.</string>
+        <string>Autokey Cyphertext Attack will calculate the Friedman value of the ciphertext string assuming the given the keyword length.</string>
+        <string>Autokey Plaintext Attack will give the possible letters for a particular letter of a particular keyword length along with a Friedman value. The user can specify the max keyword length and the bounding Friedman values.</string>
+        <string>Autokey Decipher will decipher a given autokey ciphertext using the given keyword. You can also specify whether to use only the keyword or to use the keyword along with the message to create the key for deciphering.</string>
+        <string>GCD and Inverse will give the greatest common divisor and inverse of an integer with a given modulus.</string>
+    </array>
+</dict>
+</plist>
