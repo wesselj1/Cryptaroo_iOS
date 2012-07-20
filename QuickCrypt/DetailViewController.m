@@ -446,7 +446,7 @@
     switch ( _cryptoMethod )
     {
         case QCNGraphs:
-            [self stepperValueChanged:sender];
+            [self stepperValueChanged];
             break;
         case QCAffineKnownPlaintextAttack:
             [_outputText setText:[QCMethods affineKnownPlainttextAttack:[_inputText text] keyword:[_optionsAry objectAtIndex:0] shiftFirst:[[_optionsAry objectAtIndex:1] boolValue]]];
@@ -460,16 +460,16 @@
             [self adderStepperValueChanged];
             break;
         case QCSplitOffAlphabets:
-            [self stepperValueChanged:sender];
+            [self stepperValueChanged];
             break;
         case QCPolyMonoCalculator:
-            [self stepperValueChanged:sender];
+            [self stepperValueChanged];
             break;
         case QCAutokeyCyphertextAttack:
-            [self stepperValueChanged:sender];
+            [self stepperValueChanged];
             break;
         case QCAutokeyPlaintextAttack:
-            [self stepperValueChanged:sender];
+            [self stepperValueChanged];
             break;
         case QCAutokeyDecipher:
             break;
@@ -601,13 +601,13 @@
 
 
 #pragma mark - Stepper Value Handling Methods
-- (IBAction)stepperValueChanged:(id)sender
+- (void)stepperValueChanged
 {
     double stepperValue = _stepper1.value;
     _textField1.text = [NSString stringWithFormat:@"%.f", stepperValue];
 }
 
-- (IBAction)multiplierStepperValueChanged
+- (void)multiplierStepperValueChanged
 {
     double stepperValue = _stepper1.value;
     if( stepperValue == 13 )
@@ -625,7 +625,7 @@
     lastStepperValue = stepperValue;
 }
 
-- (IBAction)adderStepperValueChanged
+- (void)adderStepperValueChanged
 {
     double stepperValue = _stepper2.value;
     _label2.text = [NSString stringWithFormat:@"%.f", stepperValue];

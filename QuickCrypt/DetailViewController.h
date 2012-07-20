@@ -11,29 +11,28 @@
 
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, MGSplitViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate>
 {
-    MGSplitViewController *splitViewController;
+    MGSplitViewController *splitViewController; // Reference to splitViewController
     
     UIPopoverController *popoverController; // The master popover controller
     
-    IBOutlet SSTextView *inputText;
-    IBOutlet SSTextView *outputText;
-    IBOutlet UIButton *computeButton;
-    IBOutlet UIStepper *stepper1;
-    IBOutlet UIStepper *stepper2;
-    IBOutlet UITextField *textField1;
+    IBOutlet SSTextView *inputText;         // The input text view
+    IBOutlet SSTextView *outputText;        // The output text view
+    IBOutlet UIButton *computeButton;       // Compute button
+    IBOutlet UIStepper *stepper1;           // Stepper 1
+    IBOutlet UIStepper *stepper2;           // Stepper 2
+    IBOutlet UITextField *textField1;       // Various textFields used for options
     IBOutlet UITextField *textField2;
     IBOutlet UITextField *textField3;
     IBOutlet UITextField *textField4;
     IBOutlet UISwitch *switch1;
-    IBOutlet UIView *optionsViewMat;
-    IBOutlet UIView *GCDViewMat;
+    IBOutlet UIView *optionsViewMat;        // View that contains the options for the cryptomethod
+    IBOutlet UIView *GCDViewMat;            // View that holds the fields of the GCD and inverse calculator
     IBOutlet UILabel *label1;
     IBOutlet UILabel *label2;
+    IBOutlet UIScrollView *scrollView;      // Scroll view containing everything
     
-    IBOutlet UIScrollView *scrollView;
-    
-    QCCryptoMethod cryptoMethod;
-    UINavigationController *navController;
+    QCCryptoMethod cryptoMethod;            // The current cryptomethod
+    UINavigationController *navController;  // Reference to the app's navController
 }
 
 @property (nonatomic, strong) MGSplitViewController *splitViewController;
@@ -62,9 +61,9 @@
 @property (nonatomic, strong) UINavigationController *navController;
 
 
-- (IBAction)stepperValueChanged:(id)sender;
-- (IBAction)multiplierStepperValueChanged;
-- (IBAction)adderStepperValueChanged;
+- (void)stepperValueChanged;
+- (void)multiplierStepperValueChanged;
+- (void)adderStepperValueChanged;
 - (IBAction)computeButtonPressed:(id)sender;
 - (IBAction)didChangeOption:(id)sender;
 
