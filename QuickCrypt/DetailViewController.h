@@ -50,7 +50,6 @@
 @property (nonatomic, strong) UITextField *textField4;
 @property (nonatomic, strong) UISwitch *switch1;
 @property (nonatomic, strong) UIView *optionsViewMat;
-@property (nonatomic, strong) UIView *optionsViewMat2;
 @property (nonatomic, strong) UIView *GCDViewMat;
 @property (nonatomic, strong) UILabel *label1;
 @property (nonatomic, strong) UILabel *label2;
