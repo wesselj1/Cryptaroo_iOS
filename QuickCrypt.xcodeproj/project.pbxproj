@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CCD8245715B8E22E00D12F27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8245615B8E22E00D12F27 /* UIKit.framework */; };
+		CCD8245915B8E22E00D12F27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8245815B8E22E00D12F27 /* Foundation.framework */; };
+		CCD8245B15B8E22E00D12F27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8245A15B8E22E00D12F27 /* CoreGraphics.framework */; };
+		CCD8246115B8E22E00D12F27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCD8245F15B8E22E00D12F27 /* InfoPlist.strings */; };
+		CCD8246315B8E22E00D12F27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD8246215B8E22E00D12F27 /* main.m */; };
+		CCD8246715B8E22E00D12F27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD8246615B8E22E00D12F27 /* AppDelegate.m */; };
+		CCD8246F15B8E22E00D12F27 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8246E15B8E22E00D12F27 /* SenTestingKit.framework */; };
+		CCD8247015B8E22E00D12F27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8245615B8E22E00D12F27 /* UIKit.framework */; };
+		CCD8247115B8E22E00D12F27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD8245815B8E22E00D12F27 /* Foundation.framework */; };
+		CCD8247915B8E22E00D12F27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCD8247715B8E22E00D12F27 /* InfoPlist.strings */; };
+		CCD8247C15B8E22E00D12F27 /* QuickCryptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD8247B15B8E22E00D12F27 /* QuickCryptTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CCD8247215B8E22E00D12F27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCD8244915B8E22E00D12F27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCD8245115B8E22E00D12F27;
+			remoteInfo = QuickCrypt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CCD8245215B8E22E00D12F27 /* QuickCrypt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickCrypt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCD8245615B8E22E00D12F27 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CCD8245815B8E22E00D12F27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CCD8245A15B8E22E00D12F27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CCD8245E15B8E22E00D12F27 /* QuickCrypt-Info.plist */ = {isa = PBXFileReference; path = "QuickCrypt-Info.plist"; sourceTree = "<group>"; };
+		CCD8246015B8E22E00D12F27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CCD8246215B8E22E00D12F27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CCD8246415B8E22E00D12F27 /* QuickCrypt-Prefix.pch */ = {isa = PBXFileReference; path = "QuickCrypt-Prefix.pch"; sourceTree = "<group>"; };
+		CCD8246515B8E22E00D12F27 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		CCD8246615B8E22E00D12F27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CCD8246D15B8E22E00D12F27 /* QuickCryptTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickCryptTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCD8246E15B8E22E00D12F27 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		CCD8247615B8E22E00D12F27 /* QuickCryptTests-Info.plist */ = {isa = PBXFileReference; path = "QuickCryptTests-Info.plist"; sourceTree = "<group>"; };
+		CCD8247815B8E22E00D12F27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CCD8247A15B8E22E00D12F27 /* QuickCryptTests.h */ = {isa = PBXFileReference; path = QuickCryptTests.h; sourceTree = "<group>"; };
+		CCD8247B15B8E22E00D12F27 /* QuickCryptTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickCryptTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCD8244F15B8E22E00D12F27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCD8245715B8E22E00D12F27 /* UIKit.framework in Frameworks */,
+				CCD8245915B8E22E00D12F27 /* Foundation.framework in Frameworks */,
+				CCD8245B15B8E22E00D12F27 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCD8246915B8E22E00D12F27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCD8246F15B8E22E00D12F27 /* SenTestingKit.framework in Frameworks */,
+				CCD8247015B8E22E00D12F27 /* UIKit.framework in Frameworks */,
+				CCD8247115B8E22E00D12F27 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CCD8244715B8E22E00D12F27 = {
+			isa = PBXGroup;
+			children = (
+				CCD8245C15B8E22E00D12F27 /* QuickCrypt */,
+				CCD8247415B8E22E00D12F27 /* QuickCryptTests */,
+				CCD8245515B8E22E00D12F27 /* Frameworks */,
+				CCD8245315B8E22E00D12F27 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CCD8245315B8E22E00D12F27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCD8245215B8E22E00D12F27 /* QuickCrypt.app */,
+				CCD8246D15B8E22E00D12F27 /* QuickCryptTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCD8245515B8E22E00D12F27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCD8245615B8E22E00D12F27 /* UIKit.framework */,
+				CCD8245815B8E22E00D12F27 /* Foundation.framework */,
+				CCD8245A15B8E22E00D12F27 /* CoreGraphics.framework */,
+				CCD8246E15B8E22E00D12F27 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCD8245C15B8E22E00D12F27 /* QuickCrypt */ = {
+			isa = PBXGroup;
+			children = (
+				CCD8246515B8E22E00D12F27 /* AppDelegate.h */,
+				CCD8246615B8E22E00D12F27 /* AppDelegate.m */,
+				CCD8245D15B8E22E00D12F27 /* Supporting Files */,
+			);
+			path = QuickCrypt;
+			sourceTree = "<group>";
+		};
+		CCD8245D15B8E22E00D12F27 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CCD8245E15B8E22E00D12F27 /* QuickCrypt-Info.plist */,
+				CCD8245F15B8E22E00D12F27 /* InfoPlist.strings */,
+				CCD8246215B8E22E00D12F27 /* main.m */,
+				CCD8246415B8E22E00D12F27 /* QuickCrypt-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CCD8247415B8E22E00D12F27 /* QuickCryptTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCD8247A15B8E22E00D12F27 /* QuickCryptTests.h */,
+				CCD8247B15B8E22E00D12F27 /* QuickCryptTests.m */,
+				CCD8247515B8E22E00D12F27 /* Supporting Files */,
+			);
+			path = QuickCryptTests;
+			sourceTree = "<group>";
+		};
+		CCD8247515B8E22E00D12F27 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CCD8247615B8E22E00D12F27 /* QuickCryptTests-Info.plist */,
+				CCD8247715B8E22E00D12F27 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCD8245115B8E22E00D12F27 /* QuickCrypt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCD8247F15B8E22E00D12F27 /* Build configuration list for PBXNativeTarget "QuickCrypt" */;
+			buildPhases = (
+				CCD8244E15B8E22E00D12F27 /* Sources */,
+				CCD8244F15B8E22E00D12F27 /* Frameworks */,
+				CCD8245015B8E22E00D12F27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickCrypt;
+			productName = QuickCrypt;
+			productReference = CCD8245215B8E22E00D12F27 /* QuickCrypt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CCD8246C15B8E22E00D12F27 /* QuickCryptTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCD8248215B8E22E00D12F27 /* Build configuration list for PBXNativeTarget "QuickCryptTests" */;
+			buildPhases = (
+				CCD8246815B8E22E00D12F27 /* Sources */,
+				CCD8246915B8E22E00D12F27 /* Frameworks */,
+				CCD8246A15B8E22E00D12F27 /* Resources */,
+				CCD8246B15B8E22E00D12F27 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCD8247315B8E22E00D12F27 /* PBXTargetDependency */,
+			);
+			name = QuickCryptTests;
+			productName = QuickCryptTests;
+			productReference = CCD8246D15B8E22E00D12F27 /* QuickCryptTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCD8244915B8E22E00D12F27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Joey Wessel";
+			};
+			buildConfigurationList = CCD8244C15B8E22E00D12F27 /* Build configuration list for PBXProject "QuickCrypt" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CCD8244715B8E22E00D12F27;
+			productRefGroup = CCD8245315B8E22E00D12F27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCD8245115B8E22E00D12F27 /* QuickCrypt */,
+				CCD8246C15B8E22E00D12F27 /* QuickCryptTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCD8245015B8E22E00D12F27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCD8246115B8E22E00D12F27 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCD8246A15B8E22E00D12F27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCD8247915B8E22E00D12F27 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CCD8246B15B8E22E00D12F27 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCD8244E15B8E22E00D12F27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCD8246315B8E22E00D12F27 /* main.m in Sources */,
+				CCD8246715B8E22E00D12F27 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCD8246815B8E22E00D12F27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCD8247C15B8E22E00D12F27 /* QuickCryptTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCD8247315B8E22E00D12F27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCD8245115B8E22E00D12F27 /* QuickCrypt */;
+			targetProxy = CCD8247215B8E22E00D12F27 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CCD8245F15B8E22E00D12F27 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCD8246015B8E22E00D12F27 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CCD8247715B8E22E00D12F27 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCD8247815B8E22E00D12F27 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CCD8247D15B8E22E00D12F27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CCD8247E15B8E22E00D12F27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CCD8248015B8E22E00D12F27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuickCrypt/QuickCrypt-Prefix.pch";
+				INFOPLIST_FILE = "QuickCrypt/QuickCrypt-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CCD8248115B8E22E00D12F27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuickCrypt/QuickCrypt-Prefix.pch";
+				INFOPLIST_FILE = "QuickCrypt/QuickCrypt-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CCD8248315B8E22E00D12F27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QuickCrypt.app/QuickCrypt";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuickCrypt/QuickCrypt-Prefix.pch";
+				INFOPLIST_FILE = "QuickCryptTests/QuickCryptTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		CCD8248415B8E22E00D12F27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QuickCrypt.app/QuickCrypt";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuickCrypt/QuickCrypt-Prefix.pch";
+				INFOPLIST_FILE = "QuickCryptTests/QuickCryptTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCD8244C15B8E22E00D12F27 /* Build configuration list for PBXProject "QuickCrypt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCD8247D15B8E22E00D12F27 /* Debug */,
+				CCD8247E15B8E22E00D12F27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCD8247F15B8E22E00D12F27 /* Build configuration list for PBXNativeTarget "QuickCrypt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCD8248015B8E22E00D12F27 /* Debug */,
+				CCD8248115B8E22E00D12F27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CCD8248215B8E22E00D12F27 /* Build configuration list for PBXNativeTarget "QuickCryptTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCD8248315B8E22E00D12F27 /* Debug */,
+				CCD8248415B8E22E00D12F27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CCD8244915B8E22E00D12F27 /* Project object */;
+}
