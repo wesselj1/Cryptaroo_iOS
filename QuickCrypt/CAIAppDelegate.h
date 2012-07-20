@@ -1,0 +1,34 @@
+//
+//  CAIAppDelegate.h
+//  QuickCrypt
+//
+//  Created by build on 4/16/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+#import "MGSplitViewController.h"
+
+@class RootViewControlleriPad;
+@class RootViewControlleriPhone;
+@class DetailViewController;
+
+@interface CAIAppDelegate : UIResponder <UIApplicationDelegate>
+{
+}
+
+@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UINavigationController *navController;
+@property (strong, nonatomic) MGSplitViewController *splitViewController;           // The app's split view controller
+@property (strong, nonatomic) RootViewControlleriPad *rootViewControlleriPad;       // RootViewController for the iPad
+@property (strong, nonatomic) RootViewControlleriPhone *rootViewControlleriPhone;   // RootViewController for the iPhone/iPod
+@property (strong, nonatomic) DetailViewController *detailViewController;           // The detail view for iPad
+@property (strong, nonatomic) TextData *textData;                                   // Persistant data object for text and options
+@property (strong, nonatomic) UIToolbar *toolbar;                                   // Toolbar displayed above the iPad app
+@property (strong, nonatomic) UILabel *toolbarTitle;                                // Label displayed on the iPad toolbar
+
+- (void)setToolbarLabelTitleForOrientation:(UIInterfaceOrientation)orientation;     // Set the title of the toolbar dependent on the device orientation
+- (void)infoButtonPressed;                                                          // Called when the info button is pressed
+
+@end
