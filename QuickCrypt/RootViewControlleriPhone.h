@@ -10,8 +10,8 @@
 
 @interface RootViewControlleriPhone : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    IBOutlet UITableView *tableView;
-    NSArray *aryCryptoMethods;
+    IBOutlet UITableView *tableView;    // The main menu's table view
+    NSArray *aryCryptoMethods;          // The cryptop method's supported
 }
 
 @property (nonatomic, strong) UITableView *tableView;

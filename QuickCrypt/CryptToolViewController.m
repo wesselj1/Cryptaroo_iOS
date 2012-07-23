@@ -11,16 +11,16 @@
 
 @interface CryptToolViewController ()
 {
-    NSMutableArray *options;
-    NSMutableArray *optionTitles;
-    TextData *td;
+    NSMutableArray *options;        // Array of the options this crypto method
+    NSMutableArray *optionTitles;   // Array of the titles for the options
+    TextData *td;                   // Instance of textData class
 }
 @property (nonatomic, strong) NSMutableArray *options;
 @property (nonatomic, strong) NSMutableArray *optionTitles;
 @property (nonatomic, strong) TextData *td;
 
-- (void)setButtonTitles;
-- (void)infoButtonPressed;
+- (void)setButtonTitles;    // Sets the title of the compute button appropriately
+- (void)infoButtonPressed;  // Present the info view when info button pressed
 
 @end
 
@@ -48,53 +48,67 @@
 
 - (void)viewDidLoad
 {
-    td = [TextData textDataManager];
-    _options = [td.optionsList objectAtIndex:_cryptoMethod];
-    
     [super viewDidLoad];
+    td = [TextData textDataManager];                            // Get an instance of the textData class
+    _options = [td.optionsList objectAtIndex:_cryptoMethod];    // Pull the options from the textData class for this crypto method
+    
+
+    // Create the computer button
     UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
     [_computeButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
     
+    // Create the options button
     UIImage *whiteButtonImage = [[UIImage imageNamed:@"whiteButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
     [_optionButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
     
+    
+    // The following methods do not have options to set
     if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs )
         _optionButton.enabled = NO;
     
+    
+    // Make our input and output textViews look pretty with rounded corners
     _inputText.layer.cornerRadius = 5;
     _inputText.clipsToBounds = YES;
     
     _outputText.layer.cornerRadius = 5;
     _outputText.clipsToBounds = YES;
     
+    // Set the placeholders for our textViews
     [_inputText setPlaceholder:@"Input Text"];
     [_outputText setPlaceholder:@"Output Text"];
     
-    
+    // Recall the input and output texts from textData
     _inputText.text = td.inputString;
     [_outputText setText:[td.outputArray objectAtIndex:_cryptoMethod]];
     
+    
+    // Set the back button for the navbar
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:back];
     
+    // Create the info button
     UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
     [infoBtn addTarget:self action:@selector(infoButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
-    [self setButtonTitles];
+    
+    // Set the compute button's title
+//
     
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self setButtonTitles];
-    _options = [td.optionsList objectAtIndex:_cryptoMethod];
+    [self setButtonTitles];  // Set the compute button title
+    _options = [td.optionsList objectAtIndex:_cryptoMethod];  // Get the options for this crypto method
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
     
+    // If the view is going to be removed save the input and output texts
     [td.outputArray replaceObjectAtIndex:_cryptoMethod withObject:[_outputText text]];
     td.inputString = [NSString stringWithString:[_inputText text]];
 }
@@ -135,27 +149,30 @@
         _inputText.textColor = [UIColor lightGrayColor];
         _inputText.tag = 0;
     }
-    //[td.outputArray replaceObjectAtIndex:_cryptoMethod withObject:[_outputText text]];
-
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    // If they hit the return button on the keyboard, dismiss the keyboard
     if([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
         return NO;
     }
     
-    return YES;
+    return YES; // Any other key will allow text change
 }
 
 - (IBAction)setOptionsPressed:(id)sender
 {
+    // If the method has options present the options view controller for the crypto method with the options array we ahve
     if( _cryptoMethod != QCFrequencyCount && _cryptoMethod != QCRunTheAlphabet && _cryptoMethod != QCBiGraphs && _cryptoMethod != QCTriGraphs )
     {
         OptionsViewController *optionsViewController;
+        
+        // Make sure the options array isn't empty
         if ( [td.optionsList objectAtIndex:_cryptoMethod] != @"")
             _options = [NSMutableArray arrayWithArray:[td.optionsList objectAtIndex:_cryptoMethod]];
+        
         switch ( _cryptoMethod )
         {
             case QCNGraphs:
@@ -198,7 +215,7 @@
         [self.navigationController pushViewController:optionsViewController animated:YES];
     }
     else 
-    {
+    {   // If no options, tell user there are no options for this method
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Options" message:@"There are no options for this method" delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
         [alert show];
     }
@@ -207,18 +224,19 @@
 - (IBAction)computeButtonPressed:(id)sender
 {
     if( [_inputText isEmpty] )
-    {
+    {   // If there is no input text, prompt the user to enter text
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Input Text" message:@"Please input text" delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
         [alert show];
     }
     else
     {
-        BOOL valid_options = YES;
+        BOOL valid_options = YES; // Assume options are valid
         
         if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs )
-            valid_options = YES;
+            valid_options = YES;  // Above methods have no options to set
         else
         {
+            // Make sure there are options and that if a particular option is an array that the array is not empty
             if( _options && [_options count] > 0 )
             {
                 for( int x = 0; x < [_options count]; x++ )
@@ -226,15 +244,16 @@
                     if( [[_options objectAtIndex:x] isKindOfClass:[NSArray class]] )
                     {
                         if( [[_options objectAtIndex:x] count] == 0 )
-                            valid_options = NO;
+                            valid_options = NO; // If the array is empty, no valid options
                     }                        
                 }
 
             }
-            else
+            else // If the options array is empty, there are not valid options
                 valid_options = NO;
         }
         
+        // If there are valid options then run the appropriate method given the text and provided options
         if( valid_options )
         {
             _outputText.textColor = [UIColor blackColor];
@@ -290,7 +309,7 @@
             }
         }
         else
-        {
+        {   // If not valid options, ask the user to select the options
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Select Options" message:@"Please select options first" delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
             [alert show];
         }
@@ -298,7 +317,7 @@
 }
 
 - (void) setButtonTitles
-{
+{   // Set the computer button title appropriate for the method
     if( _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs || _cryptoMethod == QCNGraphs )
     {
         [_computeButton setTitle: @"Get" forState: UIControlStateNormal];
@@ -344,7 +363,7 @@
 }
 
 - (void)infoButtonPressed
-{
+{   // If info button is pressed, in this case we will present a help blurb about the method
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"HelpInfo" ofType:@"plist"];
     NSDictionary *helpDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     NSArray *helpArray = [NSArray arrayWithArray:[helpDict valueForKey:@"QCHelpStrings"]];

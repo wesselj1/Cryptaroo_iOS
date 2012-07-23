@@ -11,12 +11,12 @@
 
 @interface CryptToolViewController : UIViewController <UITextViewDelegate>
 {
-    IBOutlet UIButton *backgroundButton;
-    IBOutlet SSTextView *inputText;
-    IBOutlet SSTextView *outputText;
-    IBOutlet UIButton *computeButton;
-    IBOutlet UIButton *optionButton;
-    QCCryptoMethod cryptoMethod;
+    IBOutlet UIButton *backgroundButton;// Button in background of everything to dismiss keyboard
+    IBOutlet SSTextView *inputText;     // The input textView
+    IBOutlet SSTextView *outputText;    // The output textView
+    IBOutlet UIButton *computeButton;   // The compute button
+    IBOutlet UIButton *optionButton;    // The option button which goes to the options screen
+    QCCryptoMethod cryptoMethod;        // The current cryptop method of the view
 }
 
 @property (nonatomic, strong) UIButton *backgroundButton;
@@ -26,9 +26,9 @@
 @property (nonatomic, strong) UIButton *optionButton;
 @property QCCryptoMethod cryptoMethod;
 
-- (id)initWithCryptoType:(QCCryptoMethod)method;
-- (IBAction)dismissKeyboard:(id)sender;
-- (IBAction)setOptionsPressed:(id)sender;
-- (IBAction)computeButtonPressed:(id)sender;
+- (id)initWithCryptoType:(QCCryptoMethod)method;    // Init he view method with a given crypto method
+- (IBAction)dismissKeyboard:(id)sender;             // Method to dismiss the keyboard when background button hit
+- (IBAction)setOptionsPressed:(id)sender;           // Will be called to present options screen
+- (IBAction)computeButtonPressed:(id)sender;        // Executes the crypto method on input text when button pressed
 
 @end

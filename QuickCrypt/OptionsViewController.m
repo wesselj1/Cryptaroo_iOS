@@ -14,16 +14,16 @@
 
 @interface OptionsViewController ()
 {
-    NSMutableArray *options;
-    NSMutableArray *optionTitles;
-    NSArray *multipliers;
-    NSArray *additives;
-    TextData *td;
+    NSMutableArray *options;        // Our array of options
+    NSMutableArray *optionTitles;   // The title of the options to be set, used to set labels
+    NSArray *multipliers;           // The array of multiplicative keys for affine
+    NSArray *additives;             // The array of additive keys for affine
+    TextData *td;                   // Instance of our textData class
 }
 
-- (void)setOptionTitlesArray;
-- (void)getOptionsAndSave;
-- (void)recallOptions;
+- (void)setOptionTitlesArray;   // Set the title of the labels for this particular option set
+- (void)getOptionsAndSave;      // Update the array of options and send them back to the textData instance
+- (void)recallOptions;          // Recall options from previous edit of these options for current method
 
 @property (nonatomic, strong) NSMutableArray *options;
 @property (nonatomic, strong) NSMutableArray *optionTitles;
@@ -35,18 +35,15 @@
 
 @implementation OptionsViewController
 
-@synthesize delegate;
 @synthesize stepper1;
 @synthesize textFiedl1;
 @synthesize textField2;
 @synthesize textField3;
 @synthesize picker1;
 @synthesize checkBox;
-@synthesize doneButton;
 @synthesize optionsViewMat;
 @synthesize label1;
 @synthesize label2;
-@synthesize label3;
 @synthesize cryptoMethod;
 @synthesize options = _options;
 @synthesize optionTitles;
@@ -69,43 +66,40 @@
 {
     [super viewDidLoad];
     
-    td = [TextData textDataManager];
+    td = [TextData textDataManager]; // Get instance of our textData class
+    _options = [td.optionsList objectAtIndex:cryptoMethod]; // Get the options from textData
     
-    if( [optionTitles objectAtIndex:0] == @"Multiplicative Shift:" )
+    // If doing an affine method, set the array of multiplicative and additive keys to be used
+    if( cryptoMethod == QCAffineDecipher || cryptoMethod == QCAffineEncipher )
     {
         multipliers = [[NSArray alloc] initWithObjects:@"1", @"3", @"5", @"7", @"9", @"11", @"15", @"17", @"19", @"21", @"23", @"25", nil];
         additives = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", nil];
     }
-    
-    [checkBox setImage:[UIImage imageNamed:@"box.png"] forState:UIControlStateNormal];
-    checkBox.backgroundColor = [UIColor clearColor];
-    
-    UIImage *whiteButtonImage = [[UIImage imageNamed:@"whiteButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
-    [doneButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
-    
+
+    // Round the corners of the options view mat so it looks prettier
     optionsViewMat.layer.cornerRadius = 5;
     optionsViewMat.clipsToBounds = YES;
     
+    
+    // Set any labels that may exist
     if( [optionTitles objectAtIndex:0] )
         label1.text = [optionTitles objectAtIndex:0];
     if( optionTitles.count > 1 && [optionTitles objectAtIndex:1] )
         label2.text = [optionTitles objectAtIndex:1];
-    if( optionTitles.count > 2 && [optionTitles objectAtIndex:2] )
-        label3.text = [optionTitles objectAtIndex:2];
     
-    [switch1 setOn:NO];
+    [switch1 setOn:NO]; // Default switch to be OFF
     
+    // Setup the stepper
     [stepper1 setMinimumValue:0];
     [stepper1 setStepValue:1];
     
     if( cryptoMethod == QCAutokeyPlaintextAttack )
-    {
+    {   // For QCAutoKeyPlaintextAttack the keyboard type for said two fields should be a decimal pad (for entering doubles)
         textField2.keyboardType = UIKeyboardTypeDecimalPad;
         textField3.keyboardType = UIKeyboardTypeDecimalPad;
     }
     
-    _options = [td.optionsList objectAtIndex:cryptoMethod];
-    [self recallOptions];
+    [self recallOptions];   // Recall any previous options from this method
 }
 
 - (void)viewDidUnload
@@ -117,9 +111,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self formatFloat:textField2];
+    [self formatFloat:textField2];  // When exiting make sure the fields are formatted properly
     [self formatFloat:textField3];
-    [self getOptionsAndSave];
+    [self getOptionsAndSave];   // Save the options
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

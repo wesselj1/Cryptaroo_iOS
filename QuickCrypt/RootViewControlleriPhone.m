@@ -13,7 +13,7 @@
 
 @interface RootViewControlleriPhone ()
 
-- (void)infoButtonPressed;
+- (void)infoButtonPressed; // Called when info button is pressed
 
 @end
 
@@ -32,8 +32,9 @@
 {
     [super viewDidLoad];
     
-    super.title = @"Cryptaroo";
+    super.title = @"Cryptaroo"; // Set the title of the view
     
+    // All of our supported crypto methods
     aryCryptoMethods = [NSArray arrayWithObjects:@"Frequency Count",
         @"Run The Alphabet",
         @"BiGraphs",
@@ -52,9 +53,11 @@
         @"GCD and Inverse",
         nil];
     
+    // Create the back button
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:back];
     
+    // Create the info button
     UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
     [infoBtn addTarget:self action:@selector(infoButtonPressed) forControlEvents:UIControlEventTouchUpInside];
@@ -83,7 +86,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+{   // Create a cell for each of the supported crypto methods
     UITableViewCell *cell = (UITableViewCell *)[_tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if( cell == nil )
     {
@@ -101,13 +104,13 @@
     CryptToolViewController *cryptToolViewController;
     
     if( indexPath.row == QCGCDAndInverse )
-    {
+    {   // If they select GCD and Inverse create and push a GCDViewController
         GCDviewController = [[GCDandInverseViewController alloc] init];
         GCDviewController.title = [aryCryptoMethods objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:GCDviewController animated:YES];
     }
     else
-    {
+    {   // For every other row, load a crypto tool view
         cryptToolViewController = [[CryptToolViewController alloc] initWithCryptoType:indexPath.row];
         cryptToolViewController.title = [aryCryptoMethods objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:cryptToolViewController animated:YES];
@@ -117,7 +120,7 @@
 }
 
 - (void)infoButtonPressed
-{
+{   // When the info button is pressed, push the infoViewController on screen
     InfoViewController *infoViewController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
     [self.navigationController pushViewController:infoViewController animated:YES];
 }
