@@ -36,7 +36,6 @@
 @property (nonatomic) QCCryptoMethod cryptoMethod;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forMethod:(QCCryptoMethod)method withOptions:(NSArray *)options;
-- (IBAction)dismissKeyboard:(id)sender;
 - (IBAction)stepperValueChanged:(id)sender; // What to do when a stepper value has changed
 
 @end

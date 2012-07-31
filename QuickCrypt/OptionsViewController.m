@@ -111,8 +111,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self formatFloat:textField2];  // When exiting make sure the fields are formatted properly
-    [self formatFloat:textField3];
     [self getOptionsAndSave];   // Save the options
 }
 
@@ -127,109 +125,6 @@
     textField1.text = [NSString stringWithFormat:@"%.f", stepperValue];
 }
 
-- (IBAction)formatFloat:(id)sender
-{
-    NSString *inputString = [(UITextField *)sender text];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"," withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"?" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"!" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"@" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"#" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"$" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"%" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"^" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"&" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"*" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"(" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@")" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"+" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"/" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"<" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@">" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"\'" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"~" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"`" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"[" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"]" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"|" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"{" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"}" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"=" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@":" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@";" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"#" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"%" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"^" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"*" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"+" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"_" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"|" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"€" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"£" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"¥" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"•" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"A" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"B" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"C" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"D" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"E" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"F" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"G" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"H" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"I" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"J" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"K" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"L" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"M" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"N" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"O" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"P" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"Q" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"R" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"S" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"T" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"U" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"V" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"W" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"X" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"Y" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"Z" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"a" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"b" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"c" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"d" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"e" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"f" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"g" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"h" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"i" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"j" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"k" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"l" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"m" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"n" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"o" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"p" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"q" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"r" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"s" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"t" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"u" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"v" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"w" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"x" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"y" withString:@""];
-    inputString = [inputString stringByReplacingOccurrencesOfString:@"z" withString:@""];
-    if( ((UITextField *)sender).tag == 0 )
-        [textField2 setText:inputString];
-    else
-        [textField3 setText:inputString];
-}
-
 - (IBAction)dismissKeyboard:(id)sender
 {
     [textField1 resignFirstResponder];
@@ -241,6 +136,45 @@
 {
     [textField resignFirstResponder];
     return NO;
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSCharacterSet *badCharacters; // The bad set of characters
+    
+    if( textField.tag != 0 )
+    {   // If the tag isn't 0, then it is one of the float fields in QCAutoPlainTextAttack
+        // So if they are trying to enter a period check to see if a period already exists
+        if( [string compare:@"."] == NSOrderedSame && [textField.text rangeOfString:@"." options:0 range:NSMakeRange(0, textField.text.length)].location != NSNotFound )
+            return NO; // If a period exist, don't allow the character change
+    }
+    
+    if( string != @"" ) // Make sure incoming character is not blank
+    {
+        // If they are editing one of the two float fields and not entering a period (already handled that above), allow only numbers
+        if( cryptoMethod == QCAutokeyPlaintextAttack && textField.tag != 0 && string != @"." )
+            badCharacters = [NSMutableCharacterSet characterSetWithCharactersInString:@",?\"!@#$%^&*()-+/\\<>\'~`[]|{}=:;_€£¥•ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
+        
+        // Else if it is one of the integer fields only only integers
+        else if( cryptoMethod == QCNGraphs || cryptoMethod == QCSplitOffAlphabets || cryptoMethod == QCPolyMonoCalculator || cryptoMethod == QCAutokeyCyphertextAttack || cryptoMethod == QCAutokeyPlaintextAttack || cryptoMethod == QCGCDAndInverse )
+        {
+            badCharacters = [NSMutableCharacterSet characterSetWithCharactersInString:@".,?\"!@#$%^&*()-+/\\<>\'~`[]|{}=:;_€£¥•ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0"];
+            
+            // If the new entry in the integer field is valid, update the stepper value, else set stepper value to text as double minus bad character
+            if ( string.length > 0 && ![badCharacters characterIsMember:[string characterAtIndex:0]] && textField.tag == 0 )
+                [stepper1 setValue:[[textField1.text stringByAppendingString:string] doubleValue]];
+            else if( string.length <= 0 && textField.tag == 0 )
+                [stepper1 setValue:[[textField1.text substringToIndex:textField1.text.length-1] doubleValue]];
+        }
+        else    // Else, the field must be one taking text, so only allow uppper and lowercase characters
+            badCharacters = [NSCharacterSet characterSetWithCharactersInString:@".,?\"!@#$%^&*()-+/\\<>\'~`[]|{}=:;_€£¥•1234567890"];
+        
+        // Don't allow change to field if no text entered or the character is bad
+        if( string.length > 0 && [badCharacters characterIsMember:[string characterAtIndex:0]] )
+            return NO;
+    }
+    
+    return YES;
 }
 
 - (void)recallOptions
