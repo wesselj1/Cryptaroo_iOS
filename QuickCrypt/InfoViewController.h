@@ -10,7 +10,7 @@
 
 @interface InfoViewController : UIViewController
 {
-    IBOutlet UITextView *textView;
+    IBOutlet UITextView *textView;  // TextView where information about the app is displayed
 }
 
 @property (nonatomic, strong) UITextView *textView;
