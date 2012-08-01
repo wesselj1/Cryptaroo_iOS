@@ -25,11 +25,10 @@
 }
 
 @property (nonatomic, strong) UIStepper *stepper1;
-@property (nonatomic, strong) UITextField *textFiedl1;
+@property (nonatomic, strong) UITextField *textField1;
 @property (nonatomic, strong) UITextField *textField2;
 @property (nonatomic, strong) UITextField *textField3;
 @property (nonatomic, strong) UIPickerView *picker1;
-@property (nonatomic, strong) UIButton *checkBox;
 @property (nonatomic, strong) UIView *optionsViewMat;
 @property (nonatomic, strong) UILabel *label1;
 @property (nonatomic, strong) UILabel *label2;
