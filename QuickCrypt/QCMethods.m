@@ -279,8 +279,8 @@ static char tabulaRecta[26][26] = {
                         if( tabulaRecta[ [s1 characterAtIndex:(t%s1.length)] - 'A' ][w] == [tempString characterAtIndex:t] )
                             outputString = [outputString stringByAppendingFormat:@"%c", tabulaRecta[0][w]];
                     }
-                    if( outputString.length > 0 )
-                    s1 = [s1 stringByAppendingFormat:@"%c", [outputString characterAtIndex:t]];
+                    if( outputString.length > 0 & t < outputString.length )
+                        s1 = [s1 stringByAppendingFormat:@"%c", [outputString characterAtIndex:t]];
                     s1 = [s1 uppercaseString];
                 }
 
@@ -429,7 +429,7 @@ static char tabulaRecta[26][26] = {
     double array[256];
     double friedman = 0;
     int spinnerValue = size;
-    NSString *resultString = [NSString stringWithString:@".065 = Monoalphabetic, .038 means polyalphabetic.\n\n"];
+    NSString *resultString = @".065 = Monoalphabetic, .038 means polyalphabetic.\n\n";
     
     for (int z = 0; z < spinnerValue; z++) {
         tempString = @"";
@@ -477,7 +477,7 @@ static char tabulaRecta[26][26] = {
     if( wordLength != 0 )
     {
         for( int x = 0; x < wordLength; x++ )
-            [strings addObject:[NSString stringWithString:@""]];
+            [strings addObject:@""];
         
         for( int x = 0; x < [inputString length]; x++ )
             [strings replaceObjectAtIndex:x%wordLength withObject:[[strings objectAtIndex:x%wordLength] stringByAppendingFormat:@"%c", [inputString characterAtIndex:x]]];

@@ -51,6 +51,8 @@
 @synthesize multipliers;
 @synthesize td;
 
+
+#pragma mark - View Lifecycle Methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forMethod:(QCCryptoMethod)method withOptions:(NSMutableArray *)optionsA
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -114,6 +116,8 @@
     [self getOptionsAndSave];   // Save the options
 }
 
+
+#pragma mark - Rotation Methods
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -125,13 +129,55 @@
     textField1.text = [NSString stringWithFormat:@"%.f", stepperValue];
 }
 
-- (IBAction)dismissKeyboard:(id)sender
+
+#pragma mark - Set Option Titles
+- (void)setOptionTitlesArray;
 {
-    [textField1 resignFirstResponder];
-    [textField2 resignFirstResponder];
-    [textField3 resignFirstResponder];
+    switch ( cryptoMethod )
+    {
+        case QCNGraphs:
+            optionTitles = [NSMutableArray arrayWithObjects:@"Length of NGraph:", nil];
+            break;
+        case QCAffineKnownPlaintextAttack:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", @"Shift First:", nil];
+            break;
+        case QCAffineEncipher:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Multiplicative Shift:", @"Additive Shift:", nil];
+            break;
+        case QCAffineDecipher:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Multiplicative Shift:", @"Additive Shift:", nil];
+            break;
+        case QCSplitOffAlphabets:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Wordlength:", nil];
+            break;
+        case QCPolyMonoCalculator:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword Size:", nil];
+            break;
+        case QCViginereEncipher:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", nil];
+            break;
+        case QCViginereDecipher:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", nil];
+            break;
+        case QCAutokeyCyphertextAttack:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword Length:", nil];
+            break;
+        case QCAutokeyPlaintextAttack:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Max Keyword Length:", @"Friedman Range:", nil];
+            break;
+        case QCAutokeyDecipher:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", @"PlainText:", nil];
+            break;
+        case QCGCDAndInverse:
+            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Inverse of:", @"Mod:", nil];
+            break;
+        default:
+            break;
+    }
 }
 
+
+#pragma mark - TextField Delegate Methods
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -158,7 +204,7 @@
         // Else if it is one of the integer fields only only integers
         else if( cryptoMethod == QCNGraphs || cryptoMethod == QCSplitOffAlphabets || cryptoMethod == QCPolyMonoCalculator || cryptoMethod == QCAutokeyCyphertextAttack || cryptoMethod == QCAutokeyPlaintextAttack || cryptoMethod == QCGCDAndInverse )
         {
-            badCharacters = [NSMutableCharacterSet characterSetWithCharactersInString:@".,?\"!@#$%^&*()-+/\\<>\'~`[]|{}=:;_€£¥•ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0"];
+            badCharacters = [NSMutableCharacterSet characterSetWithCharactersInString:@".,?\"!@#$%^&*()-+/\\<>\'~`[]|{}=:;_€£¥•ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
             
             // If the new entry in the integer field is valid, update the stepper value, else set stepper value to text as double minus bad character
             if ( string.length > 0 && ![badCharacters characterIsMember:[string characterAtIndex:0]] && textField.tag == 0 )
@@ -177,6 +223,8 @@
     return YES;
 }
 
+
+#pragma mark - Option Handling Methods
 - (void)recallOptions
 {
     if( _options && [_options count] > 0 )
@@ -289,51 +337,8 @@
     [td.optionsList replaceObjectAtIndex:cryptoMethod withObject:_options];
 }
 
-- (void)setOptionTitlesArray;
-{
-    switch ( cryptoMethod )
-    {
-        case QCNGraphs:
-            optionTitles = [NSMutableArray arrayWithObjects:@"Length of NGraph:", nil];
-            break;
-        case QCAffineKnownPlaintextAttack:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", @"Shift First:", nil];
-            break;
-        case QCAffineEncipher:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Multiplicative Shift:", @"Additive Shift:", nil];
-            break;
-        case QCAffineDecipher:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Multiplicative Shift:", @"Additive Shift:", nil];
-            break;
-        case QCSplitOffAlphabets:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Wordlength:", nil];
-            break;
-        case QCPolyMonoCalculator:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword Size:", nil];
-            break;
-        case QCViginereEncipher:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", nil];
-            break;
-        case QCViginereDecipher:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", nil];
-            break;
-        case QCAutokeyCyphertextAttack:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword Length:", nil];
-            break;
-        case QCAutokeyPlaintextAttack:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Max Keyword Length:", @"Friedman Range:", nil];
-            break;
-        case QCAutokeyDecipher:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", @"PlainText:", nil];
-            break;
-        case QCGCDAndInverse:
-            optionTitles = [[NSMutableArray alloc] initWithObjects:@"Inverse of:", @"Mod:", nil];            
-            break;
-        default:
-            break;
-    }
-}
 
+#pragma mark - Picker Delegate methods
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {   
     return 2;

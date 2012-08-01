@@ -31,7 +31,7 @@ static TextData *textData = nil;
 {
     if (( self = [super init] ))
     {
-        inputString = [[NSString alloc] initWithString:@""];
+        inputString = @"";
         inputArray = [[NSMutableArray alloc] init];
         outputArray = [[NSMutableArray alloc] init];
         optionsList = [[NSMutableArray alloc] init];
