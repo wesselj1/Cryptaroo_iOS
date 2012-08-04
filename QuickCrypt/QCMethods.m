@@ -5,6 +5,12 @@
 //  Created by build on 4/24/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+//  NOTE: This class is nearly a literal translation of Gary Watson's methods used in CryptoHelper. 
+//  Therefore there will not be much documentation at all beyond identifying the methods.
+//
+//  The algorithm Gary uses for getting the GCD and inverse of a integer in a particular modulus field is
+//  not entirely correct and has some errors. In the future I would like to resolve this issue with a
+//  new algorithm or correcting Gary's.
 
 #import "QCMethods.h"
 #import <math.h>
@@ -100,6 +106,7 @@
 
 @implementation QCMethods
 
+// This is referenced by many of the methods
 static char tabulaRecta[26][26] = {
     {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'},
     {'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A'},
