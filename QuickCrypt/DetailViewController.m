@@ -664,7 +664,7 @@
         BOOL valid_options = YES; // Tracks if the options are valid (or rather all have been set), default assume yes
         
          // The following methods do not have any options to set
-        if( ( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) || ( _cryptoMethod == QCGCDAndInverse && td.inputArray.count > 1 ) )
+        if( ( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) || ( _cryptoMethod == QCGCDAndInverse ) )
             valid_options = YES;
         else
         {

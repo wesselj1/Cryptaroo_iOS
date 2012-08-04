@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B1DE75D159CA49500D9C76F /* DetailView4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B1DE75C159CA49500D9C76F /* DetailView4.xib */; };
-		1B1E75BF155D5F7F009144C2 /* HelpData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1E75BE155D5F7F009144C2 /* HelpData.m */; };
 		1B27FE171562F5E700C85ABD /* DetailView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27FE161562F5E700C85ABD /* DetailView1.xib */; };
 		1B27FE1C1562F60500C85ABD /* DetailView3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27FE1B1562F60500C85ABD /* DetailView3.xib */; };
 		1B27FE201562F61600C85ABD /* DetailView5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27FE1F1562F61600C85ABD /* DetailView5.xib */; };
@@ -71,8 +70,6 @@
 
 /* Begin PBXFileReference section */
 		1B1DE75C159CA49500D9C76F /* DetailView4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView4.xib; sourceTree = "<group>"; };
-		1B1E75BD155D5F7F009144C2 /* HelpData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpData.h; sourceTree = "<group>"; };
-		1B1E75BE155D5F7F009144C2 /* HelpData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpData.m; sourceTree = "<group>"; };
 		1B27FE161562F5E700C85ABD /* DetailView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView1.xib; sourceTree = "<group>"; };
 		1B27FE1B1562F60500C85ABD /* DetailView3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView3.xib; sourceTree = "<group>"; };
 		1B27FE1F1562F61600C85ABD /* DetailView5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView5.xib; sourceTree = "<group>"; };
@@ -299,8 +296,6 @@
 				1BFB86A71547455900F29AEB /* QCMethods.m */,
 				1BEE7CED155064A800DFCD13 /* TextData.h */,
 				1BEE7CEE155064A800DFCD13 /* TextData.m */,
-				1B1E75BD155D5F7F009144C2 /* HelpData.h */,
-				1B1E75BE155D5F7F009144C2 /* HelpData.m */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -437,7 +432,6 @@
 				1BB5237F15544E0E00697B38 /* GCDandInverseViewController.m in Sources */,
 				1B817271155992A600EDF0E0 /* SSTextView.m in Sources */,
 				1B524AF3155C449600E8446E /* InfoViewController.m in Sources */,
-				1B1E75BF155D5F7F009144C2 /* HelpData.m in Sources */,
 				1B2F1F621562A1B0003A45A8 /* DetailViewController.m in Sources */,
 				1B2F1F671562A488003A45A8 /* RootViewControlleriPad.m in Sources */,
 			);

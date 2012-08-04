@@ -15,12 +15,11 @@ static TextData *textData = nil;
 @synthesize outputArray;
 @synthesize inputString;
 @synthesize optionsList;
-@synthesize inputArray;
 
 + (id)textDataManager
 {
     @synchronized(self)
-    {
+    {   // If there is not already an instance of TextData, create one
         if(textData == nil)
             textData = [[self alloc] init];
     }
@@ -31,11 +30,13 @@ static TextData *textData = nil;
 {
     if (( self = [super init] ))
     {
+        // Initialize strings and arrays
         inputString = @"";
-        inputArray = [[NSMutableArray alloc] init];
         outputArray = [[NSMutableArray alloc] init];
         optionsList = [[NSMutableArray alloc] init];
         
+        
+        // Prepare the default options list
         [optionsList addObjectsFromArray:[NSArray arrayWithObjects:
                                           [[NSArray alloc] init], 
                                           [[NSArray alloc] init], 
@@ -54,6 +55,7 @@ static TextData *textData = nil;
                                           [NSArray arrayWithObjects:@"", [NSNumber numberWithBool:NO], nil],
                                           [NSArray arrayWithObjects:@"1", @"26", nil], nil]];
         
+        // Fill output array with empty strings for initial TextData instance
         for( int i = 0; i < 16; i++ )
             [outputArray addObject:@""];
     }

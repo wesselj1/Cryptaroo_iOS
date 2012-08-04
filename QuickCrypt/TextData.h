@@ -10,16 +10,14 @@
 
 @interface TextData : NSObject
 {
-    NSMutableArray *outputArray;
-    NSString *inputString;
+    NSMutableArray *outputArray; // The array of output text for each QCMethodType's screen
+    NSString *inputString;       // The input string from the user. Persistent across each method.
     NSMutableArray *optionsList; // Contains list of options for each QCMethodType
-    NSMutableArray *inputArray;
 }
 
 @property (nonatomic, strong) NSMutableArray *outputArray;
 @property (nonatomic, strong) NSString *inputString;
 @property (nonatomic, strong) NSMutableArray *optionsList;
-@property (nonatomic, strong) NSMutableArray *inputArray; // Array of input for GCDandInverse method
 
 + (id)textDataManager;
 
