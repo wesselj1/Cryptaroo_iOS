@@ -66,6 +66,10 @@
 		1BFB86A81547455900F29AEB /* QCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB86A71547455900F29AEB /* QCMethods.m */; };
 		CCD1F21A15B06B9A00CAED57 /* DetailView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD1F21915B06B9A00CAED57 /* DetailView2.xib */; };
 		CCD701BA15B71BDC004685D9 /* UIButtonBarHelp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCD701B815B71BDC004685D9 /* UIButtonBarHelp@2x.png */; };
+		CCF99FED15CEFB3F00242F65 /* kangakey_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF99FEC15CEFB3F00242F65 /* kangakey_ipad.png */; };
+		CCF99FF015CEFB4700242F65 /* kangakey_ipadretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF99FEF15CEFB4700242F65 /* kangakey_ipadretina.png */; };
+		CCF99FF215CEFB5200242F65 /* kangakey_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF99FF115CEFB5200242F65 /* kangakey_iphone.png */; };
+		CCF99FF415CEFB5500242F65 /* kangakey_iphoneretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF99FF315CEFB5500242F65 /* kangakey_iphoneretina.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +150,10 @@
 		1BFB86A71547455900F29AEB /* QCMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCMethods.m; sourceTree = "<group>"; };
 		CCD1F21915B06B9A00CAED57 /* DetailView2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView2.xib; sourceTree = "<group>"; };
 		CCD701B815B71BDC004685D9 /* UIButtonBarHelp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarHelp@2x.png"; sourceTree = "<group>"; };
+		CCF99FEC15CEFB3F00242F65 /* kangakey_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kangakey_ipad.png; sourceTree = "<group>"; };
+		CCF99FEF15CEFB4700242F65 /* kangakey_ipadretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kangakey_ipadretina.png; sourceTree = "<group>"; };
+		CCF99FF115CEFB5200242F65 /* kangakey_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kangakey_iphone.png; sourceTree = "<group>"; };
+		CCF99FF315CEFB5500242F65 /* kangakey_iphoneretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kangakey_iphoneretina.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +192,10 @@
 		1B8EA98F153C7B8E009EFF27 = {
 			isa = PBXGroup;
 			children = (
+				CCF99FF315CEFB5500242F65 /* kangakey_iphoneretina.png */,
+				CCF99FF115CEFB5200242F65 /* kangakey_iphone.png */,
+				CCF99FEF15CEFB4700242F65 /* kangakey_ipadretina.png */,
+				CCF99FEC15CEFB3F00242F65 /* kangakey_ipad.png */,
 				1B8EA9A4153C7B8E009EFF27 /* QuickCrypt */,
 				1B8EA99D153C7B8E009EFF27 /* Frameworks */,
 				1B8EA99B153C7B8E009EFF27 /* Products */,
@@ -408,6 +420,10 @@
 				CCD701BA15B71BDC004685D9 /* UIButtonBarHelp@2x.png in Resources */,
 				1B420F2C15B899FE001146CA /* UIButtonBarHelp2.png in Resources */,
 				1B420F2D15B899FE001146CA /* UIButtonBarHelp2@2x.png in Resources */,
+				CCF99FED15CEFB3F00242F65 /* kangakey_ipad.png in Resources */,
+				CCF99FF015CEFB4700242F65 /* kangakey_ipadretina.png in Resources */,
+				CCF99FF215CEFB5200242F65 /* kangakey_iphone.png in Resources */,
+				CCF99FF415CEFB5500242F65 /* kangakey_iphoneretina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
