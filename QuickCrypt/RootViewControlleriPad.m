@@ -66,7 +66,8 @@
                         nil];
     
     self.clearsSelectionOnViewWillAppear = NO;
-    self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0); // Size for the view when in popover
+    self.tableView.scrollEnabled = NO;
+    self.contentSizeForViewInPopover = CGSizeMake(320.0, 704.0); // Size for the view when in popover
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -97,7 +98,7 @@
 {
     // The tableview should only be scrollable if in portrait, because the current number of methods conveniently happens to fit perfectly in landscape
     if( UIDeviceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) )
-        self.tableView.scrollEnabled = YES;
+        self.tableView.scrollEnabled = NO;
     else
         self.tableView.scrollEnabled = NO;
 }

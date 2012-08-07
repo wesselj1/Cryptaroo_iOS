@@ -667,30 +667,22 @@
         if( ( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) || ( _cryptoMethod == QCGCDAndInverse ) )
             valid_options = YES;
         else
-        {
-//            BOOL valid_options = YES;
-            
-//            if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs )
-//                valid_options = YES;
-//            else
-//            {
-            
+        {            
             // If the options array exist and is not empty
-                if( _optionsAry && [_optionsAry count] > 0 )
-                {
-                    for( int x = 0; x < [_optionsAry count]; x++ )
-                    {   // Loop through each of the options
-                        if( [[_optionsAry objectAtIndex:x] isKindOfClass:[NSArray class]] )
-                        {   // Check if the option is an array that it is not empty
-                            if( [[_optionsAry objectAtIndex:x] count] == 0 )
-                                valid_options = NO; // If any array in the options is empty then valid options is NO
-                        }                        
-                    }
-                    
+            if( _optionsAry && [_optionsAry count] > 0 )
+            {
+                for( int x = 0; x < [_optionsAry count]; x++ )
+                {   // Loop through each of the options
+                    if( [[_optionsAry objectAtIndex:x] isKindOfClass:[NSArray class]] )
+                    {   // Check if the option is an array that it is not empty
+                        if( [[_optionsAry objectAtIndex:x] count] == 0 )
+                            valid_options = NO; // If any array in the options is empty then valid options is NO
+                    }                        
                 }
-                else
-                    valid_options = NO;
-//            }
+                
+            }
+            else
+                valid_options = NO;
         }
         
         if( valid_options )
