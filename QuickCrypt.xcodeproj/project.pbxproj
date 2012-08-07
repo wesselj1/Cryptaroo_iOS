@@ -356,7 +356,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CAI;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 1B8EA994153C7B8E009EFF27 /* Build configuration list for PBXProject "QuickCrypt" */;
 			compatibilityVersion = "Xcode 3.2";

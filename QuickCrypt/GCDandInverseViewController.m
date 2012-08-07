@@ -153,7 +153,7 @@
 		[doneButton setImage:[UIImage imageNamed:@"DoneUp.png"] forState:UIControlStateNormal];
 		[doneButton setImage:[UIImage imageNamed:@"DoneDown.png"] forState:UIControlStateHighlighted];
 	}
-	[doneButton addTarget:self action:@selector(doneButton:) forControlEvents:UIControlEventTouchUpInside];
+	[doneButton addTarget:self action:@selector(dismissKeyboard:) forControlEvents:UIControlEventTouchUpInside];
 	// locate keyboard view
 	UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
 	UIView* keyboard;
@@ -184,7 +184,7 @@
     }
 }
 
-- (IBAction)dismissKeyboard:(id)sender
+- (void)dismissKeyboard:(id)sender
 {
     [_inverseOfField resignFirstResponder];
     [_modField resignFirstResponder];
