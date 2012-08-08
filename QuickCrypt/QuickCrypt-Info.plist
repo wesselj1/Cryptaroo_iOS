@@ -14,10 +14,11 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>kangakey_ipad.png</string>
+				<string>kangakey_ipad12.png</string>
 				<string>kangakey_ipadretina.png</string>
 				<string>kangakey_iphone.png</string>
 				<string>kangakey_iphoneretina.png</string>
+				<string>kangakey_ipad.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
