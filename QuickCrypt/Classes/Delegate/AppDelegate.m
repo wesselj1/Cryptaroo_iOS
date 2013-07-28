@@ -1,18 +1,18 @@
 //
-//  CAIAppDelegate.m
+//  AppDelegate.m
 //  Cryptaroo
 //
 //  Created by build on 4/16/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CAIAppDelegate.h"
+#import "AppDelegate.h"
 #import "RootViewControlleriPhone.h"
 #import "RootViewControlleriPad.h"
 #import "DetailViewController.h"
 #import "InfoViewController.h"
 
-@implementation CAIAppDelegate
+@implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize navController = _navController;
@@ -26,10 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Set Navigation and Toolbar appearance to be grayish black color
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithWhite:.25 alpha:1]];
-    [[UIToolbar appearance] setTintColor:[UIColor colorWithWhite:.25 alpha:1]];
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // If the user is using an iPad device

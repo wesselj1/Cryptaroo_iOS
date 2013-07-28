@@ -8,7 +8,7 @@
 
 #import "DetailViewController.h"
 #import "InfoViewController.h"
-#import "CAIAppDelegate.h"
+#import "AppDelegate.h"
 
 @interface DetailViewController ()
 {
@@ -19,7 +19,7 @@
                                  when keyboard is displayed */
 }
 @property (nonatomic, strong) TextData *td;
-@property (nonatomic, strong) CAIAppDelegate *appDelegate;
+@property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) NSMutableArray *optionsAry;
 @property (nonatomic, strong) UIView *activeField;
                    
@@ -80,7 +80,7 @@
     
     // Get references to our textData singleton and the application delegate
     td = [TextData textDataManager];
-    self.appDelegate = (CAIAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     // Pull the array of options for this crypto method from our textData instance
     _optionsAry = [td.optionsList objectAtIndex:_cryptoMethod];

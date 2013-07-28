@@ -1,5 +1,5 @@
 //
-//  CAIAppDelegate.h
+//  AppDelegate.h
 //  QuickCrypt
 //
 //  Created by build on 4/16/12.
@@ -14,7 +14,7 @@
 @class RootViewControlleriPhone;
 @class DetailViewController;
 
-@interface CAIAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
 }
 

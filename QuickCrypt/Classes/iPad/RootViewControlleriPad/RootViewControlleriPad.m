@@ -10,14 +10,14 @@
 #import "DetailViewController.h"
 #import "KSCustomPopoverBackgroundView.h"
 #import "MGSplitViewController.h"
-#import "CAIAppDelegate.h"
+#import "AppDelegate.h"
 #import "InfoViewController.h"
 
 @interface RootViewControlleriPad ()
 {
 }
 @property (nonatomic, strong) MGSplitViewController *splitViewController;   // Reference to the splitViewController
-@property (nonatomic, strong) CAIAppDelegate *appDelegate;                  // Reference to our application delegate
+@property (nonatomic, strong) AppDelegate *appDelegate;                  // Reference to our application delegate
 
 @end
 
@@ -44,7 +44,7 @@
     [super viewDidLoad];
     
     // Get a referece to our application delegate
-    self.appDelegate = (CAIAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
     // Array of current cryptology methods supported by app (used to populate the table view
     _aryCryptoMethods = [NSArray arrayWithObjects:@"Frequency Count",

@@ -35,6 +35,7 @@
 @synthesize computeButton = _computeButton;
 @synthesize optionButton = _optionButton;
 @synthesize cryptoMethod = _cryptoMethod;
+@synthesize divider = _divider;
 @synthesize td;
 
 - (id)initWithCryptoType:(QCCryptoMethod)method
@@ -61,18 +62,13 @@
     UIImage *whiteButtonImage = [[UIImage imageNamed:@"whiteButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
     [_optionButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
     
+    // Set the divider color
+    _divider.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
     
     // The following methods do not have options to set
     if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs )
         _optionButton.enabled = NO;
     
-    
-    // Make our input and output textViews look pretty with rounded corners
-    _inputText.layer.cornerRadius = 5;
-    _inputText.clipsToBounds = YES;
-    
-    _outputText.layer.cornerRadius = 5;
-    _outputText.clipsToBounds = YES;
     
     // Set the placeholders for our textViews
     [_inputText setPlaceholder:@"Input Text"];
@@ -82,15 +78,20 @@
     _inputText.text = td.inputString;
     [_outputText setText:[td.outputArray objectAtIndex:_cryptoMethod]];
     
-    
     // Set the back button for the navbar
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [back setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"Fairview-SmallCaps" size:20.0]} forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -2.0) forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setBackBarButtonItem:back];
     
     // Create the info button
     UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
     [infoBtn addTarget:self action:@selector(infoButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
+    
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    space.width = 10.0f;
+    self.navigationItem.rightBarButtonItems = @[space, infoBarButtonItem];
     
     
     // Set the compute button's title
