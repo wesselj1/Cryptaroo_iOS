@@ -60,8 +60,6 @@
 		CC36EE1C16BA1F4C009C3CDA /* DoneDown3.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE1816BA1F4C009C3CDA /* DoneDown3.png */; };
 		CC36EE1D16BA1F4C009C3CDA /* DoneUp.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE1916BA1F4C009C3CDA /* DoneUp.png */; };
 		CC36EE1E16BA1F4C009C3CDA /* DoneUp3.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE1A16BA1F4C009C3CDA /* DoneUp3.png */; };
-		CC36EE2216BA1F88009C3CDA /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE2016BA1F88009C3CDA /* blueButton.png */; };
-		CC36EE2316BA1F88009C3CDA /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE2116BA1F88009C3CDA /* whiteButton.png */; };
 		CC36EE2A16BA1FE2009C3CDA /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE2816BA1FE2009C3CDA /* InfoViewController.m */; };
 		CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE2916BA1FE2009C3CDA /* InfoViewController.xib */; };
 		CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE2D16BA1FED009C3CDA /* QCMethods.m */; };
@@ -70,10 +68,20 @@
 		CC36EE3816BA207A009C3CDA /* kangakey_ipadretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE3416BA207A009C3CDA /* kangakey_ipadretina.png */; };
 		CC36EE3916BA207A009C3CDA /* kangakey_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE3516BA207A009C3CDA /* kangakey_iphone.png */; };
 		CC36EE3A16BA207A009C3CDA /* kangakey_iphoneretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE3616BA207A009C3CDA /* kangakey_iphoneretina.png */; };
+		CC5B588817A61F56002062F9 /* UIViewController+overView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B588717A61F56002062F9 /* UIViewController+overView.m */; };
+		CC5B588B17A62575002062F9 /* QCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B588A17A62575002062F9 /* QCLabel.m */; };
+		CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6F621C17A5C8F500187A71 /* QCButton.m */; };
+		CC6F624017A5D4B700187A71 /* qc_button_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623A17A5D4B700187A71 /* qc_button_disabled.png */; };
+		CC6F624117A5D4B700187A71 /* qc_button_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623B17A5D4B700187A71 /* qc_button_disabled@2x.png */; };
+		CC6F624217A5D4B700187A71 /* qc_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623C17A5D4B700187A71 /* qc_button_pressed.png */; };
+		CC6F624317A5D4B700187A71 /* qc_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623D17A5D4B700187A71 /* qc_button_pressed@2x.png */; };
+		CC6F624417A5D4B700187A71 /* qc_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623E17A5D4B700187A71 /* qc_button.png */; };
+		CC6F624517A5D4B700187A71 /* qc_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623F17A5D4B700187A71 /* qc_button@2x.png */; };
 		CCBDD62E1619E2970030B5F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */; };
 		CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE5910E17A4C36500AB5765 /* Fonts.m */; };
 		CCEC063217A506CF00550105 /* fairview_regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCEC063017A506CF00550105 /* fairview_regular.otf */; };
 		CCEC063317A506CF00550105 /* fairview_smallcaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCEC063117A506CF00550105 /* fairview_smallcaps.otf */; };
+		CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,8 +153,6 @@
 		CC36EE1816BA1F4C009C3CDA /* DoneDown3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneDown3.png; path = "Supporting Files/DoneButtonImages/DoneDown3.png"; sourceTree = "<group>"; };
 		CC36EE1916BA1F4C009C3CDA /* DoneUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneUp.png; path = "Supporting Files/DoneButtonImages/DoneUp.png"; sourceTree = "<group>"; };
 		CC36EE1A16BA1F4C009C3CDA /* DoneUp3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoneUp3.png; path = "Supporting Files/DoneButtonImages/DoneUp3.png"; sourceTree = "<group>"; };
-		CC36EE2016BA1F88009C3CDA /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueButton.png; path = "Supporting Files/ButtonImages/blueButton.png"; sourceTree = "<group>"; };
-		CC36EE2116BA1F88009C3CDA /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteButton.png; path = "Supporting Files/ButtonImages/whiteButton.png"; sourceTree = "<group>"; };
 		CC36EE2716BA1FE2009C3CDA /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoViewController.h; path = Classes/Shared/InfoViewController/InfoViewController.h; sourceTree = "<group>"; };
 		CC36EE2816BA1FE2009C3CDA /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoViewController.m; path = Classes/Shared/InfoViewController/InfoViewController.m; sourceTree = "<group>"; };
 		CC36EE2916BA1FE2009C3CDA /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InfoViewController.xib; path = Classes/Shared/InfoViewController/InfoViewController.xib; sourceTree = "<group>"; };
@@ -158,11 +164,25 @@
 		CC36EE3416BA207A009C3CDA /* kangakey_ipadretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kangakey_ipadretina.png; path = "App Icons/kangakey_ipadretina.png"; sourceTree = "<group>"; };
 		CC36EE3516BA207A009C3CDA /* kangakey_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kangakey_iphone.png; path = "App Icons/kangakey_iphone.png"; sourceTree = "<group>"; };
 		CC36EE3616BA207A009C3CDA /* kangakey_iphoneretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kangakey_iphoneretina.png; path = "App Icons/kangakey_iphoneretina.png"; sourceTree = "<group>"; };
+		CC5B588617A61F56002062F9 /* UIViewController+overView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+overView.h"; path = "External Classes/UIViewController+overView.h"; sourceTree = "<group>"; };
+		CC5B588717A61F56002062F9 /* UIViewController+overView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+overView.m"; path = "External Classes/UIViewController+overView.m"; sourceTree = "<group>"; };
+		CC5B588917A62575002062F9 /* QCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCLabel.h; path = Classes/iPhone/OptionsViewController/QCLabel.h; sourceTree = "<group>"; };
+		CC5B588A17A62575002062F9 /* QCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCLabel.m; path = Classes/iPhone/OptionsViewController/QCLabel.m; sourceTree = "<group>"; };
+		CC6F621B17A5C8F500187A71 /* QCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCButton.h; path = Classes/iPhone/CryptToolViewController/QCButton.h; sourceTree = "<group>"; };
+		CC6F621C17A5C8F500187A71 /* QCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCButton.m; path = Classes/iPhone/CryptToolViewController/QCButton.m; sourceTree = "<group>"; };
+		CC6F623A17A5D4B700187A71 /* qc_button_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qc_button_disabled.png; path = "Supporting Files/ButtonImages/qc_button_disabled.png"; sourceTree = "<group>"; };
+		CC6F623B17A5D4B700187A71 /* qc_button_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button_disabled@2x.png"; path = "Supporting Files/ButtonImages/qc_button_disabled@2x.png"; sourceTree = "<group>"; };
+		CC6F623C17A5D4B700187A71 /* qc_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qc_button_pressed.png; path = "Supporting Files/ButtonImages/qc_button_pressed.png"; sourceTree = "<group>"; };
+		CC6F623D17A5D4B700187A71 /* qc_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button_pressed@2x.png"; path = "Supporting Files/ButtonImages/qc_button_pressed@2x.png"; sourceTree = "<group>"; };
+		CC6F623E17A5D4B700187A71 /* qc_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qc_button.png; path = "Supporting Files/ButtonImages/qc_button.png"; sourceTree = "<group>"; };
+		CC6F623F17A5D4B700187A71 /* qc_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button@2x.png"; path = "Supporting Files/ButtonImages/qc_button@2x.png"; sourceTree = "<group>"; };
 		CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CCE5910D17A4C36500AB5765 /* Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fonts.h; path = Classes/iPhone/Fonts.h; sourceTree = "<group>"; };
 		CCE5910E17A4C36500AB5765 /* Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fonts.m; path = Classes/iPhone/Fonts.m; sourceTree = "<group>"; };
 		CCEC063017A506CF00550105 /* fairview_regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fairview_regular.otf; sourceTree = "<group>"; };
 		CCEC063117A506CF00550105 /* fairview_smallcaps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fairview_smallcaps.otf; sourceTree = "<group>"; };
+		CCEC063517A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h"; sourceTree = "<group>"; };
+		CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +202,8 @@
 		1B81726E1559919500EDF0E0 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				CC5B588517A61EF6002062F9 /* UIViewController+OverView */,
+				CCEC063417A50B7300550105 /* UITableViewCellCategory */,
 				CC36EDF516BA1E36009C3CDA /* SSTextView */,
 				CC36EDEB16BA1E11009C3CDA /* MGSplitViewController */,
 				CC36EDE716BA1DB2009C3CDA /* KSCustomPopoverBackgroundView */,
@@ -315,6 +337,8 @@
 				CC36EDB216BA1BC8009C3CDA /* CryptToolViewController.h */,
 				CC36EDB316BA1BC8009C3CDA /* CryptToolViewController.m */,
 				CC36EDB416BA1BC8009C3CDA /* CryptToolViewController.xib */,
+				CC6F621B17A5C8F500187A71 /* QCButton.h */,
+				CC6F621C17A5C8F500187A71 /* QCButton.m */,
 			);
 			name = CryptToolViewController;
 			sourceTree = "<group>";
@@ -330,6 +354,8 @@
 				CC36EDBD16BA1C09009C3CDA /* OptionsSet6.xib */,
 				CC36EDBE16BA1C09009C3CDA /* OptionsViewController.h */,
 				CC36EDBF16BA1C09009C3CDA /* OptionsViewController.m */,
+				CC5B588917A62575002062F9 /* QCLabel.h */,
+				CC5B588A17A62575002062F9 /* QCLabel.m */,
 			);
 			name = OptionsViewController;
 			sourceTree = "<group>";
@@ -434,8 +460,12 @@
 		CC36EE1F16BA1F74009C3CDA /* ButtonImages */ = {
 			isa = PBXGroup;
 			children = (
-				CC36EE2016BA1F88009C3CDA /* blueButton.png */,
-				CC36EE2116BA1F88009C3CDA /* whiteButton.png */,
+				CC6F623A17A5D4B700187A71 /* qc_button_disabled.png */,
+				CC6F623B17A5D4B700187A71 /* qc_button_disabled@2x.png */,
+				CC6F623C17A5D4B700187A71 /* qc_button_pressed.png */,
+				CC6F623D17A5D4B700187A71 /* qc_button_pressed@2x.png */,
+				CC6F623E17A5D4B700187A71 /* qc_button.png */,
+				CC6F623F17A5D4B700187A71 /* qc_button@2x.png */,
 			);
 			name = ButtonImages;
 			sourceTree = "<group>";
@@ -477,6 +507,24 @@
 				CC36EE3616BA207A009C3CDA /* kangakey_iphoneretina.png */,
 			);
 			name = "App Icons";
+			sourceTree = "<group>";
+		};
+		CC5B588517A61EF6002062F9 /* UIViewController+OverView */ = {
+			isa = PBXGroup;
+			children = (
+				CC5B588617A61F56002062F9 /* UIViewController+overView.h */,
+				CC5B588717A61F56002062F9 /* UIViewController+overView.m */,
+			);
+			name = "UIViewController+OverView";
+			sourceTree = "<group>";
+		};
+		CCEC063417A50B7300550105 /* UITableViewCellCategory */ = {
+			isa = PBXGroup;
+			children = (
+				CCEC063517A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h */,
+				CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */,
+			);
+			name = UITableViewCellCategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -567,8 +615,6 @@
 				CC36EE1C16BA1F4C009C3CDA /* DoneDown3.png in Resources */,
 				CC36EE1D16BA1F4C009C3CDA /* DoneUp.png in Resources */,
 				CC36EE1E16BA1F4C009C3CDA /* DoneUp3.png in Resources */,
-				CC36EE2216BA1F88009C3CDA /* blueButton.png in Resources */,
-				CC36EE2316BA1F88009C3CDA /* whiteButton.png in Resources */,
 				CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */,
 				CC36EE3716BA207A009C3CDA /* kangakey_ipad.png in Resources */,
 				CC36EE3816BA207A009C3CDA /* kangakey_ipadretina.png in Resources */,
@@ -577,6 +623,12 @@
 				CC2742B317A4B83900539268 /* CustomTableViewCell.xib in Resources */,
 				CCEC063217A506CF00550105 /* fairview_regular.otf in Resources */,
 				CCEC063317A506CF00550105 /* fairview_smallcaps.otf in Resources */,
+				CC6F624017A5D4B700187A71 /* qc_button_disabled.png in Resources */,
+				CC6F624117A5D4B700187A71 /* qc_button_disabled@2x.png in Resources */,
+				CC6F624217A5D4B700187A71 /* qc_button_pressed.png in Resources */,
+				CC6F624317A5D4B700187A71 /* qc_button_pressed@2x.png in Resources */,
+				CC6F624417A5D4B700187A71 /* qc_button.png in Resources */,
+				CC6F624517A5D4B700187A71 /* qc_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +656,10 @@
 				CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */,
 				CC36EE3116BA1FF8009C3CDA /* TextData.m in Sources */,
 				CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */,
+				CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */,
+				CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */,
+				CC5B588817A61F56002062F9 /* UIViewController+overView.m in Sources */,
+				CC5B588B17A62575002062F9 /* QCLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

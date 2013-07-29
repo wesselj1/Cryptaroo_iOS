@@ -8,6 +8,7 @@
 
 #import "optionsViewController.h"
 #import "CryptToolViewController.h"
+#import "QCLabel.h"
 
 #define kMultiplierComponent 0
 #define kAditiveComponent 1
@@ -48,6 +49,7 @@
 @synthesize optionsTitles = _optionsTitles;
 @synthesize additives = _additives;
 @synthesize multipliers = _multipliers;
+@synthesize buttonDivider = _buttonDivider;
 @synthesize td;
 
 
@@ -77,9 +79,8 @@
         _additives = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", nil];
     }
 
-    // Round the corners of the options view mat so it looks prettier
-    _optionsViewMat.layer.cornerRadius = 5;
-    _optionsViewMat.clipsToBounds = YES;
+    if( _buttonDivider != nil )
+        _buttonDivider.backgroundColor = [UIColor colorWithWhite:102/255.0 alpha:1.0];
     
     
     // Set any labels that may exist
@@ -194,10 +195,10 @@
             return NO; // If a period exist, don't allow the character change
     }
     
-    if( string != @"" ) // Make sure incoming character is not blank
+    if( ![string isEqualToString:@""] ) // Make sure incoming character is not blank
     {
         // If they are editing one of the two float fields and not entering a period (already handled that above), allow only numbers
-        if( _cryptoMethod == QCAutokeyPlaintextAttack && textField.tag != 0 && string != @"." )
+        if( _cryptoMethod == QCAutokeyPlaintextAttack && textField.tag != 0 && ![string isEqualToString:@"."] )
             badCharacters = [NSMutableCharacterSet characterSetWithCharactersInString:@",?\"!@#$%^&*()-+/\\<>\'~`[]|{}=:;_€£¥•ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
         
         // Else if it is one of the integer fields only only integers
@@ -337,6 +338,19 @@
 }
 
 
+#pragma mark - Actions
+- (IBAction)applyButtonTouched:(id)sender
+{
+    [self getOptionsAndSave];
+    [self.delegate dismissandApplyOptionsViewController:self];
+}
+
+- (IBAction)cancelButtonTouched:(id)sender
+{
+    [self.delegate dismissOptionsViewController:self];
+}
+
+
 #pragma mark - Picker Delegate methods
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {   
@@ -359,7 +373,7 @@
     else
         label.text = [NSString stringWithString:[_additives objectAtIndex:row]];
     label.font = [UIFont systemFontOfSize:22];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
     return label;
 }

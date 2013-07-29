@@ -16,6 +16,6 @@
 + (id)fontManager;
 
 - (UIFont *)fairviewRegularWithFontSize:(float)size;
-- (UIFont *)fairviewRegularWithFontSize:(float)size;
+- (UIFont *)fairviewSmallCapsWithFontSize:(float)size;
 
 @end

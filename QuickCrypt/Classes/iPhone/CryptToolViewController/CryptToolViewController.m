@@ -8,6 +8,7 @@
 
 #import "CryptToolViewController.h"
 #import "OptionsViewController.h"
+#import "UIViewController+overView.h"
 
 @interface CryptToolViewController ()
 {
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) NSMutableArray *options;
 @property (nonatomic, strong) NSMutableArray *optionTitles;
 @property (nonatomic, strong) TextData *td;
+@property (nonatomic, strong) UIView *curtainView;
 
 - (void)setButtonTitles;    // Sets the title of the compute button appropriately
 - (void)infoButtonPressed;  // Present the info view when info button pressed
@@ -36,6 +38,7 @@
 @synthesize optionButton = _optionButton;
 @synthesize cryptoMethod = _cryptoMethod;
 @synthesize divider = _divider;
+@synthesize buttonDivider = _buttonDivider;
 @synthesize td;
 
 - (id)initWithCryptoType:(QCCryptoMethod)method
@@ -53,22 +56,13 @@
     td = [TextData textDataManager];                            // Get an instance of the textData class
     _options = [td.optionsList objectAtIndex:_cryptoMethod];    // Pull the options from the textData class for this crypto method
     
-
-    // Create the computer button
-    UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
-    [_computeButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
-    
-    // Create the options button
-    UIImage *whiteButtonImage = [[UIImage imageNamed:@"whiteButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
-    [_optionButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
-    
     // Set the divider color
     _divider.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
+    _buttonDivider.backgroundColor = [UIColor colorWithWhite:102/255.0 alpha:1.0];
     
     // The following methods do not have options to set
     if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs )
         _optionButton.enabled = NO;
-    
     
     // Set the placeholders for our textViews
     [_inputText setPlaceholder:@"Input Text"];
@@ -92,11 +86,8 @@
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     space.width = 10.0f;
     self.navigationItem.rightBarButtonItems = @[space, infoBarButtonItem];
-    
-    
-    // Set the compute button's title
-//
-    
+
+    [self textViewDidChange:_inputText];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -132,23 +123,11 @@
     [_outputText resignFirstResponder];
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    if( _inputText.tag == 0 )
-    {
-        _inputText.textColor = [UIColor blackColor];
-        _inputText.text = @"";
-        _inputText.tag = 1;
-    }
-}
-
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if( [_inputText.text isEqualToString:@""] )
     {
-        _inputText.text = @"Input text";
-        _inputText.textColor = [UIColor lightGrayColor];
-        _inputText.tag = 0;
+        [_inputText setPlaceholder:@"Input Text"];
     }
 }
 
@@ -159,8 +138,22 @@
         [textView resignFirstResponder];
         return NO;
     }
-    
     return YES; // Any other key will allow text change
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    if( textView == _inputText )
+    {
+        if( [textView.text isEqualToString:@""] || [self isStringOnlyWhiteSpace:textView.text] )
+        {
+            [_computeButton setEnabled:NO];
+        }
+        else
+        {
+            [_computeButton setEnabled:YES];
+        }
+    }
 }
 
 - (IBAction)setOptionsPressed:(id)sender
@@ -171,7 +164,7 @@
         OptionsViewController *optionsViewController;
         
         // Make sure the options array isn't empty
-        if ( [td.optionsList objectAtIndex:_cryptoMethod] != @"")
+        if ( [td.optionsList objectAtIndex:_cryptoMethod] != nil )
             _options = [NSMutableArray arrayWithArray:[td.optionsList objectAtIndex:_cryptoMethod]];
         
         switch ( _cryptoMethod )
@@ -213,7 +206,16 @@
                 break;
         }
         optionsViewController.title = @"Options";
-        [self.navigationController pushViewController:optionsViewController animated:YES];
+        optionsViewController.delegate = self;
+//        [self.navigationController pushViewController:optionsViewController animated:YES];
+        
+//        optionsViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+//        [self presentViewController:optionsViewController animated:YES completion:nil];
+        
+        [self addCurtainView];
+        [self.navigationController addChildViewController:optionsViewController];
+        [self.navigationController.view addSubview:optionsViewController.view];
+        optionsViewController.view.center = self.view.center;
     }
     else 
     {   // If no options, tell user there are no options for this method
@@ -321,46 +323,77 @@
 {   // Set the computer button title appropriate for the method
     if( _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs || _cryptoMethod == QCNGraphs )
     {
-        [_computeButton setTitle: @"Get" forState: UIControlStateNormal];
-        [_computeButton setTitle: @"Get" forState: UIControlStateApplication];
-        [_computeButton setTitle: @"Get" forState: UIControlStateHighlighted];
+        [_computeButton setTitle: @"GET" forState: UIControlStateNormal];
+        [_computeButton setTitle: @"GET" forState: UIControlStateApplication];
+        [_computeButton setTitle: @"GET" forState: UIControlStateHighlighted];
     }
     else if( _cryptoMethod == QCAffineKnownPlaintextAttack || _cryptoMethod == QCAutokeyCyphertextAttack || _cryptoMethod == QCAutokeyPlaintextAttack )
     {
-        [_computeButton setTitle: @"Execute" forState: UIControlStateNormal];
-        [_computeButton setTitle: @"Execute" forState: UIControlStateApplication];
-        [_computeButton setTitle: @"Execute" forState: UIControlStateHighlighted];
+        [_computeButton setTitle: @"EXECUTE" forState: UIControlStateNormal];
+        [_computeButton setTitle: @"EXECUTE" forState: UIControlStateApplication];
+        [_computeButton setTitle: @"EXECUTE" forState: UIControlStateHighlighted];
     }
     else if( _cryptoMethod == QCAffineDecipher || _cryptoMethod == QCViginereDecipher || _cryptoMethod == QCAutokeyDecipher )
     {
-        [_computeButton setTitle: @"Decipher" forState: UIControlStateNormal];
-        [_computeButton setTitle: @"Decipher" forState: UIControlStateApplication];
-        [_computeButton setTitle: @"Decipher" forState: UIControlStateHighlighted];
+        [_computeButton setTitle: @"DECIPHER" forState: UIControlStateNormal];
+        [_computeButton setTitle: @"DECIPHER" forState: UIControlStateApplication];
+        [_computeButton setTitle: @"DECIPHER" forState: UIControlStateHighlighted];
     }
     else if( _cryptoMethod == QCAffineEncipher || _cryptoMethod == QCViginereEncipher )
     {
-        [_computeButton setTitle: @"Encipher" forState: UIControlStateNormal];
-        [_computeButton setTitle: @"Encipher" forState: UIControlStateApplication];
-        [_computeButton setTitle: @"Encipher" forState: UIControlStateHighlighted];
+        [_computeButton setTitle: @"ENCIPHER" forState: UIControlStateNormal];
+        [_computeButton setTitle: @"ENCIPHER" forState: UIControlStateApplication];
+        [_computeButton setTitle: @"ENCIPHER" forState: UIControlStateHighlighted];
     }
     else if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet )
     {
-        [_computeButton setTitle: @"Go" forState: UIControlStateNormal];
-        [_computeButton setTitle: @"Go" forState: UIControlStateApplication];
-        [_computeButton setTitle: @"Go" forState: UIControlStateHighlighted];
+        [_computeButton setTitle: @"GO" forState: UIControlStateNormal];
+        [_computeButton setTitle: @"GO" forState: UIControlStateApplication];
+        [_computeButton setTitle: @"GO" forState: UIControlStateHighlighted];
     }
     else if( _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCGCDAndInverse )
     {
-        [_computeButton setTitle: @"Calculate" forState: UIControlStateNormal];
-        [_computeButton setTitle: @"Calculate" forState: UIControlStateApplication];
-        [_computeButton setTitle: @"Calculate" forState: UIControlStateHighlighted];
+        [_computeButton setTitle: @"CALCULATE" forState: UIControlStateNormal];
+        [_computeButton setTitle: @"CALCULATE" forState: UIControlStateApplication];
+        [_computeButton setTitle: @"CALCULATE" forState: UIControlStateHighlighted];
     }
     else
     {
-        [_computeButton setTitle: @"Split" forState: UIControlStateNormal];
-        [_computeButton setTitle: @"Split" forState: UIControlStateApplication];
-        [_computeButton setTitle: @"Split" forState: UIControlStateHighlighted];
+        [_computeButton setTitle: @"SPLIT" forState: UIControlStateNormal];
+        [_computeButton setTitle: @"SPLIT" forState: UIControlStateApplication];
+        [_computeButton setTitle: @"SPLIT" forState: UIControlStateHighlighted];
     }
+}
+
+
+#pragma mark - OptionsViewControllerDelegate Methods
+- (void)dismissOptionsViewController:(OptionsViewController *)viewController
+{
+    [viewController.view removeFromSuperview];
+    [viewController removeFromParentViewController];
+    [self removeCurtainView];
+}
+
+- (void)dismissandApplyOptionsViewController:(OptionsViewController *)viewController
+{
+    _options = [td.optionsList objectAtIndex:_cryptoMethod];
+    [viewController.view removeFromSuperview];
+    [viewController removeFromParentViewController];
+    [self removeCurtainView];
+}
+
+- (void)removeCurtainView
+{
+    [_curtainView removeFromSuperview];
+    _curtainView = nil;
+}
+
+- (void)addCurtainView
+{
+    _curtainView = [[UIView alloc] initWithFrame:self.navigationController.view.frame];
+    _curtainView.exclusiveTouch = YES;
+    _curtainView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.3f];
+    [self.navigationController.view addSubview:_curtainView];
 }
 
 - (void)infoButtonPressed
@@ -370,6 +403,15 @@
     NSArray *helpArray = [NSArray arrayWithArray:[helpDict valueForKey:@"QCHelpStrings"]];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.title message:[helpArray objectAtIndex:_cryptoMethod] delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
     [alert show];
+}
+
+- (BOOL)isStringOnlyWhiteSpace:(NSString *)string
+{
+    NSCharacterSet *whiteSpace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSString *trimmed = [string stringByTrimmingCharactersInSet:whiteSpace];
+    if( trimmed.length == 0 )
+        return YES;
+    return NO;
 }
 
 

@@ -142,6 +142,8 @@
             }
         }
         
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, self.view.bounds.size.width, 1)];
         lineView.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
         [cell addSubview:lineView];

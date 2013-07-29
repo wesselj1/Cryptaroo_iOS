@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OptionsViewController.h"
 
-@interface CryptToolViewController : UIViewController <UITextViewDelegate>
+@interface CryptToolViewController : UIViewController <UITextViewDelegate, OptionsViewControllerDelegate>
 {
     IBOutlet UIButton *backgroundButton;// Button in background of everything to dismiss keyboard
     IBOutlet SSTextView *inputText;     // The input textView
@@ -17,6 +17,7 @@
     IBOutlet UIButton *computeButton;   // The compute button
     IBOutlet UIButton *optionButton;    // The option button which goes to the options screen
     IBOutlet UIView *divider;           // The divider between the input and output text
+    IBOutlet UIView *buttonDivider;     // The divider between the compute and options buttons
     QCCryptoMethod cryptoMethod;        // The current cryptop method of the view
 }
 
@@ -26,6 +27,7 @@
 @property (nonatomic, weak) UIButton *computeButton;
 @property (nonatomic, weak) UIButton *optionButton;
 @property (nonatomic, weak) UIView *divider;
+@property (nonatomic, weak) UIView *buttonDivider;
 @property QCCryptoMethod cryptoMethod;
 
 - (id)initWithCryptoType:(QCCryptoMethod)method;    // Init the view method with a given crypto method
