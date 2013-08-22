@@ -23,7 +23,6 @@
 		CC36EDC216BA1C09009C3CDA /* OptionsSet3.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDBA16BA1C09009C3CDA /* OptionsSet3.xib */; };
 		CC36EDC316BA1C09009C3CDA /* OptionsSet4.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDBB16BA1C09009C3CDA /* OptionsSet4.xib */; };
 		CC36EDC416BA1C09009C3CDA /* OptionsSet5.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDBC16BA1C09009C3CDA /* OptionsSet5.xib */; };
-		CC36EDC516BA1C09009C3CDA /* OptionsSet6.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDBD16BA1C09009C3CDA /* OptionsSet6.xib */; };
 		CC36EDC616BA1C09009C3CDA /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDBF16BA1C09009C3CDA /* OptionsViewController.m */; };
 		CC36EDCB16BA1C3F009C3CDA /* GCDandInverseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDC916BA1C3F009C3CDA /* GCDandInverseViewController.m */; };
 		CC36EDCC16BA1C3F009C3CDA /* GCDandInverseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDCA16BA1C3F009C3CDA /* GCDandInverseViewController.xib */; };
@@ -106,7 +105,6 @@
 		CC36EDBA16BA1C09009C3CDA /* OptionsSet3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OptionsSet3.xib; path = Classes/iPhone/OptionsViewController/OptionsSet3.xib; sourceTree = "<group>"; };
 		CC36EDBB16BA1C09009C3CDA /* OptionsSet4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OptionsSet4.xib; path = Classes/iPhone/OptionsViewController/OptionsSet4.xib; sourceTree = "<group>"; };
 		CC36EDBC16BA1C09009C3CDA /* OptionsSet5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OptionsSet5.xib; path = Classes/iPhone/OptionsViewController/OptionsSet5.xib; sourceTree = "<group>"; };
-		CC36EDBD16BA1C09009C3CDA /* OptionsSet6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OptionsSet6.xib; path = Classes/iPhone/OptionsViewController/OptionsSet6.xib; sourceTree = "<group>"; };
 		CC36EDBE16BA1C09009C3CDA /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsViewController.h; path = Classes/iPhone/OptionsViewController/OptionsViewController.h; sourceTree = "<group>"; };
 		CC36EDBF16BA1C09009C3CDA /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsViewController.m; path = Classes/iPhone/OptionsViewController/OptionsViewController.m; sourceTree = "<group>"; };
 		CC36EDC816BA1C3F009C3CDA /* GCDandInverseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDandInverseViewController.h; path = Classes/iPhone/GCDandInverseViewController/GCDandInverseViewController.h; sourceTree = "<group>"; };
@@ -351,7 +349,6 @@
 				CC36EDBA16BA1C09009C3CDA /* OptionsSet3.xib */,
 				CC36EDBB16BA1C09009C3CDA /* OptionsSet4.xib */,
 				CC36EDBC16BA1C09009C3CDA /* OptionsSet5.xib */,
-				CC36EDBD16BA1C09009C3CDA /* OptionsSet6.xib */,
 				CC36EDBE16BA1C09009C3CDA /* OptionsViewController.h */,
 				CC36EDBF16BA1C09009C3CDA /* OptionsViewController.m */,
 				CC5B588917A62575002062F9 /* QCLabel.h */,
@@ -588,7 +585,6 @@
 				CC36EDC216BA1C09009C3CDA /* OptionsSet3.xib in Resources */,
 				CC36EDC316BA1C09009C3CDA /* OptionsSet4.xib in Resources */,
 				CC36EDC416BA1C09009C3CDA /* OptionsSet5.xib in Resources */,
-				CC36EDC516BA1C09009C3CDA /* OptionsSet6.xib in Resources */,
 				CC36EDCC16BA1C3F009C3CDA /* GCDandInverseViewController.xib in Resources */,
 				CC36EDDB16BA1CF9009C3CDA /* DetailView1.xib in Resources */,
 				CC36EDDC16BA1CF9009C3CDA /* DetailView2.xib in Resources */,

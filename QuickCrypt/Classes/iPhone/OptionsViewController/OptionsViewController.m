@@ -22,7 +22,7 @@
     TextData *td;                   // Instance of our textData class
 }
 
-- (void)set_optionsTitlesArray;   // Set the title of the labels for this particular option set
+- (void)setOptionsTitlesArray;   // Set the title of the labels for this particular option set
 - (void)getOptionsAndSave;      // Update the array of options and send them back to the textData instance
 - (void)recallOptions;          // Recall options from previous edit of these options for current method
 
@@ -50,6 +50,8 @@
 @synthesize additives = _additives;
 @synthesize multipliers = _multipliers;
 @synthesize buttonDivider = _buttonDivider;
+@synthesize applyButton = _applyButton;
+@synthesize cancelButton = _cancelButton;
 @synthesize td;
 
 
@@ -60,7 +62,7 @@
     if (self) {
         _cryptoMethod = method;
         _optionsAry = options;
-        [self set_optionsTitlesArray];
+        [self setOptionsTitlesArray];
     }
     return self;
 }
@@ -92,7 +94,7 @@
     [switch1 setOn:NO]; // Default switch to be OFF
     
     // Setup the stepper
-    [_stepper1 setMinimumValue:0];
+    [_stepper1 setMinimumValue:1];
     [_stepper1 setStepValue:1];
     
     if( _cryptoMethod == QCAutokeyPlaintextAttack )
@@ -100,6 +102,8 @@
         _textField2.keyboardType = UIKeyboardTypeDecimalPad;
         _textField3.keyboardType = UIKeyboardTypeDecimalPad;
     }
+    
+    [self setFonts];
     
     [self recallOptions];   // Recall any previous options from this method
 }
@@ -131,7 +135,7 @@
 
 
 #pragma mark - Set Option Titles
-- (void)set_optionsTitlesArray;
+- (void)setOptionsTitlesArray
 {
     switch ( _cryptoMethod )
     {
@@ -173,6 +177,34 @@
             break;
         default:
             break;
+    }
+}
+
+- (void)setFonts
+{
+    if( _label1 )
+    {
+        [_label1 setFont:[UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]];
+    }
+    
+    if( _label2 )
+    {
+        [_label2 setFont:[UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]];
+    }
+         
+    if( _textField1 )
+    {
+        [_textField1 setFont:[UIFont fontWithName:@"FairView-Regular" size:28.0]];
+    }
+    
+    if( _textField2 )
+    {
+        [_textField2 setFont:[UIFont fontWithName:@"FairView-Regular" size:28.0]];
+    }
+    
+    if( _textField3 )
+    {
+        [_textField3 setFont:[UIFont fontWithName:@"FairView-Regular" size:28.0]];
     }
 }
 

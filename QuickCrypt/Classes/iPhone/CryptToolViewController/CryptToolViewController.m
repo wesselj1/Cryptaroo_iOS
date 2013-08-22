@@ -64,6 +64,9 @@
     if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs )
         _optionButton.enabled = NO;
     
+    [_inputText setFont:[UIFont fontWithName:@"CourierNewPSMT" size:12.0]];
+    [_outputText setFont:[UIFont fontWithName:@"CourierNewPSMT" size:12.0]];
+    
     // Set the placeholders for our textViews
     [_inputText setPlaceholder:@"Input Text"];
     [_outputText setPlaceholder:@"Output Text"];
