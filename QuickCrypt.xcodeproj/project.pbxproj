@@ -77,6 +77,8 @@
 		CC6F624417A5D4B700187A71 /* qc_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623E17A5D4B700187A71 /* qc_button.png */; };
 		CC6F624517A5D4B700187A71 /* qc_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623F17A5D4B700187A71 /* qc_button@2x.png */; };
 		CCBDD62E1619E2970030B5F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */; };
+		CCC3E32E17C5F52E00BE77FF /* picker_button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CCC3E32D17C5F52E00BE77FF /* picker_button_bg.png */; };
+		CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC3E33017C5F88100BE77FF /* QCTextField.m */; };
 		CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE5910E17A4C36500AB5765 /* Fonts.m */; };
 		CCEC063217A506CF00550105 /* fairview_regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCEC063017A506CF00550105 /* fairview_regular.otf */; };
 		CCEC063317A506CF00550105 /* fairview_smallcaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCEC063117A506CF00550105 /* fairview_smallcaps.otf */; };
@@ -175,6 +177,9 @@
 		CC6F623E17A5D4B700187A71 /* qc_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qc_button.png; path = "Supporting Files/ButtonImages/qc_button.png"; sourceTree = "<group>"; };
 		CC6F623F17A5D4B700187A71 /* qc_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button@2x.png"; path = "Supporting Files/ButtonImages/qc_button@2x.png"; sourceTree = "<group>"; };
 		CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CCC3E32D17C5F52E00BE77FF /* picker_button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picker_button_bg.png; sourceTree = "<group>"; };
+		CCC3E32F17C5F88100BE77FF /* QCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCTextField.h; path = Classes/iPhone/OptionsViewController/QCTextField.h; sourceTree = "<group>"; };
+		CCC3E33017C5F88100BE77FF /* QCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCTextField.m; path = Classes/iPhone/OptionsViewController/QCTextField.m; sourceTree = "<group>"; };
 		CCE5910D17A4C36500AB5765 /* Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fonts.h; path = Classes/iPhone/Fonts.h; sourceTree = "<group>"; };
 		CCE5910E17A4C36500AB5765 /* Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fonts.m; path = Classes/iPhone/Fonts.m; sourceTree = "<group>"; };
 		CCEC063017A506CF00550105 /* fairview_regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fairview_regular.otf; sourceTree = "<group>"; };
@@ -351,6 +356,8 @@
 				CC36EDBC16BA1C09009C3CDA /* OptionsSet5.xib */,
 				CC36EDBE16BA1C09009C3CDA /* OptionsViewController.h */,
 				CC36EDBF16BA1C09009C3CDA /* OptionsViewController.m */,
+				CCC3E32F17C5F88100BE77FF /* QCTextField.h */,
+				CCC3E33017C5F88100BE77FF /* QCTextField.m */,
 				CC5B588917A62575002062F9 /* QCLabel.h */,
 				CC5B588A17A62575002062F9 /* QCLabel.m */,
 			);
@@ -457,6 +464,7 @@
 		CC36EE1F16BA1F74009C3CDA /* ButtonImages */ = {
 			isa = PBXGroup;
 			children = (
+				CCC3E32D17C5F52E00BE77FF /* picker_button_bg.png */,
 				CC6F623A17A5D4B700187A71 /* qc_button_disabled.png */,
 				CC6F623B17A5D4B700187A71 /* qc_button_disabled@2x.png */,
 				CC6F623C17A5D4B700187A71 /* qc_button_pressed.png */,
@@ -625,6 +633,7 @@
 				CC6F624317A5D4B700187A71 /* qc_button_pressed@2x.png in Resources */,
 				CC6F624417A5D4B700187A71 /* qc_button.png in Resources */,
 				CC6F624517A5D4B700187A71 /* qc_button@2x.png in Resources */,
+				CCC3E32E17C5F52E00BE77FF /* picker_button_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +665,7 @@
 				CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */,
 				CC5B588817A61F56002062F9 /* UIViewController+overView.m in Sources */,
 				CC5B588B17A62575002062F9 /* QCLabel.m in Sources */,
+				CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +703,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -713,7 +723,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
