@@ -10,37 +10,26 @@
 
 @class QCButton;
 @class QCLabel;
+@class QCTextField;
 
 @protocol OptionsViewControllerDelegate;
 
 @interface OptionsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
-{
-    IBOutlet UIStepper *stepper1;       // Stepper for any incremental integer options
-    IBOutlet UITextField *textField1;   // Three possibly used textFields
-    IBOutlet UITextField *textField2;
-    IBOutlet UITextField *textField3;
-    IBOutlet UIPickerView *picker1;     // Picker that is used for picking multiplicative and additive key for affine ciphers
-    IBOutlet UISwitch *switch1;
-    IBOutlet QCLabel *label1;
-    IBOutlet QCLabel *label2;
-    IBOutlet UIView *buttonDivider;
-    IBOutlet QCButton *applyButton;
-    IBOutlet QCButton *cancelButton;
-    QCCryptoMethod cryptoMethod;        // The current crypto method for the view
-}
 
 @property (weak) id <OptionsViewControllerDelegate> delegate;
-@property (nonatomic, strong) UIStepper *stepper1;
-@property (nonatomic, strong) UITextField *textField1;
-@property (nonatomic, strong) UITextField *textField2;
-@property (nonatomic, strong) UITextField *textField3;
-@property (nonatomic, strong) UIPickerView *picker1;
-@property (nonatomic, strong) UIView *optionsViewMat;
-@property (nonatomic, strong) QCLabel *label1;
-@property (nonatomic, strong) QCLabel *label2;
-@property (nonatomic, strong) UIView *buttonDivider;
-@property (nonatomic, strong) QCButton *applyButton;
-@property (nonatomic, strong) QCButton *cancelButton;
+@property (nonatomic, weak) IBOutlet UIStepper *stepper1;
+@property (nonatomic, weak) IBOutlet UIStepper *stepper2;
+@property (nonatomic, weak) IBOutlet QCTextField *textField1;
+@property (nonatomic, weak) IBOutlet QCTextField *textField2;
+@property (nonatomic, weak) IBOutlet QCTextField *textField3;
+@property (nonatomic, weak) IBOutlet UIPickerView *picker1;
+@property (nonatomic, weak) IBOutlet UIView *optionsViewMat;
+@property (nonatomic, weak) IBOutlet QCLabel *label1;
+@property (nonatomic, weak) IBOutlet QCLabel *label2;
+@property (nonatomic, weak) IBOutlet UIView *buttonDivider;
+@property (nonatomic, weak) IBOutlet QCButton *applyButton;
+@property (nonatomic, weak) IBOutlet QCButton *cancelButton;
+@property (nonatomic, weak) IBOutlet UISwitch *switch1;
 @property (nonatomic) QCCryptoMethod cryptoMethod;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forMethod:(QCCryptoMethod)method withOptions:(NSArray *)options;

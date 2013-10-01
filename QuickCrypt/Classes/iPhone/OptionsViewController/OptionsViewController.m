@@ -9,50 +9,26 @@
 #import "optionsViewController.h"
 #import "CryptToolViewController.h"
 #import "QCLabel.h"
+#import "QCTextField.h"
 
 #define kMultiplierComponent 0
 #define kAditiveComponent 1
 
 @interface OptionsViewController ()
-{
-    NSMutableArray *optionsAry;     // Our array of options
-    NSMutableArray *_optionsTitles;   // The title of the options to be set, used to set labels
-    NSArray *multipliers;           // The array of multiplicative keys for affine
-    NSArray *additives;             // The array of additive keys for affine
-    TextData *td;                   // Instance of our textData class
-}
 
 - (void)setOptionsTitlesArray;   // Set the title of the labels for this particular option set
 - (void)getOptionsAndSave;      // Update the array of options and send them back to the textData instance
 - (void)recallOptions;          // Recall options from previous edit of these options for current method
 
-@property (nonatomic, strong) NSMutableArray *optionsAry;
-@property (nonatomic, strong) NSMutableArray *optionsTitles;
-@property (nonatomic, strong) NSArray *multipliers;
-@property (nonatomic, strong) NSArray *additives;
-@property (nonatomic, strong) TextData *td;
+@property (nonatomic, strong) NSArray *optionsAry;              // Our array of options
+@property (nonatomic, strong) NSMutableArray *optionsTitles;    // The title of the options to be set, used to set labels
+@property (nonatomic, strong) NSArray *multipliers;             // The array of multiplicative keys for affine
+@property (nonatomic, strong) NSArray *additives;               // The array of additive keys for affine
+@property (nonatomic, strong) TextData *td;                     // Instance of our textData class
 
 @end
 
 @implementation OptionsViewController
-
-@synthesize stepper1 = _stepper1;
-@synthesize textField1 = _textField1;
-@synthesize textField2 = _textField2;
-@synthesize textField3 = _textField3;
-@synthesize picker1 = _picker1;
-@synthesize optionsViewMat = _optionsViewMat;
-@synthesize label1 = _label1;
-@synthesize label2 = _label2;
-@synthesize cryptoMethod = _cryptoMethod;
-@synthesize optionsAry = _optionsAry;
-@synthesize optionsTitles = _optionsTitles;
-@synthesize additives = _additives;
-@synthesize multipliers = _multipliers;
-@synthesize buttonDivider = _buttonDivider;
-@synthesize applyButton = _applyButton;
-@synthesize cancelButton = _cancelButton;
-@synthesize td;
 
 
 #pragma mark - View Lifecycle Methods
@@ -71,8 +47,8 @@
 {
     [super viewDidLoad];
     
-    td = [TextData textDataManager]; // Get instance of our textData class
-    _optionsAry = [td.optionsList objectAtIndex:_cryptoMethod]; // Get the options from textData
+    self.td = [TextData textDataManager]; // Get instance of our textData class
+    _optionsAry = [_td.optionsList objectAtIndex:_cryptoMethod]; // Get the options from textData
     
     // If doing an affine method, set the array of multiplicative and additive keys to be used
     if( _cryptoMethod == QCAffineDecipher || _cryptoMethod == QCAffineEncipher )
@@ -91,11 +67,18 @@
     if( _optionsTitles.count > 1 && [_optionsTitles objectAtIndex:1] )
         _label2.text = [_optionsTitles objectAtIndex:1];
     
-    [switch1 setOn:NO]; // Default switch to be OFF
+    [[UITextField appearance] setBackgroundColor:[UIColor colorWithWhite:238/255.0 alpha:1.0]];
+    
+    [_switch1 setOn:NO]; // Default switch to be OFF
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [[UISwitch appearance] setTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
+    }
+    [[UISwitch appearance] setOnTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
     
     // Setup the stepper
     [_stepper1 setMinimumValue:1];
     [_stepper1 setStepValue:1];
+    [[UIStepper appearance] setTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
     
     if( _cryptoMethod == QCAutokeyPlaintextAttack )
     {   // For QCAutoKeyPlaintextAttack the keyboard type for said two fields should be a decimal pad (for entering doubles)
@@ -185,26 +168,31 @@
     if( _label1 )
     {
         [_label1 setFont:[UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]];
+        [_label1 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
     }
     
     if( _label2 )
     {
         [_label2 setFont:[UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]];
+        [_label2 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
     }
          
     if( _textField1 )
     {
         [_textField1 setFont:[UIFont fontWithName:@"FairView-Regular" size:28.0]];
+        [_textField1 setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
     }
     
     if( _textField2 )
     {
         [_textField2 setFont:[UIFont fontWithName:@"FairView-Regular" size:28.0]];
+        [_textField2 setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
     }
     
     if( _textField3 )
     {
         [_textField3 setFont:[UIFont fontWithName:@"FairView-Regular" size:28.0]];
+        [_textField3 setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
     }
 }
 
@@ -269,7 +257,7 @@
                 break;
             case QCAffineKnownPlaintextAttack:
                 _textField1.text = [_optionsAry objectAtIndex:0];
-                [switch1 setOn:[[_optionsAry objectAtIndex:1] boolValue]];
+                [_switch1 setOn:[[_optionsAry objectAtIndex:1] boolValue]];
                 break;
             case QCAffineEncipher:
                 [_picker1 selectRow:[_multipliers indexOfObject:[_optionsAry objectAtIndex:0]] inComponent:0 animated:YES];
@@ -305,7 +293,7 @@
                 break;
             case QCAutokeyDecipher:
                 _textField1.text = [_optionsAry objectAtIndex:0];
-                [switch1 setOn:[[_optionsAry objectAtIndex:1] boolValue]];
+                [_switch1 setOn:[[_optionsAry objectAtIndex:1] boolValue]];
                 break;
             case QCGCDAndInverse:
                 _textField1.text = [_optionsAry objectAtIndex:0];
@@ -327,7 +315,7 @@
             _optionsAry = [NSArray arrayWithObjects:[_textField1 text], nil];
             break;
         case QCAffineKnownPlaintextAttack:
-            _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [NSNumber numberWithBool:switch1.on], nil];
+            _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [NSNumber numberWithBool:_switch1.on], nil];
             break;
         case QCAffineEncipher:
             multiplierRow = [_picker1 selectedRowInComponent:kMultiplierComponent];
@@ -358,15 +346,15 @@
             _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [_textField2 text], [_textField3 text], nil];
             break;
         case QCAutokeyDecipher:
-            _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [NSNumber numberWithBool:switch1.on], nil];
+            _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [NSNumber numberWithBool:_switch1.on], nil];
             break;
         case QCGCDAndInverse:
-            _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [_textField2 text], nil];           
+            _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [_textField2 text], nil];
             break;
         default:
             break;
     }
-    [td.optionsList replaceObjectAtIndex:_cryptoMethod withObject:_optionsAry];
+    [_td.optionsList replaceObjectAtIndex:_cryptoMethod withObject:_optionsAry];
 }
 
 
