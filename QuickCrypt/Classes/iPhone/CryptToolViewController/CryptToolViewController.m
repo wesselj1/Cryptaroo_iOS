@@ -39,6 +39,7 @@
 @synthesize cryptoMethod = _cryptoMethod;
 @synthesize divider = _divider;
 @synthesize buttonDivider = _buttonDivider;
+@synthesize inputTextTopConstraint_7 = _inputTextTopConstraint_7;
 @synthesize td;
 
 - (id)initWithCryptoType:(QCCryptoMethod)method
@@ -64,12 +65,15 @@
     if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs )
         _optionButton.enabled = NO;
     
-    [_inputText setFont:[UIFont fontWithName:@"CourierNewPSMT" size:12.0]];
-    [_outputText setFont:[UIFont fontWithName:@"CourierNewPSMT" size:12.0]];
+    [_inputText setFont:[UIFont fontWithName:@"CourierNewPSMT" size:16.0]];
+    [_inputText setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
+    [_outputText setFont:[UIFont fontWithName:@"CourierNewPSMT" size:16.0]];
+    [_outputText setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
+    
     
     // Set the placeholders for our textViews
-    [_inputText setPlaceholder:@"Input Text"];
-    [_outputText setPlaceholder:@"Output Text"];
+    [_inputText setPlaceholder:@"INPUT TEXT"];
+    [_outputText setPlaceholder:@"OUTPUT TEXT"];
     
     // Recall the input and output texts from textData
     _inputText.text = td.inputString;
@@ -78,7 +82,6 @@
     // Set the back button for the navbar
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [back setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"Fairview-SmallCaps" size:20.0]} forState:UIControlStateNormal];
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -2.0) forBarMetrics:UIBarMetricsDefault];
     [self.navigationItem setBackBarButtonItem:back];
     
     // Create the info button
@@ -87,8 +90,24 @@
     UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
     
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    space.width = 10.0f;
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        space.width = 0.0f;
+    } else {
+        space.width = 10.0f;
+    }
     self.navigationItem.rightBarButtonItems = @[space, infoBarButtonItem];
+    
+    // If iOS 6, set appropriate constraint for inputText
+    if(SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        [self.view removeConstraint:_inputTextTopConstraint_7];
+        NSDictionary *viewsDict = NSDictionaryOfVariableBindings(_inputText);
+        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[_inputText]"
+                                                options:0
+                                                metrics:nil
+                                                  views:viewsDict];
+        [self.view addConstraints:constraints];
+        
+    }
 
     [self textViewDidChange:_inputText];
 }
@@ -219,6 +238,12 @@
         [self.navigationController addChildViewController:optionsViewController];
         [self.navigationController.view addSubview:optionsViewController.view];
         optionsViewController.view.center = self.view.center;
+        
+        if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+            optionsViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y-20);
+        } else {
+            optionsViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y+20);
+        }
     }
     else 
     {   // If no options, tell user there are no options for this method

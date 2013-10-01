@@ -81,7 +81,7 @@
         _toolbarTitle.center = self.splitViewController.toolbar.center;
         _toolbarTitle.textColor = [UIColor whiteColor];
         _toolbarTitle.backgroundColor = [UIColor clearColor];
-        _toolbarTitle.textAlignment = UITextAlignmentCenter;
+        _toolbarTitle.textAlignment = NSTextAlignmentCenter;
         _toolbarTitle.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
         _toolbarTitle.font = [UIFont boldSystemFontOfSize:20];
         [self setToolbarLabelTitleForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
@@ -92,12 +92,16 @@
         self.window.rootViewController = _splitViewController;
     }
     else
-    {   // Else, if the user is using an iPHone/iPod device
+    {   // Else, if the user is using an iPhone/iPod device
         
         // Setup the rootViewController and navController
         self.rootViewControlleriPhone = [[RootViewControlleriPhone alloc] init];
         self.navController = [[UINavigationController alloc] initWithRootViewController:_rootViewControlleriPhone];
         self.window.rootViewController = self.navController;
+    }
+    
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        self.window.tintColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
     }
  
     [self.window makeKeyAndVisible];

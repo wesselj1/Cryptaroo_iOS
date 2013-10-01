@@ -35,8 +35,15 @@
     
     super.title = @"CRYPTAROO"; // Set the title of the view
     [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeFont: [[Fonts fontManager] fairviewRegularWithFontSize:30.0],
+                                                           UITextAttributeTextColor: [UIColor whiteColor],
                           UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetMake(0, 0)]}];
-    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-2.0 forBarMetrics:UIBarMetricsDefault];
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:2.0 forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0];
+        self.navigationController.navigationBar.translucent = NO;
+    } else {
+        [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-2.0 forBarMetrics:UIBarMetricsDefault];
+    }
     
     // All of our supported crypto methods
     aryCryptoMethods = [NSArray arrayWithObjects:@"FREQUENCY COUNT",
@@ -59,12 +66,22 @@
     
     // Set the back button for the navbar
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    [back setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"Fairview-SmallCaps" size:20.0],
-                                   UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)]}
-                        forState:UIControlStateNormal];
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [back setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"Fairview-SmallCaps" size:26.0],
+                                       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)]}
+                            forState:UIControlStateNormal];
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 2.0) forBarMetrics:UIBarMetricsDefault];
+    } else {
+        [back setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"Fairview-SmallCaps" size:22.0],
+                                       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)]}
+                            forState:UIControlStateNormal];
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(1.0, -3.0) forBarMetrics:UIBarMetricsDefault];
+    }
     [self.navigationItem setBackBarButtonItem:back];
     
-    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:245/255.0 green:161/255.0 blue:60/255.0 alpha:1.0]];
+    if( SYSTEM_VERSION_LESS_THAN(@"7.0") ) {
+        [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:245/255.0 green:161/255.0 blue:60/255.0 alpha:1.0]];
+    }
     
     // Create the info button
     UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
@@ -72,7 +89,11 @@
     UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
     
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    space.width = 10.0f;
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        space.width = 0.0f;
+    } else {
+        space.width = 10.0f;
+    }
     self.navigationItem.rightBarButtonItems = @[space, infoBarButtonItem];
 }
 

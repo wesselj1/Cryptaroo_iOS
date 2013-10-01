@@ -98,7 +98,11 @@
     UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
     
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    space.width = 10.0f;
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        space.width = 0.0f;
+    } else {
+        space.width = 10.0f;
+    }
     self.navigationItem.rightBarButtonItems = @[space, infoBarButtonItem];
 
 }

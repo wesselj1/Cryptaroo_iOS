@@ -543,10 +543,10 @@
             return NO; // If a period exist, don't allow the character change
     }
     
-    if( string != @"" ) // Make sure incoming character is not blank
+    if( ![string isEqualToString:@""] ) // Make sure incoming character is not blank
     {
         // If they are editing one of the two float fields and not entering a period (already handled that above), allow only numbers
-        if( _cryptoMethod == QCAutokeyPlaintextAttack && textField.tag != 0 && string != @"." )
+        if( _cryptoMethod == QCAutokeyPlaintextAttack && textField.tag != 0 && ![string isEqualToString:@"."] )
             badCharacters = [NSMutableCharacterSet characterSetWithCharactersInString:@",?\"!@#$%^&*()-+/\\<>\'~`[]|{}=:;_€£¥•ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
         
         // Else if it is one of the integer fields only only integers

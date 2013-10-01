@@ -28,6 +28,7 @@
 @property (nonatomic, weak) UIButton *optionButton;
 @property (nonatomic, weak) UIView *divider;
 @property (nonatomic, weak) UIView *buttonDivider;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *inputTextTopConstraint_7;
 @property QCCryptoMethod cryptoMethod;
 
 - (id)initWithCryptoType:(QCCryptoMethod)method;    // Init the view method with a given crypto method
