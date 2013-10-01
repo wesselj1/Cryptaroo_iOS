@@ -45,10 +45,11 @@
                     </connections>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="12" customClass="QCLabel">
-                    <rect key="frame" x="8" y="80" width="177" height="23"/>
+                    <rect key="frame" x="8" y="80" width="80" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="177" id="46"/>
+                        <constraint firstAttribute="width" priority="200" constant="170" id="pZ8-34-Fuv"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="uGi-ff-vm0"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -108,10 +109,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="28" firstAttribute="top" secondItem="11" secondAttribute="bottom" constant="8" symbolic="YES" id="35"/>
-                <constraint firstItem="12" firstAttribute="leading" secondItem="11" secondAttribute="leading" id="36"/>
                 <constraint firstItem="10" firstAttribute="trailing" secondItem="11" secondAttribute="trailing" id="39"/>
                 <constraint firstItem="11" firstAttribute="leading" secondItem="10" secondAttribute="leading" id="41"/>
-                <constraint firstItem="28" firstAttribute="leading" secondItem="30" secondAttribute="leading" constant="100" id="42"/>
                 <constraint firstItem="11" firstAttribute="top" secondItem="10" secondAttribute="bottom" constant="8" symbolic="YES" id="43"/>
                 <constraint firstItem="10" firstAttribute="centerX" secondItem="30" secondAttribute="centerX" id="88"/>
                 <constraint firstItem="92" firstAttribute="leading" secondItem="93" secondAttribute="leading" id="99"/>
@@ -120,8 +119,10 @@
                 <constraint firstItem="92" firstAttribute="trailing" secondItem="30" secondAttribute="trailing" id="111"/>
                 <constraint firstItem="10" firstAttribute="top" secondItem="30" secondAttribute="top" constant="8" id="120"/>
                 <constraint firstItem="12" firstAttribute="top" secondItem="11" secondAttribute="bottom" constant="12" id="0YF-il-hfD"/>
-                <constraint firstItem="91" firstAttribute="top" secondItem="28" secondAttribute="bottom" constant="8" id="M0v-bW-tQ7"/>
+                <constraint firstItem="91" firstAttribute="top" secondItem="12" secondAttribute="bottom" constant="12" id="9wT-uz-fOU"/>
                 <constraint firstItem="92" firstAttribute="top" secondItem="28" secondAttribute="bottom" constant="8" id="PVa-HA-qd3"/>
+                <constraint firstItem="12" firstAttribute="leading" secondItem="30" secondAttribute="leading" constant="8" id="YGw-TB-ZUF"/>
+                <constraint firstItem="28" firstAttribute="leading" secondItem="12" secondAttribute="trailing" constant="12" id="pUN-Pq-jgP"/>
                 <constraint firstItem="28" firstAttribute="centerY" secondItem="12" secondAttribute="centerY" id="qan-ZP-71i"/>
                 <constraint firstItem="93" firstAttribute="top" secondItem="28" secondAttribute="bottom" constant="8" id="re5-NX-uVP"/>
             </constraints>

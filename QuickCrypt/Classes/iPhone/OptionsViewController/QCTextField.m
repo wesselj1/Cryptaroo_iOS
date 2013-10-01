@@ -27,6 +27,8 @@
 {
     // Drawing code
     self.backgroundColor = [UIColor colorWithWhite:238/255.0 alpha:1.0];
+    self.font = [UIFont fontWithName:@"FairView-Regular" size:28.0f];
+    self.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0];
 }
 
 @end

@@ -14,7 +14,9 @@
 #define kMultiplierComponent 0
 #define kAditiveComponent 1
 
-@interface OptionsViewController ()
+@interface OptionsViewController () {
+    int lastStepperValue;
+}
 
 - (void)setOptionsTitlesArray;   // Set the title of the labels for this particular option set
 - (void)getOptionsAndSave;      // Update the array of options and send them back to the textData instance
@@ -22,8 +24,6 @@
 
 @property (nonatomic, strong) NSArray *optionsAry;              // Our array of options
 @property (nonatomic, strong) NSMutableArray *optionsTitles;    // The title of the options to be set, used to set labels
-@property (nonatomic, strong) NSArray *multipliers;             // The array of multiplicative keys for affine
-@property (nonatomic, strong) NSArray *additives;               // The array of additive keys for affine
 @property (nonatomic, strong) TextData *td;                     // Instance of our textData class
 
 @end
@@ -49,13 +49,6 @@
     
     self.td = [TextData textDataManager]; // Get instance of our textData class
     _optionsAry = [_td.optionsList objectAtIndex:_cryptoMethod]; // Get the options from textData
-    
-    // If doing an affine method, set the array of multiplicative and additive keys to be used
-    if( _cryptoMethod == QCAffineDecipher || _cryptoMethod == QCAffineEncipher )
-    {
-        _multipliers = [[NSArray alloc] initWithObjects:@"1", @"3", @"5", @"7", @"9", @"11", @"15", @"17", @"19", @"21", @"23", @"25", nil];
-        _additives = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", nil];
-    }
 
     if( _buttonDivider != nil )
         _buttonDivider.backgroundColor = [UIColor colorWithWhite:102/255.0 alpha:1.0];
@@ -67,7 +60,7 @@
     if( _optionsTitles.count > 1 && [_optionsTitles objectAtIndex:1] )
         _label2.text = [_optionsTitles objectAtIndex:1];
     
-    [[UITextField appearance] setBackgroundColor:[UIColor colorWithWhite:238/255.0 alpha:1.0]];
+//    [[UITextField appearance] setBackgroundColor:[UIColor colorWithWhite:238/255.0 alpha:1.0]];
     
     [_switch1 setOn:NO]; // Default switch to be OFF
     if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
@@ -75,9 +68,26 @@
     }
     [[UISwitch appearance] setOnTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
     
-    // Setup the stepper
-    [_stepper1 setMinimumValue:1];
-    [_stepper1 setStepValue:1];
+    // Setup the steppers for the approriate methods
+    if( _cryptoMethod == QCAffineDecipher || _cryptoMethod == QCAffineEncipher )
+    {
+        [_stepper1 setMinimumValue:1];
+        [_stepper1 setMaximumValue:25];
+        [_stepper1 setStepValue:2];
+        [_stepper1 setValue:1];
+        [_stepper1 setWraps:YES];
+        
+        [_stepper2 setMinimumValue:0];
+        [_stepper2 setMaximumValue:25];
+        [_stepper2 setStepValue:1];
+        [_stepper2 setValue:0];
+        [_stepper2 setWraps:YES];
+    }
+    else
+    {
+        [_stepper1 setMinimumValue:0];
+        [_stepper1 setStepValue:1];
+    }
     [[UIStepper appearance] setTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
     
     if( _cryptoMethod == QCAutokeyPlaintextAttack )
@@ -110,10 +120,36 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
+#pragma mark - Picker Methods
 - (IBAction)stepperValueChanged:(id)sender
 {
     double stepperValue = _stepper1.value;
     _textField1.text = [NSString stringWithFormat:@"%.f", stepperValue];
+}
+
+- (IBAction)multiplierStepperValueChanged:(id)sender
+{   // Get the stepper value and set it to the textField
+    double stepperValue = _stepper1.value;
+    if( stepperValue == 13 )
+    {   // Multiplier value should skip 13 for affine ciphers because it contains no inverse
+        if ( stepperValue - lastStepperValue >= 0 ) // Check if incrementing or decrementing to know if we should be skipping to 15 or 11
+            stepperValue = 15;
+        else
+            stepperValue = 11;
+        
+        [_stepper1 setValue:stepperValue];
+    }
+    
+    
+    _textField1.text = [NSString stringWithFormat:@"%.f", stepperValue];
+    lastStepperValue = stepperValue;    // Update the last stepperValue
+}
+
+- (IBAction)adderStepperValueChanged:(id)sender
+{   // Get the stepper value and set it to the textField
+    double stepperValue = _stepper2.value;
+    _textField2.text = [NSString stringWithFormat:@"%.f", stepperValue];
 }
 
 
@@ -123,40 +159,40 @@
     switch ( _cryptoMethod )
     {
         case QCNGraphs:
-            _optionsTitles = [NSMutableArray arrayWithObjects:@"Length of NGraph:", nil];
+            _optionsTitles = [NSMutableArray arrayWithObjects:@"Length of NGraph", nil];
             break;
         case QCAffineKnownPlaintextAttack:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", @"Shift First:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword", @"Shift First", nil];
             break;
         case QCAffineEncipher:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Multiplicative Shift:", @"Additive Shift:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Multiplicative Shift", @"Additive Shift", nil];
             break;
         case QCAffineDecipher:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Multiplicative Shift:", @"Additive Shift:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Multiplicative Shift", @"Additive Shift", nil];
             break;
         case QCSplitOffAlphabets:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Wordlength:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Wordlength", nil];
             break;
         case QCPolyMonoCalculator:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword Size:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword Size", nil];
             break;
         case QCViginereEncipher:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword", nil];
             break;
         case QCViginereDecipher:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword", nil];
             break;
         case QCAutokeyCyphertextAttack:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword Length:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword Length", nil];
             break;
         case QCAutokeyPlaintextAttack:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Max Keyword Length:", @"Friedman Range:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Max Keyword Length", @"Friedman Range", nil];
             break;
         case QCAutokeyDecipher:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword:", @"PlainText:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Keyword", @"Include Plaintext In Key", nil];
             break;
         case QCGCDAndInverse:
-            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Inverse of:", @"Mod:", nil];
+            _optionsTitles = [[NSMutableArray alloc] initWithObjects:@"Inverse of", @"Mod", nil];
             break;
         default:
             break;
@@ -260,12 +296,16 @@
                 [_switch1 setOn:[[_optionsAry objectAtIndex:1] boolValue]];
                 break;
             case QCAffineEncipher:
-                [_picker1 selectRow:[_multipliers indexOfObject:[_optionsAry objectAtIndex:0]] inComponent:0 animated:YES];
-                [_picker1 selectRow:[_additives indexOfObject:[_optionsAry objectAtIndex:1]] inComponent:1 animated:YES];
+                _textField1.text = [_optionsAry objectAtIndex:0];
+                [_stepper1 setValue:[_textField1.text intValue]];
+                _textField2.text = [_optionsAry objectAtIndex:1];
+                [_stepper2 setValue:[_textField2.text intValue]];
                 break;
             case QCAffineDecipher:
-                [_picker1 selectRow:[_multipliers indexOfObject:[_optionsAry objectAtIndex:0]] inComponent:0 animated:YES];
-                [_picker1 selectRow:[_additives indexOfObject:[_optionsAry objectAtIndex:1]] inComponent:1 animated:YES];
+                _textField1.text = [_optionsAry objectAtIndex:0];
+                [_stepper1 setValue:[_textField1.text intValue]];
+                _textField2.text = [_optionsAry objectAtIndex:1];
+                [_stepper2 setValue:[_textField2.text intValue]];
                 break;
             case QCSplitOffAlphabets:
                 _textField1.text = [_optionsAry objectAtIndex:0];
@@ -318,14 +358,10 @@
             _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [NSNumber numberWithBool:_switch1.on], nil];
             break;
         case QCAffineEncipher:
-            multiplierRow = [_picker1 selectedRowInComponent:kMultiplierComponent];
-            additionRow = [_picker1 selectedRowInComponent:kAditiveComponent];
-            _optionsAry = [NSArray arrayWithObjects:[_multipliers objectAtIndex:multiplierRow], [_additives objectAtIndex:additionRow], nil];
+            _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [_textField2 text], nil];
             break;
         case QCAffineDecipher:
-            multiplierRow = [_picker1 selectedRowInComponent:kMultiplierComponent];
-            additionRow = [_picker1 selectedRowInComponent:kAditiveComponent];
-            _optionsAry = [NSArray arrayWithObjects:[_multipliers objectAtIndex:multiplierRow], [_additives objectAtIndex:additionRow], nil];
+            _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [_textField2 text], nil];
             break;
         case QCSplitOffAlphabets:
             _optionsAry = [NSArray arrayWithObjects:[_textField1 text], nil];
@@ -368,34 +404,6 @@
 - (IBAction)cancelButtonTouched:(id)sender
 {
     [self.delegate dismissOptionsViewController:self];
-}
-
-
-#pragma mark - Picker Delegate methods
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{   
-    return 2;
-}
-
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    if( component == kMultiplierComponent )
-        return [_multipliers count];
-    return [_additives count];
-}
-
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
-{
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 260, 44)];
-    if( component == kMultiplierComponent )
-        label.text = [NSString stringWithString:[_multipliers objectAtIndex:row]];
-    else
-        label.text = [NSString stringWithString:[_additives objectAtIndex:row]];
-    label.font = [UIFont systemFontOfSize:22];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [UIColor clearColor];
-    return label;
 }
 
 @end

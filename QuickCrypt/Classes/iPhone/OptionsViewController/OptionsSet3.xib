@@ -42,6 +42,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="4U1-Q8-2MB"/>
+                    </connections>
                 </textField>
                 <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Jgp-9f-HGI" userLabel="Multiple Stepper">
                     <rect key="frame" x="146" y="38" width="94" height="29"/>
@@ -50,7 +53,7 @@
                         <constraint firstAttribute="height" constant="29" id="Q3r-9r-zT0"/>
                     </constraints>
                     <connections>
-                        <action selector="stepperValueChanged:" destination="-1" eventType="valueChanged" id="kfh-Sg-qZC"/>
+                        <action selector="multiplierStepperValueChanged:" destination="-1" eventType="valueChanged" id="U7F-Yl-zz7"/>
                     </connections>
                 </stepper>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Additive Shift" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJJ-Hl-w8S" customClass="QCLabel">
@@ -71,6 +74,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="DJt-6T-Hi1"/>
+                    </connections>
                 </textField>
                 <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="lmH-Dv-bS6" userLabel="Additive Stepper">
                     <rect key="frame" x="146" y="106" width="94" height="29"/>
@@ -79,7 +85,7 @@
                         <constraint firstAttribute="height" constant="29" id="hvX-D2-8uO"/>
                     </constraints>
                     <connections>
-                        <action selector="stepperValueChanged:" destination="-1" eventType="valueChanged" id="bZD-Oe-lpn"/>
+                        <action selector="adderStepperValueChanged:" destination="-1" eventType="valueChanged" id="ozp-3X-IQ4"/>
                     </connections>
                 </stepper>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbR-gI-5cI" customClass="QCButton">

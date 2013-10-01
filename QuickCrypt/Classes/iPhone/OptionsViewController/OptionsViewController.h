@@ -14,7 +14,7 @@
 
 @protocol OptionsViewControllerDelegate;
 
-@interface OptionsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
+@interface OptionsViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak) id <OptionsViewControllerDelegate> delegate;
 @property (nonatomic, weak) IBOutlet UIStepper *stepper1;
@@ -22,7 +22,6 @@
 @property (nonatomic, weak) IBOutlet QCTextField *textField1;
 @property (nonatomic, weak) IBOutlet QCTextField *textField2;
 @property (nonatomic, weak) IBOutlet QCTextField *textField3;
-@property (nonatomic, weak) IBOutlet UIPickerView *picker1;
 @property (nonatomic, weak) IBOutlet UIView *optionsViewMat;
 @property (nonatomic, weak) IBOutlet QCLabel *label1;
 @property (nonatomic, weak) IBOutlet QCLabel *label2;
@@ -36,6 +35,8 @@
 - (IBAction)stepperValueChanged:(id)sender; // What to do when a stepper value has changed
 - (IBAction)applyButtonTouched:(id)sender;
 - (IBAction)cancelButtonTouched:(id)sender;
+- (IBAction)multiplierStepperValueChanged:(id)sender;
+- (IBAction)adderStepperValueChanged:(id)sender;
 
 @end
 
