@@ -13,7 +13,10 @@
 		1B8EA9A9153C7B8E009EFF27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA9A7153C7B8E009EFF27 /* InfoPlist.strings */; };
 		1B8EA9AB153C7B8E009EFF27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA9AA153C7B8E009EFF27 /* main.m */; };
 		1BFA03901561515E0005904C /* HelpInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFA038F1561515E0005904C /* HelpInfo.plist */; };
+		CC21B9CC17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC21B9CB17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m */; };
 		CC2742B317A4B83900539268 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2742B217A4B83900539268 /* CustomTableViewCell.xib */; };
+		CC2D888E17FD567B001634F8 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D888C17FD567B001634F8 /* HelpViewController.m */; };
+		CC2D888F17FD567B001634F8 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2D888D17FD567B001634F8 /* HelpViewController.xib */; };
 		CC36EDAF16BA1B99009C3CDA /* RootViewControlleriPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDAD16BA1B99009C3CDA /* RootViewControlleriPhone.m */; };
 		CC36EDB016BA1B99009C3CDA /* RootViewControlleriPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDAE16BA1B99009C3CDA /* RootViewControlleriPhone.xib */; };
 		CC36EDB516BA1BC8009C3CDA /* CryptToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDB316BA1BC8009C3CDA /* CryptToolViewController.m */; };
@@ -94,7 +97,12 @@
 		1B8EA9AA153C7B8E009EFF27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B8EA9AC153C7B8E009EFF27 /* QuickCrypt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickCrypt-Prefix.pch"; sourceTree = "<group>"; };
 		1BFA038F1561515E0005904C /* HelpInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HelpInfo.plist; sourceTree = "<group>"; };
+		CC21B9CA17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoneCancelNumberPadToolbar.h; sourceTree = "<group>"; };
+		CC21B9CB17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoneCancelNumberPadToolbar.m; sourceTree = "<group>"; };
 		CC2742B217A4B83900539268 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableViewCell.xib; path = Classes/iPhone/RootViewControlleriPhone/CustomTableViewCell.xib; sourceTree = "<group>"; };
+		CC2D888B17FD567B001634F8 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		CC2D888C17FD567B001634F8 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		CC2D888D17FD567B001634F8 /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 		CC36EDAC16BA1B99009C3CDA /* RootViewControlleriPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewControlleriPhone.h; path = Classes/iPhone/RootViewControlleriPhone/RootViewControlleriPhone.h; sourceTree = "<group>"; };
 		CC36EDAD16BA1B99009C3CDA /* RootViewControlleriPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewControlleriPhone.m; path = Classes/iPhone/RootViewControlleriPhone/RootViewControlleriPhone.m; sourceTree = "<group>"; };
 		CC36EDAE16BA1B99009C3CDA /* RootViewControlleriPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewControlleriPhone.xib; path = Classes/iPhone/RootViewControlleriPhone/RootViewControlleriPhone.xib; sourceTree = "<group>"; };
@@ -203,6 +211,7 @@
 		1B81726E1559919500EDF0E0 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				CC21B9C917FE7F9F00FFE1FC /* DoneCancelNumberPadToolbar */,
 				CC5B588517A61EF6002062F9 /* UIViewController+OverView */,
 				CCEC063417A50B7300550105 /* UITableViewCellCategory */,
 				CC36EDF516BA1E36009C3CDA /* SSTextView */,
@@ -275,6 +284,7 @@
 		1B8EA9B5153C7C0F009EFF27 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				CC2D888A17FD564C001634F8 /* HelpView */,
 				CC36EDAB16BA1B87009C3CDA /* RootViewControlleriPhone */,
 				CC36EDB116BA1BB6009C3CDA /* CryptToolViewController */,
 				CC36EDC716BA1C16009C3CDA /* GCDandInverseViewController */,
@@ -295,6 +305,8 @@
 		1B8EA9C2153C993C009EFF27 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CC6F621B17A5C8F500187A71 /* QCButton.h */,
+				CC6F621C17A5C8F500187A71 /* QCButton.m */,
 				CC36EE2616BA1FD0009C3CDA /* TextData */,
 				CC36EE2516BA1FCA009C3CDA /* QCMethods */,
 				CC36EE2416BA1FC3009C3CDA /* InfoViewController */,
@@ -321,6 +333,25 @@
 			name = "Popover Images";
 			sourceTree = "<group>";
 		};
+		CC21B9C917FE7F9F00FFE1FC /* DoneCancelNumberPadToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				CC21B9CA17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.h */,
+				CC21B9CB17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m */,
+			);
+			name = DoneCancelNumberPadToolbar;
+			sourceTree = "<group>";
+		};
+		CC2D888A17FD564C001634F8 /* HelpView */ = {
+			isa = PBXGroup;
+			children = (
+				CC2D888B17FD567B001634F8 /* HelpViewController.h */,
+				CC2D888C17FD567B001634F8 /* HelpViewController.m */,
+				CC2D888D17FD567B001634F8 /* HelpViewController.xib */,
+			);
+			name = HelpView;
+			sourceTree = "<group>";
+		};
 		CC36EDAB16BA1B87009C3CDA /* RootViewControlleriPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,8 +369,6 @@
 				CC36EDB216BA1BC8009C3CDA /* CryptToolViewController.h */,
 				CC36EDB316BA1BC8009C3CDA /* CryptToolViewController.m */,
 				CC36EDB416BA1BC8009C3CDA /* CryptToolViewController.xib */,
-				CC6F621B17A5C8F500187A71 /* QCButton.h */,
-				CC6F621C17A5C8F500187A71 /* QCButton.m */,
 			);
 			name = CryptToolViewController;
 			sourceTree = "<group>";
@@ -556,7 +585,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CAI;
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = 1B8EA994153C7B8E009EFF27 /* Build configuration list for PBXProject "QuickCrypt" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -621,6 +650,7 @@
 				CC36EE3816BA207A009C3CDA /* kangakey_ipadretina.png in Resources */,
 				CC36EE3916BA207A009C3CDA /* kangakey_iphone.png in Resources */,
 				CC36EE3A16BA207A009C3CDA /* kangakey_iphoneretina.png in Resources */,
+				CC2D888F17FD567B001634F8 /* HelpViewController.xib in Resources */,
 				CC2742B317A4B83900539268 /* CustomTableViewCell.xib in Resources */,
 				CCEC063217A506CF00550105 /* fairview_regular.otf in Resources */,
 				CCEC063317A506CF00550105 /* fairview_smallcaps.otf in Resources */,
@@ -660,7 +690,9 @@
 				CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */,
 				CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */,
 				CC5B588817A61F56002062F9 /* UIViewController+overView.m in Sources */,
+				CC21B9CC17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m in Sources */,
 				CC5B588B17A62575002062F9 /* QCLabel.m in Sources */,
+				CC2D888E17FD567B001634F8 /* HelpViewController.m in Sources */,
 				CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,8 +715,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -696,10 +733,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -710,14 +751,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

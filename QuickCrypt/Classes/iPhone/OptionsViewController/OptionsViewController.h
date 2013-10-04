@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DoneCancelNumberPadToolbar.h"
 
 @class QCButton;
 @class QCLabel;

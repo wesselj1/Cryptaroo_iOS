@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "OptionsViewController.h"
+#import "HelpViewController.h"
 
-@interface CryptToolViewController : UIViewController <UITextViewDelegate, OptionsViewControllerDelegate>
+@interface CryptToolViewController : UIViewController <UITextViewDelegate, OptionsViewControllerDelegate, HelpViewControllerDelegate>
 {
     IBOutlet UIButton *backgroundButton;// Button in background of everything to dismiss keyboard
     IBOutlet SSTextView *inputText;     // The input textView

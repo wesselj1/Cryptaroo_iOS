@@ -10,6 +10,7 @@
 #import "CryptToolViewController.h"
 #import "QCLabel.h"
 #import "QCTextField.h"
+#import "Fonts.h"
 
 #define kMultiplierComponent 0
 #define kAditiveComponent 1
@@ -25,6 +26,8 @@
 @property (nonatomic, strong) NSArray *optionsAry;              // Our array of options
 @property (nonatomic, strong) NSMutableArray *optionsTitles;    // The title of the options to be set, used to set labels
 @property (nonatomic, strong) TextData *td;                     // Instance of our textData class
+
+@property (nonatomic, strong) DoneCancelNumberPadToolbar *accessoryToolbar;
 
 @end
 
@@ -47,6 +50,11 @@
 {
     [super viewDidLoad];
     
+    if( _cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack || _cryptoMethod == QCAutokeyPlaintextAttack) {
+        DoneCancelNumberPadToolbar *toolbar = [[DoneCancelNumberPadToolbar alloc] initWithTextField:_textField1];
+        _textField1.inputAccessoryView = toolbar;
+    }
+    
     self.td = [TextData textDataManager]; // Get instance of our textData class
     _optionsAry = [_td.optionsList objectAtIndex:_cryptoMethod]; // Get the options from textData
 
@@ -59,8 +67,6 @@
         _label1.text = [_optionsTitles objectAtIndex:0];
     if( _optionsTitles.count > 1 && [_optionsTitles objectAtIndex:1] )
         _label2.text = [_optionsTitles objectAtIndex:1];
-    
-//    [[UITextField appearance] setBackgroundColor:[UIColor colorWithWhite:238/255.0 alpha:1.0]];
     
     [_switch1 setOn:NO]; // Default switch to be OFF
     if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
@@ -106,11 +112,13 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self getOptionsAndSave];   // Save the options array
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -203,32 +211,14 @@
 {
     if( _label1 )
     {
-        [_label1 setFont:[UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]];
+        [_label1 setFont:[[Fonts fontManager] fairviewSmallCapsWithFontSize:28.0]];
         [_label1 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
     }
     
     if( _label2 )
     {
-        [_label2 setFont:[UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]];
+        [_label2 setFont:[[Fonts fontManager] fairviewSmallCapsWithFontSize:28.0]];
         [_label2 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
-    }
-         
-    if( _textField1 )
-    {
-        [_textField1 setFont:[UIFont fontWithName:@"FairView-Regular" size:28.0]];
-        [_textField1 setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
-    }
-    
-    if( _textField2 )
-    {
-        [_textField2 setFont:[UIFont fontWithName:@"FairView-Regular" size:28.0]];
-        [_textField2 setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
-    }
-    
-    if( _textField3 )
-    {
-        [_textField3 setFont:[UIFont fontWithName:@"FairView-Regular" size:28.0]];
-        [_textField3 setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
     }
 }
 
@@ -347,8 +337,6 @@
 
 - (void)getOptionsAndSave
 {
-    int multiplierRow;
-    int additionRow;
     switch ( _cryptoMethod )
     {
         case QCNGraphs:
@@ -391,6 +379,54 @@
             break;
     }
     [_td.optionsList replaceObjectAtIndex:_cryptoMethod withObject:_optionsAry];
+}
+
+#pragma mark - Keyboard Methods
+- (void)addButtonToKeyboard {
+	// create custom button
+    
+	UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	doneButton.frame = CGRectMake(0, 163, 104, 53);
+	doneButton.adjustsImageWhenHighlighted = NO;
+    [doneButton setBackgroundColor:[UIColor colorWithRed:0/255.0 green:126/255.0 blue:245.0/255.0 alpha:0.83]];
+    [doneButton addTarget:self action:@selector(dismissKeyboard:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.text = @"Done";
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:15.0];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.frame = CGRectMake(0, 0, doneButton.frame.size.width, doneButton.frame.size.height);
+    [doneButton addSubview:label];
+    
+    //	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.0) {
+    //		[doneButton setImage:[UIImage imageNamed:@"DoneUp3.png"] forState:UIControlStateNormal];
+    //		[doneButton setImage:[UIImage imageNamed:@"DoneDown3.png"] forState:UIControlStateHighlighted];
+    //	} else {
+    //		[doneButton setImage:[UIImage imageNamed:@"DoneUp.png"] forState:UIControlStateNormal];
+    //		[doneButton setImage:[UIImage imageNamed:@"DoneDown.png"] forState:UIControlStateHighlighted];
+    //	}
+    
+	// locate keyboard view
+	UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
+	UIView* keyboard;
+	for(int i=0; i<[tempWindow.subviews count]; i++) {
+		keyboard = [tempWindow.subviews objectAtIndex:i];
+		// keyboard found, add the button
+        if([[keyboard description] hasPrefix:@"<UIPeripheralHost"] == YES || [[keyboard description] hasPrefix:@"<UITextEffectsWindow"] == YES )
+        {
+            [keyboard addSubview:doneButton];
+            NSLog(@"Found keyboard");
+        }
+	}
+}
+
+- (void)keyboardWillShow:(NSNotification *)note {
+    [self addButtonToKeyboard];
+}
+
+- (void)keyboardDidShow:(NSNotification *)note {
+    [self addButtonToKeyboard];
 }
 
 

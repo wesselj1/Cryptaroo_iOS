@@ -42,6 +42,7 @@
         self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0];
         self.navigationController.navigationBar.translucent = NO;
     } else {
+        [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:245/255.0 green:161/255.0 blue:60/255.0 alpha:1.0]];
         [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-2.0 forBarMetrics:UIBarMetricsDefault];
     }
     
@@ -78,10 +79,6 @@
         [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(1.0, -3.0) forBarMetrics:UIBarMetricsDefault];
     }
     [self.navigationItem setBackBarButtonItem:back];
-    
-    if( SYSTEM_VERSION_LESS_THAN(@"7.0") ) {
-        [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:245/255.0 green:161/255.0 blue:60/255.0 alpha:1.0]];
-    }
     
     // Create the info button
     UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
@@ -165,9 +162,9 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, self.view.bounds.size.width, 1)];
-        lineView.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
-        [cell addSubview:lineView];
+//        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, self.view.bounds.size.width, 1)];
+//        lineView.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
+//        [cell addSubview:lineView];
     }
 
     // Set title
@@ -175,12 +172,6 @@
     NSString *title = [aryCryptoMethods objectAtIndex:indexPath.row];
     for( int i = 1; i < 6; i++ )
     {
-        if( i == 1 )
-        {
-            UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, -1, self.view.bounds.size.width, 1)];
-            lineView.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
-            [cell addSubview:lineView];
-        }
         label = (UILabel *)[cell viewWithTag:i];
         label.text = title;
     }

@@ -75,6 +75,11 @@
     [_inputText setPlaceholder:@"INPUT TEXT"];
     [_outputText setPlaceholder:@"OUTPUT TEXT"];
     
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [_inputText setTintColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+        [_outputText setTintColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+    }
+    
     // Recall the input and output texts from textData
     _inputText.text = td.inputString;
     [_outputText setText:[td.outputArray objectAtIndex:_cryptoMethod]];
@@ -97,17 +102,17 @@
     }
     self.navigationItem.rightBarButtonItems = @[space, infoBarButtonItem];
     
-    // If iOS 6, set appropriate constraint for inputText
-    if(SYSTEM_VERSION_LESS_THAN(@"7.0")) {
-        [self.view removeConstraint:_inputTextTopConstraint_7];
-        NSDictionary *viewsDict = NSDictionaryOfVariableBindings(_inputText);
-        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[_inputText]"
-                                                options:0
-                                                metrics:nil
-                                                  views:viewsDict];
-        [self.view addConstraints:constraints];
-        
-    }
+//    // If iOS 6, set appropriate constraint for inputText
+//    if(SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+//        [self.view removeConstraint:_inputTextTopConstraint_7];
+//        NSDictionary *viewsDict = NSDictionaryOfVariableBindings(_inputText);
+//        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[_inputText]"
+//                                                options:0
+//                                                metrics:nil
+//                                                  views:viewsDict];
+//        [self.view addConstraints:constraints];
+//        
+//    }
 
     [self textViewDidChange:_inputText];
 }
@@ -347,7 +352,7 @@
     }
 }
 
-- (void) setButtonTitles
+- (void)setButtonTitles
 {   // Set the computer button title appropriate for the method
     if( _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs || _cryptoMethod == QCNGraphs )
     {
@@ -410,6 +415,17 @@
     [self removeCurtainView];
 }
 
+#pragma mark - HelpViewControllerDelegate Methods
+- (void)dismissHelpViewController:(HelpViewController *)viewController {
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [viewController.view removeFromSuperview];
+    } else {
+        [viewController.rootView removeFromSuperview];
+    }
+    [viewController removeFromParentViewController];
+    [self removeCurtainView];
+}
+
 - (void)removeCurtainView
 {
     [_curtainView removeFromSuperview];
@@ -426,11 +442,26 @@
 
 - (void)infoButtonPressed
 {   // If info button is pressed, in this case we will present a help blurb about the method
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"HelpInfo" ofType:@"plist"];
-    NSDictionary *helpDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    NSArray *helpArray = [NSArray arrayWithArray:[helpDict valueForKey:@"QCHelpStrings"]];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.title message:[helpArray objectAtIndex:_cryptoMethod] delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
-    [alert show];
+//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"HelpInfo" ofType:@"plist"];
+//    NSDictionary *helpDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+//    NSArray *helpArray = [NSArray arrayWithArray:[helpDict valueForKey:@"QCHelpStrings"]];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.title message:[helpArray objectAtIndex:_cryptoMethod] delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
+//    [alert show];
+    
+    HelpViewController *helpViewController = [[HelpViewController alloc] init];
+    helpViewController.delegate = self;
+    helpViewController.cryptoMethod = self.cryptoMethod;
+    
+    [self addCurtainView];
+    [self.navigationController addChildViewController:helpViewController];
+    [self.navigationController.view addSubview:helpViewController.view];
+    
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        helpViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y-20);
+    } else {
+        helpViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y+20);
+    }
+    
 }
 
 - (BOOL)isStringOnlyWhiteSpace:(NSString *)string

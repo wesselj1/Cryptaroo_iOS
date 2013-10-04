@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DoneCancelNumberPadToolbar.h"
+#import "HelpViewController.h"
 
-@interface GCDandInverseViewController : UIViewController
+@interface GCDandInverseViewController : UIViewController <HelpViewControllerDelegate>
 {
-    IBOutlet UIView *optionsViewMat;        // View mat that contains our options
     IBOutlet UITextField *inverseOfField;   // Field for the integer of which the inverse is desired
     IBOutlet UITextField *modField;         // Field for the modulus the user would like to use
     IBOutlet UILabel *label1;               // Labels used for view
@@ -22,7 +23,6 @@
     IBOutlet UIButton *calculate;           // The calculate button to get inverse and gcd
 }
 
-@property (nonatomic, strong) UIView *optionsViewMat;
 @property (nonatomic, strong) UITextField *inverseOfField;
 @property (nonatomic, strong) UITextField *modField;
 @property (nonatomic, strong) UILabel *label1;

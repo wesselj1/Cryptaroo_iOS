@@ -9,11 +9,9 @@
 #import "GCDandInverseViewController.h"
 
 @interface GCDandInverseViewController ()
-{
-    TextData *td;
-}
 
 @property (nonatomic, strong) TextData *td;
+@property (nonatomic, strong) UIView *curtainView;
 
 - (void)infoButtonPressed;
 
@@ -22,7 +20,6 @@
 @implementation GCDandInverseViewController
 
 @synthesize td;
-@synthesize optionsViewMat = _optionsViewMat;
 @synthesize inverseOfField = _inverseOfField;
 @synthesize modField = _modField;
 @synthesize label1 = _label1;
@@ -47,20 +44,6 @@
 {
     [super viewDidLoad];
     
-    // add observer for the respective notifications (depending on the os version)
-	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.2) {
-		[[NSNotificationCenter defaultCenter] addObserver:self 
-												 selector:@selector(keyboardDidShow:) 
-													 name:UIKeyboardDidShowNotification 
-												   object:nil];		
-	} else {
-		[[NSNotificationCenter defaultCenter] addObserver:self 
-												 selector:@selector(keyboardWillShow:) 
-													 name:UIKeyboardWillShowNotification 
-												   object:nil];
-	}
-
-    
     td = [TextData textDataManager]; // Get an instance of our textData class
     
     // If the options inverseOf and mod exist load them
@@ -78,18 +61,32 @@
     }
     else
     {   // If no results default to 0
-        _gcd.text = @"0";
-        _inverse.text = @"0";
+        _gcd.text = @"1";
+        _inverse.text = @"1";
     }
+    
+    DoneCancelNumberPadToolbar *toolbar = [[DoneCancelNumberPadToolbar alloc] initWithTextField:_inverseOfField];
+    _inverseOfField.inputAccessoryView = toolbar;
+    
+    toolbar = [[DoneCancelNumberPadToolbar alloc] initWithTextField:_modField];
+    _modField.inputAccessoryView = toolbar;
+    
+    // Set up labels
+    [_label1 setFont:[UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]];
+    [_label1 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+    
+    [_label2 setFont:[UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]];
+    [_label2 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+    
+    [_label3 setFont:[UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]];
+    [_label3 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+    
+    [_label4 setFont:[UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]];
+    [_label4 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
     
     // Create the computer button
     UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
     [_calculate setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
-    
-    
-    // Round corners of the optionsViewMat so it looks nicer
-    _optionsViewMat.layer.cornerRadius = 5;
-    _optionsViewMat.clipsToBounds = YES;
     
     
     // Create an info button and add it to the navigation bar
@@ -147,51 +144,6 @@
     }
 }
 
-
-#pragma mark - Keyboard Methods
-- (void)addButtonToKeyboard {
-	// create custom button
-	UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	doneButton.frame = CGRectMake(0, 163, 106, 53);
-	doneButton.adjustsImageWhenHighlighted = NO;
-	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.0) {
-		[doneButton setImage:[UIImage imageNamed:@"DoneUp3.png"] forState:UIControlStateNormal];
-		[doneButton setImage:[UIImage imageNamed:@"DoneDown3.png"] forState:UIControlStateHighlighted];
-	} else {        
-		[doneButton setImage:[UIImage imageNamed:@"DoneUp.png"] forState:UIControlStateNormal];
-		[doneButton setImage:[UIImage imageNamed:@"DoneDown.png"] forState:UIControlStateHighlighted];
-	}
-	[doneButton addTarget:self action:@selector(dismissKeyboard:) forControlEvents:UIControlEventTouchUpInside];
-	// locate keyboard view
-	UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
-	UIView* keyboard;
-	for(int i=0; i<[tempWindow.subviews count]; i++) {
-		keyboard = [tempWindow.subviews objectAtIndex:i];
-		// keyboard found, add the button
-		if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.2) {
-			if([[keyboard description] hasPrefix:@"<UIPeripheralHost"] == YES)
-				[keyboard addSubview:doneButton];
-		} else {
-			if([[keyboard description] hasPrefix:@"<UIKeyboard"] == YES)
-				[keyboard addSubview:doneButton];
-		}
-	}
-}
-
-- (void)keyboardWillShow:(NSNotification *)note {
-	// if clause is just an additional precaution, you could also dismiss it
-	if ([[[UIDevice currentDevice] systemVersion] floatValue] < 3.2) {
-		[self addButtonToKeyboard];
-	}
-}
-
-- (void)keyboardDidShow:(NSNotification *)note {
-	// if clause is just an additional precaution, you could also dismiss it
-	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.2) {
-		[self addButtonToKeyboard];
-    }
-}
-
 - (void)dismissKeyboard:(id)sender
 {
     [_inverseOfField resignFirstResponder];
@@ -202,11 +154,44 @@
 #pragma mark - Methods for Buttons in NavBar
 - (void)infoButtonPressed
 {   // If the info button is pressed display the help blurb for GCDandInverse
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"HelpInfo" ofType:@"plist"];
-    NSDictionary *helpDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    NSArray *helpArray = [NSArray arrayWithArray:[helpDict valueForKey:@"QCHelpStrings"]];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.title message:[helpArray objectAtIndex:QCGCDAndInverse] delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
-    [alert show];
+    HelpViewController *helpViewController = [[HelpViewController alloc] init];
+    helpViewController.delegate = self;
+    helpViewController.cryptoMethod = QCGCDAndInverse;
+    
+    [self addCurtainView];
+    [self.navigationController addChildViewController:helpViewController];
+    [self.navigationController.view addSubview:helpViewController.view];
+    
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        helpViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y-20);
+    } else {
+        helpViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y+20);
+    }
+}
+
+#pragma mark - HelpViewControllerDelegate Methods
+- (void)dismissHelpViewController:(HelpViewController *)viewController {
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [viewController.view removeFromSuperview];
+    } else {
+        [viewController.rootView removeFromSuperview];
+    }
+    [viewController removeFromParentViewController];
+    [self removeCurtainView];
+}
+
+- (void)removeCurtainView
+{
+    [_curtainView removeFromSuperview];
+    _curtainView = nil;
+}
+
+- (void)addCurtainView
+{
+    _curtainView = [[UIView alloc] initWithFrame:self.navigationController.view.frame];
+    _curtainView.exclusiveTouch = YES;
+    _curtainView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.3f];
+    [self.navigationController.view addSubview:_curtainView];
 }
 
 
