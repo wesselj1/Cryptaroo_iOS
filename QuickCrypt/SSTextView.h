@@ -1,15 +1,5 @@
 //
 //  SSTextView.h
-//  QuickCrypt
-//
-//  Created by build on 5/8/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
-#import <UIKit/UIKit.h>
-
-//
-//  SSTextView.h
 //  SSToolkit
 //
 //  Created by Sam Soffes on 8/18/10.
@@ -33,8 +23,6 @@
  
  The default is `[UIColor lightGrayColor]`.
  */
-@property (nonatomic, strong) UIColor *placeholderColor;
-
-- (BOOL)isEmpty;
+@property (nonatomic, strong) UIColor *placeholderTextColor;
 
 @end

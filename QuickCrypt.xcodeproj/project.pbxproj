@@ -43,7 +43,6 @@
 		CC36EDF216BA1E2D009C3CDA /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDED16BA1E2D009C3CDA /* MGSplitCornersView.m */; };
 		CC36EDF316BA1E2D009C3CDA /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDEF16BA1E2D009C3CDA /* MGSplitDividerView.m */; };
 		CC36EDF416BA1E2D009C3CDA /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDF116BA1E2D009C3CDA /* MGSplitViewController.m */; };
-		CC36EDF816BA1E47009C3CDA /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDF716BA1E47009C3CDA /* SSTextView.m */; };
 		CC36EE0316BA1EC9009C3CDA /* popover-black-bcg-image.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDF916BA1EC9009C3CDA /* popover-black-bcg-image.png */; };
 		CC36EE0416BA1EC9009C3CDA /* popover-black-bcg-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDFA16BA1EC9009C3CDA /* popover-black-bcg-image@2x.png */; };
 		CC36EE0516BA1EC9009C3CDA /* popover-black-bottom-arrow-image.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDFB16BA1EC9009C3CDA /* popover-black-bottom-arrow-image.png */; };
@@ -79,6 +78,7 @@
 		CC6F624317A5D4B700187A71 /* qc_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623D17A5D4B700187A71 /* qc_button_pressed@2x.png */; };
 		CC6F624417A5D4B700187A71 /* qc_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623E17A5D4B700187A71 /* qc_button.png */; };
 		CC6F624517A5D4B700187A71 /* qc_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623F17A5D4B700187A71 /* qc_button@2x.png */; };
+		CC990601180CE5170020679D /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC990600180CE5170020679D /* SSTextView.m */; };
 		CCBDD62E1619E2970030B5F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */; };
 		CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC3E33017C5F88100BE77FF /* QCTextField.m */; };
 		CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE5910E17A4C36500AB5765 /* Fonts.m */; };
@@ -140,8 +140,6 @@
 		CC36EDEF16BA1E2D009C3CDA /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSplitDividerView.m; path = "External Classes/MGSplitViewController/MGSplitDividerView.m"; sourceTree = "<group>"; };
 		CC36EDF016BA1E2D009C3CDA /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSplitViewController.h; path = "External Classes/MGSplitViewController/MGSplitViewController.h"; sourceTree = "<group>"; };
 		CC36EDF116BA1E2D009C3CDA /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSplitViewController.m; path = "External Classes/MGSplitViewController/MGSplitViewController.m"; sourceTree = "<group>"; };
-		CC36EDF616BA1E47009C3CDA /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSTextView.h; path = "External Classes/SSTextView/SSTextView.h"; sourceTree = "<group>"; };
-		CC36EDF716BA1E47009C3CDA /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSTextView.m; path = "External Classes/SSTextView/SSTextView.m"; sourceTree = "<group>"; };
 		CC36EDF916BA1EC9009C3CDA /* popover-black-bcg-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popover-black-bcg-image.png"; path = "Supporting Files/Popover Images/popover-black-bcg-image.png"; sourceTree = "<group>"; };
 		CC36EDFA16BA1EC9009C3CDA /* popover-black-bcg-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popover-black-bcg-image@2x.png"; path = "Supporting Files/Popover Images/popover-black-bcg-image@2x.png"; sourceTree = "<group>"; };
 		CC36EDFB16BA1EC9009C3CDA /* popover-black-bottom-arrow-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popover-black-bottom-arrow-image.png"; path = "Supporting Files/Popover Images/popover-black-bottom-arrow-image.png"; sourceTree = "<group>"; };
@@ -183,6 +181,8 @@
 		CC6F623D17A5D4B700187A71 /* qc_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button_pressed@2x.png"; path = "Supporting Files/ButtonImages/qc_button_pressed@2x.png"; sourceTree = "<group>"; };
 		CC6F623E17A5D4B700187A71 /* qc_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qc_button.png; path = "Supporting Files/ButtonImages/qc_button.png"; sourceTree = "<group>"; };
 		CC6F623F17A5D4B700187A71 /* qc_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button@2x.png"; path = "Supporting Files/ButtonImages/qc_button@2x.png"; sourceTree = "<group>"; };
+		CC9905FF180CE5170020679D /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
+		CC990600180CE5170020679D /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
 		CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CCC3E32F17C5F88100BE77FF /* QCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCTextField.h; path = Classes/iPhone/OptionsViewController/QCTextField.h; sourceTree = "<group>"; };
 		CCC3E33017C5F88100BE77FF /* QCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCTextField.m; path = Classes/iPhone/OptionsViewController/QCTextField.m; sourceTree = "<group>"; };
@@ -460,8 +460,8 @@
 		CC36EDF516BA1E36009C3CDA /* SSTextView */ = {
 			isa = PBXGroup;
 			children = (
-				CC36EDF616BA1E47009C3CDA /* SSTextView.h */,
-				CC36EDF716BA1E47009C3CDA /* SSTextView.m */,
+				CC9905FF180CE5170020679D /* SSTextView.h */,
+				CC990600180CE5170020679D /* SSTextView.m */,
 			);
 			name = SSTextView;
 			sourceTree = "<group>";
@@ -586,6 +586,11 @@
 			attributes = {
 				CLASSPREFIX = CAI;
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1B8EA999153C7B8E009EFF27 = {
+						DevelopmentTeam = BGA8794X23;
+					};
+				};
 			};
 			buildConfigurationList = 1B8EA994153C7B8E009EFF27 /* Build configuration list for PBXProject "QuickCrypt" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -682,8 +687,8 @@
 				CC36EDF216BA1E2D009C3CDA /* MGSplitCornersView.m in Sources */,
 				CC36EDF316BA1E2D009C3CDA /* MGSplitDividerView.m in Sources */,
 				CC36EDF416BA1E2D009C3CDA /* MGSplitViewController.m in Sources */,
-				CC36EDF816BA1E47009C3CDA /* SSTextView.m in Sources */,
 				CC36EE2A16BA1FE2009C3CDA /* InfoViewController.m in Sources */,
+				CC990601180CE5170020679D /* SSTextView.m in Sources */,
 				CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */,
 				CC36EE3116BA1FF8009C3CDA /* TextData.m in Sources */,
 				CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */,
@@ -780,12 +785,15 @@
 		1B8EA9B3153C7B8E009EFF27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuickCrypt/QuickCrypt-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "QuickCrypt/QuickCrypt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -793,12 +801,15 @@
 		1B8EA9B4153C7B8E009EFF27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuickCrypt/QuickCrypt-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "QuickCrypt/QuickCrypt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

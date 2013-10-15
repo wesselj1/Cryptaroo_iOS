@@ -33,59 +33,46 @@
     if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad )
     {
         // Initialize the app's split, root, and detail views.
-        self.splitViewController = [[MGSplitViewController alloc] init];
+        self.splitViewController = [[UISplitViewController alloc] init];
         self.rootViewControlleriPad = [[RootViewControlleriPad alloc] init];
         self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailView1" bundle:nil]; // Default view (Frequency Count) uses DetailView1
+        _detailViewController.rootViewController = _rootViewControlleriPad;
+        _rootViewControlleriPad.detailViewController = _detailViewController;
+        
+        UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:_rootViewControlleriPad];
+        UINavigationController *detailNav = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
         
         // Set the Root and Detail views
-        self.splitViewController.masterViewController = self.rootViewControlleriPad;
-        self.rootViewControlleriPad.detailViewController = self.detailViewController;
+//        self.splitViewController.masterViewController = self.rootViewControlleriPad;
+//        self.rootViewControlleriPad.detailViewController = self.detailViewController;
+        self.splitViewController.viewControllers = @[rootNav, detailNav];
+        self.splitViewController.delegate = _detailViewController;
     
         // Allocate and set navigation controller
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
-        self.detailViewController.navController = navController;
+//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
+//        self.detailViewController.navController = navController;
         
         // Add the root controller and detail navigation controller to the splitview
-        self.splitViewController.viewControllers = [NSArray arrayWithObjects:_rootViewControlleriPad, navController, nil];
-        self.splitViewController.delegate = _detailViewController;
+//        self.splitViewController.viewControllers = [NSArray arrayWithObjects:_rootViewControlleriPad, navController, nil];
+//        self.splitViewController.delegate = _detailViewController;
         self.detailViewController.splitViewController = self.splitViewController; // Set detail view's pointer to the split view
-        
-        // Setup splitview's menu button
-        UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.splitViewController action:@selector(showMasterPopover:)];
-        self.splitViewController.menuButton = menuButton;
-        
-        
-        // Create an info/about button
-        UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
-        infoBtn.frame = CGRectMake(0, 0, 20, 20);
-        UIBarButtonItem *infoBtnA = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
-        [infoBtn addTarget:self action:@selector(infoButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-        self.splitViewController._infoBtn = infoBtnA;
-        
-        // Create a help button
-        UIButton *helpButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-        helpButton.frame = CGRectMake(0, 0, 20, 20);
-        [helpButton setImage:[UIImage imageNamed:@"UIButtonBarHelp2.png"] forState:UIControlStateNormal];
-        helpButton.showsTouchWhenHighlighted = YES;
-        [helpButton addTarget:self action:@selector(helpButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *helpButtonA = [[UIBarButtonItem alloc] initWithCustomView:helpButton];
-        self.splitViewController._helpBtn = helpButtonA;
-        
-        // Create a flexibleSpace for between the menu button and the help and info buttons
-        UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        self.splitViewController._flexSpace = flexSpace;
 
         
         // Setup the toolbar title label and add as a subview on the toolbar
-        _toolbarTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 400, 30)];
-        _toolbarTitle.center = self.splitViewController.toolbar.center;
-        _toolbarTitle.textColor = [UIColor whiteColor];
-        _toolbarTitle.backgroundColor = [UIColor clearColor];
-        _toolbarTitle.textAlignment = NSTextAlignmentCenter;
-        _toolbarTitle.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
-        _toolbarTitle.font = [UIFont boldSystemFontOfSize:20];
-        [self setToolbarLabelTitleForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
-        [self.splitViewController.toolbar addSubview:_toolbarTitle];
+//        _toolbarTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 400, 30)];
+//        _toolbarTitle.center = self.splitViewController.toolbar.center;
+//        _toolbarTitle.textColor = [UIColor whiteColor];
+//        _toolbarTitle.backgroundColor = [UIColor clearColor];
+//        _toolbarTitle.textAlignment = NSTextAlignmentCenter;
+//        _toolbarTitle.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
+//        _toolbarTitle.font = [UIFont boldSystemFontOfSize:20];
+//        [self setToolbarLabelTitleForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+//        [self.splitViewController.toolbar addSubview:_toolbarTitle];
+        if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+            
+        }
+//        self.splitViewController.toolbar.translucent = NO;
+        self.splitViewController.navigationController.navigationBar.translucent = NO;
         
         
         // Finally, set the window's rootViewController to be splitViewController
@@ -127,30 +114,6 @@
     _textData = [[TextData alloc] init];
 
     return YES;
-}
-
-// Set the toolbar title dependent on device orientation (for iPad)
-- (void)setToolbarLabelTitleForOrientation:(UIInterfaceOrientation)orientation
-{
-    // Grab the currently selected cell (used to get the title of currentview
-    UITableViewCell *cell = [_rootViewControlleriPad.tableView cellForRowAtIndexPath:_rootViewControlleriPad.tableView.indexPathForSelectedRow];
-    if( UIDeviceOrientationIsPortrait(orientation) )
-    {   
-        // If the device is in portrait the master view will be hidden so add the label of the current method to the label
-        _toolbarTitle.text = [NSString stringWithFormat:@"Cryptaroo - %@", cell.textLabel.text];
-    }
-    else
-    {   // If in landscape just set the title to Cryptaroo
-        _toolbarTitle.text = @"Cryptaroo";
-    }
-}
-
-
-// When the info/about button is pressed
-- (void)infoButtonPressed
-{   // Create the info popover view and display it
-    InfoViewController *infoViewController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
-    [_splitViewController displayInfoPopover:infoViewController];
 }
 
 // When the help button is pressed

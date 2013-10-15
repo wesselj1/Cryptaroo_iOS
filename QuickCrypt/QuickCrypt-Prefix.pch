@@ -22,4 +22,5 @@
 #import "QCMethods.h"
 #import "TextData.h"
 #import "SSTextView.h"
+#import "Fonts.h"
 #endif

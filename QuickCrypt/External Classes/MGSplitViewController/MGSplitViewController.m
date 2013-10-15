@@ -169,11 +169,7 @@
 	_dividerView.backgroundColor = MG_DEFAULT_CORNER_COLOR;
 	_dividerStyle = MGSplitViewDividerStyleThin;
     toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    UIView *rightSpace = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
-    _rightSpacing = [[UIBarButtonItem alloc] initWithCustomView:rightSpace];
-    
-    UIView *smallSpace = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
-    _smallSpace = [[UIBarButtonItem alloc] initWithCustomView:smallSpace];
+
     
     [self.view addSubview:toolbar];
 }
@@ -270,8 +266,19 @@
 	
 	// Find status bar height by checking which dimension of the applicationFrame is narrower than screen bounds.
 	// Little bit ugly looking, but it'll still work even if they change the status bar height in future.
-	float statusBarHeight = MAX((fullScreenRect.size.width - appFrame.size.width), (fullScreenRect.size.height - appFrame.size.height));
-	
+    float statusBarHeight;
+//    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+//        statusBarHeight = 20;
+//    } else {
+//        statusBarHeight = MAX((fullScreenRect.size.width - appFrame.size.width), (fullScreenRect.size.height - appFrame.size.height));
+//    }
+    
+    statusBarHeight = MAX((fullScreenRect.size.width - appFrame.size.width), (fullScreenRect.size.height - appFrame.size.height));
+
+	if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        statusBarHeight = 0;
+    }
+    
 	// Initially assume portrait orientation.
 	float width = fullScreenRect.size.width;
 	float height = fullScreenRect.size.height;

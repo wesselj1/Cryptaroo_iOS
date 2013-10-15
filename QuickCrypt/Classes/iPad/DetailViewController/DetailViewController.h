@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MGSplitViewController.h"
+#import "RootViewControlleriPad.h"
+#import "QCButton.h"
+#import "QCTextField.h"
+#import "QCLabel.h"
+#import "HelpViewController.h"
 
-@interface DetailViewController : UIViewController <UIPopoverControllerDelegate, MGSplitViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate>
+@interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate, HelpViewControllerDelegate>
 {
     MGSplitViewController *splitViewController; // Reference to splitViewController
     
@@ -17,47 +22,61 @@
     
     IBOutlet SSTextView *inputText;         // The input text view
     IBOutlet SSTextView *outputText;        // The output text view
-    IBOutlet UIButton *computeButton;       // Compute button
+    IBOutlet QCButton *computeButton;       // Compute button
     IBOutlet UIStepper *stepper1;           // Stepper 1
     IBOutlet UIStepper *stepper2;           // Stepper 2
-    IBOutlet UITextField *textField1;       // Various textFields used for options
-    IBOutlet UITextField *textField2;
-    IBOutlet UITextField *textField3;
-    IBOutlet UITextField *textField4;
+    IBOutlet QCTextField *textField1;       // Various textFields used for options
+    IBOutlet QCTextField *textField2;
+    IBOutlet QCTextField *textField3;
+    IBOutlet QCTextField *textField4;
     IBOutlet UISwitch *switch1;
     IBOutlet UIView *optionsViewMat;        // View that contains the options for the cryptomethod
     IBOutlet UIView *GCDViewMat;            // View that holds the fields of the GCD and inverse calculator
-    IBOutlet UILabel *label1;
-    IBOutlet UILabel *label2;
+    IBOutlet QCLabel *label1;
+    IBOutlet QCLabel *label2;
+    IBOutlet QCLabel *label3;
+    IBOutlet QCLabel *label4;
+    IBOutlet QCLabel *additiveLabel;
+    IBOutlet QCLabel *multiplicativeLabel;
     IBOutlet UIScrollView *scrollView;      // Scroll view containing everything
+    IBOutlet UIView *divider1;
+    IBOutlet UIView *divider2;
     
     QCCryptoMethod cryptoMethod;            // The current cryptomethod
     UINavigationController *navController;  // Reference to the app's navController
 }
 
-@property (nonatomic, strong) MGSplitViewController *splitViewController;
-
+@property (nonatomic, strong) UISplitViewController *splitViewController;
+@property (nonatomic, strong) RootViewControlleriPad *rootViewController;
 @property (nonatomic, strong) UIPopoverController *popoverController;
+@property (nonatomic, strong) NSString *methodTitle;
 
 @property (nonatomic, strong) SSTextView *inputText;
 @property (nonatomic, strong) SSTextView *outputText;
 @property (nonatomic, strong) UIButton *computeButton;
 @property (nonatomic, strong) UIStepper *stepper1;
 @property (nonatomic, strong) UIStepper *stepper2;
-@property (nonatomic, strong) UITextField *textField1;
-@property (nonatomic, strong) UITextField *textField2;
-@property (nonatomic, strong) UITextField *textField3;
-@property (nonatomic, strong) UITextField *textField4;
+@property (nonatomic, strong) QCTextField *textField1;
+@property (nonatomic, strong) QCTextField *textField2;
+@property (nonatomic, strong) QCTextField *textField3;
+@property (nonatomic, strong) QCTextField *textField4;
 @property (nonatomic, strong) UISwitch *switch1;
 @property (nonatomic, strong) UIView *optionsViewMat;
 @property (nonatomic, strong) UIView *GCDViewMat;
-@property (nonatomic, strong) UILabel *label1;
-@property (nonatomic, strong) UILabel *label2;
+@property (nonatomic, strong) QCLabel *label1;
+@property (nonatomic, strong) QCLabel *label2;
+@property (nonatomic, strong) QCLabel *label3;
+@property (nonatomic, strong) QCLabel *label4;
+@property (nonatomic, strong) QCLabel *additiveLabel;
+@property (nonatomic, strong) QCLabel *multiplicativeLabel;
 
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIView *divider1;
+@property (nonatomic, strong) UIView *divider2;
 
 @property QCCryptoMethod cryptoMethod;
 @property (nonatomic, strong) UINavigationController *navController;
+@property (nonatomic, strong) UIBarButtonItem *menuButton;
 
 
 - (void)stepperValueChanged;                    // Handles change of a stepper value

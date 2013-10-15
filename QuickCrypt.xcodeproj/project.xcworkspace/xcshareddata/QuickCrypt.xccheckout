@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>C5DEE3AD-6563-453E-96A0-3F46C92033BB</string>
+	<string>5FADFDEA-A864-4818-B58D-899E4E7F600D</string>
 	<key>IDESourceControlProjectName</key>
 	<string>QuickCrypt</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -34,17 +36,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0BFD284D-5BDE-4879-9DE8-5347EE7E5E4A</string>
+			<string>2BC82CAE-78C2-4183-8AA5-3949F3F0DC8B</string>
 			<key>IDESourceControlWCCName</key>
-			<string>QuickCrypt</string>
+			<string>Cryptaroo_Android</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2BC82CAE-78C2-4183-8AA5-3949F3F0DC8B</string>
+			<string>0BFD284D-5BDE-4879-9DE8-5347EE7E5E4A</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Cryptaroo_Android</string>
+			<string>QuickCrypt</string>
 		</dict>
 	</array>
 </dict>

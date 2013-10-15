@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class RootViewControlleriPad;
 @class DetailViewController;
+
+//@protocol RootViewControllerDelegate <NSObject>
+//
+//@required
+//- (void)rootViewController
+//
+//@end
 
 @interface RootViewControlleriPad : UITableViewController
 {

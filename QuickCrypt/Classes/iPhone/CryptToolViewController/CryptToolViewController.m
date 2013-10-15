@@ -259,7 +259,7 @@
 
 - (IBAction)computeButtonPressed:(id)sender
 {
-    if( [_inputText isEmpty] )
+    if( [_inputText.text isEqualToString:@""] )
     {   // If there is no input text, prompt the user to enter text
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Input Text" message:@"Please input text" delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
         [alert show];
@@ -416,7 +416,7 @@
 }
 
 #pragma mark - HelpViewControllerDelegate Methods
-- (void)dismissHelpViewController:(HelpViewController *)viewController {
+- (void)dismissHelpViewController:(HelpViewController *)viewController redisplay:(BOOL)redisplay {
     if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
         [viewController.view removeFromSuperview];
     } else {

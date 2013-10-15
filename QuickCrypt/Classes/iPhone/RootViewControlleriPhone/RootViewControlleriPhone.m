@@ -92,6 +92,8 @@
         space.width = 10.0f;
     }
     self.navigationItem.rightBarButtonItems = @[space, infoBarButtonItem];
+    
+    self.tableView.separatorColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
 }
 
 - (void)viewDidUnload

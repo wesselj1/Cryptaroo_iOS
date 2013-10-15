@@ -8,19 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MGSplitViewController.h"
-
 @class RootViewControlleriPad;
 @class RootViewControlleriPhone;
 @class DetailViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-{
-}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navController;
-@property (strong, nonatomic) MGSplitViewController *splitViewController;           // The app's split view controller
+@property (strong, nonatomic) UISplitViewController *splitViewController;           // The app's split view controller
 @property (strong, nonatomic) RootViewControlleriPad *rootViewControlleriPad;       // RootViewController for the iPad
 @property (strong, nonatomic) RootViewControlleriPhone *rootViewControlleriPhone;   // RootViewController for the iPhone/iPod
 @property (strong, nonatomic) DetailViewController *detailViewController;           // The detail view for iPad

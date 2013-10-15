@@ -46,6 +46,18 @@
     
     td = [TextData textDataManager]; // Get an instance of our textData class
     
+    [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeFont: [[Fonts fontManager] fairviewRegularWithFontSize:30.0],
+                                                           UITextAttributeTextColor: [UIColor whiteColor],
+                                                           UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetMake(0, 0)]}];
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:2.0 forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0];
+        self.navigationController.navigationBar.translucent = NO;
+    } else {
+        [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:245/255.0 green:161/255.0 blue:60/255.0 alpha:1.0]];
+        [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-2.0 forBarMetrics:UIBarMetricsDefault];
+    }
+    
     // If the options inverseOf and mod exist load them
     if( [td.optionsList objectAtIndex:QCGCDAndInverse] && [[td.optionsList objectAtIndex:QCGCDAndInverse] count] > 0 )
     {

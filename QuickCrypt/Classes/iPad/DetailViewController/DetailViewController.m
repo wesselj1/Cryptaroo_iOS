@@ -14,14 +14,27 @@
 {
     double lastStepperValue; // Used to check if increment or decrement of multiplier stepper when setting affine options
     TextData *td;               // Reference to our textData singleton
-    NSMutableArray *optionsAry; // Array to hold all the options
+    NSArray *optionsAry;        // Array to hold all the options
     UIView *activeField;        /* The currently active field, used for finding the point where the active field is to scroll point in view
                                  when keyboard is displayed */
 }
 @property (nonatomic, strong) TextData *td;
 @property (nonatomic, strong) AppDelegate *appDelegate;
-@property (nonatomic, strong) NSMutableArray *optionsAry;
+@property (nonatomic, strong) NSArray *optionsAry;
 @property (nonatomic, strong) UIView *activeField;
+@property (nonatomic, strong) UIPopoverController *infoPopover;
+
+@property (nonatomic, strong) UIBarButtonItem *flexSpace;
+@property (nonatomic, strong) UIBarButtonItem *helpButton;
+@property (nonatomic, strong) UIBarButtonItem *infoButton;
+@property (nonatomic, strong) UIBarButtonItem *rightSpace;
+@property (nonatomic, strong) UIBarButtonItem *smallSpace;
+
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *inputHeight;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *outputHeight;
+@property (nonatomic, strong) UIView *curtainView;
+
+@property (nonatomic) BOOL redisplayHelp;
                    
 - (void)setButtonTitles;    // Set the button title per current cyrpto method
 - (void)setOptionTitles;    // Set the title of the options per the current crypto method
@@ -42,6 +55,8 @@
 @synthesize optionsAry = _optionsAry;
 
 @synthesize splitViewController = _splitViewController;
+@synthesize rootViewController = _rootViewController;
+@synthesize methodTitle = _methodTitle;
 
 @synthesize inputText = _inputText;
 @synthesize outputText = _outputText;
@@ -59,10 +74,16 @@
 @synthesize GCDViewMat = _GCDViewMat;
 @synthesize label1 = _label1;
 @synthesize label2 = _label2;
+@synthesize label3 = _label3;
+@synthesize label4 = _label4;
 @synthesize navController = _navController;
+@synthesize multiplicativeLabel = _multiplicativeLabel;
+@synthesize additiveLabel = _additiveLabel;
 
 @synthesize scrollView = _scrollView;
 @synthesize activeField = _activeField;
+@synthesize divider1 = _divider1;
+@synthesize divider2 = _divider2;
 
 #pragma mark - View Lifecycle Methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil cryptoMethod:(QCCryptoMethod)aCryptoMethod
@@ -70,6 +91,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.cryptoMethod = aCryptoMethod; // Set what the current crypto method is
+        self.redisplayHelp = NO;
     }
     return self;
 }
@@ -78,34 +100,90 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.translucent = NO;
+    [self setTitleForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+    
+    _scrollView.backgroundColor = [UIColor blueColor];
+    
     // Get references to our textData singleton and the application delegate
     td = [TextData textDataManager];
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.view.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1.0];
+    
+    _divider1.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
+    _divider2.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
     
     // Pull the array of options for this crypto method from our textData instance
     _optionsAry = [td.optionsList objectAtIndex:_cryptoMethod];
-    
     
     // Setup the button that will be our compute button
     UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
     [_computeButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
     
-    // Set corner radiuses for our textViews and optionsViewMat so they look pretty
-    _inputText.layer.cornerRadius = 5;
-    _inputText.clipsToBounds = YES;
+    // Set the back button for the navbar
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [_menuButton setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]} forState:UIControlStateNormal];
+    } else {
+        [_menuButton setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"Fairview-SmallCaps" size:20.0]} forState:UIControlStateNormal];
+    }
     
-    _outputText.layer.cornerRadius = 5;
-    _outputText.clipsToBounds = YES;
+    // Create an info/about button
+    UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    infoBtn.frame = CGRectMake(0, 0, 20, 20);
+    UIBarButtonItem *infoBtnA = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
+    [infoBtn addTarget:self action:@selector(infoButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    self.infoButton = infoBtnA;
     
-    _optionsViewMat.layer.cornerRadius = 5;
-    _optionsViewMat.clipsToBounds = YES;
+    // Create a help button
+    UIButton *helpButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    helpButton.frame = CGRectMake(0, 0, 20, 20);
+    [helpButton setImage:[UIImage imageNamed:@"UIButtonBarHelp2.png"] forState:UIControlStateNormal];
+    helpButton.showsTouchWhenHighlighted = YES;
+    [helpButton addTarget:self action:@selector(helpButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *helpButtonA = [[UIBarButtonItem alloc] initWithCustomView:helpButton];
+    self.helpButton = helpButtonA;
+    
+//    UIView *rightSpace = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
+//    _rightSpace = [[UIBarButtonItem alloc] initWithCustomView:rightSpace];
+    
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    space.width = 20.0;
+    
+    UIBarButtonItem *rightSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    rightSpace.width = 7.0;
+    
+    self.navigationItem.rightBarButtonItems = @[rightSpace, _infoButton, space, _helpButton];
+    
+    if( _cryptoMethod != QCFrequencyCount ) {
+        if( UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ) {
+            self.navigationItem.leftBarButtonItem = nil;
+        } else {
+            self.navigationItem.leftBarButtonItem = _menuButton;
+        }
+    }
+    
+    [self setFonts];
+    
+    [_inputText setFont:[UIFont fontWithName:@"CourierNewPSMT" size:16.0]];
+    [_inputText setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
+    [_outputText setFont:[UIFont fontWithName:@"CourierNewPSMT" size:16.0]];
+    [_outputText setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
     
     
-    // Set the placeholders for the input and output textViews
-    [_inputText setPlaceholder:@"Input Text"];
-    [_outputText setPlaceholder:@"Output Text"];
+    // Set the placeholders for our textViews
+    [_inputText setPlaceholder:@"INPUT TEXT"];
+    [_outputText setPlaceholder:@"OUTPUT TEXT"];
+    
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [_inputText setTintColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+        [_outputText setTintColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+    }
 
     [_switch1 setOn:NO]; // By default switch option should be OFF
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [[UISwitch appearance] setTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
+    }
+    [[UISwitch appearance] setOnTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
     
     
     // Setup the steppers for the approriate methods
@@ -128,6 +206,7 @@
         [_stepper1 setMinimumValue:0];
         [_stepper1 setStepValue:1];
     }
+    [[UIStepper appearance] setTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
 
     
     // For AutoKeyPlaintextAttack textFields two and three should be DecimalPads
@@ -150,6 +229,8 @@
     [self recallText];
     
     _activeField = (UIView *)_inputText;
+    
+    self.navigationItem.hidesBackButton = YES;
     
 //    UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
 //    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -186,6 +267,67 @@
     [self getOptionsAndSave];
 }
 
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
+    if( UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ) {
+        _inputHeight.constant = 195;
+        if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) {
+            _outputHeight.constant = 459;
+        } else if( _cryptoMethod == QCAffineEncipher || _cryptoMethod == QCAffineDecipher ) {
+            _outputHeight.constant = 386;
+        } else if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+            _outputHeight.constant = 358;
+        } else {
+            _outputHeight.constant = 395;
+        }
+    } else {
+        _inputHeight.constant = 260;
+        if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) {
+            _outputHeight.constant = 650;
+        } else if( _cryptoMethod == QCAffineEncipher || _cryptoMethod == QCAffineDecipher ) {
+            _outputHeight.constant = 577;
+        } else if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+            _outputHeight.constant = 547;
+        } else {
+            _outputHeight.constant = 586;
+        }
+    }
+    [_outputText setNeedsDisplay];
+    [_inputText setNeedsDisplay];
+//    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+//        _scrollView.frame = CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
+//    }
+}
+
+// Set the toolbar title dependent on device orientation (for iPad)
+- (void)setTitleForOrientation:(UIInterfaceOrientation)orientation
+{
+    if( UIDeviceOrientationIsPortrait(orientation) )
+    {   // If the device is in portrait the master view will be hidden so add the label of the current method to the label
+        if( _methodTitle > 0 ) {
+            self.title = [NSString stringWithFormat:@"CRYPTAROO - %@", _methodTitle];
+        } else {
+            self.title = [NSString stringWithFormat:@"CRYPTAROO - FREQUENCY COUNT"];
+        }
+    }
+    else
+    {   // If in landscape just set the title to Cryptaroo
+        if( _methodTitle > 0 ) {
+            self.title = [NSString stringWithFormat:@"%@", _methodTitle];
+        } else {
+            self.title = [NSString stringWithFormat:@"FREQUENCY COUNT"];
+        }
+    }
+}
+
+- (void)placeMenuButtonForInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    if( UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ) {
+        self.navigationItem.leftBarButtonItem = nil;
+    } else {
+        self.navigationItem.leftBarButtonItem = _menuButton;
+    }
+}
+
 #pragma mark - Other View Methods
 - (void)configureView
 {
@@ -193,26 +335,46 @@
 }
 
 #pragma mark - MGSplitView methods
-- (void)splitViewController:(MGSplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc
-{
-    // If the splitView is to be hidden add the menu button to toolbar items
+//- (void)splitViewController:(MGSplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc
+//{
+//    // If the splitView is to be hidden add the menu button to toolbar items
+//    _splitViewController = svc;
+//    svc.toolbar.items = [NSArray arrayWithObjects:svc.menuButton, svc._flexSpace, svc._infoBtn, svc._smallSpace, svc._helpBtn, nil];
+//    self.popoverController = pc;
+//}
+//
+//- (void)splitViewController:(MGSplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem;
+//{
+//    // If the toolbar is to be hidden remove the menu button from the toolbar
+//    _splitViewController = svc;
+//    if (barButtonItem) {
+//        svc.toolbar.items = [NSArray arrayWithObjects:svc._flexSpace, svc._infoBtn, svc._smallSpace, svc._helpBtn, nil];
+//	}
+//    self.popoverController = nil;
+//}
+//
+//- (void)splitViewController:(MGSplitViewController*)svc popoverController:(UIPopoverController*)pc willPresentViewController:(UIViewController *)aViewController
+//{
+//}
+
+
+#pragma mark - UISplitViewControllerDelegate Methods
+- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc {
     _splitViewController = svc;
-    svc.toolbar.items = [NSArray arrayWithObjects:svc.menuButton, svc._flexSpace, svc._infoBtn, svc._smallSpace, svc._helpBtn, nil];
-    self.popoverController = pc;
+    barButtonItem.title = @"Menu";
+    _menuButton = barButtonItem;
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [_menuButton setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"Fairview-SmallCaps" size:28.0]} forState:UIControlStateNormal];
+    } else {
+        [_menuButton setTitleTextAttributes:@{UITextAttributeFont: [UIFont fontWithName:@"Fairview-SmallCaps" size:20.0]} forState:UIControlStateNormal];
+    }
+    self.navigationItem.leftBarButtonItem = barButtonItem;
+    [self setPopoverController:pc];
 }
 
-- (void)splitViewController:(MGSplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem;
-{
-    // If the toolbar is to be hidden remove the menu button from the toolbar
-    _splitViewController = svc;
-    if (barButtonItem) {
-        svc.toolbar.items = [NSArray arrayWithObjects:svc._flexSpace, svc._infoBtn, svc._smallSpace, svc._helpBtn, nil];
-	}
-    self.popoverController = nil;
-}
-
-- (void)splitViewController:(MGSplitViewController*)svc popoverController:(UIPopoverController*)pc willPresentViewController:(UIViewController *)aViewController
-{
+- (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+    self.navigationItem.leftBarButtonItem = nil;
+    [self setPopoverController:nil];
 }
 
 #pragma mark - Rotation Methods
@@ -227,6 +389,47 @@
     // On rotate reset the bounds and frame of the scrollview
 	_scrollView.bounds = self.view.frame;
     _scrollView.frame = self.view.frame;
+    [self.view setNeedsUpdateConstraints];
+    
+    if( _redisplayHelp ) {
+        [self helpButtonPressed];
+        self.redisplayHelp = NO;
+    }
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if( !UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ) {
+        _inputHeight.constant = 195;
+        if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) {
+            _outputHeight.constant = 459;
+        } else if( _cryptoMethod == QCAffineEncipher || _cryptoMethod == QCAffineDecipher ) {
+            _outputHeight.constant = 386;
+        } else if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+            _outputHeight.constant = 358;
+        } else {
+            _outputHeight.constant = 395;
+        }
+    } else {
+        _inputHeight.constant = 260;
+        if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) {
+            _outputHeight.constant = 650;
+        } else if( _cryptoMethod == QCAffineEncipher || _cryptoMethod == QCAffineDecipher ) {
+            _outputHeight.constant = 577;
+        } else if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+            _outputHeight.constant = 547;
+        } else {
+            _outputHeight.constant = 586;
+        }
+        [_outputText setNeedsDisplay];
+        [_inputText setNeedsDisplay];
+        
+    }
+    
+    if( _cryptoMethod != QCFrequencyCount ) {
+        [self placeMenuButtonForInterfaceOrientation:toInterfaceOrientation];
+    }
+    
+    [self setTitleForOrientation:toInterfaceOrientation];
 }
 
 #pragma mark - Set Buttons
@@ -293,14 +496,14 @@
             break;
         case QCAffineEncipher:
         {
-            _label1.text = @"1";    // TO DO: Pull these values from cached
-            _label2.text = @"0";
+            _multiplicativeLabel.text = @"1";    // TO DO: Pull these values from cached
+            _additiveLabel.text = @"0";
         }
             break;
         case QCAffineDecipher:
         {
-            _label1.text = @"1";    // TO DO: Pull these values from cached
-            _label2.text = @"0";
+            _multiplicativeLabel.text = @"1";    // TO DO: Pull these values from cached
+            _additiveLabel.text = @"0";
         }
             break;
         case QCSplitOffAlphabets:
@@ -335,6 +538,45 @@
     }
 }
 
+- (void)setFonts
+{
+    if( _label1 )
+    {
+        [_label1 setFont:[[Fonts fontManager] fairviewSmallCapsWithFontSize:28.0]];
+        [_label1 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+    }
+    
+    if( _label2 )
+    {
+        [_label2 setFont:[[Fonts fontManager] fairviewSmallCapsWithFontSize:28.0]];
+        [_label2 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+    }
+    
+    if( _label3 )
+    {
+        [_label3 setFont:[[Fonts fontManager] fairviewSmallCapsWithFontSize:28.0]];
+        [_label3 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+    }
+    
+    if( _label4 )
+    {
+        [_label4 setFont:[[Fonts fontManager] fairviewSmallCapsWithFontSize:28.0]];
+        [_label4 setTextColor:[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]];
+    }
+    
+    if( _additiveLabel )
+    {
+        [_additiveLabel setFont:[[Fonts fontManager] fairviewSmallCapsWithFontSize:28.0]];
+        [_additiveLabel setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
+    }
+    
+    if( _multiplicativeLabel )
+    {
+        [_multiplicativeLabel setFont:[[Fonts fontManager] fairviewSmallCapsWithFontSize:28.0]];
+        [_multiplicativeLabel setTextColor:[UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
+    }
+}
+
 
 #pragma mark - Option Handling Methods
 // Recall the options from the last time the current method was displayed
@@ -354,15 +596,15 @@
                 [_switch1 setOn:[[_optionsAry objectAtIndex:1] boolValue]];
                 break;
             case QCAffineEncipher:
-                _label1.text = [_optionsAry objectAtIndex:0];
+                _additiveLabel.text = [_optionsAry objectAtIndex:0];
                 [_stepper1 setValue:[_label1.text intValue]];
-                _label2.text = [_optionsAry objectAtIndex:1];
+                _multiplicativeLabel.text = [_optionsAry objectAtIndex:1];
                 [_stepper2 setValue:[_label2.text intValue]];
                 break;
             case QCAffineDecipher:
-                _label1.text = [_optionsAry objectAtIndex:0];
+                _multiplicativeLabel.text = [_optionsAry objectAtIndex:0];
                 [_stepper1 setValue:[_label1.text intValue]];
-                _label2.text = [_optionsAry objectAtIndex:1];
+                _additiveLabel.text = [_optionsAry objectAtIndex:1];
                 [_stepper2 setValue:[_label2.text intValue]];
                 break;
             case QCSplitOffAlphabets:
@@ -415,10 +657,10 @@
             _optionsAry = [NSArray arrayWithObjects:[_textField1 text], [NSNumber numberWithBool:_switch1.on], nil];
             break;
         case QCAffineEncipher:
-            _optionsAry = [NSArray arrayWithObjects:_label1.text, _label2.text, nil];
+            _optionsAry = [NSArray arrayWithObjects:_multiplicativeLabel.text, _additiveLabel.text, nil];
             break;
         case QCAffineDecipher:
-           _optionsAry = [NSArray arrayWithObjects:_label1.text, _label2.text, nil];
+           _optionsAry = [NSArray arrayWithObjects:_multiplicativeLabel.text, _additiveLabel.text, nil];
             break;
         case QCSplitOffAlphabets:
             _optionsAry = [NSArray arrayWithObjects:[_textField1 text], nil];
@@ -631,14 +873,16 @@
     }
     
 
-    _label1.text = [NSString stringWithFormat:@"%.f", stepperValue];
+    _multiplicativeLabel.text = [NSString stringWithFormat:@"%.f", stepperValue];
+    _multiplicativeLabel.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0];
     lastStepperValue = stepperValue;    // Update the last stepperValue
 }
 
 - (void)adderStepperValueChanged
 {   // Get the stepper value and set it to the textField
     double stepperValue = _stepper2.value;
-    _label2.text = [NSString stringWithFormat:@"%.f", stepperValue];
+    _additiveLabel.text = [NSString stringWithFormat:@"%.f", stepperValue];
+    _additiveLabel.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0];
 }
 
 
@@ -654,7 +898,7 @@
     // Save any options
     [self getOptionsAndSave];
     
-    if( [_inputText isEmpty] )
+    if( [_inputText.text isEqualToString:@""] )
     {   // If text has not been input, prompt the user to input text
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Input Text" message:@"Please input text" delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
         [alert show];
@@ -830,6 +1074,103 @@
     _scrollView.scrollIndicatorInsets = contentInsets;
     _scrollView.frame = self.view.frame;
     [_scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
+}
+
+// When the info/about button is pressed
+- (void)infoButtonPressed
+{   // Create the info popover view and display it
+    InfoViewController *infoViewController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
+    _infoPopover = [[UIPopoverController alloc] initWithContentViewController:infoViewController];
+    [_infoPopover setPopoverContentSize:CGSizeMake(320, 460)];
+    
+    CGRect rect = _infoButton.customView.frame;
+    rect.origin.y -= 44;
+    rect.origin.x -= 3;
+//    popover.popoverBackgroundViewClass = [KSCustomPopoverBackgroundView class];
+    
+    [_infoPopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+}
+
+// When the help button is pressed
+- (void)helpButtonPressed
+{
+    // Grab the current cell (used to know which help blurb to display)
+//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:_rootViewControlleriPad.tableView.indexPathForSelectedRow];
+    
+    // Get the array of help blurbs from the plist
+//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"HelpInfo" ofType:@"plist"];
+//    NSDictionary *helpDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+//    NSArray *helpArray = [NSArray arrayWithArray:[helpDict valueForKey:@"QCHelpStrings"]];
+    
+    // Display the help blurb appropriate to the cryptomethod currently in view
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.title message:helpArray[_cryptoMethod] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+//    [alert show];
+    
+    HelpViewController *helpViewController = [[HelpViewController alloc] init];
+    helpViewController.delegate = self;
+    helpViewController.cryptoMethod = self.cryptoMethod;
+    
+    if( !_redisplayHelp ) {
+        [self addCurtainView];
+    }
+    [self.splitViewController addChildViewController:helpViewController];
+    
+    UIInterfaceOrientation currentOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    double rotation = 0;
+    switch (currentOrientation) {
+        case UIDeviceOrientationPortrait:
+            rotation = 0;
+            break;
+        case UIDeviceOrientationPortraitUpsideDown:
+            rotation = -M_PI;
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+            rotation = M_PI_2;
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            rotation = -M_PI_2;
+            break;
+    }
+    CGAffineTransform transform = CGAffineTransformMakeRotation(rotation);
+    [helpViewController.view setTransform:transform];
+    [self.curtainView addSubview:helpViewController.view];
+    
+    helpViewController.view.center = [UIApplication sharedApplication].keyWindow.center;
+    
+//    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+//        helpViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y-20);
+//    } else {
+//        helpViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y+20);
+//    }
+}
+
+- (void)dismissHelpViewController:(HelpViewController *)viewController redisplay:(BOOL)redisplay {
+    self.redisplayHelp = redisplay;
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [viewController.view removeFromSuperview];
+    } else {
+        [viewController.rootView removeFromSuperview];
+    }
+    [viewController removeFromParentViewController];
+    
+    if( !redisplay ) {
+        [self removeCurtainView];
+    }
+}
+
+- (void)removeCurtainView
+{
+    [_curtainView removeFromSuperview];
+    _curtainView = nil;
+}
+
+- (void)addCurtainView
+{
+    _curtainView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] keyWindow].frame];
+    _curtainView.exclusiveTouch = YES;
+    _curtainView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.3f];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:_curtainView];
 }
 
 @end

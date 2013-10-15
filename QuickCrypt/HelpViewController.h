@@ -31,6 +31,6 @@
 @protocol HelpViewControllerDelegate <NSObject>
 
 @required
-- (void)dismissHelpViewController:(HelpViewController *)controller;
+- (void)dismissHelpViewController:(HelpViewController *)controller redisplay:(BOOL)redisplay;
 
 @end

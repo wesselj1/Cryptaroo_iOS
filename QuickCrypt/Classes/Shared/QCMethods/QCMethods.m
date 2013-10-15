@@ -138,7 +138,7 @@ static char tabulaRecta[26][26] = {
 
 
 // GCD and Inverse
-+ (NSString *)GCDandInverse:(int)number mod:(int)modulus
++ (NSArray *)GCDandInverse:(int)number mod:(int)modulus
 {
     
     double y = fmax( (double)number, (double)modulus );

@@ -60,6 +60,38 @@
     }
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+//    double rotation = 0;
+//    switch (toInterfaceOrientation) {
+//        case UIDeviceOrientationPortrait:
+//            rotation = 0;
+//            break;
+//        case UIDeviceOrientationPortraitUpsideDown:
+//            rotation = -M_PI;
+//            break;
+//        case UIDeviceOrientationLandscapeLeft:
+//            rotation = M_PI_2;
+//            break;
+//        case UIDeviceOrientationLandscapeRight:
+//            rotation = -M_PI_2;
+//            break;
+//    }
+//    CGAffineTransform transform = CGAffineTransformMakeRotation(rotation);
+//    [self.view setTransform:transform];
+    if( [_delegate respondsToSelector:@selector(dismissHelpViewController:redisplay:)] ) {
+        [_delegate dismissHelpViewController:self redisplay:YES];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -67,8 +99,8 @@
 }
 
 - (IBAction)okayButtonTapped:(id)sender {
-    if( [_delegate respondsToSelector:@selector(dismissHelpViewController:)] ) {
-        [_delegate dismissHelpViewController:self];
+    if( [_delegate respondsToSelector:@selector(dismissHelpViewController:redisplay:)] ) {
+        [_delegate dismissHelpViewController:self redisplay:NO];
     }
 }
 @end
