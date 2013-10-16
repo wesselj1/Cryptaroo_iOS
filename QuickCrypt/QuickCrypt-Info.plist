@@ -14,6 +14,30 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>cryptarooOrange120</string>
+				<string>cryptarooOrange57</string>
+				<string>cryptarooOrange114</string>
+				<string>cryptarooOrange144</string>
+				<string>kangakey_ipad12.png</string>
+				<string>kangakey_ipadretina.png</string>
+				<string>kangakey_iphone.png</string>
+				<string>kangakey_iphoneretina.png</string>
+				<string>kangakey_ipad.png</string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>CFBundleIcons~ipad</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>cryptarooOrange76</string>
+				<string>cryptarooOrange152</string>
+				<string>cryptarooOrange72</string>
+				<string>cryptarooOrange144</string>
 				<string>kangakey_ipad12.png</string>
 				<string>kangakey_ipadretina.png</string>
 				<string>kangakey_iphone.png</string>
@@ -40,20 +64,22 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>fairview_regular.otf</string>
+		<string>fairview_smallcaps.otf</string>
+	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>fairview_regular.otf</string>
-		<string>fairview_smallcaps.otf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -64,7 +90,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleLightContent</string>
 </dict>
 </plist>

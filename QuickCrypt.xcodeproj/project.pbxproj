@@ -65,10 +65,6 @@
 		CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE2916BA1FE2009C3CDA /* InfoViewController.xib */; };
 		CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE2D16BA1FED009C3CDA /* QCMethods.m */; };
 		CC36EE3116BA1FF8009C3CDA /* TextData.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE3016BA1FF8009C3CDA /* TextData.m */; };
-		CC36EE3716BA207A009C3CDA /* kangakey_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE3316BA207A009C3CDA /* kangakey_ipad.png */; };
-		CC36EE3816BA207A009C3CDA /* kangakey_ipadretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE3416BA207A009C3CDA /* kangakey_ipadretina.png */; };
-		CC36EE3916BA207A009C3CDA /* kangakey_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE3516BA207A009C3CDA /* kangakey_iphone.png */; };
-		CC36EE3A16BA207A009C3CDA /* kangakey_iphoneretina.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE3616BA207A009C3CDA /* kangakey_iphoneretina.png */; };
 		CC5B588817A61F56002062F9 /* UIViewController+overView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B588717A61F56002062F9 /* UIViewController+overView.m */; };
 		CC5B588B17A62575002062F9 /* QCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B588A17A62575002062F9 /* QCLabel.m */; };
 		CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6F621C17A5C8F500187A71 /* QCButton.m */; };
@@ -87,6 +83,13 @@
 		CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */; };
 		CCF91C5F180E555300AE3DFB /* HelpButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */; };
 		CCF91C61180E55C700AE3DFB /* HelpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C60180E55C700AE3DFB /* HelpButton.png */; };
+		CCF91C79180E70C300AE3DFB /* cryptarooOrange144.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C78180E70C300AE3DFB /* cryptarooOrange144.png */; };
+		CCF91C7B180E70EE00AE3DFB /* cryptarooOrange114.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C7A180E70EE00AE3DFB /* cryptarooOrange114.png */; };
+		CCF91C7D180E712200AE3DFB /* cryptarooOrange57.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C7C180E712200AE3DFB /* cryptarooOrange57.png */; };
+		CCF91C7F180E714800AE3DFB /* cryptarooOrange120.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C7E180E714800AE3DFB /* cryptarooOrange120.png */; };
+		CCF91C81180E717600AE3DFB /* cryptarooOrange152.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C80180E717600AE3DFB /* cryptarooOrange152.png */; };
+		CCF91C83180E71A200AE3DFB /* cryptarooOrange76.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C82180E71A200AE3DFB /* cryptarooOrange76.png */; };
+		CCF91C85180E71C400AE3DFB /* cryptarooOrange72.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C84180E71C400AE3DFB /* cryptarooOrange72.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,10 +170,6 @@
 		CC36EE2D16BA1FED009C3CDA /* QCMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCMethods.m; path = Classes/Shared/QCMethods/QCMethods.m; sourceTree = "<group>"; };
 		CC36EE2F16BA1FF8009C3CDA /* TextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextData.h; path = Classes/Shared/TextData/TextData.h; sourceTree = "<group>"; };
 		CC36EE3016BA1FF8009C3CDA /* TextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextData.m; path = Classes/Shared/TextData/TextData.m; sourceTree = "<group>"; };
-		CC36EE3316BA207A009C3CDA /* kangakey_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kangakey_ipad.png; path = "App Icons/kangakey_ipad.png"; sourceTree = "<group>"; };
-		CC36EE3416BA207A009C3CDA /* kangakey_ipadretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kangakey_ipadretina.png; path = "App Icons/kangakey_ipadretina.png"; sourceTree = "<group>"; };
-		CC36EE3516BA207A009C3CDA /* kangakey_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kangakey_iphone.png; path = "App Icons/kangakey_iphone.png"; sourceTree = "<group>"; };
-		CC36EE3616BA207A009C3CDA /* kangakey_iphoneretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kangakey_iphoneretina.png; path = "App Icons/kangakey_iphoneretina.png"; sourceTree = "<group>"; };
 		CC5B588617A61F56002062F9 /* UIViewController+overView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+overView.h"; path = "External Classes/UIViewController+overView.h"; sourceTree = "<group>"; };
 		CC5B588717A61F56002062F9 /* UIViewController+overView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+overView.m"; path = "External Classes/UIViewController+overView.m"; sourceTree = "<group>"; };
 		CC5B588917A62575002062F9 /* QCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCLabel.h; path = Classes/iPhone/OptionsViewController/QCLabel.h; sourceTree = "<group>"; };
@@ -196,6 +195,13 @@
 		CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; sourceTree = "<group>"; };
 		CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HelpButton@2x.png"; sourceTree = "<group>"; };
 		CCF91C60180E55C700AE3DFB /* HelpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelpButton.png; sourceTree = "<group>"; };
+		CCF91C78180E70C300AE3DFB /* cryptarooOrange144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange144.png; sourceTree = "<group>"; };
+		CCF91C7A180E70EE00AE3DFB /* cryptarooOrange114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange114.png; sourceTree = "<group>"; };
+		CCF91C7C180E712200AE3DFB /* cryptarooOrange57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange57.png; sourceTree = "<group>"; };
+		CCF91C7E180E714800AE3DFB /* cryptarooOrange120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange120.png; sourceTree = "<group>"; };
+		CCF91C80180E717600AE3DFB /* cryptarooOrange152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange152.png; sourceTree = "<group>"; };
+		CCF91C82180E71A200AE3DFB /* cryptarooOrange76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange76.png; sourceTree = "<group>"; };
+		CCF91C84180E71C400AE3DFB /* cryptarooOrange72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange72.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -538,10 +544,13 @@
 		CC36EE3216BA203A009C3CDA /* App Icons */ = {
 			isa = PBXGroup;
 			children = (
-				CC36EE3316BA207A009C3CDA /* kangakey_ipad.png */,
-				CC36EE3416BA207A009C3CDA /* kangakey_ipadretina.png */,
-				CC36EE3516BA207A009C3CDA /* kangakey_iphone.png */,
-				CC36EE3616BA207A009C3CDA /* kangakey_iphoneretina.png */,
+				CCF91C7C180E712200AE3DFB /* cryptarooOrange57.png */,
+				CCF91C82180E71A200AE3DFB /* cryptarooOrange76.png */,
+				CCF91C84180E71C400AE3DFB /* cryptarooOrange72.png */,
+				CCF91C7E180E714800AE3DFB /* cryptarooOrange120.png */,
+				CCF91C7A180E70EE00AE3DFB /* cryptarooOrange114.png */,
+				CCF91C78180E70C300AE3DFB /* cryptarooOrange144.png */,
+				CCF91C80180E717600AE3DFB /* cryptarooOrange152.png */,
 			);
 			name = "App Icons";
 			sourceTree = "<group>";
@@ -635,9 +644,13 @@
 				CC36EDDC16BA1CF9009C3CDA /* DetailView2.xib in Resources */,
 				CC36EDDD16BA1CF9009C3CDA /* DetailView3.xib in Resources */,
 				CC36EDDE16BA1CF9009C3CDA /* DetailView4.xib in Resources */,
+				CCF91C81180E717600AE3DFB /* cryptarooOrange152.png in Resources */,
 				CC36EDDF16BA1CF9009C3CDA /* DetailView5.xib in Resources */,
 				CC36EDE016BA1CF9009C3CDA /* DetailView6.xib in Resources */,
+				CCF91C7F180E714800AE3DFB /* cryptarooOrange120.png in Resources */,
+				CCF91C83180E71A200AE3DFB /* cryptarooOrange76.png in Resources */,
 				CC36EDE116BA1CF9009C3CDA /* DetailView7.xib in Resources */,
+				CCF91C7B180E70EE00AE3DFB /* cryptarooOrange114.png in Resources */,
 				CC36EE0316BA1EC9009C3CDA /* popover-black-bcg-image.png in Resources */,
 				CC36EE0416BA1EC9009C3CDA /* popover-black-bcg-image@2x.png in Resources */,
 				CC36EE0516BA1EC9009C3CDA /* popover-black-bottom-arrow-image.png in Resources */,
@@ -648,6 +661,8 @@
 				CC36EE0A16BA1EC9009C3CDA /* popover-black-right-arrow-image@2x.png in Resources */,
 				CC36EE0B16BA1EC9009C3CDA /* popover-black-top-arrow-image.png in Resources */,
 				CC36EE0C16BA1EC9009C3CDA /* popover-black-top-arrow-image@2x.png in Resources */,
+				CCF91C85180E71C400AE3DFB /* cryptarooOrange72.png in Resources */,
+				CCF91C79180E70C300AE3DFB /* cryptarooOrange144.png in Resources */,
 				CC36EE1216BA1F12009C3CDA /* UIButtonBarHelp.png in Resources */,
 				CC36EE1316BA1F12009C3CDA /* UIButtonBarHelp@2x.png in Resources */,
 				CCF91C61180E55C700AE3DFB /* HelpButton.png in Resources */,
@@ -657,12 +672,9 @@
 				CC36EE1B16BA1F4C009C3CDA /* DoneDown.png in Resources */,
 				CC36EE1C16BA1F4C009C3CDA /* DoneDown3.png in Resources */,
 				CC36EE1D16BA1F4C009C3CDA /* DoneUp.png in Resources */,
+				CCF91C7D180E712200AE3DFB /* cryptarooOrange57.png in Resources */,
 				CC36EE1E16BA1F4C009C3CDA /* DoneUp3.png in Resources */,
 				CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */,
-				CC36EE3716BA207A009C3CDA /* kangakey_ipad.png in Resources */,
-				CC36EE3816BA207A009C3CDA /* kangakey_ipadretina.png in Resources */,
-				CC36EE3916BA207A009C3CDA /* kangakey_iphone.png in Resources */,
-				CC36EE3A16BA207A009C3CDA /* kangakey_iphoneretina.png in Resources */,
 				CC2D888F17FD567B001634F8 /* HelpViewController.xib in Resources */,
 				CC2742B317A4B83900539268 /* CustomTableViewCell.xib in Resources */,
 				CCEC063217A506CF00550105 /* fairview_regular.otf in Resources */,
