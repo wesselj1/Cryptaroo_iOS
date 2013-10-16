@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "InfoViewController.h"
 #import "AppDelegate.h"
+#import "KSCustomPopoverBackgroundView.h"
 
 @interface DetailViewController ()
 {
@@ -103,22 +104,16 @@
     self.navigationController.navigationBar.translucent = NO;
     [self setTitleForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
     
-    _scrollView.backgroundColor = [UIColor blueColor];
-    
     // Get references to our textData singleton and the application delegate
     td = [TextData textDataManager];
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    self.view.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1.0];
+    self.view.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
     
     _divider1.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
     _divider2.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1.0];
     
     // Pull the array of options for this crypto method from our textData instance
     _optionsAry = [td.optionsList objectAtIndex:_cryptoMethod];
-    
-    // Setup the button that will be our compute button
-    UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:0];
-    [_computeButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
     
     // Set the back button for the navbar
     if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
@@ -137,20 +132,26 @@
     // Create a help button
     UIButton *helpButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
     helpButton.frame = CGRectMake(0, 0, 20, 20);
-    [helpButton setImage:[UIImage imageNamed:@"UIButtonBarHelp2.png"] forState:UIControlStateNormal];
-    helpButton.showsTouchWhenHighlighted = YES;
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [helpButton setImage:[UIImage imageNamed:@"HelpButton.png"] forState:UIControlStateNormal];
+        helpButton.showsTouchWhenHighlighted = NO;
+    } else {
+        [helpButton setImage:[UIImage imageNamed:@"UIButtonBarHelp2.png"] forState:UIControlStateNormal];
+        helpButton.showsTouchWhenHighlighted = YES;
+    }
     [helpButton addTarget:self action:@selector(helpButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *helpButtonA = [[UIBarButtonItem alloc] initWithCustomView:helpButton];
     self.helpButton = helpButtonA;
-    
-//    UIView *rightSpace = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
-//    _rightSpace = [[UIBarButtonItem alloc] initWithCustomView:rightSpace];
     
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     space.width = 20.0;
     
     UIBarButtonItem *rightSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    rightSpace.width = 7.0;
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        rightSpace.width = 7.0;
+    } else {
+        rightSpace.width = 18.0;
+    }
     
     self.navigationItem.rightBarButtonItems = @[rightSpace, _infoButton, space, _helpButton];
     
@@ -231,15 +232,6 @@
     _activeField = (UIView *)_inputText;
     
     self.navigationItem.hidesBackButton = YES;
-    
-//    UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
-//    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-//    [infoBtn addTarget:self action:@selector(infoButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    UIBarButtonItem *infoBtnA = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
-//    self.splitViewController._infoBtn = infoBtn;
-//    self.splitViewController._infoBtnA = infoBtnA;
-//    self.splitViewController._flexSpace = flexSpace;
 }
 
 - (void)viewDidUnload
@@ -274,11 +266,11 @@
         if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) {
             _outputHeight.constant = 459;
         } else if( _cryptoMethod == QCAffineEncipher || _cryptoMethod == QCAffineDecipher ) {
-            _outputHeight.constant = 386;
+            _outputHeight.constant = 387;
         } else if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
-            _outputHeight.constant = 358;
+            _outputHeight.constant = 359;
         } else {
-            _outputHeight.constant = 395;
+            _outputHeight.constant = 396;
         }
     } else {
         _inputHeight.constant = 260;
@@ -287,9 +279,9 @@
         } else if( _cryptoMethod == QCAffineEncipher || _cryptoMethod == QCAffineDecipher ) {
             _outputHeight.constant = 577;
         } else if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
-            _outputHeight.constant = 547;
+            _outputHeight.constant = 550;
         } else {
-            _outputHeight.constant = 586;
+            _outputHeight.constant = 587;
         }
     }
     [_outputText setNeedsDisplay];
@@ -333,29 +325,6 @@
 {
     // Update the user interface for the detail item.
 }
-
-#pragma mark - MGSplitView methods
-//- (void)splitViewController:(MGSplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc
-//{
-//    // If the splitView is to be hidden add the menu button to toolbar items
-//    _splitViewController = svc;
-//    svc.toolbar.items = [NSArray arrayWithObjects:svc.menuButton, svc._flexSpace, svc._infoBtn, svc._smallSpace, svc._helpBtn, nil];
-//    self.popoverController = pc;
-//}
-//
-//- (void)splitViewController:(MGSplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem;
-//{
-//    // If the toolbar is to be hidden remove the menu button from the toolbar
-//    _splitViewController = svc;
-//    if (barButtonItem) {
-//        svc.toolbar.items = [NSArray arrayWithObjects:svc._flexSpace, svc._infoBtn, svc._smallSpace, svc._helpBtn, nil];
-//	}
-//    self.popoverController = nil;
-//}
-//
-//- (void)splitViewController:(MGSplitViewController*)svc popoverController:(UIPopoverController*)pc willPresentViewController:(UIViewController *)aViewController
-//{
-//}
 
 
 #pragma mark - UISplitViewControllerDelegate Methods
@@ -403,11 +372,11 @@
         if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) {
             _outputHeight.constant = 459;
         } else if( _cryptoMethod == QCAffineEncipher || _cryptoMethod == QCAffineDecipher ) {
-            _outputHeight.constant = 386;
+            _outputHeight.constant = 387;
         } else if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
             _outputHeight.constant = 358;
         } else {
-            _outputHeight.constant = 395;
+            _outputHeight.constant = 396;
         }
     } else {
         _inputHeight.constant = 260;
@@ -418,7 +387,7 @@
         } else if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
             _outputHeight.constant = 547;
         } else {
-            _outputHeight.constant = 586;
+            _outputHeight.constant = 587;
         }
         [_outputText setNeedsDisplay];
         [_inputText setNeedsDisplay];
@@ -1084,9 +1053,14 @@
     [_infoPopover setPopoverContentSize:CGSizeMake(320, 460)];
     
     CGRect rect = _infoButton.customView.frame;
-    rect.origin.y -= 44;
-    rect.origin.x -= 3;
-//    popover.popoverBackgroundViewClass = [KSCustomPopoverBackgroundView class];
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0" ) ) {
+        rect.origin.y -= 44;
+        rect.origin.x -= 3;
+    } else {
+        rect.origin.y -= 44;
+        rect.origin.x += 7;
+        _infoPopover.popoverBackgroundViewClass = [KSCustomPopoverBackgroundView class];
+    }
     
     [_infoPopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     

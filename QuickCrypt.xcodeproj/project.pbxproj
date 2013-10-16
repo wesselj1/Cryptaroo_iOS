@@ -85,6 +85,8 @@
 		CCEC063217A506CF00550105 /* fairview_regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCEC063017A506CF00550105 /* fairview_regular.otf */; };
 		CCEC063317A506CF00550105 /* fairview_smallcaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCEC063117A506CF00550105 /* fairview_smallcaps.otf */; };
 		CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */; };
+		CCF91C5F180E555300AE3DFB /* HelpButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */; };
+		CCF91C61180E55C700AE3DFB /* HelpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C60180E55C700AE3DFB /* HelpButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,6 +194,8 @@
 		CCEC063117A506CF00550105 /* fairview_smallcaps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fairview_smallcaps.otf; sourceTree = "<group>"; };
 		CCEC063517A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h"; sourceTree = "<group>"; };
 		CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; sourceTree = "<group>"; };
+		CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HelpButton@2x.png"; sourceTree = "<group>"; };
+		CCF91C60180E55C700AE3DFB /* HelpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelpButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +473,8 @@
 		CC36EE0D16BA1EF6009C3CDA /* UIBarButtonHelpImages */ = {
 			isa = PBXGroup;
 			children = (
+				CCF91C60180E55C700AE3DFB /* HelpButton.png */,
+				CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */,
 				CC36EE0E16BA1F12009C3CDA /* UIButtonBarHelp.png */,
 				CC36EE0F16BA1F12009C3CDA /* UIButtonBarHelp@2x.png */,
 				CC36EE1016BA1F12009C3CDA /* UIButtonBarHelp2.png */,
@@ -644,7 +650,9 @@
 				CC36EE0C16BA1EC9009C3CDA /* popover-black-top-arrow-image@2x.png in Resources */,
 				CC36EE1216BA1F12009C3CDA /* UIButtonBarHelp.png in Resources */,
 				CC36EE1316BA1F12009C3CDA /* UIButtonBarHelp@2x.png in Resources */,
+				CCF91C61180E55C700AE3DFB /* HelpButton.png in Resources */,
 				CC36EE1416BA1F12009C3CDA /* UIButtonBarHelp2.png in Resources */,
+				CCF91C5F180E555300AE3DFB /* HelpButton@2x.png in Resources */,
 				CC36EE1516BA1F12009C3CDA /* UIButtonBarHelp2@2x.png in Resources */,
 				CC36EE1B16BA1F4C009C3CDA /* DoneDown.png in Resources */,
 				CC36EE1C16BA1F4C009C3CDA /* DoneDown3.png in Resources */,

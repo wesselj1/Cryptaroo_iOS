@@ -22,186 +22,170 @@
                 <outlet property="scrollView" destination="43" id="44"/>
                 <outlet property="stepper1" destination="27" id="34"/>
                 <outlet property="stepper2" destination="25" id="33"/>
-                <outlet property="view" destination="2" id="3"/>
+                <outlet property="view" destination="43" id="COt-fJ-FaD"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2">
-            <rect key="frame" x="0.0" y="64" width="768" height="959.99999999999989"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="43">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="959.99999999999989"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43">
-                    <rect key="frame" x="0.0" y="0.0" width="768" height="959.99999999999989"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4" userLabel="Input Text View" customClass="SSTextView">
-                            <rect key="frame" x="0.0" y="0.0" width="768" height="260"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="260" id="ypd-WW-T2a"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="41"/>
-                            </connections>
-                        </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5" userLabel="Output Text View" customClass="SSTextView">
-                            <rect key="frame" x="0.0" y="261" width="768" height="577"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="577" id="b2G-6U-brj"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="42"/>
-                            </connections>
-                        </textView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-9h-TOK" userLabel="Divider">
-                            <rect key="frame" x="83" y="838" width="602" height="1"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1" id="aAd-B1-dnX"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qF-uu-688" userLabel="Divider">
-                            <rect key="frame" x="0.0" y="260" width="768" height="1"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1" id="h0a-sp-13f"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6">
-                            <rect key="frame" x="83" y="839" width="602" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="8" userLabel="MultiplierLabel" customClass="QCLabel">
-                                    <rect key="frame" x="174" y="22" width="21" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="21" id="pAo-ix-AWY"/>
-                                        <constraint firstAttribute="width" constant="21" id="yDR-Nu-iMp"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9" userLabel="AdderLabel" customClass="QCLabel">
-                                    <rect key="frame" x="460" y="22" width="21" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="21" id="BmV-bI-IsN"/>
-                                        <constraint firstAttribute="height" constant="21" id="pBe-XR-udH"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="25" userLabel="AdderStepper">
-                                    <rect key="frame" x="489" y="21" width="94" height="29"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <connections>
-                                        <action selector="didChangeOption:" destination="-1" eventType="valueChanged" id="40"/>
-                                    </connections>
-                                </stepper>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Additive Shift:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="26" customClass="QCLabel">
-                                    <rect key="frame" x="345" y="25" width="107" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="27" userLabel="MultiplierStepper">
-                                    <rect key="frame" x="203" y="21" width="94" height="29"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <connections>
-                                        <action selector="didChangeOption:" destination="-1" eventType="valueChanged" id="39"/>
-                                    </connections>
-                                </stepper>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Multiplicative Shift:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="28" customClass="QCLabel">
-                                    <rect key="frame" x="20" y="25" width="146" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="25" firstAttribute="leading" secondItem="9" secondAttribute="trailing" constant="8" id="0oC-zy-mk9"/>
-                                <constraint firstAttribute="height" constant="70" id="2wI-vZ-tC8"/>
-                                <constraint firstItem="28" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" id="6mj-v5-cNN"/>
-                                <constraint firstAttribute="centerY" secondItem="28" secondAttribute="centerY" id="7Qi-ML-UUx"/>
-                                <constraint firstAttribute="width" constant="602" id="NRZ-pq-oeN"/>
-                                <constraint firstItem="27" firstAttribute="leading" secondItem="8" secondAttribute="trailing" constant="8" id="TLp-ud-srD"/>
-                                <constraint firstAttribute="centerY" secondItem="25" secondAttribute="centerY" id="UIJ-Yu-uXa"/>
-                                <constraint firstItem="9" firstAttribute="leading" secondItem="26" secondAttribute="trailing" constant="8" id="UfL-HD-HtJ"/>
-                                <constraint firstAttribute="centerY" secondItem="26" secondAttribute="centerY" id="YeG-I3-Orz"/>
-                                <constraint firstItem="26" firstAttribute="leading" secondItem="27" secondAttribute="trailing" constant="48" id="bkD-a1-tG6"/>
-                                <constraint firstAttribute="centerY" secondItem="27" secondAttribute="centerY" id="dRe-ie-LXL"/>
-                                <constraint firstItem="8" firstAttribute="baseline" secondItem="28" secondAttribute="baseline" constant="-3" id="f1H-h8-foH"/>
-                                <constraint firstItem="9" firstAttribute="baseline" secondItem="26" secondAttribute="baseline" constant="-3" id="rv2-YY-IPS"/>
-                                <constraint firstItem="8" firstAttribute="leading" secondItem="28" secondAttribute="trailing" constant="8" id="w75-S4-RNi"/>
-                            </constraints>
-                        </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7" customClass="QCButton">
-                            <rect key="frame" x="0.0" y="908.99999999999989" width="768" height="50"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Bfj-gI-sGa"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                            <state key="normal" title="Label">
-                                <color key="titleColor" red="0.98823535439999999" green="1" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="computeButtonPressed:" destination="-1" eventType="touchUpInside" id="38"/>
-                            </connections>
-                        </button>
-                    </subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4" userLabel="Input Text View" customClass="SSTextView">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="260"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="4" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="1xV-oq-3EF"/>
-                        <constraint firstItem="4" firstAttribute="top" secondItem="43" secondAttribute="top" id="3lo-jn-r0K"/>
-                        <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="5ER-Oq-Bhd"/>
-                        <constraint firstItem="5" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="1" id="ABb-4g-XUI"/>
-                        <constraint firstAttribute="trailing" secondItem="7" secondAttribute="trailing" id="ENI-kE-Qac"/>
-                        <constraint firstItem="6" firstAttribute="top" secondItem="5" secondAttribute="bottom" constant="1" id="GNv-eG-sJb"/>
-                        <constraint firstItem="7" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="Lod-YP-dps"/>
-                        <constraint firstItem="5" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="P9S-bV-7GV"/>
-                        <constraint firstAttribute="trailing" secondItem="2qF-uu-688" secondAttribute="trailing" id="Sz7-sq-Oe3"/>
-                        <constraint firstItem="7" firstAttribute="top" secondItem="6" secondAttribute="bottom" id="Udo-KD-hLD"/>
-                        <constraint firstAttribute="trailing" secondItem="5" secondAttribute="trailing" id="c0V-1J-gga"/>
-                        <constraint firstAttribute="bottom" secondItem="7" secondAttribute="bottom" id="d9b-2i-ToW"/>
-                        <constraint firstItem="2qF-uu-688" firstAttribute="top" secondItem="4" secondAttribute="bottom" id="dPF-bN-YXY"/>
-                        <constraint firstItem="6" firstAttribute="width" secondItem="F9r-9h-TOK" secondAttribute="width" id="eoV-mf-GgS"/>
-                        <constraint firstAttribute="centerX" secondItem="F9r-9h-TOK" secondAttribute="centerX" id="ff0-w1-puQ"/>
-                        <constraint firstAttribute="trailing" secondItem="6" secondAttribute="trailing" constant="83" id="jCk-sJ-wQ6"/>
-                        <constraint firstItem="6" firstAttribute="top" secondItem="F9r-9h-TOK" secondAttribute="bottom" id="oJg-MJ-v7T"/>
-                        <constraint firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="oWg-W0-2JK"/>
-                        <constraint firstItem="2qF-uu-688" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="pzU-Jr-1B5"/>
-                        <constraint firstItem="5" firstAttribute="top" secondItem="2qF-uu-688" secondAttribute="bottom" id="rQJ-xj-uZE"/>
+                        <constraint firstAttribute="height" constant="260" id="ypd-WW-T2a"/>
                     </constraints>
-                </scrollView>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="41"/>
+                    </connections>
+                </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5" userLabel="Output Text View" customClass="SSTextView">
+                    <rect key="frame" x="0.0" y="261" width="768" height="577"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="577" id="b2G-6U-brj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="42"/>
+                    </connections>
+                </textView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-9h-TOK" userLabel="Divider">
+                    <rect key="frame" x="83" y="838" width="602" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="aAd-B1-dnX"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qF-uu-688" userLabel="Divider">
+                    <rect key="frame" x="0.0" y="260" width="768" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="h0a-sp-13f"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6">
+                    <rect key="frame" x="83" y="839" width="602" height="70"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="8" userLabel="MultiplierLabel" customClass="QCLabel">
+                            <rect key="frame" x="174" y="22" width="21" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="pAo-ix-AWY"/>
+                                <constraint firstAttribute="width" constant="21" id="yDR-Nu-iMp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9" userLabel="AdderLabel" customClass="QCLabel">
+                            <rect key="frame" x="460" y="22" width="21" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="21" id="BmV-bI-IsN"/>
+                                <constraint firstAttribute="height" constant="21" id="pBe-XR-udH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="25" userLabel="AdderStepper">
+                            <rect key="frame" x="489" y="21" width="94" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <connections>
+                                <action selector="didChangeOption:" destination="-1" eventType="valueChanged" id="40"/>
+                            </connections>
+                        </stepper>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Additive Shift:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="26" customClass="QCLabel">
+                            <rect key="frame" x="345" y="25" width="107" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="27" userLabel="MultiplierStepper">
+                            <rect key="frame" x="203" y="21" width="94" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <connections>
+                                <action selector="didChangeOption:" destination="-1" eventType="valueChanged" id="39"/>
+                            </connections>
+                        </stepper>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Multiplicative Shift:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="28" customClass="QCLabel">
+                            <rect key="frame" x="20" y="25" width="146" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="25" firstAttribute="leading" secondItem="9" secondAttribute="trailing" constant="8" id="0oC-zy-mk9"/>
+                        <constraint firstAttribute="height" constant="70" id="2wI-vZ-tC8"/>
+                        <constraint firstItem="28" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" id="6mj-v5-cNN"/>
+                        <constraint firstAttribute="centerY" secondItem="28" secondAttribute="centerY" id="7Qi-ML-UUx"/>
+                        <constraint firstAttribute="width" constant="602" id="NRZ-pq-oeN"/>
+                        <constraint firstItem="27" firstAttribute="leading" secondItem="8" secondAttribute="trailing" constant="8" id="TLp-ud-srD"/>
+                        <constraint firstAttribute="centerY" secondItem="25" secondAttribute="centerY" id="UIJ-Yu-uXa"/>
+                        <constraint firstItem="9" firstAttribute="leading" secondItem="26" secondAttribute="trailing" constant="8" id="UfL-HD-HtJ"/>
+                        <constraint firstAttribute="centerY" secondItem="26" secondAttribute="centerY" id="YeG-I3-Orz"/>
+                        <constraint firstItem="26" firstAttribute="leading" secondItem="27" secondAttribute="trailing" constant="48" id="bkD-a1-tG6"/>
+                        <constraint firstAttribute="centerY" secondItem="27" secondAttribute="centerY" id="dRe-ie-LXL"/>
+                        <constraint firstItem="8" firstAttribute="baseline" secondItem="28" secondAttribute="baseline" constant="-3" id="f1H-h8-foH"/>
+                        <constraint firstItem="9" firstAttribute="baseline" secondItem="26" secondAttribute="baseline" constant="-3" id="rv2-YY-IPS"/>
+                        <constraint firstItem="8" firstAttribute="leading" secondItem="28" secondAttribute="trailing" constant="8" id="w75-S4-RNi"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7" customClass="QCButton">
+                    <rect key="frame" x="0.0" y="908.99999999999989" width="768" height="50"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Bfj-gI-sGa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                    <state key="normal" title="Label">
+                        <color key="titleColor" red="0.98823535439999999" green="1" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="computeButtonPressed:" destination="-1" eventType="touchUpInside" id="38"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="43" secondAttribute="bottom" id="AFS-K7-q28"/>
-                <constraint firstItem="43" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="T1y-dE-54p"/>
-                <constraint firstAttribute="trailing" secondItem="43" secondAttribute="trailing" id="lXD-u6-GI8"/>
-                <constraint firstItem="43" firstAttribute="top" secondItem="2" secondAttribute="top" id="vxe-Gi-Kse"/>
+                <constraint firstItem="4" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="1xV-oq-3EF"/>
+                <constraint firstItem="4" firstAttribute="top" secondItem="43" secondAttribute="top" id="3lo-jn-r0K"/>
+                <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="5ER-Oq-Bhd"/>
+                <constraint firstItem="5" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="1" id="ABb-4g-XUI"/>
+                <constraint firstAttribute="trailing" secondItem="7" secondAttribute="trailing" id="ENI-kE-Qac"/>
+                <constraint firstItem="6" firstAttribute="top" secondItem="5" secondAttribute="bottom" constant="1" id="GNv-eG-sJb"/>
+                <constraint firstItem="7" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="Lod-YP-dps"/>
+                <constraint firstItem="5" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="P9S-bV-7GV"/>
+                <constraint firstAttribute="trailing" secondItem="2qF-uu-688" secondAttribute="trailing" id="Sz7-sq-Oe3"/>
+                <constraint firstItem="7" firstAttribute="top" secondItem="6" secondAttribute="bottom" id="Udo-KD-hLD"/>
+                <constraint firstAttribute="trailing" secondItem="5" secondAttribute="trailing" id="c0V-1J-gga"/>
+                <constraint firstAttribute="bottom" secondItem="7" secondAttribute="bottom" id="d9b-2i-ToW"/>
+                <constraint firstItem="2qF-uu-688" firstAttribute="top" secondItem="4" secondAttribute="bottom" id="dPF-bN-YXY"/>
+                <constraint firstItem="6" firstAttribute="width" secondItem="F9r-9h-TOK" secondAttribute="width" id="eoV-mf-GgS"/>
+                <constraint firstAttribute="centerX" secondItem="F9r-9h-TOK" secondAttribute="centerX" id="ff0-w1-puQ"/>
+                <constraint firstAttribute="trailing" secondItem="6" secondAttribute="trailing" constant="83" id="jCk-sJ-wQ6"/>
+                <constraint firstItem="6" firstAttribute="top" secondItem="F9r-9h-TOK" secondAttribute="bottom" id="oJg-MJ-v7T"/>
+                <constraint firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="oWg-W0-2JK"/>
+                <constraint firstItem="2qF-uu-688" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="pzU-Jr-1B5"/>
+                <constraint firstItem="5" firstAttribute="top" secondItem="2qF-uu-688" secondAttribute="bottom" id="rQJ-xj-uZE"/>
             </constraints>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-        </view>
+        </scrollView>
     </objects>
 </document>
