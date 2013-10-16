@@ -418,6 +418,9 @@
 #pragma mark - HelpViewControllerDelegate Methods
 - (void)dismissHelpViewController:(HelpViewController *)viewController redisplay:(BOOL)redisplay {
     if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+            self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        }
         [viewController.view removeFromSuperview];
     } else {
         [viewController.rootView removeFromSuperview];
@@ -458,6 +461,9 @@
     
     if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
         helpViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y-20);
+        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+            self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+        }
     } else {
         helpViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y+20);
     }
