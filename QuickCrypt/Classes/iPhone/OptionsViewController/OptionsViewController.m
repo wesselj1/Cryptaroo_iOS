@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "optionsViewController.h"
+#import "OptionsViewController.h"
 #import "CryptToolViewController.h"
 #import "QCLabel.h"
 #import "QCTextField.h"
@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSArray *optionsAry;              // Our array of options
 @property (nonatomic, strong) NSMutableArray *optionsTitles;    // The title of the options to be set, used to set labels
 @property (nonatomic, strong) TextData *td;                     // Instance of our textData class
+@property (nonatomic) CGRect initialFrame;
 
 @property (nonatomic, strong) DoneCancelNumberPadToolbar *accessoryToolbar;
 
@@ -50,9 +51,13 @@
 {
     [super viewDidLoad];
     
+    [self registerForKeyboardNotifications];
+    
     if( _cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack || _cryptoMethod == QCAutokeyPlaintextAttack) {
         DoneCancelNumberPadToolbar *toolbar = [[DoneCancelNumberPadToolbar alloc] initWithTextField:_textField1];
         _textField1.inputAccessoryView = toolbar;
+        _textField2.inputAccessoryView = toolbar;
+        _textField3.inputAccessoryView = toolbar;
     }
     
     self.td = [TextData textDataManager]; // Get instance of our textData class
@@ -91,7 +96,7 @@
     }
     else
     {
-        [_stepper1 setMinimumValue:0];
+        [_stepper1 setMinimumValue:1];
         [_stepper1 setStepValue:1];
     }
     [[UIStepper appearance] setTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
@@ -381,55 +386,6 @@
     [_td.optionsList replaceObjectAtIndex:_cryptoMethod withObject:_optionsAry];
 }
 
-#pragma mark - Keyboard Methods
-- (void)addButtonToKeyboard {
-	// create custom button
-    
-	UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	doneButton.frame = CGRectMake(0, 163, 104, 53);
-	doneButton.adjustsImageWhenHighlighted = NO;
-    [doneButton setBackgroundColor:[UIColor colorWithRed:0/255.0 green:126/255.0 blue:245.0/255.0 alpha:0.83]];
-    [doneButton addTarget:self action:@selector(dismissKeyboard:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"Done";
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:15.0];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.frame = CGRectMake(0, 0, doneButton.frame.size.width, doneButton.frame.size.height);
-    [doneButton addSubview:label];
-    
-    //	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.0) {
-    //		[doneButton setImage:[UIImage imageNamed:@"DoneUp3.png"] forState:UIControlStateNormal];
-    //		[doneButton setImage:[UIImage imageNamed:@"DoneDown3.png"] forState:UIControlStateHighlighted];
-    //	} else {
-    //		[doneButton setImage:[UIImage imageNamed:@"DoneUp.png"] forState:UIControlStateNormal];
-    //		[doneButton setImage:[UIImage imageNamed:@"DoneDown.png"] forState:UIControlStateHighlighted];
-    //	}
-    
-	// locate keyboard view
-	UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
-	UIView* keyboard;
-	for(int i=0; i<[tempWindow.subviews count]; i++) {
-		keyboard = [tempWindow.subviews objectAtIndex:i];
-		// keyboard found, add the button
-        if([[keyboard description] hasPrefix:@"<UIPeripheralHost"] == YES || [[keyboard description] hasPrefix:@"<UITextEffectsWindow"] == YES )
-        {
-            [keyboard addSubview:doneButton];
-            NSLog(@"Found keyboard");
-        }
-	}
-}
-
-- (void)keyboardWillShow:(NSNotification *)note {
-    [self addButtonToKeyboard];
-}
-
-- (void)keyboardDidShow:(NSNotification *)note {
-    [self addButtonToKeyboard];
-}
-
-
 #pragma mark - Actions
 - (IBAction)applyButtonTouched:(id)sender
 {
@@ -441,5 +397,45 @@
 {
     [self.delegate dismissOptionsViewController:self];
 }
+
+#pragma mark - Keyboard Notification Methods
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWasShown:(NSNotification *)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGRect kbFrame = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGSize kbSize = kbFrame.size;
+    self.initialFrame = self.view.frame;
+    
+    float yDelta = (_initialFrame.origin.y + _initialFrame.size.height) - (self.parentViewController.view.frame.size.height-kbSize.height);
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        if ( _cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack || _cryptoMethod == QCAutokeyPlaintextAttack ) {
+            self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-yDelta-20, _initialFrame.size.width, _initialFrame.size.height);
+        } else if ( _cryptoMethod == QCAffineKnownPlaintextAttack || _cryptoMethod == QCAutokeyDecipher ) {
+            self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-2*yDelta, _initialFrame.size.width, _initialFrame.size.height);
+        } else if ( _cryptoMethod == QCViginereEncipher || _cryptoMethod == QCViginereDecipher ) {
+            self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-6*yDelta, _initialFrame.size.width, _initialFrame.size.height);
+        }
+    }];
+}
+
+- (void)keyboardWillBeHidden:(NSNotification *)aNotification
+{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.frame = _initialFrame;
+    }];
+}
+
 
 @end

@@ -33,6 +33,9 @@
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *inputHeight;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *outputHeight;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *inputWidth;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *outputWidth;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *buttonWidth;
 @property (nonatomic, strong) UIView *curtainView;
 
 @property (nonatomic) BOOL redisplayHelp;
@@ -103,6 +106,12 @@
     
     self.navigationController.navigationBar.translucent = NO;
     [self setTitleForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+    
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+            self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        }
+    }
     
     // Get references to our textData singleton and the application delegate
     td = [TextData textDataManager];
@@ -204,10 +213,14 @@
     }
     else
     {
-        [_stepper1 setMinimumValue:0];
+        [_stepper1 setMinimumValue:1];
         [_stepper1 setStepValue:1];
     }
     [[UIStepper appearance] setTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
+    
+    
+    _multiplicativeLabel.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0];
+    _additiveLabel.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0];
 
     
     // For AutoKeyPlaintextAttack textFields two and three should be DecimalPads
@@ -272,6 +285,9 @@
         } else {
             _outputHeight.constant = 396;
         }
+        _inputWidth.constant = 703;
+        _outputWidth.constant = 703;
+        _buttonWidth.constant = 703;
     } else {
         _inputHeight.constant = 260;
         if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) {
@@ -283,9 +299,13 @@
         } else {
             _outputHeight.constant = 587;
         }
+        _inputWidth.constant = 768;
+        _outputWidth.constant = 768;
+        _buttonWidth.constant = 768;
     }
     [_outputText setNeedsDisplay];
     [_inputText setNeedsDisplay];
+    [_computeButton setNeedsDisplay];
 //    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
 //        _scrollView.frame = CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
 //    }
@@ -356,9 +376,19 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     // On rotate reset the bounds and frame of the scrollview
-	_scrollView.bounds = self.view.frame;
+	_scrollView.bounds = self.view.bounds;
     _scrollView.frame = self.view.frame;
+
     [self.view setNeedsUpdateConstraints];
+    NSLog(@"Self.view width: %f", self.view.frame.size.width);
+    NSLog(@"Scrollview width: %f", self.scrollView.frame.size.width);
+    NSLog(@"rootview width: %f", self.rootViewController.tableView.frame.size.width);
+    NSLog(@"OutputText width: %f", self.outputText.frame.size.width);
+    NSLog(@"InputText width: %f", self.inputText.frame.size.width);
+    NSLog(@"ComputeButton width: %f", self.computeButton.frame.size.width);
+
+
+
     
     if( _redisplayHelp ) {
         [self helpButtonPressed];
@@ -367,6 +397,8 @@
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
     if( !UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ) {
         _inputHeight.constant = 195;
         if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) {
@@ -389,10 +421,10 @@
         } else {
             _outputHeight.constant = 587;
         }
-        [_outputText setNeedsDisplay];
-        [_inputText setNeedsDisplay];
-        
     }
+    [_outputText setNeedsDisplay];
+    [_inputText setNeedsDisplay];
+    [_computeButton setNeedsDisplay];
     
     if( _cryptoMethod != QCFrequencyCount ) {
         [self placeMenuButtonForInterfaceOrientation:toInterfaceOrientation];
@@ -499,7 +531,7 @@
         case QCAutokeyDecipher:
         {
             _label1.text = @"Keyword:";
-            _label2.text = @"PlainText:";
+            _label2.text = @"Include PlainText in Key:";
         }
             break;
         default:
@@ -565,9 +597,9 @@
                 [_switch1 setOn:[[_optionsAry objectAtIndex:1] boolValue]];
                 break;
             case QCAffineEncipher:
-                _additiveLabel.text = [_optionsAry objectAtIndex:0];
+                _multiplicativeLabel.text = [_optionsAry objectAtIndex:0];
                 [_stepper1 setValue:[_label1.text intValue]];
-                _multiplicativeLabel.text = [_optionsAry objectAtIndex:1];
+                _additiveLabel.text = [_optionsAry objectAtIndex:1];
                 [_stepper2 setValue:[_label2.text intValue]];
                 break;
             case QCAffineDecipher:
@@ -741,6 +773,21 @@
     _scrollView.scrollEnabled = YES;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+        if( textField == _textField1 ) {
+            [_textField2 becomeFirstResponder];
+        } else if( textField == _textField2 ) {
+            [_textField3 becomeFirstResponder];
+        } if( textField == _textField3 ) {
+            [textField resignFirstResponder];
+        }
+    } else {
+        [textField resignFirstResponder];
+    }
+    return NO;
+}
+
 /* Since we have little control over the type of keyboard displayed on iPad we 
  want to check that each character they try to type is valid for the particular option field being modified */
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -752,6 +799,9 @@
         // So if they are trying to enter a period check to see if a period already exists
         if( [string compare:@"."] == NSOrderedSame && [textField.text rangeOfString:@"." options:0 range:NSMakeRange(0, textField.text.length)].location != NSNotFound )
             return NO; // If a period exist, don't allow the character change
+        else if( [string compare:@"."] == NSOrderedSame ) {
+            return YES;
+        }
     }
     
     if( ![string isEqualToString:@""] ) // Make sure incoming character is not blank
@@ -761,7 +811,7 @@
             badCharacters = [NSMutableCharacterSet characterSetWithCharactersInString:@",?\"!@#$%^&*()-+/\\<>\'~`[]|{}=:;_€£¥•ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
         
         // Else if it is one of the integer fields only only integers
-        else if( _cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack || _cryptoMethod == QCAutokeyPlaintextAttack || _cryptoMethod == QCGCDAndInverse )
+        else if( (_cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack || _cryptoMethod == QCAutokeyPlaintextAttack || _cryptoMethod == QCGCDAndInverse) && textField.tag == 0 )
         {
             badCharacters = [NSMutableCharacterSet characterSetWithCharactersInString:@".,?\"!@#$%^&*()-+/\\<>\'~`[]|{}=:;_€£¥•ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
             
@@ -786,6 +836,20 @@
 {   // When user is done editing textField default active field to input and disable scrolling
     _activeField = _inputText;
     _scrollView.scrollEnabled = NO;
+    
+    if ( _cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack || _cryptoMethod == QCAutokeyPlaintextAttack ) {
+        if ( _textField1.text.intValue == 0 ) {
+            _textField1.text = @"1";
+        } else {
+            _textField1.text = [NSString stringWithFormat:@"%d", _textField1.text.intValue];
+        }
+    } else if ( _cryptoMethod == QCGCDAndInverse ) {
+        _textField1.text = [NSString stringWithFormat:@"%d", _textField1.text.intValue];
+        if( _textField2.text.intValue == 0 ) {
+            _textField2.text = @"1";
+        }
+        _textField2.text = [NSString stringWithFormat:@"%d", _textField2.text.intValue];
+    }
 }
 
 #pragma mark - Text Recall and Save Methods
@@ -843,7 +907,6 @@
     
 
     _multiplicativeLabel.text = [NSString stringWithFormat:@"%.f", stepperValue];
-    _multiplicativeLabel.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0];
     lastStepperValue = stepperValue;    // Update the last stepperValue
 }
 
@@ -851,7 +914,6 @@
 {   // Get the stepper value and set it to the textField
     double stepperValue = _stepper2.value;
     _additiveLabel.text = [NSString stringWithFormat:@"%.f", stepperValue];
-    _additiveLabel.textColor = [UIColor colorWithRed:89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0];
 }
 
 
@@ -860,16 +922,17 @@
 {
     // Make sure the last character has been validated for any textFields
     [self textField:_textField1 shouldChangeCharactersInRange:NSMakeRange(0, _textField1.text.length) replacementString:@""];
-    [self textField:_textField2 shouldChangeCharactersInRange:NSMakeRange(0, _textField1.text.length) replacementString:@""];
-    [self textField:_textField3 shouldChangeCharactersInRange:NSMakeRange(0, _textField1.text.length) replacementString:@""];
-    [self textField:_textField4 shouldChangeCharactersInRange:NSMakeRange(0, _textField1.text.length) replacementString:@""];
+    [self textField:_textField2 shouldChangeCharactersInRange:NSMakeRange(0, _textField2.text.length) replacementString:@""];
+    [self textField:_textField3 shouldChangeCharactersInRange:NSMakeRange(0, _textField3.text.length) replacementString:@""];
+    [self textField:_textField4 shouldChangeCharactersInRange:NSMakeRange(0, _textField4.text.length) replacementString:@""];
+    [_activeField resignFirstResponder];
     
     // Save any options
     [self getOptionsAndSave];
     
     if( [_inputText.text isEqualToString:@""] )
     {   // If text has not been input, prompt the user to input text
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Input Text" message:@"Please input text" delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Input Text" message:@"Please input text" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         [alert show];
     }
     else
@@ -877,8 +940,53 @@
         BOOL valid_options = YES; // Tracks if the options are valid (or rather all have been set), default assume yes
         
          // The following methods do not have any options to set
-        if( ( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) || ( _cryptoMethod == QCGCDAndInverse ) )
+        if( ( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) || ( _cryptoMethod == QCGCDAndInverse ) ) {
             valid_options = YES;
+        } else if ( _cryptoMethod == QCAffineKnownPlaintextAttack || _cryptoMethod == QCViginereEncipher || _cryptoMethod == QCViginereDecipher || _cryptoMethod == QCAutokeyDecipher ) {
+            if ( _textField1.text.length == 0 ) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Options" message:@"Please input a keyword." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alert show];
+                valid_options = NO;
+            }
+        } else if ( _cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack ) {
+            if ( _textField1.text.intValue == 0 ) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Options"
+                                                                message:[NSString stringWithFormat:@"Please input a %@ greater than 0", [_label1.text substringToIndex:_label1.text.length-1]]
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Okay"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                valid_options = NO;
+            }
+        } else if ( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+            if ( _textField1.text.intValue == 0 ) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Options"
+                                                                message:[NSString stringWithFormat:@"Please input a %@ greater than 0", [_label1.text substringToIndex:_label1.text.length-1]]
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Okay"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                valid_options = NO;
+            } else {
+                BOOL validRange = YES;
+                NSPredicate *isFloat = [NSPredicate predicateWithFormat:@"SELF matches '\\\\d*\\\\Q.\\\\E?\\\\d*'"];
+                if( ![isFloat evaluateWithObject:_textField2.text] || ![isFloat evaluateWithObject:_textField3.text] ) {
+                    validRange = NO;
+                } else if( _textField2.text.floatValue > _textField3.text.floatValue ) {
+                    validRange = NO;
+                }
+                
+                if( !validRange ) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Options"
+                                                                    message:[NSString stringWithFormat:@"Please input a valid %@.", [_label2.text substringToIndex:_label2.text.length-1]]
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"Okay"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+                    valid_options = NO;
+                }
+            }
+        }
         else
         {            
             // If the options array exist and is not empty
@@ -974,8 +1082,8 @@
         }
         else
         {   // If not valid options, prompt the user for valid options
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Select Options" message:@"Please select options first" delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
-            [alert show];
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Select Options" message:@"Please select options first" delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
+//            [alert show];
         }
     }
     
@@ -1002,13 +1110,11 @@
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
         
     UIEdgeInsets contentInsets;
-    if( UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation] ) )
-    {
+    if( UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation] ) ) {
         contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
     }
-    else
-    {
-        contentInsets = UIEdgeInsetsMake(0.0, 0.0, 90.0, -80.0);
+    else {
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.width, 0.0);
     }
     _scrollView.contentInset = contentInsets;
     _scrollView.scrollIndicatorInsets = contentInsets;
@@ -1016,20 +1122,31 @@
     // If active text field is hidden by keyboard, scroll it so it's visible
     // Your application might not need or want this behavior.
     CGRect aRect = _scrollView.frame;
-    aRect.size.height -= kbSize.height;
+    if( UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation] ) ) {
+        aRect.size.height -= kbSize.height;
+    } else {
+        aRect.size.height -= kbSize.width;
+    }
     
     CGPoint point = [_activeField convertPoint:_activeField.frame.origin toView:self.view];
-    if (!CGRectContainsPoint(aRect, point) && _activeField.tag != 1)
+    if (!CGRectContainsPoint(aRect, point))
     {
         CGPoint scrollPoint;
         if( UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation] ) )
-           scrollPoint = CGPointMake(0.0, point.y-kbSize.height*2-20);
+           scrollPoint = CGPointMake(0.0, kbSize.height);
         else
         {
-            if( _cryptoMethod == QCGCDAndInverse )
+            if( _cryptoMethod == QCGCDAndInverse ) {
                 scrollPoint = CGPointMake(0.0, 175.0);
-            else
-                scrollPoint = CGPointMake(0.0, 352.0);
+            }
+            else {
+                if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+                    scrollPoint = CGPointMake(0.0, kbSize.width);
+                } else {
+                    scrollPoint = CGPointMake(0.0, kbSize.width);
+                }
+                
+            }
         }
         [_scrollView setContentOffset:scrollPoint animated:YES];
     }
@@ -1069,18 +1186,6 @@
 // When the help button is pressed
 - (void)helpButtonPressed
 {
-    // Grab the current cell (used to know which help blurb to display)
-//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:_rootViewControlleriPad.tableView.indexPathForSelectedRow];
-    
-    // Get the array of help blurbs from the plist
-//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"HelpInfo" ofType:@"plist"];
-//    NSDictionary *helpDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-//    NSArray *helpArray = [NSArray arrayWithArray:[helpDict valueForKey:@"QCHelpStrings"]];
-    
-    // Display the help blurb appropriate to the cryptomethod currently in view
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.title message:helpArray[_cryptoMethod] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-//    [alert show];
-    
     HelpViewController *helpViewController = [[HelpViewController alloc] init];
     helpViewController.delegate = self;
     helpViewController.cryptoMethod = self.cryptoMethod;
@@ -1112,11 +1217,6 @@
     
     helpViewController.view.center = [UIApplication sharedApplication].keyWindow.center;
     
-//    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
-//        helpViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y-20);
-//    } else {
-//        helpViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y+20);
-//    }
 }
 
 - (void)dismissHelpViewController:(HelpViewController *)viewController redisplay:(BOOL)redisplay {

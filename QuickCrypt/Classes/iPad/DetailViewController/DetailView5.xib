@@ -7,15 +7,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="buttonWidth" destination="frI-Te-kbx" id="6SO-Cs-wDx"/>
                 <outlet property="computeButton" destination="10" id="21"/>
                 <outlet property="divider1" destination="uQw-Ah-gIw" id="MVE-Dj-ccy"/>
                 <outlet property="divider2" destination="DRi-sk-5do" id="TQ0-xV-9yq"/>
                 <outlet property="inputHeight" destination="lb9-St-jKY" id="Mnw-cT-lCJ"/>
                 <outlet property="inputText" destination="7" id="16"/>
+                <outlet property="inputWidth" destination="blY-5u-wmF" id="dVC-fG-G3T"/>
                 <outlet property="label1" destination="15" id="19"/>
                 <outlet property="optionsViewMat" destination="11" id="18"/>
                 <outlet property="outputHeight" destination="RF2-CJ-C3O" id="fMd-kr-dWI"/>
                 <outlet property="outputText" destination="8" id="17"/>
+                <outlet property="outputWidth" destination="IKJ-8G-l84" id="ul1-nY-ley"/>
                 <outlet property="scrollView" destination="25" id="26"/>
                 <outlet property="textField1" destination="14" id="20"/>
                 <outlet property="view" destination="25" id="w88-sB-z6R"/>
@@ -26,11 +29,12 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7" customClass="SSTextView">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7" userLabel="Input Text View" customClass="SSTextView">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="260"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="768" id="blY-5u-wmF"/>
                         <constraint firstAttribute="height" constant="260" id="lb9-St-jKY"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -39,7 +43,7 @@
                         <outlet property="delegate" destination="-1" id="23"/>
                     </connections>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8" customClass="SSTextView">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8" userLabel="Output Text View" customClass="SSTextView">
                     <rect key="frame" x="0.0" y="261" width="768" height="587"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -114,6 +118,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="JVD-u1-JnO"/>
+                        <constraint firstAttribute="width" constant="768" id="frI-Te-kbx"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="Label">
@@ -129,18 +134,19 @@
                 </button>
             </subviews>
             <constraints>
+                <constraint firstItem="uQw-Ah-gIw" firstAttribute="width" secondItem="7" secondAttribute="width" id="1mQ-sl-lXL"/>
                 <constraint firstAttribute="centerX" secondItem="11" secondAttribute="centerX" id="2vZ-NG-y7o"/>
                 <constraint firstAttribute="trailing" secondItem="7" secondAttribute="trailing" id="3Mu-wP-PHW"/>
                 <constraint firstItem="DRi-sk-5do" firstAttribute="width" secondItem="11" secondAttribute="width" id="4Q6-rn-LEm"/>
                 <constraint firstItem="uQw-Ah-gIw" firstAttribute="top" secondItem="7" secondAttribute="bottom" id="4qn-w1-2tq"/>
                 <constraint firstAttribute="trailing" secondItem="uQw-Ah-gIw" secondAttribute="trailing" id="7Uk-Xn-wiK"/>
                 <constraint firstAttribute="bottom" secondItem="10" secondAttribute="bottom" id="8kl-JL-T2c"/>
+                <constraint firstItem="DRi-sk-5do" firstAttribute="top" secondItem="8" secondAttribute="bottom" id="BZD-IK-BY4"/>
                 <constraint firstAttribute="trailing" secondItem="8" secondAttribute="trailing" id="O5b-WS-ciA"/>
                 <constraint firstItem="10" firstAttribute="top" secondItem="11" secondAttribute="bottom" id="Qq9-Er-Z0b"/>
                 <constraint firstAttribute="trailing" secondItem="10" secondAttribute="trailing" id="SKn-Y2-Uo2"/>
                 <constraint firstItem="11" firstAttribute="top" secondItem="DRi-sk-5do" secondAttribute="bottom" id="TkQ-Wg-ppQ"/>
                 <constraint firstItem="uQw-Ah-gIw" firstAttribute="leading" secondItem="25" secondAttribute="leading" id="Txb-Q5-c6F"/>
-                <constraint firstItem="11" firstAttribute="top" secondItem="8" secondAttribute="bottom" constant="1" id="U0b-x9-lob"/>
                 <constraint firstItem="7" firstAttribute="top" secondItem="25" secondAttribute="top" id="Vtc-OZ-trQ"/>
                 <constraint firstItem="8" firstAttribute="top" secondItem="uQw-Ah-gIw" secondAttribute="bottom" id="XKe-bW-VBe"/>
                 <constraint firstItem="8" firstAttribute="top" secondItem="7" secondAttribute="bottom" constant="1" id="Zca-aW-Fqc"/>

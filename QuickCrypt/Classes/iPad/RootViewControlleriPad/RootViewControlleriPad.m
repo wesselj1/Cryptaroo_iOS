@@ -270,11 +270,11 @@
     if ( indexPath.row != QCFrequencyCount ) {
         if( _detailViewController.menuButton != nil ) {
             d1.menuButton = _detailViewController.menuButton;
-            d1.methodTitle = _aryCryptoMethods[indexPath.row];
         } else {
             UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self.splitViewController action:@selector(toggleMasterVisible:)];
             d1.menuButton = menuButton;
         }
+        d1.methodTitle = _aryCryptoMethods[indexPath.row];
         [_detailViewController.navigationController pushViewController:d1 animated:NO];
     }
     

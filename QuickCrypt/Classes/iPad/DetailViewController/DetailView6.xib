@@ -7,16 +7,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="buttonWidth" destination="o5O-WB-Mhw" id="76X-sF-GsQ"/>
                 <outlet property="computeButton" destination="9" id="26"/>
                 <outlet property="divider1" destination="WA0-ic-ZzU" id="1G9-lr-fC9"/>
                 <outlet property="divider2" destination="GL2-pa-dUf" id="Mxv-LX-iNE"/>
                 <outlet property="inputHeight" destination="oDS-6t-SVf" id="bCN-aY-Pxi"/>
                 <outlet property="inputText" destination="7" id="17"/>
+                <outlet property="inputWidth" destination="NCO-wd-Kzr" id="Us5-ZB-tnz"/>
                 <outlet property="label1" destination="16" id="20"/>
                 <outlet property="label2" destination="13" id="21"/>
                 <outlet property="optionsViewMat" destination="10" id="19"/>
                 <outlet property="outputHeight" destination="D98-rd-JPH" id="guw-rW-nW1"/>
                 <outlet property="outputText" destination="8" id="18"/>
+                <outlet property="outputWidth" destination="qRJ-zt-Kcv" id="Qy3-Z0-5BD"/>
                 <outlet property="scrollView" destination="35" id="36"/>
                 <outlet property="stepper1" destination="14" id="25"/>
                 <outlet property="textField1" destination="15" id="22"/>
@@ -30,11 +33,12 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="959.99999999999989"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7" customClass="SSTextView">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7" userLabel="Input Text View" customClass="SSTextView">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="260"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="768" id="NCO-wd-Kzr"/>
                         <constraint firstAttribute="height" constant="260" id="oDS-6t-SVf"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -51,12 +55,13 @@
                         <constraint firstAttribute="height" constant="1" id="GId-t5-4Ax"/>
                     </constraints>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8" customClass="SSTextView">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8" userLabel="Output Text View" customClass="SSTextView">
                     <rect key="frame" x="0.0" y="261" width="768" height="547"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="547" id="D98-rd-JPH"/>
+                        <constraint firstAttribute="width" constant="768" id="qRJ-zt-Kcv"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -94,7 +99,7 @@
                                 <constraint firstAttribute="width" constant="97" id="Hsf-4y-rEu"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="37"/>
                             </connections>
@@ -128,7 +133,7 @@
                                 <constraint firstAttribute="height" constant="29" id="loe-3K-D3n"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="38"/>
                             </connections>
@@ -210,6 +215,7 @@
                 <constraint firstItem="GL2-pa-dUf" firstAttribute="width" secondItem="10" secondAttribute="width" id="p0X-UE-nL9"/>
                 <constraint firstItem="8" firstAttribute="top" secondItem="7" secondAttribute="bottom" constant="1" id="r61-BA-icR"/>
                 <constraint firstAttribute="trailing" secondItem="8" secondAttribute="trailing" id="sHc-c1-IHS"/>
+                <constraint firstItem="WA0-ic-ZzU" firstAttribute="width" secondItem="7" secondAttribute="width" id="t23-rT-pUg"/>
             </constraints>
         </scrollView>
     </objects>

@@ -7,15 +7,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="buttonWidth" destination="hoz-Nc-O1j" id="nUg-2U-RYR"/>
                 <outlet property="computeButton" destination="17" id="27"/>
                 <outlet property="divider1" destination="i6t-T3-VZa" id="z70-CI-Dct"/>
                 <outlet property="divider2" destination="5A5-sk-D49" id="wiQ-mC-Epa"/>
                 <outlet property="inputHeight" destination="Yx9-Wc-nCi" id="VXp-tS-kk6"/>
                 <outlet property="inputText" destination="11" id="30"/>
+                <outlet property="inputWidth" destination="8bn-7t-UtY" id="2si-DI-mqz"/>
                 <outlet property="label1" destination="15" id="21"/>
                 <outlet property="optionsViewMat" destination="13" id="26"/>
                 <outlet property="outputHeight" destination="bVc-Rr-f11" id="MJb-75-mUC"/>
                 <outlet property="outputText" destination="12" id="25"/>
+                <outlet property="outputWidth" destination="Uue-2j-B9b" id="aQy-Tw-YzP"/>
                 <outlet property="scrollView" destination="32" id="33"/>
                 <outlet property="stepper1" destination="14" id="23"/>
                 <outlet property="textField1" destination="16" id="22"/>
@@ -24,7 +27,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" id="32">
-            <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+            <rect key="frame" x="0.0" y="64" width="768" height="960"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11" userLabel="Input Text View" customClass="SSTextView">
@@ -32,6 +35,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="768" id="8bn-7t-UtY"/>
                         <constraint firstAttribute="height" constant="260" id="Yx9-Wc-nCi"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -53,6 +57,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="768" id="Uue-2j-B9b"/>
                         <constraint firstAttribute="height" constant="587" id="bVc-Rr-f11"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -122,6 +127,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="3xs-xA-w9L"/>
+                        <constraint firstAttribute="width" constant="768" id="hoz-Nc-O1j"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                     <state key="normal" title="Label">
@@ -138,6 +144,7 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="13" secondAttribute="centerX" id="0I5-D5-0sM"/>
+                <constraint firstItem="i6t-T3-VZa" firstAttribute="width" secondItem="11" secondAttribute="width" id="9Aj-1a-OHI"/>
                 <constraint firstItem="13" firstAttribute="top" secondItem="12" secondAttribute="bottom" constant="1" id="Bak-xo-ckI"/>
                 <constraint firstItem="11" firstAttribute="top" secondItem="32" secondAttribute="top" id="CJu-yy-YVa"/>
                 <constraint firstAttribute="centerX" secondItem="5A5-sk-D49" secondAttribute="centerX" id="CbS-6S-iYT"/>
@@ -150,14 +157,15 @@
                 <constraint firstAttribute="trailing" secondItem="11" secondAttribute="trailing" id="Wpc-Mk-OGm"/>
                 <constraint firstAttribute="bottom" secondItem="17" secondAttribute="bottom" id="YG2-jl-d0W"/>
                 <constraint firstItem="i6t-T3-VZa" firstAttribute="top" secondItem="11" secondAttribute="bottom" id="Ygx-F8-eKS"/>
-                <constraint firstAttribute="trailing" secondItem="13" secondAttribute="trailing" constant="183" id="ifk-x1-V1m"/>
                 <constraint firstItem="12" firstAttribute="top" secondItem="i6t-T3-VZa" secondAttribute="bottom" id="jB1-Em-fS8"/>
                 <constraint firstItem="i6t-T3-VZa" firstAttribute="leading" secondItem="32" secondAttribute="leading" id="nas-WS-wzC"/>
-                <constraint firstItem="12" firstAttribute="top" secondItem="11" secondAttribute="bottom" constant="1" id="p0h-ew-g9m"/>
                 <constraint firstAttribute="trailing" secondItem="17" secondAttribute="trailing" id="pWe-N4-8cj"/>
                 <constraint firstItem="17" firstAttribute="top" secondItem="13" secondAttribute="bottom" id="vkL-Ax-H5H"/>
                 <constraint firstItem="11" firstAttribute="leading" secondItem="32" secondAttribute="leading" id="yZg-bm-QJ4"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </scrollView>
     </objects>
 </document>

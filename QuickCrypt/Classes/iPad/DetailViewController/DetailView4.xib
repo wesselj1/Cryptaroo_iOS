@@ -8,17 +8,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
                 <outlet property="additiveLabel" destination="9" id="m6Y-RI-fAD"/>
+                <outlet property="buttonWidth" destination="BBb-4J-rHL" id="Dms-Sq-6pP"/>
                 <outlet property="computeButton" destination="7" id="22"/>
                 <outlet property="divider1" destination="2qF-uu-688" id="iAR-Zg-QR6"/>
                 <outlet property="divider2" destination="F9r-9h-TOK" id="OHn-WF-l2E"/>
                 <outlet property="inputHeight" destination="ypd-WW-T2a" id="5MM-NC-9sc"/>
                 <outlet property="inputText" destination="4" id="23"/>
+                <outlet property="inputWidth" destination="Pwx-Qt-G1T" id="k1e-aA-4Sr"/>
                 <outlet property="label1" destination="28" id="FDF-oz-LgF"/>
                 <outlet property="label2" destination="26" id="tLQ-l4-Kfh"/>
                 <outlet property="multiplicativeLabel" destination="8" id="wIo-cN-zrh"/>
                 <outlet property="optionsViewMat" destination="6" id="18"/>
                 <outlet property="outputHeight" destination="b2G-6U-brj" id="UYI-PK-1LY"/>
                 <outlet property="outputText" destination="5" id="24"/>
+                <outlet property="outputWidth" destination="fNq-0q-6Bk" id="4bC-EE-Nzh"/>
                 <outlet property="scrollView" destination="43" id="44"/>
                 <outlet property="stepper1" destination="27" id="34"/>
                 <outlet property="stepper2" destination="25" id="33"/>
@@ -35,6 +38,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="768" id="Pwx-Qt-G1T"/>
                         <constraint firstAttribute="height" constant="260" id="ypd-WW-T2a"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,6 +53,7 @@
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="577" id="b2G-6U-brj"/>
+                        <constraint firstAttribute="width" constant="768" id="fNq-0q-6Bk"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -149,6 +154,7 @@
                     <rect key="frame" x="0.0" y="908.99999999999989" width="768" height="50"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="768" id="BBb-4J-rHL"/>
                         <constraint firstAttribute="height" constant="50" id="Bfj-gI-sGa"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -170,7 +176,6 @@
                 <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="5ER-Oq-Bhd"/>
                 <constraint firstItem="5" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="1" id="ABb-4g-XUI"/>
                 <constraint firstAttribute="trailing" secondItem="7" secondAttribute="trailing" id="ENI-kE-Qac"/>
-                <constraint firstItem="6" firstAttribute="top" secondItem="5" secondAttribute="bottom" constant="1" id="GNv-eG-sJb"/>
                 <constraint firstItem="7" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="Lod-YP-dps"/>
                 <constraint firstItem="5" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="P9S-bV-7GV"/>
                 <constraint firstAttribute="trailing" secondItem="2qF-uu-688" secondAttribute="trailing" id="Sz7-sq-Oe3"/>
@@ -180,11 +185,12 @@
                 <constraint firstItem="2qF-uu-688" firstAttribute="top" secondItem="4" secondAttribute="bottom" id="dPF-bN-YXY"/>
                 <constraint firstItem="6" firstAttribute="width" secondItem="F9r-9h-TOK" secondAttribute="width" id="eoV-mf-GgS"/>
                 <constraint firstAttribute="centerX" secondItem="F9r-9h-TOK" secondAttribute="centerX" id="ff0-w1-puQ"/>
-                <constraint firstAttribute="trailing" secondItem="6" secondAttribute="trailing" constant="83" id="jCk-sJ-wQ6"/>
+                <constraint firstItem="2qF-uu-688" firstAttribute="width" secondItem="4" secondAttribute="width" id="mRi-Ge-KSR"/>
                 <constraint firstItem="6" firstAttribute="top" secondItem="F9r-9h-TOK" secondAttribute="bottom" id="oJg-MJ-v7T"/>
                 <constraint firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="oWg-W0-2JK"/>
                 <constraint firstItem="2qF-uu-688" firstAttribute="leading" secondItem="43" secondAttribute="leading" id="pzU-Jr-1B5"/>
                 <constraint firstItem="5" firstAttribute="top" secondItem="2qF-uu-688" secondAttribute="bottom" id="rQJ-xj-uZE"/>
+                <constraint firstItem="F9r-9h-TOK" firstAttribute="top" secondItem="5" secondAttribute="bottom" id="rck-im-Lwl"/>
             </constraints>
         </scrollView>
     </objects>

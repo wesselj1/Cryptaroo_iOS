@@ -56,10 +56,10 @@
 @property (nonatomic, strong) UIButton *computeButton;
 @property (nonatomic, strong) UIStepper *stepper1;
 @property (nonatomic, strong) UIStepper *stepper2;
-@property (nonatomic, strong) QCTextField *textField1;
-@property (nonatomic, strong) QCTextField *textField2;
-@property (nonatomic, strong) QCTextField *textField3;
-@property (nonatomic, strong) QCTextField *textField4;
+@property (nonatomic, weak) QCTextField *textField1;
+@property (nonatomic, weak) QCTextField *textField2;
+@property (nonatomic, weak) QCTextField *textField3;
+@property (nonatomic, weak) QCTextField *textField4;
 @property (nonatomic, strong) UISwitch *switch1;
 @property (nonatomic, strong) UIView *optionsViewMat;
 @property (nonatomic, strong) UIView *GCDViewMat;

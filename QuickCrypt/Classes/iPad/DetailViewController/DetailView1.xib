@@ -7,12 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="buttonWidth" destination="bqq-YL-9tb" id="qWL-mt-jbz"/>
                 <outlet property="computeButton" destination="14" id="18"/>
                 <outlet property="divider1" destination="sPW-ps-F0Y" id="1ji-CX-J9k"/>
                 <outlet property="inputHeight" destination="hA9-fC-oNK" id="SKD-bI-b6o"/>
                 <outlet property="inputText" destination="12" id="19"/>
+                <outlet property="inputWidth" destination="MFw-q7-u6J" id="ybM-Ic-zno"/>
                 <outlet property="outputHeight" destination="zE0-ag-FXn" id="Y7B-KO-N8G"/>
                 <outlet property="outputText" destination="13" id="17"/>
+                <outlet property="outputWidth" destination="77S-GM-bnx" id="PFf-8F-fhv"/>
                 <outlet property="scrollView" destination="1" id="Etg-de-7e7"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -27,6 +30,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="768" id="MFw-q7-u6J"/>
                         <constraint firstAttribute="height" constant="260" id="hA9-fC-oNK"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -54,6 +58,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="VsL-FN-zKD"/>
+                        <constraint firstAttribute="width" constant="768" id="bqq-YL-9tb"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                     <state key="normal" title="Perform Frequency Count">
@@ -82,6 +87,7 @@
                 <constraint firstAttribute="trailing" secondItem="12" secondAttribute="trailing" id="5xS-SB-Wkr"/>
                 <constraint firstItem="12" firstAttribute="top" secondItem="1" secondAttribute="top" id="7Tk-kE-nht"/>
                 <constraint firstItem="13" firstAttribute="top" secondItem="sPW-ps-F0Y" secondAttribute="bottom" id="Gge-TM-8jp"/>
+                <constraint firstItem="sPW-ps-F0Y" firstAttribute="width" secondItem="12" secondAttribute="width" id="KfH-M0-Xhc"/>
                 <constraint firstItem="13" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="MKf-zD-PBF"/>
                 <constraint firstItem="14" firstAttribute="top" secondItem="13" secondAttribute="bottom" id="V4P-MI-MPs"/>
                 <constraint firstAttribute="bottom" secondItem="14" secondAttribute="bottom" id="WqP-7S-lTZ"/>

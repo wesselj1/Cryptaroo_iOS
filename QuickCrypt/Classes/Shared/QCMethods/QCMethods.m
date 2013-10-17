@@ -638,10 +638,7 @@ static char tabulaRecta[26][26] = {
     NSString *tempString;
     Counter *counter = [[Counter alloc] init];
     NSString *resultString = @"";
-    
-    if( js > inputString.length )
-        js = inputString.length;
-    
+
     for (int x = 0; x < [inputString length] - (js - 1); x++) {
         tempString = [inputString substringWithRange:NSMakeRange(x, js)];
         if ( ([inputString rangeOfString:tempString options:0 range:NSMakeRange(x, [inputString length]-x)].location) != NSNotFound) {
@@ -674,6 +671,10 @@ static char tabulaRecta[26][26] = {
         }
         
         resultString = [resultString stringByAppendingString:@"\n"];
+    }
+    
+    if( [resultString isEqualToString:@"\n"] || [resultString isEqualToString:@""] ) {
+        resultString = [NSString stringWithFormat:@"No graphs of size %d", aLength];
     }
     
     return resultString;
