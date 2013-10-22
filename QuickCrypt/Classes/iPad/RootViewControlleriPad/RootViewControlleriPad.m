@@ -9,13 +9,11 @@
 #import "RootViewControlleriPad.h"
 #import "DetailViewController.h"
 #import "KSCustomPopoverBackgroundView.h"
-#import "MGSplitViewController.h"
 #import "AppDelegate.h"
 #import "InfoViewController.h"
 
 @interface RootViewControlleriPad ()
 
-@property (nonatomic, strong) MGSplitViewController *splitViewController;   // Reference to the splitViewController
 @property (nonatomic, strong) AppDelegate *appDelegate;                  // Reference to our application delegate
 
 @end
@@ -25,7 +23,6 @@
 @synthesize detailViewController = _detailViewController;
 @synthesize detailScrollView = _detailScrollView;
 @synthesize aryCryptoMethods = _aryCryptoMethods;
-@synthesize splitViewController = _splitViewController;
 @synthesize appDelegate = _appDelegate;
 
 
@@ -275,6 +272,7 @@
             d1.menuButton = menuButton;
         }
         d1.methodTitle = _aryCryptoMethods[indexPath.row];
+        d1.splitViewController = self.splitViewController;
         [_detailViewController.navigationController pushViewController:d1 animated:NO];
     }
     

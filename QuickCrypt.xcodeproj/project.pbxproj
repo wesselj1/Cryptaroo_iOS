@@ -40,9 +40,6 @@
 		CC36EDE216BA1CF9009C3CDA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDDA16BA1CF9009C3CDA /* DetailViewController.m */; };
 		CC36EDE616BA1D33009C3CDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDE516BA1D33009C3CDA /* AppDelegate.m */; };
 		CC36EDEA16BA1E08009C3CDA /* KSCustomPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDE916BA1E08009C3CDA /* KSCustomPopoverBackgroundView.m */; };
-		CC36EDF216BA1E2D009C3CDA /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDED16BA1E2D009C3CDA /* MGSplitCornersView.m */; };
-		CC36EDF316BA1E2D009C3CDA /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDEF16BA1E2D009C3CDA /* MGSplitDividerView.m */; };
-		CC36EDF416BA1E2D009C3CDA /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDF116BA1E2D009C3CDA /* MGSplitViewController.m */; };
 		CC36EE0316BA1EC9009C3CDA /* popover-black-bcg-image.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDF916BA1EC9009C3CDA /* popover-black-bcg-image.png */; };
 		CC36EE0416BA1EC9009C3CDA /* popover-black-bcg-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDFA16BA1EC9009C3CDA /* popover-black-bcg-image@2x.png */; };
 		CC36EE0516BA1EC9009C3CDA /* popover-black-bottom-arrow-image.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDFB16BA1EC9009C3CDA /* popover-black-bottom-arrow-image.png */; };
@@ -74,6 +71,7 @@
 		CC6F624317A5D4B700187A71 /* qc_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623D17A5D4B700187A71 /* qc_button_pressed@2x.png */; };
 		CC6F624417A5D4B700187A71 /* qc_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623E17A5D4B700187A71 /* qc_button.png */; };
 		CC6F624517A5D4B700187A71 /* qc_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623F17A5D4B700187A71 /* qc_button@2x.png */; };
+		CC7EDFCC18160C41003DAA7E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7EDFCB18160C41003DAA7E /* MBProgressHUD.m */; };
 		CC990601180CE5170020679D /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC990600180CE5170020679D /* SSTextView.m */; };
 		CCBDD62E1619E2970030B5F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */; };
 		CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC3E33017C5F88100BE77FF /* QCTextField.m */; };
@@ -139,12 +137,6 @@
 		CC36EDE516BA1D33009C3CDA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/Delegate/AppDelegate.m; sourceTree = "<group>"; };
 		CC36EDE816BA1E08009C3CDA /* KSCustomPopoverBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSCustomPopoverBackgroundView.h; path = "External Classes/KSCustomPopoverBackgroundView/KSCustomPopoverBackgroundView.h"; sourceTree = "<group>"; };
 		CC36EDE916BA1E08009C3CDA /* KSCustomPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSCustomPopoverBackgroundView.m; path = "External Classes/KSCustomPopoverBackgroundView/KSCustomPopoverBackgroundView.m"; sourceTree = "<group>"; };
-		CC36EDEC16BA1E2D009C3CDA /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSplitCornersView.h; path = "External Classes/MGSplitViewController/MGSplitCornersView.h"; sourceTree = "<group>"; };
-		CC36EDED16BA1E2D009C3CDA /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSplitCornersView.m; path = "External Classes/MGSplitViewController/MGSplitCornersView.m"; sourceTree = "<group>"; };
-		CC36EDEE16BA1E2D009C3CDA /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSplitDividerView.h; path = "External Classes/MGSplitViewController/MGSplitDividerView.h"; sourceTree = "<group>"; };
-		CC36EDEF16BA1E2D009C3CDA /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSplitDividerView.m; path = "External Classes/MGSplitViewController/MGSplitDividerView.m"; sourceTree = "<group>"; };
-		CC36EDF016BA1E2D009C3CDA /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSplitViewController.h; path = "External Classes/MGSplitViewController/MGSplitViewController.h"; sourceTree = "<group>"; };
-		CC36EDF116BA1E2D009C3CDA /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSplitViewController.m; path = "External Classes/MGSplitViewController/MGSplitViewController.m"; sourceTree = "<group>"; };
 		CC36EDF916BA1EC9009C3CDA /* popover-black-bcg-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popover-black-bcg-image.png"; path = "Supporting Files/Popover Images/popover-black-bcg-image.png"; sourceTree = "<group>"; };
 		CC36EDFA16BA1EC9009C3CDA /* popover-black-bcg-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popover-black-bcg-image@2x.png"; path = "Supporting Files/Popover Images/popover-black-bcg-image@2x.png"; sourceTree = "<group>"; };
 		CC36EDFB16BA1EC9009C3CDA /* popover-black-bottom-arrow-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popover-black-bottom-arrow-image.png"; path = "Supporting Files/Popover Images/popover-black-bottom-arrow-image.png"; sourceTree = "<group>"; };
@@ -182,6 +174,8 @@
 		CC6F623D17A5D4B700187A71 /* qc_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button_pressed@2x.png"; path = "Supporting Files/ButtonImages/qc_button_pressed@2x.png"; sourceTree = "<group>"; };
 		CC6F623E17A5D4B700187A71 /* qc_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qc_button.png; path = "Supporting Files/ButtonImages/qc_button.png"; sourceTree = "<group>"; };
 		CC6F623F17A5D4B700187A71 /* qc_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button@2x.png"; path = "Supporting Files/ButtonImages/qc_button@2x.png"; sourceTree = "<group>"; };
+		CC7EDFCA18160C41003DAA7E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		CC7EDFCB18160C41003DAA7E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CC9905FF180CE5170020679D /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
 		CC990600180CE5170020679D /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
 		CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -221,11 +215,11 @@
 		1B81726E1559919500EDF0E0 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				CC7EDFC918160B87003DAA7E /* MBProgressHUD */,
 				CC21B9C917FE7F9F00FFE1FC /* DoneCancelNumberPadToolbar */,
 				CC5B588517A61EF6002062F9 /* UIViewController+OverView */,
 				CCEC063417A50B7300550105 /* UITableViewCellCategory */,
 				CC36EDF516BA1E36009C3CDA /* SSTextView */,
-				CC36EDEB16BA1E11009C3CDA /* MGSplitViewController */,
 				CC36EDE716BA1DB2009C3CDA /* KSCustomPopoverBackgroundView */,
 			);
 			name = Externals;
@@ -454,19 +448,6 @@
 			name = KSCustomPopoverBackgroundView;
 			sourceTree = "<group>";
 		};
-		CC36EDEB16BA1E11009C3CDA /* MGSplitViewController */ = {
-			isa = PBXGroup;
-			children = (
-				CC36EDEC16BA1E2D009C3CDA /* MGSplitCornersView.h */,
-				CC36EDED16BA1E2D009C3CDA /* MGSplitCornersView.m */,
-				CC36EDEE16BA1E2D009C3CDA /* MGSplitDividerView.h */,
-				CC36EDEF16BA1E2D009C3CDA /* MGSplitDividerView.m */,
-				CC36EDF016BA1E2D009C3CDA /* MGSplitViewController.h */,
-				CC36EDF116BA1E2D009C3CDA /* MGSplitViewController.m */,
-			);
-			name = MGSplitViewController;
-			sourceTree = "<group>";
-		};
 		CC36EDF516BA1E36009C3CDA /* SSTextView */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,6 +543,15 @@
 				CC5B588717A61F56002062F9 /* UIViewController+overView.m */,
 			);
 			name = "UIViewController+OverView";
+			sourceTree = "<group>";
+		};
+		CC7EDFC918160B87003DAA7E /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				CC7EDFCA18160C41003DAA7E /* MBProgressHUD.h */,
+				CC7EDFCB18160C41003DAA7E /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		CCEC063417A50B7300550105 /* UITableViewCellCategory */ = {
@@ -704,15 +694,13 @@
 				CC36EDE216BA1CF9009C3CDA /* DetailViewController.m in Sources */,
 				CC36EDE616BA1D33009C3CDA /* AppDelegate.m in Sources */,
 				CC36EDEA16BA1E08009C3CDA /* KSCustomPopoverBackgroundView.m in Sources */,
-				CC36EDF216BA1E2D009C3CDA /* MGSplitCornersView.m in Sources */,
-				CC36EDF316BA1E2D009C3CDA /* MGSplitDividerView.m in Sources */,
-				CC36EDF416BA1E2D009C3CDA /* MGSplitViewController.m in Sources */,
 				CC36EE2A16BA1FE2009C3CDA /* InfoViewController.m in Sources */,
 				CC990601180CE5170020679D /* SSTextView.m in Sources */,
 				CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */,
 				CC36EE3116BA1FF8009C3CDA /* TextData.m in Sources */,
 				CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */,
 				CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */,
+				CC7EDFCC18160C41003DAA7E /* MBProgressHUD.m in Sources */,
 				CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */,
 				CC5B588817A61F56002062F9 /* UIViewController+overView.m in Sources */,
 				CC21B9CC17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m in Sources */,

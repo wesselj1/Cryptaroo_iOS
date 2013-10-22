@@ -10,6 +10,7 @@
 #import "InfoViewController.h"
 #import "AppDelegate.h"
 #import "KSCustomPopoverBackgroundView.h"
+#import "MBProgressHUD.h"
 
 @interface DetailViewController ()
 {
@@ -37,6 +38,9 @@
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *outputWidth;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *buttonWidth;
 @property (nonatomic, strong) UIView *curtainView;
+@property (nonatomic, strong) MBProgressHUD *hud;
+
+@property (nonatomic) dispatch_queue_t cryptQueue;
 
 @property (nonatomic) BOOL redisplayHelp;
                    
@@ -103,6 +107,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.cryptQueue = dispatch_queue_create("cryptQueue", DISPATCH_QUEUE_PRIORITY_DEFAULT);
     
     self.navigationController.navigationBar.translucent = NO;
     [self setTitleForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
@@ -380,15 +386,6 @@
     _scrollView.frame = self.view.frame;
 
     [self.view setNeedsUpdateConstraints];
-    NSLog(@"Self.view width: %f", self.view.frame.size.width);
-    NSLog(@"Scrollview width: %f", self.scrollView.frame.size.width);
-    NSLog(@"rootview width: %f", self.rootViewController.tableView.frame.size.width);
-    NSLog(@"OutputText width: %f", self.outputText.frame.size.width);
-    NSLog(@"InputText width: %f", self.inputText.frame.size.width);
-    NSLog(@"ComputeButton width: %f", self.computeButton.frame.size.width);
-
-
-
     
     if( _redisplayHelp ) {
         [self helpButtonPressed];
@@ -1006,79 +1003,75 @@
                 valid_options = NO;
         }
         
+        
         if( valid_options )
         {   // If the options are valid run the appropriate method given input text and any options
-            _outputText.textColor = [UIColor blackColor];
-            switch ( _cryptoMethod )
-            {
-                case QCFrequencyCount:
-                    [_outputText setText:[QCMethods frequencyCount:[_inputText text]]];
-                    break;
-                case QCRunTheAlphabet:
-                    [_outputText setText:[QCMethods runTheAlphabet:[_inputText text]]];
-                    break;
-                case QCBiGraphs:
-                    [_outputText setText:[QCMethods getBigraphs:[_inputText text]]];
-                    break;
-                case QCTriGraphs:
-                    [_outputText setText:[QCMethods getTrigraphs:[_inputText text]]];
-                    break;
-                case QCNGraphs:
-                    [_outputText setText:[QCMethods getNgraphs:[_inputText text] lengthOfNgraphs:[[_optionsAry objectAtIndex:0] intValue]]];
-                    break;
-                case QCAffineKnownPlaintextAttack:
-                    [_outputText setText:[QCMethods affineKnownPlainttextAttack:[_inputText text] keyword:[_optionsAry objectAtIndex:0] shiftFirst:[[_optionsAry objectAtIndex:1] boolValue]]];
-                    break;
-                case QCAffineEncipher:
-                    [_outputText setText:[QCMethods affineEncipher:[_inputText text] multiplicativeShift:[[_optionsAry objectAtIndex:0] intValue] additiveShift:[[_optionsAry objectAtIndex:1] intValue]]];
-                    break;
-                case QCAffineDecipher:
-                    [_outputText setText:[QCMethods affineDecipher:[_inputText text] multiplicativeShift:[[_optionsAry objectAtIndex:0] intValue] additiveShift:[[_optionsAry objectAtIndex:1] intValue]]];
-                    break;
-                case QCSplitOffAlphabets:
-                    [_outputText setText:[QCMethods stripOffTheAlphabets:[_inputText text] wordLength:[[_optionsAry objectAtIndex:0] intValue]]];
-                    break;
-                case QCPolyMonoCalculator:
-                    [_outputText setText:[QCMethods polyMonoCalculator:[_inputText text] keywordSize:[[_optionsAry objectAtIndex:0] intValue]]];
-                    break;
-                case QCViginereEncipher:
-                    [_outputText setText:[QCMethods viginereEncipher:[_inputText text] keyword:[_optionsAry objectAtIndex:0]]];
-                    break;
-                case QCViginereDecipher:
-                    [_outputText setText:[QCMethods viginereDecipher:[_inputText text] keyword:[_optionsAry objectAtIndex:0]]];
-                    break;
-                case QCAutokeyCyphertextAttack:
-                    [_outputText setText:[QCMethods autoKeyCyphertextAttack:[_inputText text] keywordLength:[[_optionsAry objectAtIndex:0] intValue]]];
-                    break;
-                case QCAutokeyPlaintextAttack:
-                    [_outputText setText:[QCMethods autoKeyPlaintextAttack:[_inputText text] maxKeywordLength:[[_optionsAry objectAtIndex:0] intValue] lowerFriedmanCutoff:[[_optionsAry objectAtIndex:1] doubleValue] upperFriedmanCutoff:[[_optionsAry objectAtIndex:2] doubleValue]]];
-                    break;
-                case QCAutokeyDecipher:
-                    [_outputText setText:[QCMethods autoKeyDecipher:[_inputText text] withKeyword:[_optionsAry objectAtIndex:0] plain:[[_optionsAry objectAtIndex:1 ] boolValue]]];
-                    break;
-                case QCGCDAndInverse:
-                    if( [[_textField1 text] isEqualToString:@""] || [[_textField2 text] isEqualToString:@""] )
-                    {   // Make sure they've filled in the mod and inverse of fields
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fill in Fields" message:@"Please fill in the Inverse of and Mod fields" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-                        [alert show];
-                    }
-                    else
-                    {   // If mod and inverse of fields are given run calculation
-                        NSArray *results = [QCMethods GCDandInverse:[[_textField1 text] intValue] mod:[[_textField2 text] intValue]];
-                        if( [results count] == 2 )
-                        {
-                            _textField3.text = [[results objectAtIndex:0] stringValue];
-                            _textField4.text = [results objectAtIndex:1];
-                        }
-                        else
-                        {
-                            _textField3.text =[[results objectAtIndex:0] stringValue];
-                            _textField4.text = @"Error";
-                        }
-                    }
-                default:
-                    break;
-            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showProgressHUDWithLabel:@"Working..."];
+            });
+            
+            NSString __block *result;
+            dispatch_async(_cryptQueue, ^{
+                switch ( _cryptoMethod )
+                {
+                    case QCFrequencyCount:
+                        result = [QCMethods frequencyCount:[_inputText text]];
+                        break;
+                    case QCRunTheAlphabet:
+                        result = [QCMethods runTheAlphabet:[_inputText text]];
+                        break;
+                    case QCBiGraphs:
+                        result = [QCMethods getBigraphs:[_inputText text]];
+                        break;
+                    case QCTriGraphs:
+                        result = [QCMethods getTrigraphs:[_inputText text]];
+                        break;
+                    case QCNGraphs:
+                        result = [QCMethods getNgraphs:[_inputText text] lengthOfNgraphs:[[_optionsAry objectAtIndex:0] intValue]];
+                        break;
+                    case QCAffineKnownPlaintextAttack:
+                        result = [QCMethods affineKnownPlainttextAttack:[_inputText text] keyword:[_optionsAry objectAtIndex:0] shiftFirst:[[_optionsAry objectAtIndex:1] boolValue]];
+                        break;
+                    case QCAffineEncipher:
+                        result = [QCMethods affineEncipher:[_inputText text] multiplicativeShift:[[_optionsAry objectAtIndex:0] intValue] additiveShift:[[_optionsAry objectAtIndex:1] intValue]];
+                        break;
+                    case QCAffineDecipher:
+                        result = [QCMethods affineDecipher:[_inputText text] multiplicativeShift:[[_optionsAry objectAtIndex:0] intValue] additiveShift:[[_optionsAry objectAtIndex:1] intValue]];
+                        break;
+                    case QCSplitOffAlphabets:
+                        result = [QCMethods stripOffTheAlphabets:[_inputText text] wordLength:[[_optionsAry objectAtIndex:0] intValue]];
+                        break;
+                    case QCPolyMonoCalculator:
+                        result = [QCMethods polyMonoCalculator:[_inputText text] keywordSize:[[_optionsAry objectAtIndex:0] intValue]];
+                        break;
+                    case QCViginereEncipher:
+                        result = [QCMethods viginereEncipher:[_inputText text] keyword:[_optionsAry objectAtIndex:0]];
+                        break;
+                    case QCViginereDecipher:
+                        result = [QCMethods viginereDecipher:[_inputText text] keyword:[_optionsAry objectAtIndex:0]];
+                        break;
+                    case QCAutokeyCyphertextAttack:
+                        result = [QCMethods autoKeyCyphertextAttack:[_inputText text] keywordLength:[[_optionsAry objectAtIndex:0] intValue]];
+                        break;
+                    case QCAutokeyPlaintextAttack:
+                        result = [QCMethods autoKeyPlaintextAttack:[_inputText text] maxKeywordLength:[[_optionsAry objectAtIndex:0] intValue] lowerFriedmanCutoff:[[_optionsAry objectAtIndex:1] doubleValue] upperFriedmanCutoff:[[_optionsAry objectAtIndex:2] doubleValue]];
+                        break;
+                    case QCAutokeyDecipher:
+                        result = [QCMethods autoKeyDecipher:[_inputText text] withKeyword:[_optionsAry objectAtIndex:0] plain:[[_optionsAry objectAtIndex:1 ] boolValue]];
+                        break;
+                    default:
+                        break;
+                }
+            });
+            
+            dispatch_async(_cryptQueue, ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_outputText setText:result];
+                    [self hideProgressHUD];
+                });
+            });
+
         }
         else
         {   // If not valid options, prompt the user for valid options
@@ -1245,6 +1238,23 @@
     _curtainView.exclusiveTouch = YES;
     _curtainView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.3f];
     [[[UIApplication sharedApplication] keyWindow] addSubview:_curtainView];
+}
+
+
+#pragma mark - Other Methods
+#pragma mark - Other Methods
+- (void)showProgressHUDWithLabel:(NSString *)string {
+    self.hud = [[MBProgressHUD alloc] initWithView:self.splitViewController.view];
+    _hud.labelText = string;
+    [self addCurtainView];
+    [self.splitViewController.view addSubview:_hud];
+    [_hud show:YES];
+}
+
+- (void)hideProgressHUD {
+    [_hud removeFromSuperview];
+    [self removeCurtainView];
+    self.hud = nil;
 }
 
 @end

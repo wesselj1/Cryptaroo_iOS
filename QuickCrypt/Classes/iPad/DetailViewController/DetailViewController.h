@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MGSplitViewController.h"
 #import "RootViewControlleriPad.h"
 #import "QCButton.h"
 #import "QCTextField.h"
@@ -16,8 +15,6 @@
 
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate, HelpViewControllerDelegate>
 {
-    MGSplitViewController *splitViewController; // Reference to splitViewController
-    
     UIPopoverController *popoverController; // The master popover controller
     
     IBOutlet SSTextView *inputText;         // The input text view
