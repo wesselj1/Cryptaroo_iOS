@@ -639,38 +639,40 @@ static char tabulaRecta[26][26] = {
     Counter *counter = [[Counter alloc] init];
     NSString *resultString = @"";
 
-    for (int x = 0; x < [inputString length] - (js - 1); x++) {
-        tempString = [inputString substringWithRange:NSMakeRange(x, js)];
-        if ( ([inputString rangeOfString:tempString options:0 range:NSMakeRange(x, [inputString length]-x)].location) != NSNotFound) {
-            if (![counter contains:tempString]) {
-                [counter add:tempString atPosition:x];
-                
-                NSUInteger length = [inputString length];
-                NSRange range = NSMakeRange(x+js, length - (x+js));
-                while( range.location != NSNotFound )
-                {
-                    range = [inputString rangeOfString:tempString options:0 range:range];
-                    if( range.location != NSNotFound )
+    if( js <= inputString.length ) {
+        for (int x = 0; x < [inputString length] - (js - 1); x++) {
+            tempString = [inputString substringWithRange:NSMakeRange(x, js)];
+            if ( ([inputString rangeOfString:tempString options:0 range:NSMakeRange(x, [inputString length]-x)].location) != NSNotFound) {
+                if (![counter contains:tempString]) {
+                    [counter add:tempString atPosition:x];
+                    
+                    NSUInteger length = [inputString length];
+                    NSRange range = NSMakeRange(x+js, length - (x+js));
+                    while( range.location != NSNotFound )
                     {
-                        [counter increment:range.location];
-                        range = NSMakeRange(range.location + range.length, length - (range.location + range.length));
+                        range = [inputString rangeOfString:tempString options:0 range:range];
+                        if( range.location != NSNotFound )
+                        {
+                            [counter increment:range.location];
+                            range = NSMakeRange(range.location + range.length, length - (range.location + range.length));
+                        }
                     }
                 }
             }
         }
-    }
-    
-    for (int x = 0; x < counter.length; x++) {
-        resultString = [resultString stringByAppendingFormat:@"%@ = ", [[counter sArray] objectAtIndex:x]];
-        resultString = [resultString stringByAppendingFormat:@"%d at positions ", [counter getIArrayElement:x]];
         
-        for (int y = 0; y < [counter getIArrayElement:x]; y++) {
-            resultString = [resultString stringByAppendingFormat:@"%d",[counter getPArrayElement:x y:y]];
-            if (y != [counter getIArrayElement:x] - 1)
-                resultString = [resultString stringByAppendingString:@","];
+        for (int x = 0; x < counter.length; x++) {
+            resultString = [resultString stringByAppendingFormat:@"%@ = ", [[counter sArray] objectAtIndex:x]];
+            resultString = [resultString stringByAppendingFormat:@"%d at positions ", [counter getIArrayElement:x]];
+            
+            for (int y = 0; y < [counter getIArrayElement:x]; y++) {
+                resultString = [resultString stringByAppendingFormat:@"%d",[counter getPArrayElement:x y:y]];
+                if (y != [counter getIArrayElement:x] - 1)
+                    resultString = [resultString stringByAppendingString:@","];
+            }
+            
+            resultString = [resultString stringByAppendingString:@"\n"];
         }
-        
-        resultString = [resultString stringByAppendingString:@"\n"];
     }
     
     if( [resultString isEqualToString:@"\n"] || [resultString isEqualToString:@""] ) {

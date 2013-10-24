@@ -10,7 +10,7 @@
 #import "DoneCancelNumberPadToolbar.h"
 #import "HelpViewController.h"
 
-@interface GCDandInverseViewController : UIViewController <HelpViewControllerDelegate>
+@interface GCDandInverseViewController : UIViewController <HelpViewControllerDelegate, DoneCancelNumberPadToolbarDelegate>
 {
     IBOutlet UITextField *inverseOfField;   // Field for the integer of which the inverse is desired
     IBOutlet UITextField *modField;         // Field for the modulus the user would like to use

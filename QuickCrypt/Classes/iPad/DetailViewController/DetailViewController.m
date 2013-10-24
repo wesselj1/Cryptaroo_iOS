@@ -221,6 +221,7 @@
     {
         [_stepper1 setMinimumValue:1];
         [_stepper1 setStepValue:1];
+        [_stepper1 setMaximumValue:INT32_MAX];
     }
     [[UIStepper appearance] setTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
     
@@ -267,7 +268,6 @@
     _navController.navigationBarHidden = YES;
     _optionsAry = [td.optionsList objectAtIndex:_cryptoMethod];
     [self setButtonTitles];
-	[self configureView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -312,9 +312,6 @@
     [_outputText setNeedsDisplay];
     [_inputText setNeedsDisplay];
     [_computeButton setNeedsDisplay];
-//    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
-//        _scrollView.frame = CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
-//    }
 }
 
 // Set the toolbar title dependent on device orientation (for iPad)
@@ -345,13 +342,6 @@
         self.navigationItem.leftBarButtonItem = _menuButton;
     }
 }
-
-#pragma mark - Other View Methods
-- (void)configureView
-{
-    // Update the user interface for the detail item.
-}
-
 
 #pragma mark - UISplitViewControllerDelegate Methods
 - (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc {
@@ -484,12 +474,12 @@
     switch ( _cryptoMethod )
     {
         case QCNGraphs:
-            _label1.text = @"Length of NGraphs:";
+            _label1.text = @"Length of NGraphs";
             break;
         case QCAffineKnownPlaintextAttack:
         {
-            _label1.text = @"Keyword:";
-            _label2.text = @"Shift First:";
+            _label1.text = @"Keyword";
+            _label2.text = @"Shift First";
         }
             break;
         case QCAffineEncipher:
@@ -505,30 +495,30 @@
         }
             break;
         case QCSplitOffAlphabets:
-            _label1.text = @"Wordlength:";
+            _label1.text = @"Wordlength";
             break;
         case QCPolyMonoCalculator:
-            _label1.text = @"Keyword Size:";
+            _label1.text = @"Keyword Size";
             break;
         case QCViginereEncipher:
-            _label1.text = @"Keyword:";
+            _label1.text = @"Keyword";
             break;
         case QCViginereDecipher:
-            _label1.text = @"Keyword:";
+            _label1.text = @"Keyword";
             break;
         case QCAutokeyCyphertextAttack:
-            _label1.text = @"Keyword Length:";
+            _label1.text = @"Keyword Length";
             break;
         case QCAutokeyPlaintextAttack:
         {
-            _label1.text = @"Max Keyword Length:";
-            _label2.text = @"Friedman Range:";
+            _label1.text = @"Max Keyword Length";
+            _label2.text = @"Friedman Range";
         }
             break;
         case QCAutokeyDecipher:
         {
-            _label1.text = @"Keyword:";
-            _label2.text = @"Include PlainText in Key:";
+            _label1.text = @"Keyword";
+            _label2.text = @"Include PlainText in Key";
         }
             break;
         default:
@@ -779,6 +769,12 @@
         } if( textField == _textField3 ) {
             [textField resignFirstResponder];
         }
+    } else if( _cryptoMethod == QCGCDAndInverse ) {
+        if( textField == _textField1 ) {
+            [_textField2 becomeFirstResponder];
+        } else if( textField == _textField2 ) {
+            [_textField2 resignFirstResponder];
+        }
     } else {
         [textField resignFirstResponder];
     }
@@ -868,10 +864,13 @@
 {
     if( _cryptoMethod == QCGCDAndInverse )
     {   // For GCD and Inverse get the results from the output array   
-        if( [[td.outputArray objectAtIndex:_cryptoMethod] isKindOfClass:[NSArray class]] )
+        if( [[td.outputArray objectAtIndex:_cryptoMethod] isKindOfClass:[NSArray class]] && [[td.outputArray objectAtIndex:_cryptoMethod] count] > 0 )
         {
             _textField3.text = [[td.outputArray objectAtIndex:_cryptoMethod] objectAtIndex:0];
             _textField4.text = [[td.outputArray objectAtIndex:_cryptoMethod] objectAtIndex:1];
+        } else {
+            _textField3.text = @"1";
+            _textField4.text = @"1";
         }
     }
     else
@@ -1012,6 +1011,7 @@
             });
             
             NSString __block *result;
+            NSArray __block *results;
             dispatch_async(_cryptQueue, ^{
                 switch ( _cryptoMethod )
                 {
@@ -1060,6 +1060,8 @@
                     case QCAutokeyDecipher:
                         result = [QCMethods autoKeyDecipher:[_inputText text] withKeyword:[_optionsAry objectAtIndex:0] plain:[[_optionsAry objectAtIndex:1 ] boolValue]];
                         break;
+                    case QCGCDAndInverse:
+                        results = [QCMethods GCDandInverse:[[_textField1 text] intValue] mod:[[_textField2 text] intValue]];
                     default:
                         break;
                 }
@@ -1067,7 +1069,21 @@
             
             dispatch_async(_cryptQueue, ^{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [_outputText setText:result];
+                    if( _cryptoMethod == QCGCDAndInverse ) {
+                        if( [results count] == 2 ) {
+                            // If there are results for both GCD and Inverse provide them
+                            _textField3.text = [[results objectAtIndex:0] stringValue];
+                            _textField4.text = [results objectAtIndex:1];
+                        }
+                        else {
+                            // If there are not results for both of them, an error has occured
+                            /* NOTE: Error is due to Gary's method of getting GCD and Inverse in QCMethods, would like to fix in future update */
+                            _textField3.text = @"Error";
+                            _textField4.text = @"Error";
+                        }
+                    } else {
+                        [_outputText setText:result];
+                    }
                     [self hideProgressHUD];
                 });
             });

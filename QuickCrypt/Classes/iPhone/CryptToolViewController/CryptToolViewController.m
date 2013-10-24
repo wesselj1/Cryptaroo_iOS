@@ -450,13 +450,7 @@
 }
 
 - (void)infoButtonPressed
-{   // If info button is pressed, in this case we will present a help blurb about the method
-//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"HelpInfo" ofType:@"plist"];
-//    NSDictionary *helpDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-//    NSArray *helpArray = [NSArray arrayWithArray:[helpDict valueForKey:@"QCHelpStrings"]];
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.title message:[helpArray objectAtIndex:_cryptoMethod] delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
-//    [alert show];
-    
+{   // If info button is pressed present a help blurb about the method
     HelpViewController *helpViewController = [[HelpViewController alloc] init];
     helpViewController.delegate = self;
     helpViewController.cryptoMethod = self.cryptoMethod;

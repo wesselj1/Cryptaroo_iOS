@@ -13,15 +13,17 @@
 @protocol DoneCancelNumberPadToolbarDelegate <NSObject>
 
 -(void)doneCancelNumberPadToolbarDelegate:(DoneCancelNumberPadToolbar *)controller didClickDone:(UITextField *)textField;
--(void)doneCancelNumberPadToolbarDelegate:(DoneCancelNumberPadToolbar *)controller didClickCancel:(UITextField *)textField;
+//-(void)doneCancelNumberPadToolbarDelegate:(DoneCancelNumberPadToolbar *)controller didClickCancel:(UITextField *)textField;
 
 @end
 
 
 @interface DoneCancelNumberPadToolbar : UIToolbar
 
-@property (nonatomic, weak) UITextField *textField;
 @property (nonatomic, weak) id <DoneCancelNumberPadToolbarDelegate> toolbarDelegate;
+
+@property (nonatomic, weak) UITextField *textField;
+@property (nonatomic, strong) UIBarButtonItem *doneButton;
 
 - (id) initWithTextField:(UITextField *)textField;
 

@@ -55,8 +55,17 @@
     
     if( _cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack || _cryptoMethod == QCAutokeyPlaintextAttack) {
         DoneCancelNumberPadToolbar *toolbar = [[DoneCancelNumberPadToolbar alloc] initWithTextField:_textField1];
+        if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+            toolbar.doneButton.title = @"Next";
+        }
+        toolbar.toolbarDelegate = self;
         _textField1.inputAccessoryView = toolbar;
+        toolbar = [[DoneCancelNumberPadToolbar alloc] initWithTextField:_textField2];
+        toolbar.doneButton.title = @"Next";
+        toolbar.toolbarDelegate = self;
         _textField2.inputAccessoryView = toolbar;
+        toolbar = [[DoneCancelNumberPadToolbar alloc] initWithTextField:_textField3];
+        toolbar.toolbarDelegate = self;
         _textField3.inputAccessoryView = toolbar;
     }
     
@@ -98,6 +107,7 @@
     {
         [_stepper1 setMinimumValue:1];
         [_stepper1 setStepValue:1];
+        [_stepper1 setMaximumValue:INT32_MAX];
     }
     [[UIStepper appearance] setTintColor:[UIColor colorWithRed:255/255.0 green:190/255.0 blue:100/255.0 alpha:1.0]];
     
@@ -229,9 +239,18 @@
 
 
 #pragma mark - TextField Delegate Methods
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+        if( textField == _textField1 ) {
+            [_textField2 becomeFirstResponder];
+        } else if( textField == _textField2 ) {
+            [_textField3 becomeFirstResponder];
+        } if( textField == _textField3 ) {
+            [textField resignFirstResponder];
+        }
+    } else {
+        [textField resignFirstResponder];
+    }
     return NO;
 }
 
@@ -244,6 +263,9 @@
         // So if they are trying to enter a period check to see if a period already exists
         if( [string compare:@"."] == NSOrderedSame && [textField.text rangeOfString:@"." options:0 range:NSMakeRange(0, textField.text.length)].location != NSNotFound )
             return NO; // If a period exist, don't allow the character change
+        else if( [string compare:@"."] == NSOrderedSame ) {
+            return YES;
+        }
     }
     
     if( ![string isEqualToString:@""] ) // Make sure incoming character is not blank
@@ -272,6 +294,23 @@
     }
     
     return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ( _cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack || _cryptoMethod == QCAutokeyPlaintextAttack ) {
+        if ( _textField1.text.intValue == 0 ) {
+            _textField1.text = @"1";
+        } else {
+            _textField1.text = [NSString stringWithFormat:@"%d", _textField1.text.intValue];
+        }
+    } else if ( _cryptoMethod == QCGCDAndInverse ) {
+        _textField1.text = [NSString stringWithFormat:@"%d", _textField1.text.intValue];
+        if( _textField2.text.intValue == 0 ) {
+            _textField2.text = @"1";
+        }
+        _textField2.text = [NSString stringWithFormat:@"%d", _textField2.text.intValue];
+    }
 }
 
 
@@ -389,8 +428,62 @@
 #pragma mark - Actions
 - (IBAction)applyButtonTouched:(id)sender
 {
-    [self getOptionsAndSave];
-    [self.delegate dismissandApplyOptionsViewController:self];
+    [self textFieldDidEndEditing:_textField1];
+    [self textFieldDidEndEditing:_textField2];
+    [self textFieldDidEndEditing:_textField3];
+    
+    BOOL valid_options = YES;
+        
+    if ( _cryptoMethod == QCAffineKnownPlaintextAttack || _cryptoMethod == QCViginereEncipher || _cryptoMethod == QCViginereDecipher || _cryptoMethod == QCAutokeyDecipher ) {
+        if ( _textField1.text.length == 0 ) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Options" message:@"Please input a keyword." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [alert show];
+            valid_options = NO;
+        }
+    } else if ( _cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack ) {
+        if ( _textField1.text.intValue == 0 ) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Options"
+                                                            message:[NSString stringWithFormat:@"Please input a %@ greater than 0", [_label1.text substringToIndex:_label1.text.length]]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            valid_options = NO;
+        }
+    } else if ( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+        if ( _textField1.text.intValue == 0 ) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Options"
+                                                            message:[NSString stringWithFormat:@"Please input a %@ greater than 0", [_label1.text substringToIndex:_label1.text.length]]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            valid_options = NO;
+        } else {
+            BOOL validRange = YES;
+            NSPredicate *isFloat = [NSPredicate predicateWithFormat:@"SELF matches '\\\\d*\\\\Q.\\\\E?\\\\d*'"];
+            if( ![isFloat evaluateWithObject:_textField2.text] || ![isFloat evaluateWithObject:_textField3.text] ) {
+                validRange = NO;
+            } else if( _textField2.text.floatValue > _textField3.text.floatValue ) {
+                validRange = NO;
+            }
+            
+            if( !validRange ) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Options"
+                                                                message:[NSString stringWithFormat:@"Please input a valid %@.", [_label2.text substringToIndex:_label2.text.length]]
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Okay"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                valid_options = NO;
+            }
+        }
+    }
+    
+    if( valid_options ) {
+        [self getOptionsAndSave];
+        [self.delegate dismissandApplyOptionsViewController:self];
+    }
 }
 
 - (IBAction)cancelButtonTouched:(id)sender
@@ -433,8 +526,27 @@
 - (void)keyboardWillBeHidden:(NSNotification *)aNotification
 {
     [UIView animateWithDuration:0.25 animations:^{
-        self.view.frame = _initialFrame;
+        if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+            self.view.center = self.parentViewController.view.center;
+        } else {
+            self.view.frame = _initialFrame;
+        }
     }];
+}
+
+#pragma mark - DoneCancelNumberPadToolbarDelegate Methods
+- (void)doneCancelNumberPadToolbarDelegate:(DoneCancelNumberPadToolbar *)controller didClickDone:(UITextField *)textField {
+    if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
+        if( textField == _textField1 ) {
+            [_textField2 becomeFirstResponder];
+        } else if( textField == _textField2 ) {
+            [_textField3 becomeFirstResponder];
+        } if( textField == _textField3 ) {
+            [textField resignFirstResponder];
+        }
+    } else {
+        [textField resignFirstResponder];
+    }
 }
 
 

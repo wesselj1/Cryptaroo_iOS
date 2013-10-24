@@ -15,7 +15,7 @@
 
 @protocol OptionsViewControllerDelegate;
 
-@interface OptionsViewController : UIViewController <UITextFieldDelegate>
+@interface OptionsViewController : UIViewController <UITextFieldDelegate, DoneCancelNumberPadToolbarDelegate>
 
 @property (weak) id <OptionsViewControllerDelegate> delegate;
 @property (nonatomic, weak) IBOutlet UIStepper *stepper1;

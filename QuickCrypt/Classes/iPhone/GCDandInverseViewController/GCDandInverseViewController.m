@@ -78,9 +78,12 @@
     }
     
     DoneCancelNumberPadToolbar *toolbar = [[DoneCancelNumberPadToolbar alloc] initWithTextField:_inverseOfField];
+    toolbar.doneButton.title = @"Next";
+    toolbar.toolbarDelegate = self;
     _inverseOfField.inputAccessoryView = toolbar;
     
     toolbar = [[DoneCancelNumberPadToolbar alloc] initWithTextField:_modField];
+    toolbar.toolbarDelegate = self;
     _modField.inputAccessoryView = toolbar;
     
     // Set up labels
@@ -182,8 +185,11 @@
 }
 
 #pragma mark - HelpViewControllerDelegate Methods
-- (void)dismissHelpViewController:(HelpViewController *)viewController {
+- (void)dismissHelpViewController:(HelpViewController *)viewController redisplay:(BOOL)redisplay {
     if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+            self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        }
         [viewController.view removeFromSuperview];
     } else {
         [viewController.rootView removeFromSuperview];
@@ -204,6 +210,15 @@
     _curtainView.exclusiveTouch = YES;
     _curtainView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.3f];
     [self.navigationController.view addSubview:_curtainView];
+}
+
+#pragma mark - DoneCancelNumberPadToolbarDelegate Methods
+- (void)doneCancelNumberPadToolbarDelegate:(DoneCancelNumberPadToolbar *)controller didClickDone:(UITextField *)textField {
+    if( textField == _inverseOfField ) {
+        [_modField becomeFirstResponder];
+    } else if( textField == _modField ) {
+        [_modField resignFirstResponder];
+    }
 }
 
 
