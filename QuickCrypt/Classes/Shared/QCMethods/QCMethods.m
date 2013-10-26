@@ -263,62 +263,64 @@ static char tabulaRecta[26][26] = {
     int x, z, t, w;
     unichar y;
     
-    for (x = 0; x < js; x++) {
+    for (x = 0; x < js && !memoryCritical; x++) {
         
-        for (y = 'A'; y <= 'Z'; y++) {
+        for (y = 'A'; y <= 'Z' && !memoryCritical; y++) {
             
-            for (z = 1; z <= js; z++) {
-                s1 = @"";
-                tempString = @"";
-                outputString = @"";
-                friedman = 0;
-                
-                for (t = x; t < [inputString length]; t++) {
-                    if ((t - x) % z == 0)
-                        tempString = [tempString stringByAppendingFormat:@"%c", [inputString characterAtIndex:t]];
-                }
-                
-                s1 = [NSString stringWithFormat:@"%c", y];
-                
-                for (t = 0; t < [tempString length]; t++) {
+            for (z = 1; z <= js && !memoryCritical; z++) {
+                    s1 = @"";
+                    tempString = @"";
+                    outputString = @"";
+                    friedman = 0;
                     
-                    for (w = 0; w < 26; w++) {
-                        if( tabulaRecta[ [s1 characterAtIndex:(t%s1.length)] - 'A' ][w] == [tempString characterAtIndex:t] )
-                            outputString = [outputString stringByAppendingFormat:@"%c", tabulaRecta[0][w]];
+                    for (t = x; t < [inputString length]; t++) {
+                        if ((t - x) % z == 0)
+                            tempString = [tempString stringByAppendingFormat:@"%c", [inputString characterAtIndex:t]];
                     }
-                    if( outputString.length > 0 & t < outputString.length )
-                        s1 = [s1 stringByAppendingFormat:@"%c", [outputString characterAtIndex:t]];
-                    s1 = [s1 uppercaseString];
-                }
+                    
+                    s1 = [NSString stringWithFormat:@"%c", y];
+                    
+                    for (t = 0; t < [tempString length]; t++) {
+                        
+                        for (w = 0; w < 26; w++) {
+                            if( tabulaRecta[ [s1 characterAtIndex:(t%s1.length)] - 'A' ][w] == [tempString characterAtIndex:t] )
+                                outputString = [outputString stringByAppendingFormat:@"%c", tabulaRecta[0][w]];
+                        }
+                        if( outputString.length > 0 & t < outputString.length )
+                            s1 = [s1 stringByAppendingFormat:@"%c", [outputString characterAtIndex:t]];
+                        s1 = [s1 uppercaseString];
+                    }
 
-                outputString = [outputString uppercaseString];
-                
-                for (t = 0; t < 256; t++)
-                    array[t] = 0;
-                
-                
-                for (t = 0; t < [outputString length]; t++) {
+                    outputString = [outputString uppercaseString];
+                    
+                    for (t = 0; t < 256; t++)
+                        array[t] = 0;
+                    
+                    
+                    for (t = 0; t < [outputString length]; t++) {
+                        
+                        for (unichar c = 'A'; c <= 'Z'; c++) {
+                            if ([outputString characterAtIndex:t] == c)
+                                array[c]++;
+                        }
+                    }
+                    
                     
                     for (unichar c = 'A'; c <= 'Z'; c++) {
-                        if ([outputString characterAtIndex:t] == c)
-                            array[c]++;
+                        friedman += array[c] / [outputString length] * ((array[c] - 1) / ([outputString length] - 1));
                     }
-                }
-                
-                
-                for (unichar c = 'A'; c <= 'Z'; c++) {
-                    friedman += array[c] / [outputString length] * ((array[c] - 1) / ([outputString length] - 1));
-                }
-                
-                if (friedman >= friedman_cutoff_low && friedman <= friedman_cutoff_hi) {
-                    resultString = [resultString stringByAppendingFormat:@"Possibilities for letter %d of keyword %c ", x+1, y];
-                    resultString = [resultString stringByAppendingFormat:@"keylength = %d Friedman = %f\n", z, friedman];
-                }
+                    
+                    if (friedman >= friedman_cutoff_low && friedman <= friedman_cutoff_hi) {
+                        resultString = [resultString stringByAppendingFormat:@"Possibilities for letter %d of keyword %c ", x+1, y];
+                        resultString = [resultString stringByAppendingFormat:@"keylength = %d Friedman = %f\n", z, friedman];
+                    }
             }
             
         }
         
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }

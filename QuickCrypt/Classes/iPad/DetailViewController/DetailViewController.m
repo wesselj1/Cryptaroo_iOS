@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import "KSCustomPopoverBackgroundView.h"
 #import "MBProgressHUD.h"
+#import "Canceller.h"
+#import "AppDelegate.h"
 
 @interface DetailViewController ()
 {
@@ -41,6 +43,8 @@
 @property (nonatomic, strong) MBProgressHUD *hud;
 
 @property (nonatomic) dispatch_queue_t cryptQueue;
+
+@property (nonatomic) natural_t freeMemory;
 
 @property (nonatomic) BOOL redisplayHelp;
                    
@@ -252,6 +256,12 @@
     _activeField = (UIView *)_inputText;
     
     self.navigationItem.hidesBackButton = YES;
+}
+
+- (void)didReceiveMemoryWarning {
+    if( _freeMemory < 50*1024*1024 ) {
+        memoryCritical = YES;
+    }
 }
 
 - (void)viewDidUnload
@@ -1012,6 +1022,7 @@
             
             NSString __block *result;
             NSArray __block *results;
+            
             dispatch_async(_cryptQueue, ^{
                 switch ( _cryptoMethod )
                 {

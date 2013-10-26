@@ -24,7 +24,7 @@
 @property (strong, nonatomic) UIToolbar *toolbar;                                   // Toolbar displayed above the iPad app
 @property (strong, nonatomic) UILabel *toolbarTitle;                                // Label displayed on the iPad toolbar
 
-- (void)setToolbarLabelTitleForOrientation:(UIInterfaceOrientation)orientation;     // Set the title of the toolbar dependent on the device orientation
-- (void)infoButtonPressed;                                                          // Called when the info button is pressed
+natural_t freeMemory();
+void print_free_memory();
 
 @end

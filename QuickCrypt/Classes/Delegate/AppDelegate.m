@@ -11,6 +11,8 @@
 #import "RootViewControlleriPad.h"
 #import "DetailViewController.h"
 #import "InfoViewController.h"
+#import <mach/mach.h>
+#import <mach/mach_host.h>
 
 @implementation AppDelegate
 
@@ -43,35 +45,11 @@
         UINavigationController *detailNav = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
         
         // Set the Root and Detail views
-//        self.splitViewController.masterViewController = self.rootViewControlleriPad;
-//        self.rootViewControlleriPad.detailViewController = self.detailViewController;
         self.splitViewController.viewControllers = @[rootNav, detailNav];
         self.splitViewController.delegate = _detailViewController;
-    
-        // Allocate and set navigation controller
-//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
-//        self.detailViewController.navController = navController;
         
         // Add the root controller and detail navigation controller to the splitview
-//        self.splitViewController.viewControllers = [NSArray arrayWithObjects:_rootViewControlleriPad, navController, nil];
-//        self.splitViewController.delegate = _detailViewController;
         self.detailViewController.splitViewController = self.splitViewController; // Set detail view's pointer to the split view
-
-        
-        // Setup the toolbar title label and add as a subview on the toolbar
-//        _toolbarTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 400, 30)];
-//        _toolbarTitle.center = self.splitViewController.toolbar.center;
-//        _toolbarTitle.textColor = [UIColor whiteColor];
-//        _toolbarTitle.backgroundColor = [UIColor clearColor];
-//        _toolbarTitle.textAlignment = NSTextAlignmentCenter;
-//        _toolbarTitle.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
-//        _toolbarTitle.font = [UIFont boldSystemFontOfSize:20];
-//        [self setToolbarLabelTitleForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
-//        [self.splitViewController.toolbar addSubview:_toolbarTitle];
-        if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
-            
-        }
-//        self.splitViewController.toolbar.translucent = NO;
         self.splitViewController.navigationController.navigationBar.translucent = NO;
         
         
@@ -93,43 +71,51 @@
  
     [self.window makeKeyAndVisible];
     
-//    // initialize defaults
-//    NSString *dateKey = @"dateKey";
-//    NSDate *lastRead = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:dateKey];
-//    if (lastRead == nil)     // App first run: set up user defaults.
-//    {
-//        NSDictionary *appDefaults  = [NSDictionary dictionaryWithObjectsAndKeys:[NSDate date], dateKey, nil];
-//        
-//        // do any other initialization you want to do here - e.g. the starting default values.    
-//        // [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"should_play_sounds"];
-//        
-//        // sync the defaults to disk
-//        [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//    }
-//    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:dateKey];
-    
-    
     // Create instance of persitent text data class
     _textData = [[TextData alloc] init];
 
     return YES;
 }
 
-// When the help button is pressed
-- (void)helpButtonPressed
+- (natural_t)freeMemory {
+    mach_port_t host_port;
+    mach_msg_type_number_t host_size;
+    vm_size_t pagesize;
+    
+    host_port = mach_host_self();
+    host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
+    host_page_size(host_port, &pagesize);
+    
+    vm_statistics_data_t vm_stat;
+    
+    if (host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size) != KERN_SUCCESS)
+        NSLog(@"Failed to fetch vm statistics");
+    
+    return vm_stat.free_count * pagesize;
+}
+
+void print_free_memory ()
 {
-    // Grab the current cell (used to know which help blurb to display)
-    UITableViewCell *cell = [_rootViewControlleriPad.tableView cellForRowAtIndexPath:_rootViewControlleriPad.tableView.indexPathForSelectedRow];
+    mach_port_t host_port;
+    mach_msg_type_number_t host_size;
+    vm_size_t pagesize;
     
-    // Get the array of help blurbs from the plist
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"HelpInfo" ofType:@"plist"];
-    NSDictionary *helpDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    NSArray *helpArray = [NSArray arrayWithArray:[helpDict valueForKey:@"QCHelpStrings"]];
+    host_port = mach_host_self();
+    host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
+    host_page_size(host_port, &pagesize);
     
-    // Display the help blurb appropriate to the cryptomethod currently in view
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:cell.textLabel.text message:[helpArray objectAtIndex:_detailViewController.cryptoMethod] delegate:nil cancelButtonTitle:@"Okay"otherButtonTitles:nil];
-    [alert show];
+    vm_statistics_data_t vm_stat;
+    
+    if (host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size) != KERN_SUCCESS)
+        NSLog(@"Failed to fetch vm statistics");
+    
+    /* Stats in bytes */
+    natural_t mem_used = (vm_stat.active_count +
+                          vm_stat.inactive_count +
+                          vm_stat.wire_count) * pagesize;
+    natural_t mem_free = vm_stat.free_count * pagesize;
+    natural_t mem_total = mem_used + mem_free;
+    NSLog(@"used: %u free: %u total: %u", mem_used, mem_free, mem_total);
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "OptionsViewController.h"
 #import "UIViewController+overView.h"
 #import "MBProgressHUD.h"
+#import "AppDelegate.h"
 
 @interface CryptToolViewController ()
 {
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) UIView *curtainView;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property (nonatomic) dispatch_queue_t cryptQueue;
+@property (nonatomic) natural_t freeMemory;
 
 - (void)setButtonTitles;    // Sets the title of the compute button appropriately
 - (void)infoButtonPressed;  // Present the info view when info button pressed
@@ -108,6 +110,20 @@
     self.navigationItem.rightBarButtonItems = @[space, infoBarButtonItem];
 
     [self textViewDidChange:_inputText];
+}
+
+- (void)didReceiveMemoryWarning {
+    if( _freeMemory < 50*1024*1024 ) {
+        if( !memoryCritical ) {
+            memoryCritical = YES;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not Enough Memory"
+                                                            message:@"The method you were running was exited prematurely due to system memory constraints. Cryptaroo may not suitable for doing the method you were attempting."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

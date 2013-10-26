@@ -34,6 +34,8 @@ typedef enum
     QCGCDAndInverse,
 } QCCryptoMethod;
 
+BOOL memoryCritical;
+
 @interface QCMethods : NSObject
 
 + (NSString *)frequencyCount:(NSString *)inputtext;
