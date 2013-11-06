@@ -49,11 +49,11 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.joeywessel.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.joeywessel.Cryptaroo</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Cryptaroo</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -70,7 +70,7 @@
 		<string>fairview_smallcaps.otf</string>
 	</array>
 	<key>UIPrerenderedIcon</key>
-	<true/>
+	<false/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
