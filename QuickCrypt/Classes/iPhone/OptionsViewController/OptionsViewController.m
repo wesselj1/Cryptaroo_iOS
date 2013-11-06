@@ -120,6 +120,12 @@
     [self setFonts];
     
     [self recallOptions];   // Recall any previous options from this method
+    
+    if( SYSTEM_VERSION_LESS_THAN(@"7.0") && _cryptoMethod == QCAutokeyDecipher ) {
+        _label2.font = [[Fonts fontManager] fairviewSmallCapsWithFontSize:24.0f];
+//        _label2Width.constant = 140;
+//        [self.view setNeedsLayout];
+    }
 }
 
 - (void)viewDidUnload
@@ -509,16 +515,37 @@
     CGRect kbFrame = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     CGSize kbSize = kbFrame.size;
     self.initialFrame = self.view.frame;
+    int screenHeight = [UIScreen mainScreen].bounds.size.height;
     
     float yDelta = (_initialFrame.origin.y + _initialFrame.size.height) - (self.parentViewController.view.frame.size.height-kbSize.height);
     
     [UIView animateWithDuration:0.25 animations:^{
         if ( _cryptoMethod == QCNGraphs || _cryptoMethod == QCSplitOffAlphabets || _cryptoMethod == QCPolyMonoCalculator || _cryptoMethod == QCAutokeyCyphertextAttack || _cryptoMethod == QCAutokeyPlaintextAttack ) {
-            self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-yDelta-20, _initialFrame.size.width, _initialFrame.size.height);
+            if( screenHeight == 480 ) {
+                self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-yDelta-10, _initialFrame.size.width, _initialFrame.size.height);
+            } else {
+                self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-yDelta-20, _initialFrame.size.width, _initialFrame.size.height);
+            }
         } else if ( _cryptoMethod == QCAffineKnownPlaintextAttack || _cryptoMethod == QCAutokeyDecipher ) {
-            self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-2*yDelta, _initialFrame.size.width, _initialFrame.size.height);
+            if( SYSTEM_VERSION_LESS_THAN(@"7.0") ) {
+                if( screenHeight == 480 ) {
+                    self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-yDelta-20, _initialFrame.size.width, _initialFrame.size.height);
+                } else {
+                    self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-20, _initialFrame.size.width, _initialFrame.size.height);
+                }
+            } else {
+                if( screenHeight == 480 ) {
+                    self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-yDelta-20, _initialFrame.size.width, _initialFrame.size.height);
+                } else {
+                    self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-2*yDelta, _initialFrame.size.width, _initialFrame.size.height);
+                }
+            }
         } else if ( _cryptoMethod == QCViginereEncipher || _cryptoMethod == QCViginereDecipher ) {
-            self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-6*yDelta, _initialFrame.size.width, _initialFrame.size.height);
+            if( screenHeight == 480 ) {
+                self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-2*yDelta, _initialFrame.size.width, _initialFrame.size.height);
+            } else if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+                self.view.frame = CGRectMake(_initialFrame.origin.x, _initialFrame.origin.y-6*yDelta, _initialFrame.size.width, _initialFrame.size.height);
+            }
         }
     }];
 }

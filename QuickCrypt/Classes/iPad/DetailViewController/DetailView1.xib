@@ -34,7 +34,7 @@
                         <constraint firstAttribute="height" constant="260" id="hA9-fC-oNK"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="light"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="21"/>
                     </connections>

@@ -40,7 +40,7 @@
                         <constraint firstAttribute="height" constant="260" id="wIe-M0-FQI"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="light"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="27"/>
                     </connections>

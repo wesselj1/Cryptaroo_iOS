@@ -30,6 +30,7 @@
 @property (nonatomic, weak) IBOutlet QCButton *applyButton;
 @property (nonatomic, weak) IBOutlet QCButton *cancelButton;
 @property (nonatomic, weak) IBOutlet UISwitch *switch1;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *label2Width;
 @property (nonatomic) QCCryptoMethod cryptoMethod;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil forMethod:(QCCryptoMethod)method withOptions:(NSArray *)options;
