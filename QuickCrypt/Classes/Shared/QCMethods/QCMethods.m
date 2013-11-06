@@ -157,7 +157,7 @@ static char tabulaRecta[26][26] = {
     {
         BOOL exit = NO;
         
-        while (!exit) {
+        while (!exit  && !memoryCritical) {
             w = fmod(y, z);
             if (w != 0) {
                 y = z;
@@ -181,7 +181,7 @@ static char tabulaRecta[26][26] = {
             y = (double)modulus;
             z = (double)number;
             
-            for (int x = 1; x <= y; x++) {
+            for (int x = 1; x <= y && !memoryCritical; x++) {
                 w = ((-(y * x - 1) / z));
                 w = (w + ((int)(-w / y) + 1) * y);
                 if (w - ((int)w) == 0) {
@@ -195,6 +195,8 @@ static char tabulaRecta[26][26] = {
             inverse = @"No inverse";
         }
     }
+    
+    memoryCritical = NO;
         
     return [NSArray arrayWithObjects:[NSNumber numberWithInt:gcd], inverse, nil];
 }
@@ -210,14 +212,14 @@ static char tabulaRecta[26][26] = {
     if ( !plaintext ) {
         s1 = [s1 stringByAppendingString:inputString];
         
-        for (int x = 0; x < [inputString length]; x++) {
-            for (int y = 0; y < 26; y++) {
+        for (int x = 0; x < [inputString length] && !memoryCritical; x++) {
+            for (int y = 0; y < 26 && !memoryCritical; y++) {
                 if( tabulaRecta[ [s1 characterAtIndex:(x%s1.length)] - 'A' ][y] == [inputString characterAtIndex:x] )
                     outputString = [outputString stringByAppendingFormat:@"%c", tabulaRecta[0][y] ];
             }
         }
         
-        for (int x = 0, y = 0; x < [outputString length]; x++, y++) {
+        for (int x = 0, y = 0; x < [outputString length] && !memoryCritical; x++, y++) {
             resultString = [resultString stringByAppendingFormat:@"%c", [outputString characterAtIndex:x]];
             if ((x + 1) % 5 == 0 && (x + 1) != [outputString length])
                 resultString = [resultString stringByAppendingString:@" "];
@@ -226,8 +228,8 @@ static char tabulaRecta[26][26] = {
     }
     else {
         
-        for (int x = 0; x < [inputString length]; x++) {
-            for (int y = 0; y < 26; y++) {
+        for (int x = 0; x < [inputString length] && !memoryCritical; x++) {
+            for (int y = 0; y < 26 && !memoryCritical; y++) {
                 if( tabulaRecta[ [s1 characterAtIndex:(x%s1.length)] - 'A' ][y] == [inputString characterAtIndex:x] )
                     outputString = [outputString stringByAppendingFormat:@"%c", tabulaRecta[0][y] ];
             }
@@ -235,13 +237,15 @@ static char tabulaRecta[26][26] = {
             s1 = [s1 uppercaseString];
         }
         
-        for (int x = 0, y = 0; x < [outputString length]; x++, y++) {
+        for (int x = 0, y = 0; x < [outputString length] && !memoryCritical; x++, y++) {
             resultString = [resultString stringByAppendingFormat:@"%c", [outputString characterAtIndex:x]];
             if ((x + 1) % 5 == 0 && (x + 1) != [outputString length])
                 resultString = [resultString stringByAppendingString:@" "];
         }
         
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -273,16 +277,16 @@ static char tabulaRecta[26][26] = {
                     outputString = @"";
                     friedman = 0;
                     
-                    for (t = x; t < [inputString length]; t++) {
+                    for (t = x; t < [inputString length] && !memoryCritical; t++) {
                         if ((t - x) % z == 0)
                             tempString = [tempString stringByAppendingFormat:@"%c", [inputString characterAtIndex:t]];
                     }
                     
                     s1 = [NSString stringWithFormat:@"%c", y];
                     
-                    for (t = 0; t < [tempString length]; t++) {
+                    for (t = 0; t < [tempString length] && !memoryCritical; t++) {
                         
-                        for (w = 0; w < 26; w++) {
+                        for (w = 0; w < 26 && !memoryCritical; w++) {
                             if( tabulaRecta[ [s1 characterAtIndex:(t%s1.length)] - 'A' ][w] == [tempString characterAtIndex:t] )
                                 outputString = [outputString stringByAppendingFormat:@"%c", tabulaRecta[0][w]];
                         }
@@ -293,20 +297,20 @@ static char tabulaRecta[26][26] = {
 
                     outputString = [outputString uppercaseString];
                     
-                    for (t = 0; t < 256; t++)
+                    for (t = 0; t < 256 && !memoryCritical; t++)
                         array[t] = 0;
                     
                     
-                    for (t = 0; t < [outputString length]; t++) {
+                    for (t = 0; t < [outputString length] && !memoryCritical; t++) {
                         
-                        for (unichar c = 'A'; c <= 'Z'; c++) {
+                        for (unichar c = 'A'; c <= 'Z' && !memoryCritical; c++) {
                             if ([outputString characterAtIndex:t] == c)
                                 array[c]++;
                         }
                     }
                     
                     
-                    for (unichar c = 'A'; c <= 'Z'; c++) {
+                    for (unichar c = 'A'; c <= 'Z' && !memoryCritical; c++) {
                         friedman += array[c] / [outputString length] * ((array[c] - 1) / ([outputString length] - 1));
                     }
                     
@@ -336,21 +340,21 @@ static char tabulaRecta[26][26] = {
     double array[256];
     double friedman = 0;
     
-    for (int x = 0; x < length; x++) {
+    for (int x = 0; x < length && !memoryCritical; x++) {
         s1 = [s1 stringByAppendingString:@"A"];
     }
     
     s1 = [s1 stringByAppendingString:inputString];
     
-    for (int x = 0; x < [inputString length]; x++) {
+    for (int x = 0; x < [inputString length] && !memoryCritical; x++) {
         
-        for (int y = 0; y < 26; y++) {
+        for (int y = 0; y < 26 && !memoryCritical; y++) {
             if( tabulaRecta[ [s1 characterAtIndex:(x%s1.length)] - 'A' ][y] == [inputString characterAtIndex:x] )
                 outputString = [outputString stringByAppendingFormat:@"%c", tabulaRecta[0][y]];
         }
     }
     
-    for (int x = 0, y = 0; x < [outputString length]; x++, y++) {
+    for (int x = 0, y = 0; x < [outputString length] && !memoryCritical; x++, y++) {
         resultString = [resultString stringByAppendingFormat:@"%c", [outputString characterAtIndex:x]];
         if ((x + 1) % 5 == 0 && (x + 1) != [outputString length])
             resultString = [resultString stringByAppendingString:@" "];
@@ -358,13 +362,13 @@ static char tabulaRecta[26][26] = {
     
     outputString = [outputString uppercaseString];
     
-    for (int x = 0; x < 256; x++)
+    for (int x = 0; x < 256 && !memoryCritical; x++)
         array[x] = 0;
     
     
-    for (int x = 0; x < [outputString length]; x++) {
+    for (int x = 0; x < [outputString length] && !memoryCritical; x++) {
         
-        for (unichar y = 'A'; y <= 'Z'; y++) {
+        for (unichar y = 'A'; y <= 'Z' && !memoryCritical; y++) {
             if ([outputString characterAtIndex:x] == y)
                 array[y]++;
         }
@@ -372,9 +376,11 @@ static char tabulaRecta[26][26] = {
     }
     
     
-    for (unichar x = 'A'; x <= 'Z'; x++) {
+    for (unichar x = 'A'; x <= 'Z' && !memoryCritical; x++) {
         friedman += array[x] / [outputString length] * ((array[x] - 1) / ([outputString length] - 1));
     }
+    
+    memoryCritical = NO;
     
     resultString = [resultString stringByAppendingFormat:@"\n\nFriedman value = %f", friedman];
     return resultString;
@@ -389,20 +395,22 @@ static char tabulaRecta[26][26] = {
     NSString *s1 = [self formatString:keyword];
     NSString *resultString = @"";
     
-    for (int x = 0; x < [inputString length]; x++) {
+    for (int x = 0; x < [inputString length] && !memoryCritical; x++) {
         
-        for (int y = 0; y < 26; y++) {
+        for (int y = 0; y < 26 && !memoryCritical; y++) {
             if( tabulaRecta[ [s1 characterAtIndex:x%s1.length] - 'A' ][y] == [inputString characterAtIndex:x] )
                 outputString = [outputString stringByAppendingFormat:@"%c", tabulaRecta[0][y]];
         }
         
     }
     
-    for (int x = 0, y = 0; x < [outputString length]; x++, y++) {
+    for (int x = 0, y = 0; x < [outputString length] && !memoryCritical; x++, y++) {
         resultString = [resultString stringByAppendingFormat:@"%c", [outputString characterAtIndex:x]];
         if ((x + 1) % 5 == 0 && (x + 1) != [outputString length])
             resultString = [resultString stringByAppendingString:@" "];
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -416,15 +424,17 @@ static char tabulaRecta[26][26] = {
     NSString *s1 = [self formatString:keyword];
     NSString *resultString = @"";
     
-    for (int x = 0; x < [inputString length]; x++) {
+    for (int x = 0; x < [inputString length] && !memoryCritical; x++) {
         outputString = [outputString stringByAppendingFormat:@"%c", tabulaRecta[ [s1 characterAtIndex:x%s1.length] - 'A' ][ [inputString characterAtIndex:x] - 'A' ]];
     }
     
-    for (int x = 0, y = 0; x < [outputString length]; x++, y++) {
+    for (int x = 0, y = 0; x < [outputString length] && !memoryCritical; x++, y++) {
         resultString = [resultString stringByAppendingFormat:@"%c", [outputString characterAtIndex:x]];
         if ((x + 1) % 5 == 0 && (x + 1) != [outputString length])
             resultString = [resultString stringByAppendingString:@" "];
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -440,23 +450,23 @@ static char tabulaRecta[26][26] = {
     int spinnerValue = size;
     NSString *resultString = @".065 = Monoalphabetic, .038 means polyalphabetic.\n\n";
     
-    for (int z = 0; z < spinnerValue; z++) {
+    for (int z = 0; z < spinnerValue && !memoryCritical; z++) {
         tempString = @"";
         friedman = 0;
         
-        for (int x = 0; x < [inputString length]; x++) {
+        for (int x = 0; x < [inputString length] && !memoryCritical; x++) {
             if ((x - z % spinnerValue) % spinnerValue == 0)
                 tempString = [tempString stringByAppendingFormat:@"%c", [inputString characterAtIndex:x]];
         }
         
         
-        for (int x = 0; x < 256; x++)
+        for (int x = 0; x < 256 && !memoryCritical; x++)
             array[x] = 0;
         
         
-        for (int x = 0; x < [tempString length]; x++) {
+        for (int x = 0; x < [tempString length] && !memoryCritical; x++) {
             
-            for (unichar y = 'A'; y <= 'Z'; y++) {
+            for (unichar y = 'A'; y <= 'Z' && !memoryCritical; y++) {
                 if ([tempString characterAtIndex:x] == y)
                     array[y]++;
             }
@@ -464,12 +474,14 @@ static char tabulaRecta[26][26] = {
         }
         
         
-        for (unichar x = 'A'; x <= 'Z'; x++) {
+        for (unichar x = 'A'; x <= 'Z' && !memoryCritical; x++) {
             friedman += array[x] / [tempString length] * ((array[x] - 1) / ([tempString length] - 1));
         }
         
         resultString = [resultString stringByAppendingFormat:@"%f\n", friedman];
     }
+    
+    memoryCritical = NO;
     
     return  resultString;
 }
@@ -485,13 +497,13 @@ static char tabulaRecta[26][26] = {
     
     if( wordLength != 0 )
     {
-        for( int x = 0; x < wordLength; x++ )
+        for( int x = 0; x < wordLength && !memoryCritical; x++ )
             [strings addObject:@""];
         
-        for( int x = 0; x < [inputString length]; x++ )
+        for( int x = 0; x < [inputString length] && !memoryCritical; x++ )
             [strings replaceObjectAtIndex:x%wordLength withObject:[[strings objectAtIndex:x%wordLength] stringByAppendingFormat:@"%c", [inputString characterAtIndex:x]]];
         
-        for( int x = 0; x < wordLength; x++ )
+        for( int x = 0; x < wordLength && !memoryCritical; x++ )
             resultString = [resultString stringByAppendingFormat:@"%@\n\n", [strings objectAtIndex:x]];
     }
     else
@@ -502,6 +514,8 @@ static char tabulaRecta[26][26] = {
 //            resultString = [resultString stringByAppendingString:@"\n"];
 //        resultString = [resultString stringByAppendingFormat:@"%c", [inputString characterAtIndex:x]];
 //    }
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -542,7 +556,7 @@ static char tabulaRecta[26][26] = {
     else
         m = 25;
     
-    for (int x = 0; x < [inputString length]; x++) {
+    for (int x = 0; x < [inputString length] && !memoryCritical; x++) {
         charArray[x] = (char)(charArray[x] - 64);
         charArray[x] = (char)((charArray[x] + (26-a))%26);
         charArray[x] = (char)((charArray[x] * m) % 26);
@@ -551,11 +565,13 @@ static char tabulaRecta[26][26] = {
         charArray[x] = (char)(charArray[x] + 64);
     }
     
-    for (int x = 0, y = 0; x < inputString.length ; x++, y++) {
+    for (int x = 0, y = 0; x < inputString.length && !memoryCritical; x++, y++) {
         resultString = [resultString stringByAppendingFormat:@"%c", charArray[y]];
         if ((x + 1) % 5 == 0 && (x + 1) != inputString.length)
             resultString = [resultString stringByAppendingString:@" "];
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -570,7 +586,7 @@ static char tabulaRecta[26][26] = {
     int m = multiplier;
     int a = additive;
     
-    for (int x = 0; x < inputString.length; x++) {
+    for (int x = 0; x < inputString.length && !memoryCritical; x++) {
         charArray[x] = (char)(charArray[x] - 64);
         charArray[x] = (char)((charArray[x] * m) % 26);
         charArray[x] = (char)((charArray[x] + a) % 26);
@@ -579,11 +595,13 @@ static char tabulaRecta[26][26] = {
         charArray[x] = (char)(charArray[x] + 64);
     }
     
-    for (int x = 0, y = 0; x < inputString.length ; x++, y++) {
+    for (int x = 0, y = 0; x < inputString.length && !memoryCritical; x++, y++) {
         resultString = [resultString stringByAppendingFormat:@"%c", charArray[y]];
         if ((x + 1) % 5 == 0 && (x + 1) != inputString.length)
             resultString = [resultString stringByAppendingString:@" "];
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -642,7 +660,7 @@ static char tabulaRecta[26][26] = {
     NSString *resultString = @"";
 
     if( js <= inputString.length ) {
-        for (int x = 0; x < [inputString length] - (js - 1); x++) {
+        for (int x = 0; x < [inputString length] - (js - 1) && !memoryCritical; x++) {
             tempString = [inputString substringWithRange:NSMakeRange(x, js)];
             if ( ([inputString rangeOfString:tempString options:0 range:NSMakeRange(x, [inputString length]-x)].location) != NSNotFound) {
                 if (![counter contains:tempString]) {
@@ -650,7 +668,7 @@ static char tabulaRecta[26][26] = {
                     
                     NSUInteger length = [inputString length];
                     NSRange range = NSMakeRange(x+js, length - (x+js));
-                    while( range.location != NSNotFound )
+                    while( range.location != NSNotFound && !memoryCritical )
                     {
                         range = [inputString rangeOfString:tempString options:0 range:range];
                         if( range.location != NSNotFound )
@@ -663,11 +681,11 @@ static char tabulaRecta[26][26] = {
             }
         }
         
-        for (int x = 0; x < counter.length; x++) {
+        for (int x = 0; x < counter.length && !memoryCritical; x++) {
             resultString = [resultString stringByAppendingFormat:@"%@ = ", [[counter sArray] objectAtIndex:x]];
             resultString = [resultString stringByAppendingFormat:@"%d at positions ", [counter getIArrayElement:x]];
             
-            for (int y = 0; y < [counter getIArrayElement:x]; y++) {
+            for (int y = 0; y < [counter getIArrayElement:x] && !memoryCritical; y++) {
                 resultString = [resultString stringByAppendingFormat:@"%d",[counter getPArrayElement:x y:y]];
                 if (y != [counter getIArrayElement:x] - 1)
                     resultString = [resultString stringByAppendingString:@","];
@@ -680,6 +698,8 @@ static char tabulaRecta[26][26] = {
     if( [resultString isEqualToString:@"\n"] || [resultString isEqualToString:@""] ) {
         resultString = [NSString stringWithFormat:@"No graphs of size %d", aLength];
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -694,7 +714,7 @@ static char tabulaRecta[26][26] = {
     Counter *counter = [[Counter alloc] init];
     NSString *resultString = @"";
     
-    for (int x = 0; x < [inputString length] - (js - 1); x++) {
+    for (int x = 0; x < [inputString length] - (js - 1) && !memoryCritical; x++) {
         tempString = [inputString substringWithRange:NSMakeRange(x, js)];
         if ( ([inputString rangeOfString:tempString options:0 range:NSMakeRange(x, [inputString length]-x)].location) != NSNotFound) {
             if (![counter contains:tempString]) {
@@ -702,7 +722,7 @@ static char tabulaRecta[26][26] = {
                 
                 NSUInteger length = [inputString length];
                 NSRange range = NSMakeRange(x+js, length - (x+js));
-                while( range.location != NSNotFound )
+                while( range.location != NSNotFound  && !memoryCritical)
                 {
                     range = [inputString rangeOfString:tempString options:0 range:range];
                     if( range.location != NSNotFound )
@@ -715,11 +735,11 @@ static char tabulaRecta[26][26] = {
         }
     }
     
-    for (int x = 0; x < counter.length; x++) {
+    for (int x = 0; x < counter.length && !memoryCritical; x++) {
         resultString = [resultString stringByAppendingFormat:@"%@ = ", [[counter sArray] objectAtIndex:x]];
         resultString = [resultString stringByAppendingFormat:@"%d at positions ", [counter getIArrayElement:x]];
         
-        for (int y = 0; y < [counter getIArrayElement:x]; y++) {
+        for (int y = 0; y < [counter getIArrayElement:x] && !memoryCritical; y++) {
             resultString = [resultString stringByAppendingFormat:@"%d",[counter getPArrayElement:x y:y]];
             if (y != [counter getIArrayElement:x] - 1)
                 resultString = [resultString stringByAppendingString:@","];
@@ -727,6 +747,8 @@ static char tabulaRecta[26][26] = {
         
         resultString = [resultString stringByAppendingString:@"\n"];
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -741,7 +763,7 @@ static char tabulaRecta[26][26] = {
     Counter *counter = [[Counter alloc] init];
     NSString *resultString = @"";
     
-    for (int x = 0; x < [inputString length] - (js - 1); x++) {
+    for (int x = 0; x < [inputString length] - (js - 1) && !memoryCritical; x++) {
         tempString = [inputString substringWithRange:NSMakeRange(x, js)];
         if ( ([inputString rangeOfString:tempString options:0 range:NSMakeRange(x, [inputString length]-x)].location) != NSNotFound) {
             if (![counter contains:tempString]) {
@@ -749,7 +771,7 @@ static char tabulaRecta[26][26] = {
                 
                 NSUInteger length = [inputString length];
                 NSRange range = NSMakeRange(x+js, length - (x+js));
-                while( range.location != NSNotFound )
+                while( range.location != NSNotFound && !memoryCritical )
                 {
                     range = [inputString rangeOfString:tempString options:0 range:range];
                     if( range.location != NSNotFound )
@@ -762,11 +784,11 @@ static char tabulaRecta[26][26] = {
         }
     }
     
-    for (int x = 0; x < counter.length; x++) {
+    for (int x = 0; x < counter.length && !memoryCritical; x++) {
         resultString = [resultString stringByAppendingFormat:@"%@ = ", [[counter sArray] objectAtIndex:x]];
         resultString = [resultString stringByAppendingFormat:@"%d at positions ", [counter getIArrayElement:x]];
         
-        for (int y = 0; y < [counter getIArrayElement:x]; y++) {
+        for (int y = 0; y < [counter getIArrayElement:x] && !memoryCritical; y++) {
             resultString = [resultString stringByAppendingFormat:@"%d",[counter getPArrayElement:x y:y]];
             if (y != [counter getIArrayElement:x] - 1)
                 resultString = [resultString stringByAppendingString:@","];
@@ -774,6 +796,8 @@ static char tabulaRecta[26][26] = {
         
         resultString = [resultString stringByAppendingString:@"\n"];
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -786,8 +810,8 @@ static char tabulaRecta[26][26] = {
     inputString = [inputString lowercaseString];
     NSString *resultString = @"";
     
-    for (int x = 0; x < 26; x++) {
-        for (int y = 0; y < [inputString length]; y++) {
+    for (int x = 0; x < 26 && !memoryCritical; x++) {
+        for (int y = 0; y < [inputString length] && !memoryCritical; y++) {
             if ([inputString characterAtIndex:y] >= 'a' && [inputString characterAtIndex:y] <= 'z') {
                 resultString = [resultString stringByAppendingFormat:@"%c", (char)(([inputString characterAtIndex:y] + x) % ('z' +1) + (int)(([inputString characterAtIndex:y] + x ) / ('z' + 1)) * 'a' )];
             }
@@ -797,6 +821,8 @@ static char tabulaRecta[26][26] = {
         
         resultString = [resultString stringByAppendingString:@"\n\n"];
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -810,10 +836,10 @@ static char tabulaRecta[26][26] = {
     NSMutableArray *sArray = [[NSMutableArray alloc] init];
     NSString *resultString = @"";
     
-    for (int x = 0; x < 26; x++ )
+    for (int x = 0; x < 26 && !memoryCritical; x++ )
         array[x] = 0;
     
-    for (int x = 0; x < [inputString length]; x++) {
+    for (int x = 0; x < [inputString length] && !memoryCritical; x++) {
         
         switch ([inputString characterAtIndex:x]) {
             case 'A': array[0]++; break;
@@ -845,10 +871,10 @@ static char tabulaRecta[26][26] = {
         }
     }
 
-    for (int x = 0; x < 26; x++) {
+    for (int x = 0; x < 26 && !memoryCritical; x++) {
         resultString = [resultString stringByAppendingFormat:@"%c = %d =\t", ('A'+x), array[x]];
         
-        for (int y = 0; y < array[x]; y++)
+        for (int y = 0; y < array[x] && !memoryCritical; y++)
             resultString = [resultString stringByAppendingString:@"I"];
         
         if(x != 26)
@@ -859,35 +885,35 @@ static char tabulaRecta[26][26] = {
     [sArray addObjectsFromArray:[inputString componentsSeparatedByString:@" "]];
     resultString = [resultString stringByAppendingString:@"\nHere are all the 1 letter words\n"];
     
-    for (int x = 0; x < [sArray count]; x++) {
+    for (int x = 0; x < [sArray count] && !memoryCritical; x++) {
         if ([[sArray objectAtIndex:x] length] == 1)
             resultString = [resultString stringByAppendingFormat:@"%@\n", [sArray objectAtIndex:x]];
     }
     
     resultString = [resultString stringByAppendingString:@"\nHere are all the 2 letter words\n"];
     
-    for (int x = 0; x < [sArray count]; x++) {
+    for (int x = 0; x < [sArray count] && !memoryCritical; x++) {
         if ([[sArray objectAtIndex:x] length] == 2)
             resultString = [resultString stringByAppendingFormat:@"%@\n", [sArray objectAtIndex:x]];
     }
     
     resultString = [resultString stringByAppendingString:@"\nHere are all the 3 letter words\n"];
     
-    for (int x = 0; x < [sArray count]; x++) {
+    for (int x = 0; x < [sArray count] && !memoryCritical; x++) {
         if ([[sArray objectAtIndex:x] length] == 3)
             resultString = [resultString stringByAppendingFormat:@"%@\n", [sArray objectAtIndex:x]];
     }
     
     resultString = [resultString stringByAppendingString:@"\nHere are all the initial letters\n"];
     
-    for (int x = 0; x < [sArray count]; x++) {
+    for (int x = 0; x < [sArray count] && !memoryCritical; x++) {
         if ([[sArray objectAtIndex:x] length] > 0)
             resultString = [resultString stringByAppendingFormat:@"%c ", [[sArray objectAtIndex:x] characterAtIndex:0]];
     }
     
     resultString = [resultString stringByAppendingString:@"\n\nHere are all the final letters\n"];
     
-    for (int x = 0; x < [sArray count]; x++) {
+    for (int x = 0; x < [sArray count] && !memoryCritical; x++) {
         if ([[sArray objectAtIndex:x] length] > 0)
             resultString = [resultString stringByAppendingFormat:@"%c ", [[sArray objectAtIndex:x] characterAtIndex:[[sArray objectAtIndex:x] length]-1] ];
     }
@@ -895,7 +921,7 @@ static char tabulaRecta[26][26] = {
     resultString = [resultString stringByAppendingString:@"\n\nHere are all the doubled letters\n"];
     char c = [inputString characterAtIndex:0];
     
-    for (int x = 1; x < [inputString length]; x++) {
+    for (int x = 1; x < [inputString length] && !memoryCritical; x++) {
         if ([inputString characterAtIndex:x] == c)
             resultString = [resultString stringByAppendingFormat:@"%c%c ", c, c];
         c = [inputString characterAtIndex:x];
@@ -927,7 +953,9 @@ static char tabulaRecta[26][26] = {
     resultString = [resultString stringByAppendingString:@"w = 02 =\tII\n"];
     resultString = [resultString stringByAppendingString:@"x =\n"];
     resultString = [resultString stringByAppendingString:@"y = 02 =\tII\n"];
-    resultString = [resultString stringByAppendingString:@"z =\n"];
+    resultString = [resultString stringByAppendingString:@"z ="];
+    
+    memoryCritical = NO;
     
     return resultString;
 }
@@ -940,10 +968,10 @@ static char tabulaRecta[26][26] = {
     char* charArray;
     NSString *resultString = @"";
     
-    for (int x = 0; x < 26; x++) {
+    for (int x = 0; x < 26 && !memoryCritical; x++) {
         charArray = (char *)[searchString UTF8String];
         
-        for (int y = 0; y < searchString.length; y++) {
+        for (int y = 0; y < searchString.length && !memoryCritical; y++) {
             charArray[y] = (char)(charArray[y] - 64);
             charArray[y] = (char)((charArray[y] * m) % 26);
             charArray[y] = (char)((charArray[y] + x) % 26);
@@ -957,7 +985,7 @@ static char tabulaRecta[26][26] = {
                         
         NSUInteger length = [inputString length];
         NSRange range = NSMakeRange(0, length);
-        while(range.location != NSNotFound)
+        while(range.location != NSNotFound  && !memoryCritical)
         {
             range = [inputString rangeOfString:mSearchString options:0 range:range];
             if(range.location != NSNotFound)
@@ -973,6 +1001,8 @@ static char tabulaRecta[26][26] = {
         }
     }
     
+    memoryCritical = NO;
+    
     return resultString;
 }
 
@@ -983,10 +1013,10 @@ static char tabulaRecta[26][26] = {
     char* charArray;
     NSString *resultString = @"";
     
-    for (int x = 0; x < 26; x++) {
+    for (int x = 0; x < 26 && !memoryCritical; x++) {
         charArray = (char *)[searchString UTF8String];
         
-        for (int y = 0; y < searchString.length; y++) {
+        for (int y = 0; y < searchString.length && !memoryCritical; y++) {
             charArray[y] = (char)(charArray[y] - 64);
             charArray[y] = (char)((charArray[y] + x) % 26);
             charArray[y] = (char)((charArray[y] * m) % 26);
@@ -1000,7 +1030,7 @@ static char tabulaRecta[26][26] = {
 
         NSUInteger length = [inputString length];
         NSRange range = NSMakeRange(0, length); 
-        while(range.location != NSNotFound)
+        while(range.location != NSNotFound && !memoryCritical)
         {
             range = [inputString rangeOfString:mSearchString options:0 range:range];
             if(range.location != NSNotFound)
@@ -1015,6 +1045,8 @@ static char tabulaRecta[26][26] = {
                             mSearchString, counter, m, x, nil];
         }
     }
+    
+    memoryCritical = NO;
     
     return resultString;
 }

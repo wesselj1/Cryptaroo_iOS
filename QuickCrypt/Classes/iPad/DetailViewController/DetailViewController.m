@@ -260,7 +260,15 @@
 
 - (void)didReceiveMemoryWarning {
     if( _freeMemory < 50*1024*1024 ) {
-        memoryCritical = YES;
+        if( !memoryCritical ) {
+            memoryCritical = YES;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not Enough Memory"
+                                                            message:@"The method you were running was exited prematurely due to system memory constraints. Cryptaroo may not suitable for doing the method you were attempting."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
     }
 }
 
@@ -309,7 +317,7 @@
         if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) {
             _outputHeight.constant = 650;
         } else if( _cryptoMethod == QCAffineEncipher || _cryptoMethod == QCAffineDecipher ) {
-            _outputHeight.constant = 577;
+            _outputHeight.constant = 578;
         } else if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
             _outputHeight.constant = 550;
         } else {
@@ -412,7 +420,7 @@
         if( _cryptoMethod == QCFrequencyCount || _cryptoMethod == QCRunTheAlphabet || _cryptoMethod == QCBiGraphs || _cryptoMethod == QCTriGraphs ) {
             _outputHeight.constant = 650;
         } else if( _cryptoMethod == QCAffineEncipher || _cryptoMethod == QCAffineDecipher ) {
-            _outputHeight.constant = 577;
+            _outputHeight.constant = 578;
         } else if( _cryptoMethod == QCAutokeyPlaintextAttack ) {
             _outputHeight.constant = 547;
         } else {
@@ -913,6 +921,7 @@
     
 
     _multiplicativeLabel.text = [NSString stringWithFormat:@"%.f", stepperValue];
+    _multiplicativeLabel.textColor = [UIColor colorWithWhite:89/255.0 alpha:1.0f];
     lastStepperValue = stepperValue;    // Update the last stepperValue
 }
 
@@ -920,6 +929,7 @@
 {   // Get the stepper value and set it to the textField
     double stepperValue = _stepper2.value;
     _additiveLabel.text = [NSString stringWithFormat:@"%.f", stepperValue];
+    _additiveLabel.textColor = [UIColor colorWithWhite:89/255.0 alpha:1.0f];
 }
 
 

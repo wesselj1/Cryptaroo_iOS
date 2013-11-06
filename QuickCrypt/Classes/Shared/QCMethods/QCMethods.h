@@ -34,7 +34,7 @@ typedef enum
     QCGCDAndInverse,
 } QCCryptoMethod;
 
-BOOL memoryCritical;
+volatile BOOL memoryCritical;
 
 @interface QCMethods : NSObject
 

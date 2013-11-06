@@ -243,10 +243,6 @@
         }
         optionsViewController.title = @"Options";
         optionsViewController.delegate = self;
-//        [self.navigationController pushViewController:optionsViewController animated:YES];
-        
-//        optionsViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-//        [self presentViewController:optionsViewController animated:YES completion:nil];
         
         [self addCurtainView];
         [self.navigationController addChildViewController:optionsViewController];
