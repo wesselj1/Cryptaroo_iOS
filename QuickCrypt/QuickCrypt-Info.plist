@@ -18,11 +18,6 @@
 				<string>cryptarooOrange57</string>
 				<string>cryptarooOrange114</string>
 				<string>cryptarooOrange144</string>
-				<string>kangakey_ipad12.png</string>
-				<string>kangakey_ipadretina.png</string>
-				<string>kangakey_iphone.png</string>
-				<string>kangakey_iphoneretina.png</string>
-				<string>kangakey_ipad.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -38,11 +33,6 @@
 				<string>cryptarooOrange152</string>
 				<string>cryptarooOrange72</string>
 				<string>cryptarooOrange144</string>
-				<string>kangakey_ipad12.png</string>
-				<string>kangakey_ipadretina.png</string>
-				<string>kangakey_iphone.png</string>
-				<string>kangakey_iphoneretina.png</string>
-				<string>kangakey_ipad.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
