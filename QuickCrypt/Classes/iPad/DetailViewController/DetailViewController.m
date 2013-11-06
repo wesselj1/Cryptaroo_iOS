@@ -757,7 +757,18 @@
 {   
     if( _cryptoMethod != QCGCDAndInverse )
     {   // Whenever the user changes text in the textView save it (in case they switch methods while editing the text)
-        [self saveText];
+        if( textView == _inputText )
+        {
+            if( [textView.text isEqualToString:@""] || [self isStringOnlyWhiteSpace:textView.text] )
+            {
+                [_computeButton setEnabled:NO];
+            }
+            else
+            {
+                [self saveText];
+                [_computeButton setEnabled:YES];
+            }
+        }
     }
 }
 
@@ -895,6 +906,12 @@
     {   // For every other method set input string and load the last output text for this method
         _inputText.text = td.inputString;
         [_outputText setText:[td.outputArray objectAtIndex:_cryptoMethod]];
+        
+        if( _inputText.text.length > 0 && ![_inputText.text isEqualToString:@""] && ![self isStringOnlyWhiteSpace:_inputText.text] ) {
+            [_computeButton setEnabled:YES];
+        } else {
+            [_computeButton setEnabled:NO];
+        }
     }
 }
 
@@ -1277,8 +1294,6 @@
     [[[UIApplication sharedApplication] keyWindow] addSubview:_curtainView];
 }
 
-
-#pragma mark - Other Methods
 #pragma mark - Other Methods
 - (void)showProgressHUDWithLabel:(NSString *)string {
     self.hud = [[MBProgressHUD alloc] initWithView:self.splitViewController.view];
@@ -1292,6 +1307,15 @@
     [_hud removeFromSuperview];
     [self removeCurtainView];
     self.hud = nil;
+}
+
+- (BOOL)isStringOnlyWhiteSpace:(NSString *)string
+{
+    NSCharacterSet *whiteSpace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSString *trimmed = [string stringByTrimmingCharactersInSet:whiteSpace];
+    if( trimmed.length == 0 )
+        return YES;
+    return NO;
 }
 
 @end
