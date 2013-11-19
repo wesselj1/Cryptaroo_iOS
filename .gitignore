@@ -152,6 +152,13 @@ xcuserdata
 
 *.moved-aside
 
+
+####
+# Ignore fonts
+fairview_smallcaps.otf
+fairview_regular.otf
+
+
 ####
 # UNKNOWN: recommended by others, but I can't discover what these files are
 #
