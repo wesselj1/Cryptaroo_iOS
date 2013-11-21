@@ -77,8 +77,6 @@
 		CCBDD62E1619E2970030B5F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */; };
 		CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC3E33017C5F88100BE77FF /* QCTextField.m */; };
 		CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE5910E17A4C36500AB5765 /* Fonts.m */; };
-		CCEC063217A506CF00550105 /* fairview_regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCEC063017A506CF00550105 /* fairview_regular.otf */; };
-		CCEC063317A506CF00550105 /* fairview_smallcaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = CCEC063117A506CF00550105 /* fairview_smallcaps.otf */; };
 		CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */; };
 		CCF91C5F180E555300AE3DFB /* HelpButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */; };
 		CCF91C61180E55C700AE3DFB /* HelpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C60180E55C700AE3DFB /* HelpButton.png */; };
@@ -179,8 +177,6 @@
 		CCC3E33017C5F88100BE77FF /* QCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCTextField.m; path = Classes/iPhone/OptionsViewController/QCTextField.m; sourceTree = "<group>"; };
 		CCE5910D17A4C36500AB5765 /* Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fonts.h; path = Classes/iPhone/Fonts.h; sourceTree = "<group>"; };
 		CCE5910E17A4C36500AB5765 /* Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fonts.m; path = Classes/iPhone/Fonts.m; sourceTree = "<group>"; };
-		CCEC063017A506CF00550105 /* fairview_regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fairview_regular.otf; sourceTree = "<group>"; };
-		CCEC063117A506CF00550105 /* fairview_smallcaps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fairview_smallcaps.otf; sourceTree = "<group>"; };
 		CCEC063517A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h"; sourceTree = "<group>"; };
 		CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; sourceTree = "<group>"; };
 		CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HelpButton@2x.png"; sourceTree = "<group>"; };
@@ -259,8 +255,6 @@
 		1B8EA9A5153C7B8E009EFF27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCEC063017A506CF00550105 /* fairview_regular.otf */,
-				CCEC063117A506CF00550105 /* fairview_smallcaps.otf */,
 				CC36EE1F16BA1F74009C3CDA /* ButtonImages */,
 				CC36EE1616BA1F3A009C3CDA /* DoneButtonImages */,
 				CC36EE0D16BA1EF6009C3CDA /* UIBarButtonHelpImages */,
@@ -644,8 +638,6 @@
 				CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */,
 				CC2D888F17FD567B001634F8 /* HelpViewController.xib in Resources */,
 				CC2742B317A4B83900539268 /* CustomTableViewCell.xib in Resources */,
-				CCEC063217A506CF00550105 /* fairview_regular.otf in Resources */,
-				CCEC063317A506CF00550105 /* fairview_smallcaps.otf in Resources */,
 				CC6F624017A5D4B700187A71 /* qc_button_disabled.png in Resources */,
 				CC6F624117A5D4B700187A71 /* qc_button_disabled@2x.png in Resources */,
 				CC6F624217A5D4B700187A71 /* qc_button_pressed.png in Resources */,
