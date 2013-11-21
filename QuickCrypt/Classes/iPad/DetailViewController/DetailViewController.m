@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import "KSCustomPopoverBackgroundView.h"
 #import "MBProgressHUD.h"
-#import "Canceller.h"
 #import "AppDelegate.h"
 
 @interface DetailViewController ()

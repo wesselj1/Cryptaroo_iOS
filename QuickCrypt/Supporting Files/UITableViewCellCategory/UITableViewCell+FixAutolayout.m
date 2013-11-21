@@ -1,5 +1,5 @@
 //
-//  UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m
+//  UITableViewCell+FixAutoLayout.m
 //  QuickCrypt
 //
 //  Created by Joey Wessel on 7/28/13.
@@ -9,7 +9,7 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-@implementation UITableViewCell (FixUITableViewCellAutolayout)
+@implementation UITableViewCell (FixAutoLayout)
 
 + (void)load
 {

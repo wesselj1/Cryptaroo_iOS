@@ -70,6 +70,7 @@
 		CC70711C183DDB7600099A1C /* DoneCancelNumberPadToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC70711B183DDB7600099A1C /* DoneCancelNumberPadToolbar.m */; };
 		CC70711F183DDB8100099A1C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC70711E183DDB8100099A1C /* MBProgressHUD.m */; };
 		CC707122183DDB9A00099A1C /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC707121183DDB9A00099A1C /* SSTextView.m */; };
+		CC707125183DDD8700099A1C /* UITableViewCell+FixAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CC707124183DDD8700099A1C /* UITableViewCell+FixAutolayout.m */; };
 		CC7BE81A183DD6E900EAD046 /* cryptarooOrange57.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */; };
 		CC7BE81B183DD6E900EAD046 /* cryptarooOrange72.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */; };
 		CC7BE81C183DD6E900EAD046 /* cryptarooOrange76.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */; };
@@ -79,7 +80,6 @@
 		CCBDD62E1619E2970030B5F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */; };
 		CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC3E33017C5F88100BE77FF /* QCTextField.m */; };
 		CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE5910E17A4C36500AB5765 /* Fonts.m */; };
-		CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +166,8 @@
 		CC70711E183DDB8100099A1C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "External Classes/MBProgressHUD/MBProgressHUD.m"; sourceTree = "<group>"; };
 		CC707120183DDB9A00099A1C /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSTextView.h; path = "External Classes/SSTextView/SSTextView.h"; sourceTree = "<group>"; };
 		CC707121183DDB9A00099A1C /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSTextView.m; path = "External Classes/SSTextView/SSTextView.m"; sourceTree = "<group>"; };
+		CC707123183DDD8700099A1C /* UITableViewCell+FixAutolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+FixAutolayout.h"; path = "Supporting Files/UITableViewCellCategory/UITableViewCell+FixAutolayout.h"; sourceTree = "<group>"; };
+		CC707124183DDD8700099A1C /* UITableViewCell+FixAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+FixAutolayout.m"; path = "Supporting Files/UITableViewCellCategory/UITableViewCell+FixAutolayout.m"; sourceTree = "<group>"; };
 		CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange57.png; path = "App Icons/cryptarooOrange57.png"; sourceTree = "<group>"; };
 		CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange72.png; path = "App Icons/cryptarooOrange72.png"; sourceTree = "<group>"; };
 		CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange76.png; path = "App Icons/cryptarooOrange76.png"; sourceTree = "<group>"; };
@@ -177,8 +179,6 @@
 		CCC3E33017C5F88100BE77FF /* QCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCTextField.m; path = Classes/iPhone/OptionsViewController/QCTextField.m; sourceTree = "<group>"; };
 		CCE5910D17A4C36500AB5765 /* Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fonts.h; path = Classes/iPhone/Fonts.h; sourceTree = "<group>"; };
 		CCE5910E17A4C36500AB5765 /* Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fonts.m; path = Classes/iPhone/Fonts.m; sourceTree = "<group>"; };
-		CCEC063517A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h"; sourceTree = "<group>"; };
-		CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +200,7 @@
 			children = (
 				CC7EDFC918160B87003DAA7E /* MBProgressHUD */,
 				CC21B9C917FE7F9F00FFE1FC /* DoneCancelNumberPadToolbar */,
-				CCEC063417A50B7300550105 /* UITableViewCellCategory */,
+				CCEC063417A50B7300550105 /* UITableViewCell+FixAutoLayout */,
 				CC36EDF516BA1E36009C3CDA /* SSTextView */,
 				CC36EDE716BA1DB2009C3CDA /* KSCustomPopoverBackgroundView */,
 			);
@@ -520,13 +520,13 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
-		CCEC063417A50B7300550105 /* UITableViewCellCategory */ = {
+		CCEC063417A50B7300550105 /* UITableViewCell+FixAutoLayout */ = {
 			isa = PBXGroup;
 			children = (
-				CCEC063517A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h */,
-				CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */,
+				CC707123183DDD8700099A1C /* UITableViewCell+FixAutolayout.h */,
+				CC707124183DDD8700099A1C /* UITableViewCell+FixAutolayout.m */,
 			);
-			name = UITableViewCellCategory;
+			name = "UITableViewCell+FixAutoLayout";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -648,6 +648,7 @@
 				CC36EDAF16BA1B99009C3CDA /* RootViewControlleriPhone.m in Sources */,
 				CC70711C183DDB7600099A1C /* DoneCancelNumberPadToolbar.m in Sources */,
 				CC707122183DDB9A00099A1C /* SSTextView.m in Sources */,
+				CC707125183DDD8700099A1C /* UITableViewCell+FixAutolayout.m in Sources */,
 				CC36EDB516BA1BC8009C3CDA /* CryptToolViewController.m in Sources */,
 				CC36EDC616BA1C09009C3CDA /* OptionsViewController.m in Sources */,
 				CC36EDCB16BA1C3F009C3CDA /* GCDandInverseViewController.m in Sources */,
@@ -660,7 +661,6 @@
 				CC36EE3116BA1FF8009C3CDA /* TextData.m in Sources */,
 				CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */,
 				CC70711F183DDB8100099A1C /* MBProgressHUD.m in Sources */,
-				CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */,
 				CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */,
 				CC5B588B17A62575002062F9 /* QCLabel.m in Sources */,
 				CC2D888E17FD567B001634F8 /* HelpViewController.m in Sources */,
