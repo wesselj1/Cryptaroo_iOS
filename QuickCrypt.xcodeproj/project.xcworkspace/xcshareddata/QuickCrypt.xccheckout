@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C955CA1D-8DB3-4783-9496-DE8FA71E6F1C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>QuickCrypt</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>027EB610-2A93-4E67-BFE6-9165A5FDB2BD</key>
+		<string>https://github.com/wesselj1/Cryptaroo_iOS</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>QuickCrypt.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>027EB610-2A93-4E67-BFE6-9165A5FDB2BD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wesselj1/Cryptaroo_iOS</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>027EB610-2A93-4E67-BFE6-9165A5FDB2BD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>027EB610-2A93-4E67-BFE6-9165A5FDB2BD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cryptaroo_iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
