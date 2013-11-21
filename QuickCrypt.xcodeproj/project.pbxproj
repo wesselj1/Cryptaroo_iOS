@@ -82,13 +82,6 @@
 		CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */; };
 		CCF91C5F180E555300AE3DFB /* HelpButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */; };
 		CCF91C61180E55C700AE3DFB /* HelpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C60180E55C700AE3DFB /* HelpButton.png */; };
-		CCF91C79180E70C300AE3DFB /* cryptarooOrange144.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C78180E70C300AE3DFB /* cryptarooOrange144.png */; };
-		CCF91C7B180E70EE00AE3DFB /* cryptarooOrange114.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C7A180E70EE00AE3DFB /* cryptarooOrange114.png */; };
-		CCF91C7D180E712200AE3DFB /* cryptarooOrange57.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C7C180E712200AE3DFB /* cryptarooOrange57.png */; };
-		CCF91C7F180E714800AE3DFB /* cryptarooOrange120.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C7E180E714800AE3DFB /* cryptarooOrange120.png */; };
-		CCF91C81180E717600AE3DFB /* cryptarooOrange152.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C80180E717600AE3DFB /* cryptarooOrange152.png */; };
-		CCF91C83180E71A200AE3DFB /* cryptarooOrange76.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C82180E71A200AE3DFB /* cryptarooOrange76.png */; };
-		CCF91C85180E71C400AE3DFB /* cryptarooOrange72.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C84180E71C400AE3DFB /* cryptarooOrange72.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,13 +185,6 @@
 		CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; sourceTree = "<group>"; };
 		CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HelpButton@2x.png"; sourceTree = "<group>"; };
 		CCF91C60180E55C700AE3DFB /* HelpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelpButton.png; sourceTree = "<group>"; };
-		CCF91C78180E70C300AE3DFB /* cryptarooOrange144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange144.png; sourceTree = "<group>"; };
-		CCF91C7A180E70EE00AE3DFB /* cryptarooOrange114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange114.png; sourceTree = "<group>"; };
-		CCF91C7C180E712200AE3DFB /* cryptarooOrange57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange57.png; sourceTree = "<group>"; };
-		CCF91C7E180E714800AE3DFB /* cryptarooOrange120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange120.png; sourceTree = "<group>"; };
-		CCF91C80180E717600AE3DFB /* cryptarooOrange152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange152.png; sourceTree = "<group>"; };
-		CCF91C82180E71A200AE3DFB /* cryptarooOrange76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange76.png; sourceTree = "<group>"; };
-		CCF91C84180E71C400AE3DFB /* cryptarooOrange72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cryptarooOrange72.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,13 +516,6 @@
 		CC36EE3216BA203A009C3CDA /* App Icons */ = {
 			isa = PBXGroup;
 			children = (
-				CCF91C7C180E712200AE3DFB /* cryptarooOrange57.png */,
-				CCF91C82180E71A200AE3DFB /* cryptarooOrange76.png */,
-				CCF91C84180E71C400AE3DFB /* cryptarooOrange72.png */,
-				CCF91C7E180E714800AE3DFB /* cryptarooOrange120.png */,
-				CCF91C7A180E70EE00AE3DFB /* cryptarooOrange114.png */,
-				CCF91C78180E70C300AE3DFB /* cryptarooOrange144.png */,
-				CCF91C80180E717600AE3DFB /* cryptarooOrange152.png */,
 			);
 			name = "App Icons";
 			sourceTree = "<group>";
@@ -639,13 +618,9 @@
 				CC36EDDC16BA1CF9009C3CDA /* DetailView2.xib in Resources */,
 				CC36EDDD16BA1CF9009C3CDA /* DetailView3.xib in Resources */,
 				CC36EDDE16BA1CF9009C3CDA /* DetailView4.xib in Resources */,
-				CCF91C81180E717600AE3DFB /* cryptarooOrange152.png in Resources */,
 				CC36EDDF16BA1CF9009C3CDA /* DetailView5.xib in Resources */,
 				CC36EDE016BA1CF9009C3CDA /* DetailView6.xib in Resources */,
-				CCF91C7F180E714800AE3DFB /* cryptarooOrange120.png in Resources */,
-				CCF91C83180E71A200AE3DFB /* cryptarooOrange76.png in Resources */,
 				CC36EDE116BA1CF9009C3CDA /* DetailView7.xib in Resources */,
-				CCF91C7B180E70EE00AE3DFB /* cryptarooOrange114.png in Resources */,
 				CC36EE0316BA1EC9009C3CDA /* popover-black-bcg-image.png in Resources */,
 				CC36EE0416BA1EC9009C3CDA /* popover-black-bcg-image@2x.png in Resources */,
 				CC36EE0516BA1EC9009C3CDA /* popover-black-bottom-arrow-image.png in Resources */,
@@ -656,8 +631,6 @@
 				CC36EE0A16BA1EC9009C3CDA /* popover-black-right-arrow-image@2x.png in Resources */,
 				CC36EE0B16BA1EC9009C3CDA /* popover-black-top-arrow-image.png in Resources */,
 				CC36EE0C16BA1EC9009C3CDA /* popover-black-top-arrow-image@2x.png in Resources */,
-				CCF91C85180E71C400AE3DFB /* cryptarooOrange72.png in Resources */,
-				CCF91C79180E70C300AE3DFB /* cryptarooOrange144.png in Resources */,
 				CC36EE1216BA1F12009C3CDA /* UIButtonBarHelp.png in Resources */,
 				CC36EE1316BA1F12009C3CDA /* UIButtonBarHelp@2x.png in Resources */,
 				CCF91C61180E55C700AE3DFB /* HelpButton.png in Resources */,
@@ -667,7 +640,6 @@
 				CC36EE1B16BA1F4C009C3CDA /* DoneDown.png in Resources */,
 				CC36EE1C16BA1F4C009C3CDA /* DoneDown3.png in Resources */,
 				CC36EE1D16BA1F4C009C3CDA /* DoneUp.png in Resources */,
-				CCF91C7D180E712200AE3DFB /* cryptarooOrange57.png in Resources */,
 				CC36EE1E16BA1F4C009C3CDA /* DoneUp3.png in Resources */,
 				CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */,
 				CC2D888F17FD567B001634F8 /* HelpViewController.xib in Resources */,
