@@ -50,8 +50,6 @@
 		CC36EE0A16BA1EC9009C3CDA /* popover-black-right-arrow-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE0016BA1EC9009C3CDA /* popover-black-right-arrow-image@2x.png */; };
 		CC36EE0B16BA1EC9009C3CDA /* popover-black-top-arrow-image.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE0116BA1EC9009C3CDA /* popover-black-top-arrow-image.png */; };
 		CC36EE0C16BA1EC9009C3CDA /* popover-black-top-arrow-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE0216BA1EC9009C3CDA /* popover-black-top-arrow-image@2x.png */; };
-		CC36EE1416BA1F12009C3CDA /* UIButtonBarHelp2.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE1016BA1F12009C3CDA /* UIButtonBarHelp2.png */; };
-		CC36EE1516BA1F12009C3CDA /* UIButtonBarHelp2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE1116BA1F12009C3CDA /* UIButtonBarHelp2@2x.png */; };
 		CC36EE2A16BA1FE2009C3CDA /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE2816BA1FE2009C3CDA /* InfoViewController.m */; };
 		CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE2916BA1FE2009C3CDA /* InfoViewController.xib */; };
 		CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE2D16BA1FED009C3CDA /* QCMethods.m */; };
@@ -68,6 +66,10 @@
 		CC6F624517A5D4B700187A71 /* qc_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623F17A5D4B700187A71 /* qc_button@2x.png */; };
 		CC707110183DD9A100099A1C /* fairview_regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC70710E183DD9A100099A1C /* fairview_regular.otf */; };
 		CC707111183DD9A100099A1C /* fairview_smallcaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC70710F183DD9A100099A1C /* fairview_smallcaps.otf */; };
+		CC707116183DDA5E00099A1C /* HelpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CC707112183DDA5E00099A1C /* HelpButton.png */; };
+		CC707117183DDA5E00099A1C /* HelpButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC707113183DDA5E00099A1C /* HelpButton@2x.png */; };
+		CC707118183DDA5E00099A1C /* UIBarButtonHelpIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CC707114183DDA5E00099A1C /* UIBarButtonHelpIcon.png */; };
+		CC707119183DDA5E00099A1C /* UIBarButtonHelpIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC707115183DDA5E00099A1C /* UIBarButtonHelpIcon@2x.png */; };
 		CC7BE81A183DD6E900EAD046 /* cryptarooOrange57.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */; };
 		CC7BE81B183DD6E900EAD046 /* cryptarooOrange72.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */; };
 		CC7BE81C183DD6E900EAD046 /* cryptarooOrange76.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */; };
@@ -80,8 +82,6 @@
 		CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC3E33017C5F88100BE77FF /* QCTextField.m */; };
 		CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE5910E17A4C36500AB5765 /* Fonts.m */; };
 		CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */; };
-		CCF91C5F180E555300AE3DFB /* HelpButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */; };
-		CCF91C61180E55C700AE3DFB /* HelpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF91C60180E55C700AE3DFB /* HelpButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,8 +141,6 @@
 		CC36EE0016BA1EC9009C3CDA /* popover-black-right-arrow-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popover-black-right-arrow-image@2x.png"; path = "Supporting Files/Popover Images/popover-black-right-arrow-image@2x.png"; sourceTree = "<group>"; };
 		CC36EE0116BA1EC9009C3CDA /* popover-black-top-arrow-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popover-black-top-arrow-image.png"; path = "Supporting Files/Popover Images/popover-black-top-arrow-image.png"; sourceTree = "<group>"; };
 		CC36EE0216BA1EC9009C3CDA /* popover-black-top-arrow-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popover-black-top-arrow-image@2x.png"; path = "Supporting Files/Popover Images/popover-black-top-arrow-image@2x.png"; sourceTree = "<group>"; };
-		CC36EE1016BA1F12009C3CDA /* UIButtonBarHelp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UIButtonBarHelp2.png; path = "Supporting Files/UIBarButtonHelpImages/UIButtonBarHelp2.png"; sourceTree = "<group>"; };
-		CC36EE1116BA1F12009C3CDA /* UIButtonBarHelp2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UIButtonBarHelp2@2x.png"; path = "Supporting Files/UIBarButtonHelpImages/UIButtonBarHelp2@2x.png"; sourceTree = "<group>"; };
 		CC36EE2716BA1FE2009C3CDA /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoViewController.h; path = Classes/Shared/InfoViewController/InfoViewController.h; sourceTree = "<group>"; };
 		CC36EE2816BA1FE2009C3CDA /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoViewController.m; path = Classes/Shared/InfoViewController/InfoViewController.m; sourceTree = "<group>"; };
 		CC36EE2916BA1FE2009C3CDA /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InfoViewController.xib; path = Classes/Shared/InfoViewController/InfoViewController.xib; sourceTree = "<group>"; };
@@ -166,6 +164,10 @@
 		CC6F623F17A5D4B700187A71 /* qc_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button@2x.png"; path = "Supporting Files/ButtonImages/qc_button@2x.png"; sourceTree = "<group>"; };
 		CC70710E183DD9A100099A1C /* fairview_regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = fairview_regular.otf; path = "Supporting Files/Fonts/fairview_regular.otf"; sourceTree = "<group>"; };
 		CC70710F183DD9A100099A1C /* fairview_smallcaps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = fairview_smallcaps.otf; path = "Supporting Files/Fonts/fairview_smallcaps.otf"; sourceTree = "<group>"; };
+		CC707112183DDA5E00099A1C /* HelpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HelpButton.png; path = "Supporting Files/UIBarButtonHelpImages/HelpButton.png"; sourceTree = "<group>"; };
+		CC707113183DDA5E00099A1C /* HelpButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "HelpButton@2x.png"; path = "Supporting Files/UIBarButtonHelpImages/HelpButton@2x.png"; sourceTree = "<group>"; };
+		CC707114183DDA5E00099A1C /* UIBarButtonHelpIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UIBarButtonHelpIcon.png; path = "Supporting Files/UIBarButtonHelpImages/UIBarButtonHelpIcon.png"; sourceTree = "<group>"; };
+		CC707115183DDA5E00099A1C /* UIBarButtonHelpIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UIBarButtonHelpIcon@2x.png"; path = "Supporting Files/UIBarButtonHelpImages/UIBarButtonHelpIcon@2x.png"; sourceTree = "<group>"; };
 		CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange57.png; path = "App Icons/cryptarooOrange57.png"; sourceTree = "<group>"; };
 		CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange72.png; path = "App Icons/cryptarooOrange72.png"; sourceTree = "<group>"; };
 		CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange76.png; path = "App Icons/cryptarooOrange76.png"; sourceTree = "<group>"; };
@@ -183,8 +185,6 @@
 		CCE5910E17A4C36500AB5765 /* Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fonts.m; path = Classes/iPhone/Fonts.m; sourceTree = "<group>"; };
 		CCEC063517A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.h"; sourceTree = "<group>"; };
 		CCEC063617A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; path = "UITableViewCellCategory/UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m"; sourceTree = "<group>"; };
-		CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HelpButton@2x.png"; sourceTree = "<group>"; };
-		CCF91C60180E55C700AE3DFB /* HelpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelpButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -449,10 +449,10 @@
 		CC36EE0D16BA1EF6009C3CDA /* UIBarButtonHelpImages */ = {
 			isa = PBXGroup;
 			children = (
-				CCF91C60180E55C700AE3DFB /* HelpButton.png */,
-				CCF91C5E180E555300AE3DFB /* HelpButton@2x.png */,
-				CC36EE1016BA1F12009C3CDA /* UIButtonBarHelp2.png */,
-				CC36EE1116BA1F12009C3CDA /* UIButtonBarHelp2@2x.png */,
+				CC707112183DDA5E00099A1C /* HelpButton.png */,
+				CC707113183DDA5E00099A1C /* HelpButton@2x.png */,
+				CC707114183DDA5E00099A1C /* UIBarButtonHelpIcon.png */,
+				CC707115183DDA5E00099A1C /* UIBarButtonHelpIcon@2x.png */,
 			);
 			name = UIBarButtonHelpImages;
 			sourceTree = "<group>";
@@ -611,8 +611,10 @@
 				CC36EDC016BA1C09009C3CDA /* OptionsSet1.xib in Resources */,
 				CC36EDC116BA1C09009C3CDA /* OptionsSet2.xib in Resources */,
 				CC36EDC216BA1C09009C3CDA /* OptionsSet3.xib in Resources */,
+				CC707116183DDA5E00099A1C /* HelpButton.png in Resources */,
 				CC36EDC316BA1C09009C3CDA /* OptionsSet4.xib in Resources */,
 				CC36EDC416BA1C09009C3CDA /* OptionsSet5.xib in Resources */,
+				CC707118183DDA5E00099A1C /* UIBarButtonHelpIcon.png in Resources */,
 				CC36EDCC16BA1C3F009C3CDA /* GCDandInverseViewController.xib in Resources */,
 				CC36EDDB16BA1CF9009C3CDA /* DetailView1.xib in Resources */,
 				CC7BE81D183DD6E900EAD046 /* cryptarooOrange120.png in Resources */,
@@ -636,15 +638,12 @@
 				CC36EE0A16BA1EC9009C3CDA /* popover-black-right-arrow-image@2x.png in Resources */,
 				CC36EE0B16BA1EC9009C3CDA /* popover-black-top-arrow-image.png in Resources */,
 				CC36EE0C16BA1EC9009C3CDA /* popover-black-top-arrow-image@2x.png in Resources */,
-				CCF91C61180E55C700AE3DFB /* HelpButton.png in Resources */,
 				CC7BE81B183DD6E900EAD046 /* cryptarooOrange72.png in Resources */,
-				CC36EE1416BA1F12009C3CDA /* UIButtonBarHelp2.png in Resources */,
 				CC7BE81F183DD6E900EAD046 /* cryptarooOrange152.png in Resources */,
-				CCF91C5F180E555300AE3DFB /* HelpButton@2x.png in Resources */,
 				CC7BE81E183DD6E900EAD046 /* cryptarooOrange144.png in Resources */,
-				CC36EE1516BA1F12009C3CDA /* UIButtonBarHelp2@2x.png in Resources */,
 				CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */,
 				CC2D888F17FD567B001634F8 /* HelpViewController.xib in Resources */,
+				CC707117183DDA5E00099A1C /* HelpButton@2x.png in Resources */,
 				CC2742B317A4B83900539268 /* CustomTableViewCell.xib in Resources */,
 				CC6F624017A5D4B700187A71 /* qc_button_disabled.png in Resources */,
 				CC6F624117A5D4B700187A71 /* qc_button_disabled@2x.png in Resources */,
@@ -652,6 +651,7 @@
 				CC6F624317A5D4B700187A71 /* qc_button_pressed@2x.png in Resources */,
 				CC6F624417A5D4B700187A71 /* qc_button.png in Resources */,
 				CC6F624517A5D4B700187A71 /* qc_button@2x.png in Resources */,
+				CC707119183DDA5E00099A1C /* UIBarButtonHelpIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
