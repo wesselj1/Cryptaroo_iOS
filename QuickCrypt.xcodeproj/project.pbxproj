@@ -53,7 +53,6 @@
 		CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE2916BA1FE2009C3CDA /* InfoViewController.xib */; };
 		CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE2D16BA1FED009C3CDA /* QCMethods.m */; };
 		CC36EE3116BA1FF8009C3CDA /* TextData.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE3016BA1FF8009C3CDA /* TextData.m */; };
-		CC5B588817A61F56002062F9 /* UIViewController+overView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B588717A61F56002062F9 /* UIViewController+overView.m */; };
 		CC5B588B17A62575002062F9 /* QCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B588A17A62575002062F9 /* QCLabel.m */; };
 		CC5CCCBC1818CEE10010B578 /* Canceller.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CCCBB1818CEE10010B578 /* Canceller.m */; };
 		CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6F621C17A5C8F500187A71 /* QCButton.m */; };
@@ -146,8 +145,6 @@
 		CC36EE2D16BA1FED009C3CDA /* QCMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCMethods.m; path = Classes/Shared/QCMethods/QCMethods.m; sourceTree = "<group>"; };
 		CC36EE2F16BA1FF8009C3CDA /* TextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextData.h; path = Classes/Shared/TextData/TextData.h; sourceTree = "<group>"; };
 		CC36EE3016BA1FF8009C3CDA /* TextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextData.m; path = Classes/Shared/TextData/TextData.m; sourceTree = "<group>"; };
-		CC5B588617A61F56002062F9 /* UIViewController+overView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+overView.h"; path = "External Classes/UIViewController+overView.h"; sourceTree = "<group>"; };
-		CC5B588717A61F56002062F9 /* UIViewController+overView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+overView.m"; path = "External Classes/UIViewController+overView.m"; sourceTree = "<group>"; };
 		CC5B588917A62575002062F9 /* QCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCLabel.h; path = Classes/iPhone/OptionsViewController/QCLabel.h; sourceTree = "<group>"; };
 		CC5B588A17A62575002062F9 /* QCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCLabel.m; path = Classes/iPhone/OptionsViewController/QCLabel.m; sourceTree = "<group>"; };
 		CC5CCCBA1818CEE10010B578 /* Canceller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Canceller.h; sourceTree = "<group>"; };
@@ -206,7 +203,6 @@
 			children = (
 				CC7EDFC918160B87003DAA7E /* MBProgressHUD */,
 				CC21B9C917FE7F9F00FFE1FC /* DoneCancelNumberPadToolbar */,
-				CC5B588517A61EF6002062F9 /* UIViewController+OverView */,
 				CCEC063417A50B7300550105 /* UITableViewCellCategory */,
 				CC36EDF516BA1E36009C3CDA /* SSTextView */,
 				CC36EDE716BA1DB2009C3CDA /* KSCustomPopoverBackgroundView */,
@@ -511,15 +507,6 @@
 			name = "App Icons";
 			sourceTree = "<group>";
 		};
-		CC5B588517A61EF6002062F9 /* UIViewController+OverView */ = {
-			isa = PBXGroup;
-			children = (
-				CC5B588617A61F56002062F9 /* UIViewController+overView.h */,
-				CC5B588717A61F56002062F9 /* UIViewController+overView.m */,
-			);
-			name = "UIViewController+OverView";
-			sourceTree = "<group>";
-		};
 		CC7BE820183DD75200EAD046 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -681,7 +668,6 @@
 				CC70711F183DDB8100099A1C /* MBProgressHUD.m in Sources */,
 				CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */,
 				CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */,
-				CC5B588817A61F56002062F9 /* UIViewController+overView.m in Sources */,
 				CC5B588B17A62575002062F9 /* QCLabel.m in Sources */,
 				CC2D888E17FD567B001634F8 /* HelpViewController.m in Sources */,
 				CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */,
