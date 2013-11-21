@@ -54,7 +54,6 @@
 		CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE2D16BA1FED009C3CDA /* QCMethods.m */; };
 		CC36EE3116BA1FF8009C3CDA /* TextData.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE3016BA1FF8009C3CDA /* TextData.m */; };
 		CC5B588B17A62575002062F9 /* QCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B588A17A62575002062F9 /* QCLabel.m */; };
-		CC5CCCBC1818CEE10010B578 /* Canceller.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CCCBB1818CEE10010B578 /* Canceller.m */; };
 		CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6F621C17A5C8F500187A71 /* QCButton.m */; };
 		CC6F624017A5D4B700187A71 /* qc_button_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623A17A5D4B700187A71 /* qc_button_disabled.png */; };
 		CC6F624117A5D4B700187A71 /* qc_button_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623B17A5D4B700187A71 /* qc_button_disabled@2x.png */; };
@@ -147,8 +146,6 @@
 		CC36EE3016BA1FF8009C3CDA /* TextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextData.m; path = Classes/Shared/TextData/TextData.m; sourceTree = "<group>"; };
 		CC5B588917A62575002062F9 /* QCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCLabel.h; path = Classes/iPhone/OptionsViewController/QCLabel.h; sourceTree = "<group>"; };
 		CC5B588A17A62575002062F9 /* QCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCLabel.m; path = Classes/iPhone/OptionsViewController/QCLabel.m; sourceTree = "<group>"; };
-		CC5CCCBA1818CEE10010B578 /* Canceller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Canceller.h; sourceTree = "<group>"; };
-		CC5CCCBB1818CEE10010B578 /* Canceller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Canceller.m; sourceTree = "<group>"; };
 		CC6F621B17A5C8F500187A71 /* QCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCButton.h; path = Classes/iPhone/CryptToolViewController/QCButton.h; sourceTree = "<group>"; };
 		CC6F621C17A5C8F500187A71 /* QCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCButton.m; path = Classes/iPhone/CryptToolViewController/QCButton.m; sourceTree = "<group>"; };
 		CC6F623A17A5D4B700187A71 /* qc_button_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qc_button_disabled.png; path = "Supporting Files/ButtonImages/qc_button_disabled.png"; sourceTree = "<group>"; };
@@ -292,8 +289,6 @@
 		1B8EA9C2153C993C009EFF27 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				CC5CCCBA1818CEE10010B578 /* Canceller.h */,
-				CC5CCCBB1818CEE10010B578 /* Canceller.m */,
 				CC6F621B17A5C8F500187A71 /* QCButton.h */,
 				CC6F621C17A5C8F500187A71 /* QCButton.m */,
 				CC36EE2616BA1FD0009C3CDA /* TextData */,
@@ -652,7 +647,6 @@
 				1B8EA9AB153C7B8E009EFF27 /* main.m in Sources */,
 				CC36EDAF16BA1B99009C3CDA /* RootViewControlleriPhone.m in Sources */,
 				CC70711C183DDB7600099A1C /* DoneCancelNumberPadToolbar.m in Sources */,
-				CC5CCCBC1818CEE10010B578 /* Canceller.m in Sources */,
 				CC707122183DDB9A00099A1C /* SSTextView.m in Sources */,
 				CC36EDB516BA1BC8009C3CDA /* CryptToolViewController.m in Sources */,
 				CC36EDC616BA1C09009C3CDA /* OptionsViewController.m in Sources */,
