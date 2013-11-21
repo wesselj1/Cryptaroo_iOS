@@ -13,9 +13,6 @@
 		1B8EA9A9153C7B8E009EFF27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA9A7153C7B8E009EFF27 /* InfoPlist.strings */; };
 		1B8EA9AB153C7B8E009EFF27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA9AA153C7B8E009EFF27 /* main.m */; };
 		1BFA03901561515E0005904C /* HelpInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFA038F1561515E0005904C /* HelpInfo.plist */; };
-		CC2742B317A4B83900539268 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2742B217A4B83900539268 /* CustomTableViewCell.xib */; };
-		CC2D888E17FD567B001634F8 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D888C17FD567B001634F8 /* HelpViewController.m */; };
-		CC2D888F17FD567B001634F8 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2D888D17FD567B001634F8 /* HelpViewController.xib */; };
 		CC36EDAF16BA1B99009C3CDA /* RootViewControlleriPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDAD16BA1B99009C3CDA /* RootViewControlleriPhone.m */; };
 		CC36EDB016BA1B99009C3CDA /* RootViewControlleriPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EDAE16BA1B99009C3CDA /* RootViewControlleriPhone.xib */; };
 		CC36EDB516BA1BC8009C3CDA /* CryptToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EDB316BA1BC8009C3CDA /* CryptToolViewController.m */; };
@@ -53,8 +50,6 @@
 		CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC36EE2916BA1FE2009C3CDA /* InfoViewController.xib */; };
 		CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE2D16BA1FED009C3CDA /* QCMethods.m */; };
 		CC36EE3116BA1FF8009C3CDA /* TextData.m in Sources */ = {isa = PBXBuildFile; fileRef = CC36EE3016BA1FF8009C3CDA /* TextData.m */; };
-		CC5B588B17A62575002062F9 /* QCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B588A17A62575002062F9 /* QCLabel.m */; };
-		CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6F621C17A5C8F500187A71 /* QCButton.m */; };
 		CC6F624017A5D4B700187A71 /* qc_button_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623A17A5D4B700187A71 /* qc_button_disabled.png */; };
 		CC6F624117A5D4B700187A71 /* qc_button_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623B17A5D4B700187A71 /* qc_button_disabled@2x.png */; };
 		CC6F624217A5D4B700187A71 /* qc_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623C17A5D4B700187A71 /* qc_button_pressed.png */; };
@@ -72,6 +67,12 @@
 		CC707122183DDB9A00099A1C /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC707121183DDB9A00099A1C /* SSTextView.m */; };
 		CC707125183DDD8700099A1C /* UITableViewCell+FixAutolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CC707124183DDD8700099A1C /* UITableViewCell+FixAutolayout.m */; };
 		CC707129183DDE6700099A1C /* Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = CC707128183DDE6700099A1C /* Fonts.m */; };
+		CC70712F183DDF1400099A1C /* QCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC70712E183DDF1400099A1C /* QCLabel.m */; };
+		CC707132183DDF1E00099A1C /* QCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CC707131183DDF1E00099A1C /* QCTextField.m */; };
+		CC707135183DDF3900099A1C /* QCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC707134183DDF3900099A1C /* QCButton.m */; };
+		CC707138183DDF7E00099A1C /* QCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC707137183DDF7E00099A1C /* QCTableViewCell.xib */; };
+		CC70713D183DE00E00099A1C /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC70713B183DE00E00099A1C /* HelpViewController.m */; };
+		CC70713E183DE00E00099A1C /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC70713C183DE00E00099A1C /* HelpViewController.xib */; };
 		CC7BE81A183DD6E900EAD046 /* cryptarooOrange57.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */; };
 		CC7BE81B183DD6E900EAD046 /* cryptarooOrange72.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */; };
 		CC7BE81C183DD6E900EAD046 /* cryptarooOrange76.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */; };
@@ -79,7 +80,6 @@
 		CC7BE81E183DD6E900EAD046 /* cryptarooOrange144.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE818183DD6E900EAD046 /* cryptarooOrange144.png */; };
 		CC7BE81F183DD6E900EAD046 /* cryptarooOrange152.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE819183DD6E900EAD046 /* cryptarooOrange152.png */; };
 		CCBDD62E1619E2970030B5F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */; };
-		CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC3E33017C5F88100BE77FF /* QCTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,10 +92,6 @@
 		1B8EA9AA153C7B8E009EFF27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B8EA9AC153C7B8E009EFF27 /* QuickCrypt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickCrypt-Prefix.pch"; sourceTree = "<group>"; };
 		1BFA038F1561515E0005904C /* HelpInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HelpInfo.plist; sourceTree = "<group>"; };
-		CC2742B217A4B83900539268 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableViewCell.xib; path = Classes/iPhone/RootViewControlleriPhone/CustomTableViewCell.xib; sourceTree = "<group>"; };
-		CC2D888B17FD567B001634F8 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
-		CC2D888C17FD567B001634F8 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
-		CC2D888D17FD567B001634F8 /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 		CC36EDAC16BA1B99009C3CDA /* RootViewControlleriPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewControlleriPhone.h; path = Classes/iPhone/RootViewControlleriPhone/RootViewControlleriPhone.h; sourceTree = "<group>"; };
 		CC36EDAD16BA1B99009C3CDA /* RootViewControlleriPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewControlleriPhone.m; path = Classes/iPhone/RootViewControlleriPhone/RootViewControlleriPhone.m; sourceTree = "<group>"; };
 		CC36EDAE16BA1B99009C3CDA /* RootViewControlleriPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewControlleriPhone.xib; path = Classes/iPhone/RootViewControlleriPhone/RootViewControlleriPhone.xib; sourceTree = "<group>"; };
@@ -144,10 +140,6 @@
 		CC36EE2D16BA1FED009C3CDA /* QCMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCMethods.m; path = Classes/Shared/QCMethods/QCMethods.m; sourceTree = "<group>"; };
 		CC36EE2F16BA1FF8009C3CDA /* TextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextData.h; path = Classes/Shared/TextData/TextData.h; sourceTree = "<group>"; };
 		CC36EE3016BA1FF8009C3CDA /* TextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextData.m; path = Classes/Shared/TextData/TextData.m; sourceTree = "<group>"; };
-		CC5B588917A62575002062F9 /* QCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCLabel.h; path = Classes/iPhone/OptionsViewController/QCLabel.h; sourceTree = "<group>"; };
-		CC5B588A17A62575002062F9 /* QCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCLabel.m; path = Classes/iPhone/OptionsViewController/QCLabel.m; sourceTree = "<group>"; };
-		CC6F621B17A5C8F500187A71 /* QCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCButton.h; path = Classes/iPhone/CryptToolViewController/QCButton.h; sourceTree = "<group>"; };
-		CC6F621C17A5C8F500187A71 /* QCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCButton.m; path = Classes/iPhone/CryptToolViewController/QCButton.m; sourceTree = "<group>"; };
 		CC6F623A17A5D4B700187A71 /* qc_button_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qc_button_disabled.png; path = "Supporting Files/ButtonImages/qc_button_disabled.png"; sourceTree = "<group>"; };
 		CC6F623B17A5D4B700187A71 /* qc_button_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button_disabled@2x.png"; path = "Supporting Files/ButtonImages/qc_button_disabled@2x.png"; sourceTree = "<group>"; };
 		CC6F623C17A5D4B700187A71 /* qc_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qc_button_pressed.png; path = "Supporting Files/ButtonImages/qc_button_pressed.png"; sourceTree = "<group>"; };
@@ -170,6 +162,16 @@
 		CC707124183DDD8700099A1C /* UITableViewCell+FixAutolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+FixAutolayout.m"; path = "Supporting Files/UITableViewCellCategory/UITableViewCell+FixAutolayout.m"; sourceTree = "<group>"; };
 		CC707127183DDE6700099A1C /* Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fonts.h; path = Classes/Shared/Fonts/Fonts.h; sourceTree = "<group>"; };
 		CC707128183DDE6700099A1C /* Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fonts.m; path = Classes/Shared/Fonts/Fonts.m; sourceTree = "<group>"; };
+		CC70712D183DDF1400099A1C /* QCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCLabel.h; path = Classes/Shared/QCLabel/QCLabel.h; sourceTree = "<group>"; };
+		CC70712E183DDF1400099A1C /* QCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCLabel.m; path = Classes/Shared/QCLabel/QCLabel.m; sourceTree = "<group>"; };
+		CC707130183DDF1E00099A1C /* QCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCTextField.h; path = Classes/Shared/QCTextField/QCTextField.h; sourceTree = "<group>"; };
+		CC707131183DDF1E00099A1C /* QCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCTextField.m; path = Classes/Shared/QCTextField/QCTextField.m; sourceTree = "<group>"; };
+		CC707133183DDF3900099A1C /* QCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCButton.h; path = Classes/Shared/QCButton/QCButton.h; sourceTree = "<group>"; };
+		CC707134183DDF3900099A1C /* QCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCButton.m; path = Classes/Shared/QCButton/QCButton.m; sourceTree = "<group>"; };
+		CC707137183DDF7E00099A1C /* QCTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QCTableViewCell.xib; path = Classes/Shared/QCTableViewCell/QCTableViewCell.xib; sourceTree = "<group>"; };
+		CC70713A183DE00E00099A1C /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpViewController.h; path = Classes/Shared/HelpViewController/HelpViewController.h; sourceTree = "<group>"; };
+		CC70713B183DE00E00099A1C /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpViewController.m; path = Classes/Shared/HelpViewController/HelpViewController.m; sourceTree = "<group>"; };
+		CC70713C183DE00E00099A1C /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpViewController.xib; path = Classes/Shared/HelpViewController/HelpViewController.xib; sourceTree = "<group>"; };
 		CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange57.png; path = "App Icons/cryptarooOrange57.png"; sourceTree = "<group>"; };
 		CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange72.png; path = "App Icons/cryptarooOrange72.png"; sourceTree = "<group>"; };
 		CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange76.png; path = "App Icons/cryptarooOrange76.png"; sourceTree = "<group>"; };
@@ -177,8 +179,6 @@
 		CC7BE818183DD6E900EAD046 /* cryptarooOrange144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange144.png; path = "App Icons/cryptarooOrange144.png"; sourceTree = "<group>"; };
 		CC7BE819183DD6E900EAD046 /* cryptarooOrange152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange152.png; path = "App Icons/cryptarooOrange152.png"; sourceTree = "<group>"; };
 		CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CCC3E32F17C5F88100BE77FF /* QCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCTextField.h; path = Classes/iPhone/OptionsViewController/QCTextField.h; sourceTree = "<group>"; };
-		CCC3E33017C5F88100BE77FF /* QCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCTextField.m; path = Classes/iPhone/OptionsViewController/QCTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,7 +268,6 @@
 		1B8EA9B5153C7C0F009EFF27 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				CC2D888A17FD564C001634F8 /* HelpView */,
 				CC36EDAB16BA1B87009C3CDA /* RootViewControlleriPhone */,
 				CC36EDB116BA1BB6009C3CDA /* CryptToolViewController */,
 				CC36EDC716BA1C16009C3CDA /* GCDandInverseViewController */,
@@ -289,9 +288,12 @@
 		1B8EA9C2153C993C009EFF27 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CC707139183DDFD500099A1C /* HelpViewController */,
+				CC707136183DDF7400099A1C /* QCTableViewCell */,
+				CC70712C183DDEA000099A1C /* QCTextField */,
+				CC70712B183DDE9700099A1C /* QCButton */,
+				CC70712A183DDE9000099A1C /* QCLabel */,
 				CC707126183DDE6000099A1C /* Fonts */,
-				CC6F621B17A5C8F500187A71 /* QCButton.h */,
-				CC6F621C17A5C8F500187A71 /* QCButton.m */,
 				CC36EE2616BA1FD0009C3CDA /* TextData */,
 				CC36EE2516BA1FCA009C3CDA /* QCMethods */,
 				CC36EE2416BA1FC3009C3CDA /* InfoViewController */,
@@ -325,23 +327,12 @@
 			name = DoneCancelNumberPadToolbar;
 			sourceTree = "<group>";
 		};
-		CC2D888A17FD564C001634F8 /* HelpView */ = {
-			isa = PBXGroup;
-			children = (
-				CC2D888B17FD567B001634F8 /* HelpViewController.h */,
-				CC2D888C17FD567B001634F8 /* HelpViewController.m */,
-				CC2D888D17FD567B001634F8 /* HelpViewController.xib */,
-			);
-			name = HelpView;
-			sourceTree = "<group>";
-		};
 		CC36EDAB16BA1B87009C3CDA /* RootViewControlleriPhone */ = {
 			isa = PBXGroup;
 			children = (
 				CC36EDAC16BA1B99009C3CDA /* RootViewControlleriPhone.h */,
 				CC36EDAD16BA1B99009C3CDA /* RootViewControlleriPhone.m */,
 				CC36EDAE16BA1B99009C3CDA /* RootViewControlleriPhone.xib */,
-				CC2742B217A4B83900539268 /* CustomTableViewCell.xib */,
 			);
 			name = RootViewControlleriPhone;
 			sourceTree = "<group>";
@@ -366,10 +357,6 @@
 				CC36EDBC16BA1C09009C3CDA /* OptionsSet5.xib */,
 				CC36EDBE16BA1C09009C3CDA /* OptionsViewController.h */,
 				CC36EDBF16BA1C09009C3CDA /* OptionsViewController.m */,
-				CCC3E32F17C5F88100BE77FF /* QCTextField.h */,
-				CCC3E33017C5F88100BE77FF /* QCTextField.m */,
-				CC5B588917A62575002062F9 /* QCLabel.h */,
-				CC5B588A17A62575002062F9 /* QCLabel.m */,
 			);
 			name = OptionsViewController;
 			sourceTree = "<group>";
@@ -510,6 +497,51 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		CC70712A183DDE9000099A1C /* QCLabel */ = {
+			isa = PBXGroup;
+			children = (
+				CC70712D183DDF1400099A1C /* QCLabel.h */,
+				CC70712E183DDF1400099A1C /* QCLabel.m */,
+			);
+			name = QCLabel;
+			sourceTree = "<group>";
+		};
+		CC70712B183DDE9700099A1C /* QCButton */ = {
+			isa = PBXGroup;
+			children = (
+				CC707133183DDF3900099A1C /* QCButton.h */,
+				CC707134183DDF3900099A1C /* QCButton.m */,
+			);
+			name = QCButton;
+			sourceTree = "<group>";
+		};
+		CC70712C183DDEA000099A1C /* QCTextField */ = {
+			isa = PBXGroup;
+			children = (
+				CC707130183DDF1E00099A1C /* QCTextField.h */,
+				CC707131183DDF1E00099A1C /* QCTextField.m */,
+			);
+			name = QCTextField;
+			sourceTree = "<group>";
+		};
+		CC707136183DDF7400099A1C /* QCTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CC707137183DDF7E00099A1C /* QCTableViewCell.xib */,
+			);
+			name = QCTableViewCell;
+			sourceTree = "<group>";
+		};
+		CC707139183DDFD500099A1C /* HelpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CC70713A183DE00E00099A1C /* HelpViewController.h */,
+				CC70713B183DE00E00099A1C /* HelpViewController.m */,
+				CC70713C183DE00E00099A1C /* HelpViewController.xib */,
+			);
+			name = HelpViewController;
+			sourceTree = "<group>";
+		};
 		CC7BE820183DD75200EAD046 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,6 +650,7 @@
 				CC36EE0316BA1EC9009C3CDA /* popover-black-bcg-image.png in Resources */,
 				CC7BE81A183DD6E900EAD046 /* cryptarooOrange57.png in Resources */,
 				CC36EE0416BA1EC9009C3CDA /* popover-black-bcg-image@2x.png in Resources */,
+				CC707138183DDF7E00099A1C /* QCTableViewCell.xib in Resources */,
 				CC36EE0516BA1EC9009C3CDA /* popover-black-bottom-arrow-image.png in Resources */,
 				CC7BE81C183DD6E900EAD046 /* cryptarooOrange76.png in Resources */,
 				CC36EE0616BA1EC9009C3CDA /* popover-black-bottom-arrow-image@2x.png in Resources */,
@@ -625,6 +658,7 @@
 				CC36EE0816BA1EC9009C3CDA /* popover-black-left-arrow-image@2x.png in Resources */,
 				CC707110183DD9A100099A1C /* fairview_regular.otf in Resources */,
 				CC36EE0916BA1EC9009C3CDA /* popover-black-right-arrow-image.png in Resources */,
+				CC70713E183DE00E00099A1C /* HelpViewController.xib in Resources */,
 				CC36EE0A16BA1EC9009C3CDA /* popover-black-right-arrow-image@2x.png in Resources */,
 				CC36EE0B16BA1EC9009C3CDA /* popover-black-top-arrow-image.png in Resources */,
 				CC36EE0C16BA1EC9009C3CDA /* popover-black-top-arrow-image@2x.png in Resources */,
@@ -632,9 +666,7 @@
 				CC7BE81F183DD6E900EAD046 /* cryptarooOrange152.png in Resources */,
 				CC7BE81E183DD6E900EAD046 /* cryptarooOrange144.png in Resources */,
 				CC36EE2B16BA1FE2009C3CDA /* InfoViewController.xib in Resources */,
-				CC2D888F17FD567B001634F8 /* HelpViewController.xib in Resources */,
 				CC707117183DDA5E00099A1C /* HelpButton@2x.png in Resources */,
-				CC2742B317A4B83900539268 /* CustomTableViewCell.xib in Resources */,
 				CC6F624017A5D4B700187A71 /* qc_button_disabled.png in Resources */,
 				CC6F624117A5D4B700187A71 /* qc_button_disabled@2x.png in Resources */,
 				CC6F624217A5D4B700187A71 /* qc_button_pressed.png in Resources */,
@@ -656,10 +688,12 @@
 				CC36EDAF16BA1B99009C3CDA /* RootViewControlleriPhone.m in Sources */,
 				CC70711C183DDB7600099A1C /* DoneCancelNumberPadToolbar.m in Sources */,
 				CC707122183DDB9A00099A1C /* SSTextView.m in Sources */,
+				CC70713D183DE00E00099A1C /* HelpViewController.m in Sources */,
 				CC707125183DDD8700099A1C /* UITableViewCell+FixAutolayout.m in Sources */,
 				CC36EDB516BA1BC8009C3CDA /* CryptToolViewController.m in Sources */,
 				CC36EDC616BA1C09009C3CDA /* OptionsViewController.m in Sources */,
 				CC36EDCB16BA1C3F009C3CDA /* GCDandInverseViewController.m in Sources */,
+				CC707135183DDF3900099A1C /* QCButton.m in Sources */,
 				CC36EDD116BA1CCE009C3CDA /* RootViewControlleriPad.m in Sources */,
 				CC36EDE216BA1CF9009C3CDA /* DetailViewController.m in Sources */,
 				CC36EDE616BA1D33009C3CDA /* AppDelegate.m in Sources */,
@@ -668,11 +702,9 @@
 				CC36EE2A16BA1FE2009C3CDA /* InfoViewController.m in Sources */,
 				CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */,
 				CC36EE3116BA1FF8009C3CDA /* TextData.m in Sources */,
+				CC70712F183DDF1400099A1C /* QCLabel.m in Sources */,
+				CC707132183DDF1E00099A1C /* QCTextField.m in Sources */,
 				CC70711F183DDB8100099A1C /* MBProgressHUD.m in Sources */,
-				CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */,
-				CC5B588B17A62575002062F9 /* QCLabel.m in Sources */,
-				CC2D888E17FD567B001634F8 /* HelpViewController.m in Sources */,
-				CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

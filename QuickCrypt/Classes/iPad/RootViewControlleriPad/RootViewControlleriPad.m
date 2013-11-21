@@ -140,7 +140,7 @@
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if( cell == nil )
     {
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"QCTableViewCell" owner:self options:nil];
         cell = [topLevelObjects objectAtIndex:0];
         cell.contentView.translatesAutoresizingMaskIntoConstraints = NO;
         
