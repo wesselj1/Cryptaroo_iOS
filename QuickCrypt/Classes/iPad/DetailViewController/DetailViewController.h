@@ -12,6 +12,7 @@
 #import "QCTextField.h"
 #import "QCLabel.h"
 #import "HelpViewController.h"
+#import "SSTextView.h"
 
 @interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate, HelpViewControllerDelegate>
 {

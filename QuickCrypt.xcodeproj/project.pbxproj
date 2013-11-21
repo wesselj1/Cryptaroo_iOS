@@ -13,7 +13,6 @@
 		1B8EA9A9153C7B8E009EFF27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B8EA9A7153C7B8E009EFF27 /* InfoPlist.strings */; };
 		1B8EA9AB153C7B8E009EFF27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EA9AA153C7B8E009EFF27 /* main.m */; };
 		1BFA03901561515E0005904C /* HelpInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFA038F1561515E0005904C /* HelpInfo.plist */; };
-		CC21B9CC17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC21B9CB17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m */; };
 		CC2742B317A4B83900539268 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2742B217A4B83900539268 /* CustomTableViewCell.xib */; };
 		CC2D888E17FD567B001634F8 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D888C17FD567B001634F8 /* HelpViewController.m */; };
 		CC2D888F17FD567B001634F8 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2D888D17FD567B001634F8 /* HelpViewController.xib */; };
@@ -70,14 +69,15 @@
 		CC707117183DDA5E00099A1C /* HelpButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC707113183DDA5E00099A1C /* HelpButton@2x.png */; };
 		CC707118183DDA5E00099A1C /* UIBarButtonHelpIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CC707114183DDA5E00099A1C /* UIBarButtonHelpIcon.png */; };
 		CC707119183DDA5E00099A1C /* UIBarButtonHelpIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC707115183DDA5E00099A1C /* UIBarButtonHelpIcon@2x.png */; };
+		CC70711C183DDB7600099A1C /* DoneCancelNumberPadToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CC70711B183DDB7600099A1C /* DoneCancelNumberPadToolbar.m */; };
+		CC70711F183DDB8100099A1C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC70711E183DDB8100099A1C /* MBProgressHUD.m */; };
+		CC707122183DDB9A00099A1C /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC707121183DDB9A00099A1C /* SSTextView.m */; };
 		CC7BE81A183DD6E900EAD046 /* cryptarooOrange57.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */; };
 		CC7BE81B183DD6E900EAD046 /* cryptarooOrange72.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */; };
 		CC7BE81C183DD6E900EAD046 /* cryptarooOrange76.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */; };
 		CC7BE81D183DD6E900EAD046 /* cryptarooOrange120.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE817183DD6E900EAD046 /* cryptarooOrange120.png */; };
 		CC7BE81E183DD6E900EAD046 /* cryptarooOrange144.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE818183DD6E900EAD046 /* cryptarooOrange144.png */; };
 		CC7BE81F183DD6E900EAD046 /* cryptarooOrange152.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE819183DD6E900EAD046 /* cryptarooOrange152.png */; };
-		CC7EDFCC18160C41003DAA7E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7EDFCB18160C41003DAA7E /* MBProgressHUD.m */; };
-		CC990601180CE5170020679D /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC990600180CE5170020679D /* SSTextView.m */; };
 		CCBDD62E1619E2970030B5F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */; };
 		CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC3E33017C5F88100BE77FF /* QCTextField.m */; };
 		CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE5910E17A4C36500AB5765 /* Fonts.m */; };
@@ -94,8 +94,6 @@
 		1B8EA9AA153C7B8E009EFF27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B8EA9AC153C7B8E009EFF27 /* QuickCrypt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickCrypt-Prefix.pch"; sourceTree = "<group>"; };
 		1BFA038F1561515E0005904C /* HelpInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HelpInfo.plist; sourceTree = "<group>"; };
-		CC21B9CA17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoneCancelNumberPadToolbar.h; sourceTree = "<group>"; };
-		CC21B9CB17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoneCancelNumberPadToolbar.m; sourceTree = "<group>"; };
 		CC2742B217A4B83900539268 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableViewCell.xib; path = Classes/iPhone/RootViewControlleriPhone/CustomTableViewCell.xib; sourceTree = "<group>"; };
 		CC2D888B17FD567B001634F8 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		CC2D888C17FD567B001634F8 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
@@ -168,16 +166,18 @@
 		CC707113183DDA5E00099A1C /* HelpButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "HelpButton@2x.png"; path = "Supporting Files/UIBarButtonHelpImages/HelpButton@2x.png"; sourceTree = "<group>"; };
 		CC707114183DDA5E00099A1C /* UIBarButtonHelpIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UIBarButtonHelpIcon.png; path = "Supporting Files/UIBarButtonHelpImages/UIBarButtonHelpIcon.png"; sourceTree = "<group>"; };
 		CC707115183DDA5E00099A1C /* UIBarButtonHelpIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UIBarButtonHelpIcon@2x.png"; path = "Supporting Files/UIBarButtonHelpImages/UIBarButtonHelpIcon@2x.png"; sourceTree = "<group>"; };
+		CC70711A183DDB7600099A1C /* DoneCancelNumberPadToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoneCancelNumberPadToolbar.h; path = "External Classes/DoneCancelNumberPadToolbar/DoneCancelNumberPadToolbar.h"; sourceTree = "<group>"; };
+		CC70711B183DDB7600099A1C /* DoneCancelNumberPadToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoneCancelNumberPadToolbar.m; path = "External Classes/DoneCancelNumberPadToolbar/DoneCancelNumberPadToolbar.m"; sourceTree = "<group>"; };
+		CC70711D183DDB8100099A1C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = "External Classes/MBProgressHUD/MBProgressHUD.h"; sourceTree = "<group>"; };
+		CC70711E183DDB8100099A1C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "External Classes/MBProgressHUD/MBProgressHUD.m"; sourceTree = "<group>"; };
+		CC707120183DDB9A00099A1C /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSTextView.h; path = "External Classes/SSTextView/SSTextView.h"; sourceTree = "<group>"; };
+		CC707121183DDB9A00099A1C /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSTextView.m; path = "External Classes/SSTextView/SSTextView.m"; sourceTree = "<group>"; };
 		CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange57.png; path = "App Icons/cryptarooOrange57.png"; sourceTree = "<group>"; };
 		CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange72.png; path = "App Icons/cryptarooOrange72.png"; sourceTree = "<group>"; };
 		CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange76.png; path = "App Icons/cryptarooOrange76.png"; sourceTree = "<group>"; };
 		CC7BE817183DD6E900EAD046 /* cryptarooOrange120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange120.png; path = "App Icons/cryptarooOrange120.png"; sourceTree = "<group>"; };
 		CC7BE818183DD6E900EAD046 /* cryptarooOrange144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange144.png; path = "App Icons/cryptarooOrange144.png"; sourceTree = "<group>"; };
 		CC7BE819183DD6E900EAD046 /* cryptarooOrange152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange152.png; path = "App Icons/cryptarooOrange152.png"; sourceTree = "<group>"; };
-		CC7EDFCA18160C41003DAA7E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		CC7EDFCB18160C41003DAA7E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		CC9905FF180CE5170020679D /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
-		CC990600180CE5170020679D /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
 		CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CCC3E32F17C5F88100BE77FF /* QCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCTextField.h; path = Classes/iPhone/OptionsViewController/QCTextField.h; sourceTree = "<group>"; };
 		CCC3E33017C5F88100BE77FF /* QCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCTextField.m; path = Classes/iPhone/OptionsViewController/QCTextField.m; sourceTree = "<group>"; };
@@ -329,8 +329,8 @@
 		CC21B9C917FE7F9F00FFE1FC /* DoneCancelNumberPadToolbar */ = {
 			isa = PBXGroup;
 			children = (
-				CC21B9CA17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.h */,
-				CC21B9CB17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m */,
+				CC70711A183DDB7600099A1C /* DoneCancelNumberPadToolbar.h */,
+				CC70711B183DDB7600099A1C /* DoneCancelNumberPadToolbar.m */,
 			);
 			name = DoneCancelNumberPadToolbar;
 			sourceTree = "<group>";
@@ -440,8 +440,8 @@
 		CC36EDF516BA1E36009C3CDA /* SSTextView */ = {
 			isa = PBXGroup;
 			children = (
-				CC9905FF180CE5170020679D /* SSTextView.h */,
-				CC990600180CE5170020679D /* SSTextView.m */,
+				CC707120183DDB9A00099A1C /* SSTextView.h */,
+				CC707121183DDB9A00099A1C /* SSTextView.m */,
 			);
 			name = SSTextView;
 			sourceTree = "<group>";
@@ -532,8 +532,8 @@
 		CC7EDFC918160B87003DAA7E /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				CC7EDFCA18160C41003DAA7E /* MBProgressHUD.h */,
-				CC7EDFCB18160C41003DAA7E /* MBProgressHUD.m */,
+				CC70711D183DDB8100099A1C /* MBProgressHUD.h */,
+				CC70711E183DDB8100099A1C /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
 			sourceTree = "<group>";
@@ -664,7 +664,9 @@
 			files = (
 				1B8EA9AB153C7B8E009EFF27 /* main.m in Sources */,
 				CC36EDAF16BA1B99009C3CDA /* RootViewControlleriPhone.m in Sources */,
+				CC70711C183DDB7600099A1C /* DoneCancelNumberPadToolbar.m in Sources */,
 				CC5CCCBC1818CEE10010B578 /* Canceller.m in Sources */,
+				CC707122183DDB9A00099A1C /* SSTextView.m in Sources */,
 				CC36EDB516BA1BC8009C3CDA /* CryptToolViewController.m in Sources */,
 				CC36EDC616BA1C09009C3CDA /* OptionsViewController.m in Sources */,
 				CC36EDCB16BA1C3F009C3CDA /* GCDandInverseViewController.m in Sources */,
@@ -673,15 +675,13 @@
 				CC36EDE616BA1D33009C3CDA /* AppDelegate.m in Sources */,
 				CC36EDEA16BA1E08009C3CDA /* KSCustomPopoverBackgroundView.m in Sources */,
 				CC36EE2A16BA1FE2009C3CDA /* InfoViewController.m in Sources */,
-				CC990601180CE5170020679D /* SSTextView.m in Sources */,
 				CC36EE2E16BA1FED009C3CDA /* QCMethods.m in Sources */,
 				CC36EE3116BA1FF8009C3CDA /* TextData.m in Sources */,
 				CCE5910F17A4C36500AB5765 /* Fonts.m in Sources */,
+				CC70711F183DDB8100099A1C /* MBProgressHUD.m in Sources */,
 				CCEC063717A50C0900550105 /* UITableViewCell+UITableViewCell_FixUITableViewCellAutolayout.m in Sources */,
-				CC7EDFCC18160C41003DAA7E /* MBProgressHUD.m in Sources */,
 				CC6F621D17A5C8F600187A71 /* QCButton.m in Sources */,
 				CC5B588817A61F56002062F9 /* UIViewController+overView.m in Sources */,
-				CC21B9CC17FE800C00FFE1FC /* DoneCancelNumberPadToolbar.m in Sources */,
 				CC5B588B17A62575002062F9 /* QCLabel.m in Sources */,
 				CC2D888E17FD567B001634F8 /* HelpViewController.m in Sources */,
 				CCC3E33117C5F88100BE77FF /* QCTextField.m in Sources */,

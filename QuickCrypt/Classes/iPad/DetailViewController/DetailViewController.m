@@ -155,7 +155,7 @@
         [helpButton setImage:[UIImage imageNamed:@"HelpButton.png"] forState:UIControlStateNormal];
         helpButton.showsTouchWhenHighlighted = NO;
     } else {
-        [helpButton setImage:[UIImage imageNamed:@"UIButtonBarHelp2.png"] forState:UIControlStateNormal];
+        [helpButton setImage:[UIImage imageNamed:@"UIBarButtonHelpIcon.png"] forState:UIControlStateNormal];
         helpButton.showsTouchWhenHighlighted = YES;
     }
     [helpButton addTarget:self action:@selector(helpButtonPressed) forControlEvents:UIControlEventTouchUpInside];
