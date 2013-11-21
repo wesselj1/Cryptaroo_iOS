@@ -72,6 +72,14 @@
 		CC6F624317A5D4B700187A71 /* qc_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623D17A5D4B700187A71 /* qc_button_pressed@2x.png */; };
 		CC6F624417A5D4B700187A71 /* qc_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623E17A5D4B700187A71 /* qc_button.png */; };
 		CC6F624517A5D4B700187A71 /* qc_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6F623F17A5D4B700187A71 /* qc_button@2x.png */; };
+		CC7BE81A183DD6E900EAD046 /* cryptarooOrange57.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */; };
+		CC7BE81B183DD6E900EAD046 /* cryptarooOrange72.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */; };
+		CC7BE81C183DD6E900EAD046 /* cryptarooOrange76.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */; };
+		CC7BE81D183DD6E900EAD046 /* cryptarooOrange120.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE817183DD6E900EAD046 /* cryptarooOrange120.png */; };
+		CC7BE81E183DD6E900EAD046 /* cryptarooOrange144.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE818183DD6E900EAD046 /* cryptarooOrange144.png */; };
+		CC7BE81F183DD6E900EAD046 /* cryptarooOrange152.png in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE819183DD6E900EAD046 /* cryptarooOrange152.png */; };
+		CC7BE823183DD77600EAD046 /* fairview_regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE821183DD77600EAD046 /* fairview_regular.otf */; };
+		CC7BE824183DD77600EAD046 /* fairview_smallcaps.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC7BE822183DD77600EAD046 /* fairview_smallcaps.otf */; };
 		CC7EDFCC18160C41003DAA7E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7EDFCB18160C41003DAA7E /* MBProgressHUD.m */; };
 		CC990601180CE5170020679D /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC990600180CE5170020679D /* SSTextView.m */; };
 		CCBDD62E1619E2970030B5F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDD62D1619E2970030B5F8 /* Default-568h@2x.png */; };
@@ -168,6 +176,14 @@
 		CC6F623D17A5D4B700187A71 /* qc_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button_pressed@2x.png"; path = "Supporting Files/ButtonImages/qc_button_pressed@2x.png"; sourceTree = "<group>"; };
 		CC6F623E17A5D4B700187A71 /* qc_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qc_button.png; path = "Supporting Files/ButtonImages/qc_button.png"; sourceTree = "<group>"; };
 		CC6F623F17A5D4B700187A71 /* qc_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qc_button@2x.png"; path = "Supporting Files/ButtonImages/qc_button@2x.png"; sourceTree = "<group>"; };
+		CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange57.png; path = "App Icons/cryptarooOrange57.png"; sourceTree = "<group>"; };
+		CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange72.png; path = "App Icons/cryptarooOrange72.png"; sourceTree = "<group>"; };
+		CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange76.png; path = "App Icons/cryptarooOrange76.png"; sourceTree = "<group>"; };
+		CC7BE817183DD6E900EAD046 /* cryptarooOrange120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange120.png; path = "App Icons/cryptarooOrange120.png"; sourceTree = "<group>"; };
+		CC7BE818183DD6E900EAD046 /* cryptarooOrange144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange144.png; path = "App Icons/cryptarooOrange144.png"; sourceTree = "<group>"; };
+		CC7BE819183DD6E900EAD046 /* cryptarooOrange152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cryptarooOrange152.png; path = "App Icons/cryptarooOrange152.png"; sourceTree = "<group>"; };
+		CC7BE821183DD77600EAD046 /* fairview_regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = fairview_regular.otf; path = "Supporting Files/Fonts/fairview_regular.otf"; sourceTree = "<group>"; };
+		CC7BE822183DD77600EAD046 /* fairview_smallcaps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = fairview_smallcaps.otf; path = "Supporting Files/Fonts/fairview_smallcaps.otf"; sourceTree = "<group>"; };
 		CC7EDFCA18160C41003DAA7E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		CC7EDFCB18160C41003DAA7E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CC9905FF180CE5170020679D /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
@@ -255,6 +271,7 @@
 		1B8EA9A5153C7B8E009EFF27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CC7BE820183DD75200EAD046 /* Fonts */,
 				CC36EE1F16BA1F74009C3CDA /* ButtonImages */,
 				CC36EE1616BA1F3A009C3CDA /* DoneButtonImages */,
 				CC36EE0D16BA1EF6009C3CDA /* UIBarButtonHelpImages */,
@@ -510,6 +527,12 @@
 		CC36EE3216BA203A009C3CDA /* App Icons */ = {
 			isa = PBXGroup;
 			children = (
+				CC7BE814183DD6E900EAD046 /* cryptarooOrange57.png */,
+				CC7BE815183DD6E900EAD046 /* cryptarooOrange72.png */,
+				CC7BE816183DD6E900EAD046 /* cryptarooOrange76.png */,
+				CC7BE817183DD6E900EAD046 /* cryptarooOrange120.png */,
+				CC7BE818183DD6E900EAD046 /* cryptarooOrange144.png */,
+				CC7BE819183DD6E900EAD046 /* cryptarooOrange152.png */,
 			);
 			name = "App Icons";
 			sourceTree = "<group>";
@@ -521,6 +544,15 @@
 				CC5B588717A61F56002062F9 /* UIViewController+overView.m */,
 			);
 			name = "UIViewController+OverView";
+			sourceTree = "<group>";
+		};
+		CC7BE820183DD75200EAD046 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CC7BE821183DD77600EAD046 /* fairview_regular.otf */,
+				CC7BE822183DD77600EAD046 /* fairview_smallcaps.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		CC7EDFC918160B87003DAA7E /* MBProgressHUD */ = {
@@ -609,6 +641,7 @@
 				CC36EDC416BA1C09009C3CDA /* OptionsSet5.xib in Resources */,
 				CC36EDCC16BA1C3F009C3CDA /* GCDandInverseViewController.xib in Resources */,
 				CC36EDDB16BA1CF9009C3CDA /* DetailView1.xib in Resources */,
+				CC7BE81D183DD6E900EAD046 /* cryptarooOrange120.png in Resources */,
 				CC36EDDC16BA1CF9009C3CDA /* DetailView2.xib in Resources */,
 				CC36EDDD16BA1CF9009C3CDA /* DetailView3.xib in Resources */,
 				CC36EDDE16BA1CF9009C3CDA /* DetailView4.xib in Resources */,
@@ -616,8 +649,10 @@
 				CC36EDE016BA1CF9009C3CDA /* DetailView6.xib in Resources */,
 				CC36EDE116BA1CF9009C3CDA /* DetailView7.xib in Resources */,
 				CC36EE0316BA1EC9009C3CDA /* popover-black-bcg-image.png in Resources */,
+				CC7BE81A183DD6E900EAD046 /* cryptarooOrange57.png in Resources */,
 				CC36EE0416BA1EC9009C3CDA /* popover-black-bcg-image@2x.png in Resources */,
 				CC36EE0516BA1EC9009C3CDA /* popover-black-bottom-arrow-image.png in Resources */,
+				CC7BE81C183DD6E900EAD046 /* cryptarooOrange76.png in Resources */,
 				CC36EE0616BA1EC9009C3CDA /* popover-black-bottom-arrow-image@2x.png in Resources */,
 				CC36EE0716BA1EC9009C3CDA /* popover-black-left-arrow-image.png in Resources */,
 				CC36EE0816BA1EC9009C3CDA /* popover-black-left-arrow-image@2x.png in Resources */,
@@ -625,11 +660,16 @@
 				CC36EE0A16BA1EC9009C3CDA /* popover-black-right-arrow-image@2x.png in Resources */,
 				CC36EE0B16BA1EC9009C3CDA /* popover-black-top-arrow-image.png in Resources */,
 				CC36EE0C16BA1EC9009C3CDA /* popover-black-top-arrow-image@2x.png in Resources */,
+				CC7BE823183DD77600EAD046 /* fairview_regular.otf in Resources */,
+				CC7BE824183DD77600EAD046 /* fairview_smallcaps.otf in Resources */,
 				CC36EE1216BA1F12009C3CDA /* UIButtonBarHelp.png in Resources */,
 				CC36EE1316BA1F12009C3CDA /* UIButtonBarHelp@2x.png in Resources */,
 				CCF91C61180E55C700AE3DFB /* HelpButton.png in Resources */,
+				CC7BE81B183DD6E900EAD046 /* cryptarooOrange72.png in Resources */,
 				CC36EE1416BA1F12009C3CDA /* UIButtonBarHelp2.png in Resources */,
+				CC7BE81F183DD6E900EAD046 /* cryptarooOrange152.png in Resources */,
 				CCF91C5F180E555300AE3DFB /* HelpButton@2x.png in Resources */,
+				CC7BE81E183DD6E900EAD046 /* cryptarooOrange144.png in Resources */,
 				CC36EE1516BA1F12009C3CDA /* UIButtonBarHelp2@2x.png in Resources */,
 				CC36EE1B16BA1F4C009C3CDA /* DoneDown.png in Resources */,
 				CC36EE1C16BA1F4C009C3CDA /* DoneDown3.png in Resources */,
